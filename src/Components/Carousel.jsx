@@ -15,7 +15,7 @@ export default function Carousel() {
   return (
     <div className="flex overflow-hidden relative">
       <AiFillLeftCircle
-        size={50}
+        size={30}
         className="absolute top-0 bottom-0 cursor-pointer z-10 m-auto left-2"
         onClick={() => {
           slideIndex === 0 ? setSlideIndex(2) : setSlideIndex(slideIndex - 1);
@@ -29,20 +29,26 @@ export default function Carousel() {
           CarouselItems?.map((item) => (
             <div
               style={{ backgroundColor: `#${item.bg}` }}
-              className="grid grid-cols-2 items-center w-screen"
+              className="grid grid-cols-2 items-center w-screen px-10"
             >
               <img src={item.img} alt="" />
-              <div className="max-w-[500px]">
-                <h1 className="text-4xl font-semibold">{item.title}</h1>
-                <p className="text-2xl my-5">{item.desc}</p>
-                <button className="bg-gray-900 px-10 py-5">SHOP NOW</button>
+              <div>
+                <h1 className="font-semibold text-sm sm:text-lg md:text-2xl lg:text-4xl">
+                  {item.title}
+                </h1>
+                <p className="text-xs sm:text-base my-2 sm:my-5 md:text-lg lg:text-xl">
+                  {item.desc}
+                </p>
+                <button className="bg-gray-900 px-5 py-2 text-sm sm:text-base lg:text-lg lg:py-5 lg:px-10">
+                  SHOP NOW
+                </button>
               </div>
             </div>
           ))
         )}
       </div>
       <AiFillRightCircle
-        size={50}
+        size={30}
         className="absolute top-0 bottom-0 cursor-pointer z-10 m-auto right-2"
         onClick={() => {
           slideIndex === 2 ? setSlideIndex(0) : setSlideIndex(slideIndex + 1);

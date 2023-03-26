@@ -5,16 +5,16 @@ import { FaInstagramSquare } from "react-icons/fa";
 export default function Footer() {
   return (
     <div className="bg-black min-h-[280px] p-5">
-      <h1 className="font-semibold text-3xl mb-10">
+      <h1 className="font-semibold text-2xl mb-5 sm:mb-10 sm:text-3xl">
         THE <span className="text-red-600">LITTLE</span> THINGS
       </h1>
-      <div className="grid md:grid-cols-3">
-        <p className="max-w-[400px] mb-10 md:mb-0">
-          Who said good and cool t-shirts have to expensive? We bring newer,
+      <div className="grid sm:grid-cols-2 md:grid-cols-3">
+        <p className="md:max-w-[400px] mb-5 sm:mb-10 sm:col-span-full md:col-auto">
+          Who said good and cool cloths have to expensive? We bring newer,
           cooler and more youth oriented designs everyday. Yes! Everyday you get
           a new design to explore and buy.
         </p>
-        <div className="md:justify-self-center mb-10 md:mb-0">
+        <div className="md:justify-self-center mb-5 sm:mb-10">
           <h2 className="text-lg font-semibold mb-2">USEFULL LINKS</h2>
           <ul className="grid grid-cols-2 gap-x-8">
             <li>Home</li>

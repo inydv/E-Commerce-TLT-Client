@@ -8,15 +8,15 @@ export default function Header() {
       <h1 className="font-semibold text-4xl line-through">
         T<span className="text-red-700">L</span>T
       </h1>
-      <ul className="justify-self-center inline-flex">
+      <ul className="justify-self-center inline-flex sm:text-lg">
         <li>Home</li>
         <li className="mx-3 sm:mx-8">Men</li>
         <li>Women</li>
       </ul>
       <div className="justify-self-end inline-flex">
-        <MdAccountCircle color="white" size={20} className="mr-3" />
+        <MdAccountCircle color="white" size={25} className="mr-3" />
         <Badge badgeContent={4} color="primary">
-          <IoIosCart color="white" size={20} />
+          <IoIosCart color="white" size={25} />
         </Badge>
       </div>
     </div>
