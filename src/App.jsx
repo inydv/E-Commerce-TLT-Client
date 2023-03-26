@@ -1,9 +1,12 @@
-import React from 'react'
+import { Header, Footer } from "./Layouts/index";
+import { User } from "./Routes/index";
 
-function App() {
+export default function App() {
   return (
-    <div>App</div>
-  )
+    <>
+      <Header />
+      <User />
+      <Footer />
+    </>
+  );
 }
-
-export default App
