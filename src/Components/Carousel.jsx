@@ -27,10 +27,7 @@ export default function Carousel() {
       >
         {Children.toArray(
           CarouselItems?.map((item) => (
-            <div
-              style={{ backgroundColor: `#${item.bg}` }}
-              className="grid grid-cols-2 items-center w-screen px-10"
-            >
+            <div className="grid grid-cols-2 items-center w-screen px-10 bg-[#010101]">
               <img src={item.img} alt="" />
               <div>
                 <h1 className="font-semibold text-sm sm:text-lg md:text-2xl lg:text-4xl">

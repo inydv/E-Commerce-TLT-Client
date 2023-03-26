@@ -9,9 +9,9 @@ export default function Categories() {
           <img
             src={MenImage}
             alt=""
-            className="h-full w-full filter blur-sm transition-all duration-200 ease-in-out group-hover:grayscale"
+            className="h-full w-full filter transition-all duration-200 ease-in-out group-hover:grayscale group-hover:blur-sm"
           />
-          <p className="text-5xl font-semibold text-center translate-y-[-1000px] backdrop-filter backdrop-blur-lg bg-opacity-90 p-2 transition-all duration-200 ease-in-out group-hover:translate-y-[-60px]">
+          <p className="text-5xl font-semibold text-center translate-y-[-1000px] backdrop-filter backdrop-blur-lg bg-opacity-0 p-2 transition-all duration-200 ease-in-out group-hover:translate-y-[-60px]">
             Men
           </p>
         </div>
@@ -19,9 +19,9 @@ export default function Categories() {
           <img
             src={WomenImage}
             alt=""
-            className="h-full w-full filter blur-sm transition-all duration-200 ease-in-out group-hover:grayscale"
+            className="h-full w-full filter transition-all duration-200 ease-in-out group-hover:grayscale group-hover:blur-sm"
           />
-          <p className="text-5xl font-semibold text-center translate-y-[-1000px] backdrop-filter backdrop-blur-lg bg-opacity-90 p-2 transition-all duration-200 ease-in-out group-hover:translate-y-[-60px]">
+          <p className="text-5xl font-semibold text-center translate-y-[-1000px] backdrop-filter backdrop-blur-lg bg-opacity-0 p-2 transition-all duration-200 ease-in-out group-hover:translate-y-[-60px]">
             Women
           </p>
         </div>
