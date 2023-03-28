@@ -1,6 +1,7 @@
 import Carousel from "./Carousel";
 import Categories from "./Categories";
-import ProductsCategories from "./ProductsCategories";
+import ProductsCategoriesAndProducts from "./ProductsCategoriesAndProducts";
 import Banner from "./Banner";
+import NewsLetter from "./NewsLetter";
 
-export { Carousel, Categories, ProductsCategories, Banner }
+export { Carousel, Categories, ProductsCategoriesAndProducts, Banner, NewsLetter }
