@@ -36,7 +36,7 @@ export default function Carousel() {
                 <p className="text-xs sm:text-base my-2 sm:my-5 md:text-lg lg:text-xl">
                   {item.desc}
                 </p>
-                <button className="bg-gray-900 px-5 py-2 text-sm sm:text-base lg:text-lg lg:py-5 lg:px-10">
+                <button className="bg-button px-5 py-2 text-sm sm:text-base lg:text-lg lg:py-5 lg:px-10">
                   SHOP NOW
                 </button>
               </div>
