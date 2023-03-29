@@ -16,7 +16,7 @@ export default function Header() {
         </ul>
         <div className="justify-self-end inline-flex">
           <MdAccountCircle color="white" size={25} className="mr-3" />
-          <Badge badgeContent={4} color="primary">
+          <Badge badgeContent={4} color="error">
             <IoIosCart color="white" size={25} />
           </Badge>
         </div>
