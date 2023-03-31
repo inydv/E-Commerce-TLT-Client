@@ -1,12 +1,13 @@
-import { Home, Auth, About, Contact } from "../Pages/index";
+import { Home, Auth, About, Contact, Detail } from "../Pages/index";
 
 export default function User() {
   return (
     <div className="min-h-[calc(100vh-350px)] bg-black">
       {/* <About /> */}
-      {/* <Auth /> */}
+      <Auth />
       {/* <Home /> */}
-      <Contact />
+      {/* <Contact /> */}
+      {/* <Detail /> */}
     </div>
   );
 }

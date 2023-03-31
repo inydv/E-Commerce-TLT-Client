@@ -1,4 +1,4 @@
-export const MapValues = {
+export const MapItems = {
     location: {
         lat: 28.52319,
         lng: 77.08179,

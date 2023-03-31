@@ -3,7 +3,6 @@ import Auth from "./Auth";
 import ConfirmOrder from "./ConfirmOrder";
 import Contact from "./Contact";
 import Detail from "./Detail";
-import ForgotUserAndResetUser from "./ForgotUserAndResetUser";
 import Home from "./Home";
 import MyAccount from "./MyAccount";
 import MyOrders from "./MyOrders";
@@ -14,4 +13,4 @@ import Payment from "./Payment";
 import Shipping from "./Shipping";
 import Shop from "./Shop";
 
-export { About, Auth, ConfirmOrder, Contact, Detail, ForgotUserAndResetUser, Home, MyAccount, MyOrders, NotFound, OrderDetails, OrderSuccess, Payment, Shipping, Shop }
+export { About, Auth, ConfirmOrder, Contact, Detail, Home, MyAccount, MyOrders, NotFound, OrderDetails, OrderSuccess, Payment, Shipping, Shop }
