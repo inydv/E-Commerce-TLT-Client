@@ -9,8 +9,8 @@ export default function User() {
       {/* <Contact /> */}
       {/* <NotFound /> */}
       <Detail />
-      {/* <ConfirmOrder /> */}
       {/* <MyAccount /> */}
+      {/* <ConfirmOrder /> */}
       {/* <MyOrders /> */}
       {/* <OrderDetails /> */}
       {/* <OrderSuccess /> */}

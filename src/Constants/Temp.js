@@ -42,3 +42,49 @@ export const TempItems = [
         price: "2500"
     }
 ]
+
+export const TempItems2 = {
+    images: [
+        shirt, tshirt, shoes, jacket, trouser, pullovers, glasses, watches
+    ],
+    title: 'shoes',
+    id: '1234567890',
+    numOfReviews: 3.5,
+    price: 2500,
+    description: '<p>fiufuwefwfwf</p>',
+    stocks: 5,
+}
+
+export const TempItems3 = [
+    {
+        name: 'lokesh',
+        rating: 3.2,
+        comment: "wqrq giwqvd bqow qwbbqovuwfvq qwvfiqyvfq qvfiqfwfv vwqbovoq quwfiqv qvfiquwfq quiwqwifvqf quwvfqfi qwvfqufvq qvwfivq lor sajvs svfa favsuvasf vaosfvasf ausfvoausfvas asvfoavasv oausvfuoasfov uavsffvau",
+        img: shirt
+    }, {
+        name: 'lokesh',
+        rating: 3.2,
+        comment: "wqrq giwqvd bqow qwbbqovuwfvq qwvfiqyvfq qvfiqfwfv vwqbovoq quwfiqv qvfiquwfq quiwqwifvqf quwvfqfi qwvfqufvq qvwfivq lor sajvs svfa favsuvasf vaosfvasf ausfvoausfvas asvfoavasv oausvfuoasfov uavsffvau",
+        img: shirt
+    }, {
+        name: 'lokesh',
+        rating: 3.2,
+        comment: "wqrq giwqvd bqow qwbbqovuwfvq qwvfiqyvfq qvfiqfwfv vwqbovoq quwfiqv qvfiquwfq quiwqwifvqf quwvfqfi qwvfqufvq qvwfivq lor sajvs svfa favsuvasf vaosfvasf ausfvoausfvas asvfoavasv oausvfuoasfov uavsffvau",
+        img: shirt
+    }, {
+        name: 'lokesh',
+        rating: 3.2,
+        comment: "wqrq giwqvd bqow qwbbqovuwfvq qwvfiqyvfq qvfiqfwfv vwqbovoq quwfiqv qvfiquwfq quiwqwifvqf quwvfqfi qwvfqufvq qvwfivq lor sajvs svfa favsuvasf vaosfvasf ausfvoausfvas asvfoavasv oausvfuoasfov uavsffvau",
+        img: shirt
+    }, {
+        name: 'lokesh',
+        rating: 3.2,
+        comment: "wqrq giwqvd bqow qwbbqovuwfvq qwvfiqyvfq qvfiqfwfv vwqbovoq quwfiqv qvfiquwfq quiwqwifvqf quwvfqfi qwvfqufvq qvwfivq lor sajvs svfa favsuvasf vaosfvasf ausfvoausfvas asvfoavasv oausvfuoasfov uavsffvau",
+        img: shirt
+    }, {
+        name: 'lokesh',
+        rating: 3.2,
+        comment: "wqrq giwqvd bqow qwbbqovuwfvq qwvfiqyvfq qvfiqfwfv vwqbovoq quwfiqv qvfiquwfq quiwqwifvqf quwvfqfi qwvfqufvq qvwfivq lor sajvs svfa favsuvasf vaosfvasf ausfvoausfvas asvfoavasv oausvfuoasfov uavsffvau",
+        img: shirt
+    },
+]

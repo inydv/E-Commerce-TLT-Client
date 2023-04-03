@@ -9,5 +9,8 @@ import LoginForm from "./LoginForm";
 import RegisterForm from "./RegisterForm";
 import ForgotPasswordForm from "./ForgotPasswordForm";
 import ResetPasswordForm from "./ResetPasswordForm";
+import AddReviews from "./AddReviews";
+import ProductDetails from "./ProductDetails";
+import ReviewCard from "./ReviewCard";
 
-export { Carousel, Categories, ProductsCategoriesAndProducts, Banner, NewsLetter, ContactForm, Map, LoginForm, RegisterForm, ForgotPasswordForm, ResetPasswordForm }
+export { Carousel, Categories, ProductsCategoriesAndProducts, Banner, NewsLetter, ContactForm, Map, LoginForm, RegisterForm, ForgotPasswordForm, ResetPasswordForm, AddReviews, ProductDetails, ReviewCard }
