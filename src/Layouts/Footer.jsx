@@ -16,7 +16,7 @@ export default function Footer() {
             get a new design to explore and buy.
           </p>
           <div className="md:justify-self-center mb-5 sm:mb-10">
-            <h2 className="text-lg font-semibold mb-2">USEFULL LINKS</h2>
+            <h2 className="text-lg font-semibold mb-2">USEFUL LINKS</h2>
             <ul className="grid grid-cols-2 gap-x-8">
               <li>Home</li>
               <li>Men</li>

@@ -8,8 +8,8 @@ export default function User() {
       {/* <Home /> */}
       {/* <Contact /> */}
       {/* <NotFound /> */}
-      <Detail />
-      {/* <MyAccount /> */}
+      {/* <Detail /> */}
+      <MyAccount />
       {/* <ConfirmOrder /> */}
       {/* <MyOrders /> */}
       {/* <OrderDetails /> */}
