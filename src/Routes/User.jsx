@@ -1,4 +1,4 @@
-import { Home, Auth, About, Contact, Detail, NotFound, ConfirmOrder, MyAccount, MyOrders, OrderDetails, OrderSuccess, Payment, Shipping, Shop } from "../Pages/index";
+import { Home, Auth, About, Contact, Detail, NotFound, MyAccount, MyOrders, OrderDetails, Payment, Shipping, Shop, Cart } from "../Pages/index";
 
 export default function User() {
   return (
@@ -9,13 +9,12 @@ export default function User() {
       {/* <Contact /> */}
       {/* <NotFound /> */}
       {/* <Detail /> */}
-      <MyAccount />
-      {/* <ConfirmOrder /> */}
+      {/* <MyAccount /> */}
+      <Cart />
+      {/* <Shipping /> */}
+      {/* <Payment /> */}
       {/* <MyOrders /> */}
       {/* <OrderDetails /> */}
-      {/* <OrderSuccess /> */}
-      {/* <Payment /> */}
-      {/* <Shipping /> */}
       {/* <Shop /> */}
     </div>
   );

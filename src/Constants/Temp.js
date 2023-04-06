@@ -88,3 +88,27 @@ export const TempItems3 = [
         img: shirt
     },
 ]
+
+export const TempItems4 = [
+    {
+        name: 'wqrq giwqvd bqow qwbbqovuwfvq qwvfiqyvfq qvfiqfwfv vwqbovoq quwfiqv qvfiquwfq quiwqwifvqf quwvfqfi qwvfqufvq qvwfivq lor sajvs svfa favsuvasf vaosfvasf ausfvoausfvas asvfoavasv oausvfuoasfov uavsffvau',
+        price: 25441,
+        img: shirt
+    }, {
+        name: 'wqrq giwqvd bqow qwbbqovuwfvq qwvfiqyvfq qvfiqfwfv vwqbovoq quwfiqv qvfiquwfq quiwqwifvqf quwvfqfi qwvfqufvq qvwfivq lor sajvs svfa favsuvasf vaosfvasf ausfvoausfvas asvfoavasv oausvfuoasfov uavsffvau',
+        price: 25441,
+        img: shirt
+    }, {
+        name: 'wqrq giwqvd bqow qwbbqovuwfvq qwvfiqyvfq qvfiqfwfv vwqbovoq quwfiqv qvfiquwfq quiwqwifvqf quwvfqfi qwvfqufvq qvwfivq lor sajvs svfa favsuvasf vaosfvasf ausfvoausfvas asvfoavasv oausvfuoasfov uavsffvau',
+        price: 25441,
+        img: shirt
+    }, {
+        name: 'wqrq giwqvd bqow qwbbqovuwfvq qwvfiqyvfq qvfiqfwfv vwqbovoq quwfiqv qvfiquwfq quiwqwifvqf quwvfqfi qwvfqufvq qvwfivq lor sajvs svfa favsuvasf vaosfvasf ausfvoausfvas asvfoavasv oausvfuoasfov uavsffvau',
+        price: 25441,
+        img: shirt
+    }, {
+        name: 'wqrq giwqvd bqow qwbbqovuwfvq qwvfiqyvfq qvfiqfwfv vwqbovoq quwfiqv qvfiquwfq quiwqwifvqf quwvfqfi qwvfqufvq qvwfivq lor sajvs svfa favsuvasf vaosfvasf ausfvoausfvas asvfoavasv oausvfuoasfov uavsffvau',
+        price: 25441,
+        img: shirt
+    },
+]

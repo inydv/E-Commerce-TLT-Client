@@ -77,3 +77,11 @@ input[type='radio']:checked:after {
 .edit-icon path {
     color: black !important;
 }
+
+/* LINE CLAMP */
+.line-clamp {
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+}
