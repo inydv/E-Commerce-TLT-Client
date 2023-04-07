@@ -54,7 +54,7 @@ export default function RegisterForm({ registerTab }) {
             autoComplete="current-password"
           />
         </div>
-        <button className="bg-button text-base font-semibold py-2 px-4 float-right">
+        <button className="bg-button text-base font-semibold py-2 px-5 float-right">
           Register
         </button>
       </div>

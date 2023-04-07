@@ -29,7 +29,10 @@ export default function LoginForm({ loginTab }) {
             autoComplete="current-password"
           />
         </div>
-        <button className="bg-button text-base font-semibold py-2 px-4 float-right">
+        <div className="my-4">
+          <p className="text-end">Forgot Password ?</p>
+        </div>
+        <button className="bg-button text-base font-semibold py-2 px-5 float-right">
           Login
         </button>
       </div>

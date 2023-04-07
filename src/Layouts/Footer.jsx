@@ -6,7 +6,7 @@ export default function Footer() {
   return (
     <div className="bg-black min-h-[280px] p-5">
       <div className="max-w-[1400px] mx-auto">
-        <h1 className="font-semibold text-2xl mb-5 sm:mb-10 sm:text-3xl">
+        <h1 className="font-semibold text-2xl mb-5 sm:mb-10 sm:text-4xl">
           THE <span className="text-red-600">LITTLE</span> THINGS
         </h1>
         <div className="grid sm:grid-cols-2 md:grid-cols-3">

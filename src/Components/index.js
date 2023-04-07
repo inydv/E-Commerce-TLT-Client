@@ -12,5 +12,7 @@ import ResetPasswordForm from "./ResetPasswordForm";
 import AddReviews from "./AddReviews";
 import ProductDetails from "./ProductDetails";
 import ReviewCard from "./ReviewCard";
+import CartTable from "./CartTable";
+import ProceedNextBox from "./ProceedNextBox";
 
-export { Carousel, Categories, ProductsCategoriesAndProducts, Banner, NewsLetter, ContactForm, Map, LoginForm, RegisterForm, ForgotPasswordForm, ResetPasswordForm, AddReviews, ProductDetails, ReviewCard }
+export { Carousel, Categories, ProductsCategoriesAndProducts, Banner, NewsLetter, ContactForm, Map, LoginForm, RegisterForm, ForgotPasswordForm, ResetPasswordForm, AddReviews, ProductDetails, ReviewCard, CartTable, ProceedNextBox }

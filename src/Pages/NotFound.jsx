@@ -9,7 +9,7 @@ export default function NotFound() {
         <h3 className="text-center text-xl font-semibold pt-2 pb-4">
           The Page You're Looking For Not Available!
         </h3>
-        <button className="bg-button py-2 px-5 text-lg font-semibold">Go To Home</button>
+        <button className="bg-button py-2 px-4 text-lg font-semibold">Go To Home</button>
       </div>
     </>
   );

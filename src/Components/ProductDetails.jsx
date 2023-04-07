@@ -4,8 +4,8 @@ import RSCoversion from "../Core/RSConversion";
 export default function ProductDetails({ item }) {
   return (
     <div>
-      <h2 className="font-semibold text-2xl lg:text-3xl">{item.title}</h2>
-      <p className="font-medium text-base lg:text-lg mt-1 lg:mt-2">
+      <h2 className="font-semibold text-2xl lg:text-4xl">{item.title}</h2>
+      <p className="font-medium text-lg lg:text-xl mt-1 lg:mt-2">
         Product #{item.id}
       </p>
       <Rating
@@ -14,12 +14,14 @@ export default function ProductDetails({ item }) {
         className="my-2 lg:my-5"
         readOnly
       />
-      <h1 className="font-semibold text-lg">{RSCoversion(item.price)}</h1>
+      <h1 className="font-semibold text-lg lg:text-xl">
+        {RSCoversion(item.price)}
+      </h1>
       <p
-        className="text-base mt-1 lg:my-2"
+        className="text-base lg:text-lg mt-1 lg:my-2"
         dangerouslySetInnerHTML={{ __html: item.description }}
       ></p>
-      <p className="text-base">
+      <p className="text-base lg:text-lg">
         <span className="font-semibold">Quantity: </span>
         {item.stocks}
       </p>
