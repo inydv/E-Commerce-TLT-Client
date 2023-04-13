@@ -1,5 +1,5 @@
 import { Children } from "react";
-import { ProductsCategoriesCard, ProductsCard } from "../Shared/index";
+import { ProductsCategoriesCard, ProductsCard } from "../Components/index";
 
 export default function ProductsCategoriesAndProducts({
   type,

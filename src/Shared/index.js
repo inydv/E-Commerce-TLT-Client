@@ -1,5 +1,6 @@
-import ProductsCard from "./ProductsCard";
-import ProductsCategoriesCard from "./ProductsCategoriesCard";
+import ProductsCategoriesAndProducts from './ProductsCategoriesAndProducts';
 import Loader from "./Loader";
+import CartTable from "./CartTable";
+import ProceedNextBox from './ProceedNextBox';
 
-export { ProductsCard, ProductsCategoriesCard, Loader }
+export { ProductsCategoriesAndProducts, Loader, CartTable, ProceedNextBox }
