@@ -12,9 +12,9 @@ export default function User() {
       {/* <MyAccount /> */}
       {/* <Cart /> */}
       {/* <Shipping /> */}
-      <Payment />
+      {/* <Payment /> */}
       {/* <MyOrders /> */}
-      {/* <OrderDetails /> */}
+      <OrderDetails />
       {/* <Shop /> */}
     </div>
   );
