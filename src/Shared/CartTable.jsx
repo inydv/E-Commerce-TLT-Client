@@ -14,8 +14,7 @@ export default function CartTable() {
                 alt=""
               />
               <div className="px-2 sm:px-4">
-                <h5 className="text-sm sm:text-base font-semibold">#1234567890</h5>
-                <h6 className="line-clamp text-sm sm:text-base mt-1 mb-2">
+                <h6 className="line-clamp text-sm sm:text-base mb-2">
                   {item.name}
                 </h6>
                 <div className="flex items-center">

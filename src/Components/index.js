@@ -15,5 +15,7 @@ import ProductDetails from "./ProductDetails";
 import ReviewCard from "./ReviewCard";
 import MyAccountUpperCard from "./MyAccountUpperCard";
 import MyAccountLowerCard from "./MyAccountLowerCard";
+import PaymentCard from "./PaymentCard";
+import PaymentForm from "./PaymentForm";
 
-export { Carousel, Categories, ProductsCard, ProductsCategoriesCard, Banner, NewsLetter, ContactForm, Map, LoginForm, RegisterForm, ForgotPasswordForm, ResetPasswordForm, AddReviews, ProductDetails, ReviewCard, MyAccountUpperCard, MyAccountLowerCard }
+export { Carousel, Categories, ProductsCard, ProductsCategoriesCard, Banner, NewsLetter, ContactForm, Map, LoginForm, RegisterForm, ForgotPasswordForm, ResetPasswordForm, AddReviews, ProductDetails, ReviewCard, MyAccountUpperCard, MyAccountLowerCard, PaymentCard, PaymentForm }

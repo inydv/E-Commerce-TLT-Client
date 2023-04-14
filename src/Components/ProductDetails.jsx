@@ -1,5 +1,5 @@
 import Rating from "@mui/material/Rating";
-import RSCoversion from "../Core/RSConversion";
+import RSCoversion from "../Helpers/RSConversion";
 
 export default function ProductDetails({ item }) {
   return (

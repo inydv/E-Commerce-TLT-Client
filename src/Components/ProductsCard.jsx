@@ -1,4 +1,4 @@
-import RSCoversion from "../Core/RSConversion";
+import RSCoversion from "../Helpers/RSConversion";
 
 export default function ProductsCard({ item }) {
   return (

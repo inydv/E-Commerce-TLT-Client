@@ -10,9 +10,9 @@ export default function User() {
       {/* <NotFound /> */}
       {/* <Detail /> */}
       {/* <MyAccount /> */}
-      <Cart />
+      {/* <Cart /> */}
       {/* <Shipping /> */}
-      {/* <Payment /> */}
+      <Payment />
       {/* <MyOrders /> */}
       {/* <OrderDetails /> */}
       {/* <Shop /> */}
