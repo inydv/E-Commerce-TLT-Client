@@ -2,7 +2,6 @@ import { Children } from "react";
 import { TempItems4 } from "../Constants/Temp";
 
 export default function CartTable({ openForCart }) {
-  console.log(openForCart)
   return (
     <>
       {Children.toArray(

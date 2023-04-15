@@ -9,6 +9,7 @@ export default function MyOrders() {
           <th className="py-1 px-2 whitespace-nowrap">ITEM QTY</th>
           <th className="py-1 px-2">PRICE</th>
           <th className="py-1 px-2">STATUS</th>
+          <th className="py-1 px-2">ORDERED AT</th>
           <th className="py-1 px-2"></th>
         </tr>
         <tr className="border-b-button border-b-2">
@@ -16,6 +17,7 @@ export default function MyOrders() {
           <td className="p-2 text-center">5</td>
           <td className="p-2 text-center">5000</td>
           <td className="p-2 text-center">Shipped</td>
+          <td className="p-2 text-center">14/12/2005</td>
           <td className="p-2 text-center">
             <FiExternalLink size={25} />
           </td>
