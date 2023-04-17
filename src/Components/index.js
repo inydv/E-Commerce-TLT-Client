@@ -20,5 +20,6 @@ import PaymentForm from "./PaymentForm";
 import ProceedNextBox from "./ProceedNextBox";
 import ShippingForm from "./ShippingForm";
 import OrderDetailCard from "./OrderDetailCard";
+import ShopFilters from "./ShopFilters";
 
-export { Carousel, Categories, ProductsCard, ProductsCategoriesCard, Banner, NewsLetter, ContactForm, Map, LoginForm, RegisterForm, ForgotPasswordForm, ResetPasswordForm, AddReviews, ProductDetails, ReviewCard, MyAccountUpperCard, MyAccountLowerCard, PaymentCard, PaymentForm, ProceedNextBox, ShippingForm, OrderDetailCard }
+export { Carousel, Categories, ProductsCard, ProductsCategoriesCard, Banner, NewsLetter, ContactForm, Map, LoginForm, RegisterForm, ForgotPasswordForm, ResetPasswordForm, AddReviews, ProductDetails, ReviewCard, MyAccountUpperCard, MyAccountLowerCard, PaymentCard, PaymentForm, ProceedNextBox, ShippingForm, OrderDetailCard, ShopFilters }

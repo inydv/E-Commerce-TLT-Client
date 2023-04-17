@@ -8,18 +8,26 @@ export default function Home() {
     <>
       <Carousel />
       <Categories />
-      <ProductsCategoriesAndProducts
-        type="MENS"
-        data={MenItems}
-        isHeading={true}
-      />
-      <ProductsCategoriesAndProducts
-        type="WOMENS"
-        data={WomenItems}
-        isHeading={true}
-      />
+      <div className="px-5 py-2 md:py-5">
+        <div className="max-w-[1400px] mx-auto">
+          <ProductsCategoriesAndProducts
+            type="MENS"
+            data={MenItems}
+            isHeading={true}
+          />
+          <ProductsCategoriesAndProducts
+            type="WOMENS"
+            data={WomenItems}
+            isHeading={true}
+          />
+        </div>
+      </div>
       <Banner />
-      <ProductsCategoriesAndProducts data={TempItems} isHeading={false} />
+      <div className="px-5 py-2 md:py-5">
+        <div className="max-w-[1400px] mx-auto">
+          <ProductsCategoriesAndProducts data={TempItems} isHeading={false} />
+        </div>
+      </div>
       <NewsLetter />
     </>
   );

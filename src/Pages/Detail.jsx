@@ -11,7 +11,11 @@ export default function Detail() {
           <Carousel>
             {Children.toArray(
               TempItems2?.images?.map((item) => (
-                <img src={item} alt="" className="h-[400px] sm:h-[500px] lg:h-[800px] w-full" />
+                <img
+                  src={item}
+                  alt=""
+                  className="h-[400px] sm:h-[500px] lg:h-[700px] w-full"
+                />
               ))
             )}
           </Carousel>
