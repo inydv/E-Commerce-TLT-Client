@@ -7,7 +7,7 @@ export default function User() {
       {/* <Auth /> */}
       {/* <Home /> */}
       {/* <Contact /> */}
-      <NotFound />
+      {/* <NotFound /> */}
       {/* <Detail /> */}
       {/* <MyAccount /> */}
       {/* <Cart /> */}

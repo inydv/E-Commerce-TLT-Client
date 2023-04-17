@@ -4,7 +4,7 @@ export default function NotFound() {
   return (
     <>
       <div className="flex justify-center bg-white">
-        <img src={NotFoundGIF} className="" alt="" />
+        <img src={NotFoundGIF} alt="" />
       </div>
       <div className="grid justify-center p-5">
         <h1 className="text-center text-xl font-semibold">
