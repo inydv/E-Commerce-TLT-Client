@@ -1,5 +1,7 @@
 import { MdEmail } from "react-icons/md";
 import { IoMdLock } from "react-icons/io";
+import { routes } from "../Core/Routes";
+import { Link } from "react-router-dom";
 
 export default function LoginForm({ loginTab }) {
   return (
@@ -30,7 +32,9 @@ export default function LoginForm({ loginTab }) {
           />
         </div>
         <div className="my-4">
-          <p className="text-end">Forgot Password ?</p>
+          <Link className="text-end cursor-pointer hover:text-red-700" to={routes.forgotPW}>
+            Forgot Password ?
+          </Link>
         </div>
         <button className="bg-button text-base font-semibold py-2 px-5 float-right">
           Login

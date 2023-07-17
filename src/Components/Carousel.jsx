@@ -1,6 +1,8 @@
 import { useState, useEffect, Children } from "react";
 import { CarouselItems } from "../Constants/CarouselItems";
 import { AiFillLeftCircle, AiFillRightCircle } from "react-icons/ai";
+import { routes } from "../Core/Routes";
+import { Link } from "react-router-dom";
 
 export default function Carousel() {
   const [slideIndex, setSlideIndex] = useState(0);
@@ -36,9 +38,12 @@ export default function Carousel() {
                 <p className="text-xs sm:text-base my-2 sm:my-5 md:text-lg lg:text-xl">
                   {item.desc}
                 </p>
-                <button className="bg-button px-5 py-2 text-sm sm:text-base lg:text-lg lg:py-5 lg:px-10">
+                <Link
+                  className="bg-button px-5 py-2 text-sm sm:text-base lg:text-lg lg:py-5 lg:px-10"
+                  to={routes.shop}
+                >
                   SHOP NOW
-                </button>
+                </Link>
               </div>
             </div>
           ))

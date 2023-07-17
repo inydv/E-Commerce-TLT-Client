@@ -1,0 +1,16 @@
+export const routes = {
+  about: "/about",
+  home: "/",
+  contact: "/contact",
+  productDetails: "/product/:id",
+  cart: "/cart",
+  shop: "/shop",
+  shipping: "/shipping",
+  payment: "/payment",
+  myOrders: "/my-orders",
+  orderDetails: "/order/:id",
+  myAccount: "/my-account",
+  Authentication: "/authentication",
+  forgotPW: "/forgot-password",
+  resetPW: "/reset-password",
+};

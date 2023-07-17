@@ -1,6 +1,8 @@
 import React from "react";
 import { BsFacebook, BsLinkedin } from "react-icons/bs";
 import { FaInstagramSquare } from "react-icons/fa";
+import { routes } from "../Core/Routes";
+import { Link } from "react-router-dom";
 
 export default function Footer() {
   return (
@@ -18,14 +20,30 @@ export default function Footer() {
           <div className="md:justify-self-center mb-5 sm:mb-10">
             <h2 className="text-lg font-semibold mb-2">USEFUL LINKS</h2>
             <ul className="grid grid-cols-2 gap-x-8">
-              <li>Home</li>
-              <li>Men</li>
-              <li>Women</li>
-              <li>Shop</li>
-              <li>Cart</li>
-              <li>My Account</li>
-              <li>About</li>
-              <li>Contact</li>
+              <li>
+                <Link to={routes.home}>Home</Link>
+              </li>
+              <li>
+                <Link to={routes.shop + "?category=men"}>Men</Link>
+              </li>
+              <li>
+                <Link to={routes.shop + "?category=women"}>Women</Link>
+              </li>
+              <li>
+                <Link to={routes.shop}>Shop</Link>
+              </li>
+              <li>
+                <Link to={routes.cart}>Cart</Link>
+              </li>
+              <li>
+                <Link to={routes.myAccount}>My Account</Link>
+              </li>
+              <li>
+                <Link to={routes.about}>About</Link>
+              </li>
+              <li>
+                <Link to={routes.contact}>Contact</Link>
+              </li>
             </ul>
           </div>
           <div className="md:justify-self-end">
