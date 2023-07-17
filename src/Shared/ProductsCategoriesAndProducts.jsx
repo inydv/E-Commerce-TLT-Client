@@ -9,7 +9,7 @@ export default function ProductsCategoriesAndProducts({
   return (
     <>
       {isHeading ? (
-        <div className="flex items-center gap-x-5">
+        <div className="flex items-center gap-x-5 mb-3">
           <div className="flex-grow h-px bg-gray-700"></div>
           <span className="flex-shrink text-center font-semibold text-xl md:text-3xl">
             {type} CATEGORIES

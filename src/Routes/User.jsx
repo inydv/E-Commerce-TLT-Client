@@ -3,19 +3,19 @@ import { Home, Auth, About, Contact, Detail, NotFound, MyAccount, MyOrders, Orde
 export default function User() {
   return (
     <div className="min-h-[calc(100vh-350px)] bg-black">
-      {/* <About /> */}
-      {/* <Auth /> */}
-      {/* <Home /> */}
-      {/* <Contact /> */}
-      {/* <NotFound /> */}
-      {/* <Detail /> */}
-      {/* <MyAccount /> */}
-      {/* <Cart /> */}
-      {/* <Shipping /> */}
-      {/* <Payment /> */}
-      {/* <MyOrders /> */}
-      {/* <OrderDetails /> */}
-      {/* <Shop /> */}
+      <About />
+      <Auth />
+      <Home />
+      <Contact />
+      <NotFound />
+      <Detail />
+      <MyAccount />
+      <Cart />
+      <Shipping />
+      <Payment />
+      <MyOrders />
+      <OrderDetails />
+      <Shop />
     </div>
   );
 }

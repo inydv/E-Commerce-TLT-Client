@@ -15,11 +15,13 @@ export default function Home() {
             data={MenItems}
             isHeading={true}
           />
-          <ProductsCategoriesAndProducts
-            type="WOMENS"
-            data={WomenItems}
-            isHeading={true}
-          />
+          <div className="mt-5">
+            <ProductsCategoriesAndProducts
+              type="WOMENS"
+              data={WomenItems}
+              isHeading={true}
+            />
+          </div>
         </div>
       </div>
       <Banner />
