@@ -16,7 +16,7 @@ import flats from "../Assets/women/flats.jpg";
 import heels from "../Assets/women/heels.jpg";
 import shoes2 from "../Assets/women/shoes.jpg";
 
-import { routes } from "../Core/Routes";
+import { routes } from "./Routes.Constant";
 
 export const MenItems = [
   {

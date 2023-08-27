@@ -13,7 +13,7 @@ import {
   Shop,
   Cart,
 } from "../Pages/index";
-import { routes } from "../Core/Routes";
+import { routes } from "../Constants/Routes.Constant";
 import { Routes, Route } from "react-router-dom";
 
 export default function User() {

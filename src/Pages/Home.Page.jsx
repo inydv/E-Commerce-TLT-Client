@@ -1,6 +1,6 @@
 import { Banner, Carousel, Categories, NewsLetter } from "../Components/index";
 import { ProductsCategoriesAndProducts } from "../Shared/index";
-import { MenItems, WomenItems } from "../Constants/ProductsCategoriesItems";
+import { MenItems, WomenItems } from "../Constants/ProductsCategoriesItems.Constant";
 import { TempItems } from "../Constants/Temp";
 
 export default function Home() {

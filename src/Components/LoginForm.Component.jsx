@@ -1,6 +1,6 @@
 import { MdEmail } from "react-icons/md";
 import { IoMdLock } from "react-icons/io";
-import { routes } from "../Core/Routes";
+import { routes } from "../Constants/Routes.Constant";
 import { Link } from "react-router-dom";
 
 export default function LoginForm({ loginTab }) {

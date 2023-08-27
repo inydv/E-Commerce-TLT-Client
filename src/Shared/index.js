@@ -1,5 +1,5 @@
-import ProductsCategoriesAndProducts from './ProductsCategoriesAndProducts';
-import Loader from "./Loader";
-import CartTable from "./CartTable";
+import ProductsCategoriesAndProducts from './ProductsCategoriesAndProducts.Shared';
+import Loader from "./Loader.Shared";
+import CartTable from "./CartTable.Shared";
 
 export { ProductsCategoriesAndProducts, Loader, CartTable }

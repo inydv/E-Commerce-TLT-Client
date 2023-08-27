@@ -1,7 +1,7 @@
 import React from "react";
 import { BsFacebook, BsLinkedin } from "react-icons/bs";
 import { FaInstagramSquare } from "react-icons/fa";
-import { routes } from "../Core/Routes";
+import { routes } from "../Constants/Routes.Constant";
 import { Link } from "react-router-dom";
 
 export default function Footer() {

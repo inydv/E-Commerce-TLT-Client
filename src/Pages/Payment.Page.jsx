@@ -1,5 +1,5 @@
 import { useRef } from "react";
-import "../Styles/Payment.css";
+import "../Styles/Payment.Style.css";
 import { PaymentCard, PaymentForm } from "../Components/index";
 
 export default function Payment() {

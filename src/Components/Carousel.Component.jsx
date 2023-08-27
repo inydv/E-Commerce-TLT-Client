@@ -1,7 +1,7 @@
 import { useState, useEffect, Children } from "react";
-import { CarouselItems } from "../Constants/CarouselItems";
+import { CarouselItems } from "../Constants/CarouselItems.Constant";
 import { AiFillLeftCircle, AiFillRightCircle } from "react-icons/ai";
-import { routes } from "../Core/Routes";
+import { routes } from "../Constants/Routes.Constant";
 import { Link } from "react-router-dom";
 
 export default function Carousel() {

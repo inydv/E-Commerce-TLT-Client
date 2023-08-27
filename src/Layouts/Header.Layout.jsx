@@ -1,7 +1,7 @@
 import { MdAccountCircle } from "react-icons/md";
 import { IoIosCart } from "react-icons/io";
 import Badge from "@mui/material/Badge";
-import { routes } from "../Core/Routes";
+import { routes } from "../Constants/Routes.Constant";
 import { Link } from "react-router-dom";
 
 export default function Header() {

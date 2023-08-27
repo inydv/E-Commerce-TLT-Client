@@ -45,16 +45,22 @@ export default function ShopFilters({ close }) {
           className=" my-3 mb-8"
         />
         <p className="font-semibold text-lg">Category</p>
-        <select className="bg-black w-full outline-none my-3 mb-8">
-          <option hidden selected>
+        <select
+          className="bg-black w-full outline-none my-3 mb-8"
+          defaultValue="select"
+        >
+          <option hidden value="select">
             Select
           </option>
           <option value="Men">Men</option>
           <option value="Women">Women</option>
         </select>
         <p className="font-semibold text-lg">Sub-Category</p>
-        <select className="bg-black w-full outline-none my-3 mb-8">
-          <option hidden selected>
+        <select
+          className="bg-black w-full outline-none my-3 mb-8"
+          defaultValue="select"
+        >
+          <option hidden value="select">
             Select
           </option>
           <option value="Pant">Pant</option>
@@ -62,8 +68,11 @@ export default function ShopFilters({ close }) {
           <option value="Shoes">Shoes</option>
         </select>
         <p className="font-semibold text-lg">Sort By</p>
-        <select className="bg-black w-full outline-none my-3 mb-8">
-          <option hidden selected>
+        <select
+          className="bg-black w-full outline-none my-3 mb-8"
+          defaultValue="select"
+        >
+          <option hidden value="select">
             Select
           </option>
           <option value="oldest">Oldest</option>

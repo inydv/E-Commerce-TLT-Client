@@ -1,6 +1,6 @@
 import MenImage from "../Assets/mensCollection.jpg";
 import WomenImage from "../Assets/womenCollection.jpg";
-import { routes } from "../Core/Routes";
+import { routes } from "../Constants/Routes.Constant";
 import { Link } from "react-router-dom";
 
 export default function Categories() {
