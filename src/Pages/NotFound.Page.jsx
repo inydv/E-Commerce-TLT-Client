@@ -1,10 +1,8 @@
-import NotFoundGIF from "../Assets/notFound.gif";
-
 export default function NotFound() {
   return (
     <>
       <div className="flex justify-center bg-white">
-        <img src={NotFoundGIF} alt="" />
+        <img src="/src/Assets/notFound.gif" alt="" />
       </div>
       <div className="grid justify-center p-5">
         <h1 className="text-center text-xl font-semibold">

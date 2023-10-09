@@ -1,16 +1,29 @@
-import { Children } from "react";
+import { Children, useEffect, useState } from "react";
 import Carousel from "react-material-ui-carousel";
 import { AddReviews, ProductDetails, ReviewCard } from "../Components/index";
-import { TempItems2, TempItems3 } from "../Constants/Temp";
+import { useParams } from "react-router-dom";
+import { GETPRODUCTDETAILS } from "../Services/index";
 
 export default function Detail() {
+  const { productId } = useParams();
+  const [productDetail, setProductDetail] = useState();
+
+  useEffect(() => {
+    (async function () {
+      const { data } = await GETPRODUCTDETAILS(productId);
+      if (data && data.SUCCESS) {
+        setProductDetail(data.DATA);
+      }
+    })();
+  }, [productId]);
+
   return (
     <div className="px-5">
       <div className="max-w-[1400px] mx-auto">
         <div className="md:grid md:grid-cols-2">
           <Carousel>
             {Children.toArray(
-              TempItems2?.images?.map((item) => (
+              productDetail?.images?.map((item) => (
                 <img
                   src={item}
                   alt=""
@@ -20,7 +33,7 @@ export default function Detail() {
             )}
           </Carousel>
           <div className="my-3 md:my-5 md:p-5 flex items-center">
-            <ProductDetails item={TempItems2} />
+            <ProductDetails item={productDetail} />
           </div>
         </div>
 
@@ -35,7 +48,7 @@ export default function Detail() {
         <div className="flex overflow-x-auto gap-2 pb-2 md:pb-5">
           <AddReviews />
           {Children.toArray(
-            TempItems3?.map((item) => <ReviewCard item={item} />)
+            productDetail?.reviews?.map((item) => <ReviewCard item={item} />)
           )}
         </div>
       </div>

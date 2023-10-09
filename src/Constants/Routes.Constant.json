@@ -1,0 +1,16 @@
+{
+  "about": "/about",
+  "home": "/",
+  "contact": "/contact",
+  "productDetails": "/product",
+  "cart": "/cart",
+  "shop": "/shop",
+  "shipping": "/shipping",
+  "payment": "/payment",
+  "myOrders": "/my-orders",
+  "orderDetails": "/order",
+  "myAccount": "/my-account",
+  "Authentication": "/authentication",
+  "forgotPW": "/forgot-password",
+  "resetPW": "/reset-password"
+}

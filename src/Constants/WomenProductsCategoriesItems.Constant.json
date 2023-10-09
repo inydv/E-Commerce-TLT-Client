@@ -1,0 +1,42 @@
+[
+  {
+    "img": "/src/Assets/women/tops.jpg",
+    "title": "Tops",
+    "link": "/shop?sub-category=tops"
+  },
+  {
+    "img": "/src/Assets/women/skirt.jpg",
+    "title": "Skirt",
+    "link": "/shop?sub-category=skirt"
+  },
+  {
+    "img": "/src/Assets/women/jeans.jpg",
+    "title": "Jeans",
+    "link": "/shop?sub-category=jeans"
+  },
+  {
+    "img": "/src/Assets/women/dress.jpg",
+    "title": "Dresses",
+    "link": "/shop?sub-category=dress"
+  },
+  {
+    "img": "/src/Assets/women/kurti.jpg",
+    "title": "Kurti",
+    "link": "/shop?sub-category=kurti"
+  },
+  {
+    "img": "/src/Assets/women/flats.jpg",
+    "title": "Flats",
+    "link": "/shop?sub-category=flats"
+  },
+  {
+    "img": "/src/Assets/women/heels.jpg",
+    "title": "Heels",
+    "link": "/shop?sub-category=heels"
+  },
+  {
+    "img": "/src/Assets/women/shoes.jpg",
+    "title": "Shoes",
+    "link": "/shop?sub-category=shoes"
+  }
+]

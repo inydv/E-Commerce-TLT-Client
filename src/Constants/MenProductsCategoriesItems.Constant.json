@@ -1,0 +1,42 @@
+[
+  {
+    "img": "/src/Assets/men/shirt.jpg",
+    "title": "Shirt",
+    "link": "/shop?sub-category=shirt"
+  },
+  {
+    "img": "/src/Assets/men/tshirt.jpg",
+    "title": "T-Shirt",
+    "link": "/shop?sub-category=t-shirt"
+  },
+  {
+    "img": "/src/Assets/men/shoes.jpg",
+    "title": "Shoes",
+    "link": "/shop?sub-category=shoes"
+  },
+  {
+    "img": "/src/Assets/men/jacket.jpg",
+    "title": "Jacket",
+    "link": "/shop?sub-category=jacket"
+  },
+  {
+    "img": "/src/Assets/men/trouser.jpg",
+    "title": "Trouser",
+    "link": "/shop?sub-category=trouser"
+  },
+  {
+    "img": "/src/Assets/men/pullovers.jpg",
+    "title": "Pullovers",
+    "link": "/shop?sub-category=pullovers"
+  },
+  {
+    "img": "/src/Assets/men/glasses.jpg",
+    "title": "Glasses",
+    "link": "/shop?sub-category=glasses"
+  },
+  {
+    "img": "/src/Assets/men/watch.jpg",
+    "title": "Watches",
+    "link": "/shop?sub-category=watches"
+  }
+]

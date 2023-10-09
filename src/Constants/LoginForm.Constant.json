@@ -1,0 +1,20 @@
+[
+    {
+        "icon": "MdEmail",
+        "type": "email",
+        "className": "w-[80%] ml-5 rounded-sm py-1 px-4 outline-none text-black text-base",
+        "placeholder": "lokesh@gmail.com",
+        "isRequired": true,
+        "autoComplete": "email",
+        "name": "email"
+    },
+    {
+        "icon": "IoMdLock",
+        "type": "password",
+        "className": "w-[80%] ml-5 rounded-sm py-1 px-4 outline-none text-black text-base",
+        "placeholder": "password",
+        "isRequired": true,
+        "autoComplete": "password",
+        "name": "password"
+    }
+]

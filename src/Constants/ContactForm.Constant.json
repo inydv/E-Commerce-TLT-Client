@@ -1,0 +1,58 @@
+[
+    {
+        "hierarchy": true,
+        "heading": "Name *",
+        "children": [
+            {
+                "type": "text",
+                "className": "w-full text-black outline-none px-4 py-2 rounded-sm my-2 text-base",
+                "placeholder": "Lokesh",
+                "autoFocus": true,
+                "isRequired": true,
+                "autoComplete": "firstName",
+                "name": "firstName",
+                "title": "First Name"
+            },
+            {
+                "type": "text",
+                "className": "w-full text-black outline-none px-4 py-2 rounded-sm my-2 text-base",
+                "placeholder": "Yadav",
+                "autoFocus": false,
+                "isRequired": true,
+                "autoComplete": "lastName",
+                "name": "lastName",
+                "title": "Last Name"
+            }
+        ]
+    },
+    {
+        "hierarchy": false,
+        "children": [
+            {
+                "type": "email",
+                "className": "w-full text-black outline-none px-4 py-2 rounded-sm my-2 text-base",
+                "placeholder": "lokesh@mail.com",
+                "isRequired": true,
+                "autoComplete": "email",
+                "name": "email",
+                "title": "Email *"
+            },
+            {
+                "type": "text",
+                "className": "w-full text-black outline-none px-4 py-2 rounded-sm my-2 text-base",
+                "placeholder": "Want Something New Or Any Query...",
+                "isRequired": true,
+                "name": "subject",
+                "title": "Subject *"
+            },
+            {
+                "type": "textarea",
+                "className": "w-full text-black outline-none px-4 py-2 rounded-sm my-2 text-base",
+                "placeholder": "What Do You Actually Want? Or Raise a Question?",
+                "isRequired": true,
+                "name": "message",
+                "title": "Message *"
+            }
+        ]
+    }
+]

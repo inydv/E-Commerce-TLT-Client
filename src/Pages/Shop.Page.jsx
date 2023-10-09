@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { ProductsCategoriesAndProducts } from "../Shared/index";
-import { WomenItems } from "../Constants/ProductsCategoriesItems.Constant";
+import WomenItems from "../Constants/WomenProductsCategoriesItems.Constant.json";
 import { ShopFilters } from "../Components/index";
 import Drawer from "@mui/material/Drawer";
 

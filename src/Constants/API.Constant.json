@@ -1,0 +1,29 @@
+{
+    "authentication": {
+        "register": "/authentication/register",
+        "login": "/authentication/login",
+        "forgotPassword": "/authentication/forgot/password",
+        "resetPassword": "/authentication/reset/password/",
+        "logout": "/authentication/logout"
+    },
+    "user": {
+        "me": "/user/user/me",
+        "updateProfile": "/user/user/update",
+        "contact": "/user/contact",
+        "product": "/user/product",
+        "review": "/user/product/review",
+        "order": "/user/order",
+        "cart": "/user/cart"
+    },
+    "payment": {
+        "getStripeApiKey": "/user/payment/stripe/api-key",
+        "processPayment": "/user/payment/process"
+    },
+    "admin": {
+        "user": "/admin/user",
+        "contact": "/admin/contact",
+        "product": "/admin/product",
+        "review": "/admin/product/review",
+        "order": "/admin/order"
+    }
+}

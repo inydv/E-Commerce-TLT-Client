@@ -1,25 +1,19 @@
-import bannerImage1 from "../Assets/banner/1.png";
-import bannerImage2 from "../Assets/banner/2.png";
-import bannerImage3 from "../Assets/banner/3.png";
-import bannerImage4 from "../Assets/banner/4.png";
-import bannerImage5 from "../Assets/banner/5.png";
-
 export default function Banner() {
   return (
     <div className="py-1 lg:py-0">
       <div className="bg-[#010101] grid grid-cols-2 place-items-center px-5">
         <div className="h-[200px] sm:h-[380px] lg:h-[600px]">
           <div className="h-[49%]">
-            <img src={bannerImage1} alt="" className="h-[100%]" />
+            <img src="/src/Assets/banner/1.png" alt="" className="h-[100%]" />
           </div>
           <div className="h-[49%]">
             <div className="h-[50%] flex gap-1 mt-1">
-              <img src={bannerImage2} alt="" className="h-[100%]" />
-              <img src={bannerImage3} alt="" className="h-[100%]" />
+              <img src="/src/Assets/banner/2.png" alt="" className="h-[100%]" />
+              <img src="/src/Assets/banner/3.png" alt="" className="h-[100%]" />
             </div>
             <div className="h-[50%] flex gap-1 mt-1">
-              <img src={bannerImage4} alt="" className="h-[100%]" />
-              <img src={bannerImage5} alt="" className="h-[100%]" />
+              <img src="/src/Assets/banner/4.png" alt="" className="h-[100%]" />
+              <img src="/src/Assets/banner/5.png" alt="" className="h-[100%]" />
             </div>
           </div>
         </div>

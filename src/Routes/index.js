@@ -1,3 +1,5 @@
-import User from "./User.Routes";
+import Authentication from "./Authentication.Routes";
+import Protected from "./Protected.Routes";
+import Admin from "./Admin.Routes";
 
-export { User };
+export { Authentication, Protected, Admin };

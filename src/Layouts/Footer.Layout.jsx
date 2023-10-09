@@ -1,7 +1,7 @@
 import React from "react";
 import { BsFacebook, BsLinkedin } from "react-icons/bs";
 import { FaInstagramSquare } from "react-icons/fa";
-import { routes } from "../Constants/Routes.Constant";
+import Routes from "../Constants/Routes.Constant.json";
 import { Link } from "react-router-dom";
 
 export default function Footer() {
@@ -21,28 +21,28 @@ export default function Footer() {
             <h2 className="text-lg font-semibold mb-2">USEFUL LINKS</h2>
             <ul className="grid grid-cols-2 gap-x-8">
               <li>
-                <Link to={routes.home}>Home</Link>
+                <Link to={Routes.home}>Home</Link>
               </li>
               <li>
-                <Link to={routes.shop + "?category=men"}>Men</Link>
+                <Link to={Routes.shop + "?category=men"}>Men</Link>
               </li>
               <li>
-                <Link to={routes.shop + "?category=women"}>Women</Link>
+                <Link to={Routes.shop + "?category=women"}>Women</Link>
               </li>
               <li>
-                <Link to={routes.shop}>Shop</Link>
+                <Link to={Routes.shop}>Shop</Link>
               </li>
               <li>
-                <Link to={routes.cart}>Cart</Link>
+                <Link to={Routes.cart}>Cart</Link>
               </li>
               <li>
-                <Link to={routes.myAccount}>My Account</Link>
+                <Link to={Routes.myAccount}>My Account</Link>
               </li>
               <li>
-                <Link to={routes.about}>About</Link>
+                <Link to={Routes.about}>About</Link>
               </li>
               <li>
-                <Link to={routes.contact}>Contact</Link>
+                <Link to={Routes.contact}>Contact</Link>
               </li>
             </ul>
           </div>

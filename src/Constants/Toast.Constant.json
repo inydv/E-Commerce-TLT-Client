@@ -1,0 +1,12 @@
+{
+    "error": {
+        "duration": 4000,
+        "position": "bottom-right",
+        "icon": "❌"
+    },
+    "success": {
+        "duration": 4000,
+        "position": "bottom-right",
+        "icon": "✅"
+    }
+}

@@ -1,6 +1,4 @@
-import MenImage from "../Assets/mensCollection.jpg";
-import WomenImage from "../Assets/womenCollection.jpg";
-import { routes } from "../Constants/Routes.Constant";
+import Routes from "../Constants/Routes.Constant.json";
 import { Link } from "react-router-dom";
 
 export default function Categories() {
@@ -9,10 +7,10 @@ export default function Categories() {
       <div className="max-w-[1400px] mx-auto flex gap-x-5">
         <Link
           className="flex-1 group overflow-hidden"
-          to={routes.shop + "?category=men"}
+          to={Routes.shop + "?category=men"}
         >
           <img
-            src={MenImage}
+            src="/src/Assets/mensCollection.jpg"
             alt=""
             className="h-full w-full filter transition-all duration-200 ease-in-out group-hover:grayscale group-hover:blur-sm"
           />
@@ -22,10 +20,10 @@ export default function Categories() {
         </Link>
         <Link
           className="flex-1 group overflow-hidden"
-          to={routes.shop + "?category=women"}
+          to={Routes.shop + "?category=women"}
         >
           <img
-            src={WomenImage}
+            src="/src/Assets/womenCollection.jpg"
             alt=""
             className="h-full w-full filter transition-all duration-200 ease-in-out group-hover:grayscale group-hover:blur-sm"
           />

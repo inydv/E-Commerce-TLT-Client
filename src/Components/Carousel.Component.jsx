@@ -1,7 +1,7 @@
 import { useState, useEffect, Children } from "react";
-import { CarouselItems } from "../Constants/CarouselItems.Constant";
+import CarouselItems from "../Constants/CarouselItems.Constant.json";
 import { AiFillLeftCircle, AiFillRightCircle } from "react-icons/ai";
-import { routes } from "../Constants/Routes.Constant";
+import Routes from "../Constants/Routes.Constant.json";
 import { Link } from "react-router-dom";
 
 export default function Carousel() {
@@ -40,7 +40,7 @@ export default function Carousel() {
                 </p>
                 <Link
                   className="bg-button px-5 py-2 text-sm sm:text-base lg:text-lg lg:py-5 lg:px-10"
-                  to={routes.shop}
+                  to={Routes.shop}
                 >
                   SHOP NOW
                 </Link>

@@ -1,5 +1,5 @@
 import { Children } from "react";
-import { AboutItems } from "../Constants/AboutItems.Constant";
+import AboutItems from "../Constants/AboutItems.Constant.json";
 
 export default function About() {
   return (
