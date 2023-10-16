@@ -1,17 +1,32 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { ProductsCategoriesAndProducts } from "../Shared/index";
-import WomenItems from "../Constants/WomenProductsCategoriesItems.Constant.json";
 import { ShopFilters } from "../Components/index";
+import { GETPRODUCTS } from "../Services/index";
 import Drawer from "@mui/material/Drawer";
+import { useSearchParams } from "react-router-dom";
 
 export default function Shop() {
   const [openDrawer, setOpenDrawer] = useState(false);
+  const [searchParams] = useSearchParams();
+
+  const [products, setProducts] = useState();
+
+  useEffect(() => {
+    (async function () {
+      const currentParams = Object.fromEntries([...searchParams]);
+
+      const { data } = await GETPRODUCTS(currentParams);
+      if (data && data.SUCCESS) {
+        setProducts(data.DATA);
+      }
+    })();
+  }, [searchParams]);
 
   return (
     <div className="lg:flex px-5 py-2 md:py-5">
       <div className="hidden lg:block min-w-[400px]">
         <h1 className="font-semibold text-2xl mb-5">All Products</h1>
-        <ShopFilters />
+        <ShopFilters close={() => setOpenDrawer(false)} />
       </div>
       <div className="flex items-center justify-between mb-2 lg:hidden">
         <h1 className="font-semibold text-xl">All Products</h1>
@@ -22,8 +37,8 @@ export default function Shop() {
           Filters
         </button>
       </div>
-      <div>
-        <ProductsCategoriesAndProducts data={WomenItems} isHeading={false} />
+      <div className="w-full">
+        <ProductsCategoriesAndProducts data={products} isHeading={false} />
         <div className="grid place-items-center mt-5">
           <div className="flex items-center">
             <p className="border-button border-2 py-2 px-3 cursor-pointer hover:text-red-600 text-sm font-semibold">

@@ -1,10 +1,7 @@
 import { Children, useState } from "react";
 import MyAccountForm from "../Constants/MyAccountForm.Constant.json";
-import { useUser } from "../Context/User.Context";
 
-export default function MyAccountLowerCard({ handleInput }) {
-  const { user } = useUser();
-
+export default function MyAccountLowerCard({ handleInput, formData }) {
   const [isDisabled, setIsDisabled] = useState(true);
 
   return (
@@ -33,7 +30,7 @@ export default function MyAccountLowerCard({ handleInput }) {
                   autoComplete={autoComplete}
                   name={name}
                   onChange={(e) => handleInput(e)}
-                  value={user ? user[name] : ""}
+                  value={formData[name]}
                 />
               </div>
             ) : inputType === "radio" ? (
@@ -50,6 +47,7 @@ export default function MyAccountLowerCard({ handleInput }) {
                           name={name}
                           value={title}
                           onChange={(e) => handleInput(e)}
+                          checked={formData?.gender === title}
                         />
                         <label htmlFor={title} className="mr-5 text-base">
                           {title}
@@ -78,7 +76,7 @@ export default function MyAccountLowerCard({ handleInput }) {
                   {Children.toArray(
                     inputArr?.map(({ placeholder, name }) => (
                       <input
-                        type="text"
+                        type="password"
                         className="w-full xl:max-w-[300px] rounded-sm py-2 px-4 outline-none text-black text-base mb-5 xl:mt-0"
                         placeholder={placeholder}
                         disabled={isDisabled}

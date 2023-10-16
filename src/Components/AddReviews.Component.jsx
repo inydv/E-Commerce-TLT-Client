@@ -6,7 +6,7 @@ import { useUser } from "../Context/User.Context";
 import toast from "react-hot-toast";
 import toastConfig from "../Constants/Toast.Constant.json";
 
-export default function AddReviews() {
+export default function AddReviews({ fetchProductDetail }) {
   const { productId } = useParams();
   const { user } = useUser();
 
@@ -30,6 +30,12 @@ export default function AddReviews() {
 
     if (data && data.SUCCESS) {
       toast.success(data?.MESSAGE, toastConfig.success);
+      setFormData({
+        rating: 5,
+        comment: "",
+      });
+      setIsWrite(false);
+      fetchProductDetail();
     }
   };
 
@@ -38,7 +44,7 @@ export default function AddReviews() {
       {iswrite ? (
         <div className="flex flex-col items-center border border-gray-700 rounded-xl p-3 md:p-5">
           <img
-            src={user?.avatar}
+            src={user?.avatar?.url || "/src/Assets/user-icon.png"}
             alt=""
             className="rounded-full h-16 md:h-28 w-16 md:w-28"
           />
@@ -64,7 +70,7 @@ export default function AddReviews() {
             className="mt-3 bg-button py-2 px-5 text-base font-semibold"
             onClick={() => handleSubmit()}
           >
-            Add Review
+            Add/Edit Review
           </button>
         </div>
       ) : (

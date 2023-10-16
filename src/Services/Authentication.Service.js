@@ -32,7 +32,7 @@ export const FORGOTPASSWORD = async (reqBody) => {
 
 export const RESETPASSWORD = async (reqBody, token) => {
     try {
-        return await request.post(Api.authentication.resetPassword + token, reqBody);
+        return await request.patch(Api.authentication.resetPassword + token, reqBody);
     } catch (error) {
         if (error?.response?.data?.MESSAGE)
             return toast.error(error?.response?.data?.MESSAGE, toastConfig.error);

@@ -11,5 +11,7 @@ import Payment from "./Payment.Page";
 import Shipping from "./Shipping.Page";
 import Shop from "./Shop.Page";
 import Cart from "./Cart.Page";
+import Dashboard from "./Dashboard.Page";
+import AdminPages from "./AdminPages.page";
 
-export { About, Auth, Contact, Detail, Home, MyAccount, MyOrders, NotFound, OrderDetails, Payment, Shipping, Shop, Cart }
+export { About, Auth, Contact, Detail, Home, MyAccount, MyOrders, NotFound, OrderDetails, Payment, Shipping, Shop, Cart, Dashboard, AdminPages }

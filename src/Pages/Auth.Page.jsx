@@ -48,7 +48,7 @@ export default function Auth() {
   };
 
   return (
-    <div className="bg-[url('src/Assets/auth.jpg')] h-screen bg-no-repeat bg-cover bg-center grid place-items-center">
+    <div className="bg-[url('../src/Assets/auth.jpg')] h-screen bg-no-repeat bg-cover bg-center grid place-items-center">
       <div className="bg-black p-2 overflow-hidden box-border w-[350px] h-[400px]">
         <div className="pt-3">
           <div className="flex">

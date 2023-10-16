@@ -10,7 +10,7 @@
                 "autoFocus": true,
                 "isRequired": true,
                 "autoComplete": "firstName",
-                "name": "firstName",
+                "name": "firstname",
                 "title": "First Name"
             },
             {
@@ -20,7 +20,7 @@
                 "autoFocus": false,
                 "isRequired": true,
                 "autoComplete": "lastName",
-                "name": "lastName",
+                "name": "lastname",
                 "title": "Last Name"
             }
         ]

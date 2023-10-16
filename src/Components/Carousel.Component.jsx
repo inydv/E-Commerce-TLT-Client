@@ -29,8 +29,10 @@ export default function Carousel() {
       >
         {Children.toArray(
           CarouselItems?.map((item) => (
-            <div className="grid grid-cols-2 items-center w-screen px-10 bg-[#010101]">
-              <img src={item.img} alt="" />
+            <div className="grid gap-5 grid-cols-2 items-center w-screen px-14 bg-[#010101]">
+              <div className="max-h-[600px] grid place-content-center">
+                <img src={item.img} alt="" className="h-full" />
+              </div>
               <div>
                 <h1 className="font-semibold text-sm sm:text-lg md:text-2xl lg:text-4xl">
                   {item.title}

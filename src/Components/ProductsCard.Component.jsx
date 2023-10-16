@@ -7,7 +7,7 @@ export default function ProductsCard({ item }) {
     <div className="h-[200px] w-[160px] sm:h-[300px] sm:w-[240px] xl:h-[400px] xl:w-[320px] overflow-hidden relative group">
       <Link to={Routes.productDetails + "/" + item._id}>
         <img
-          src={item.images[0]}
+          src={item?.images && item?.images[0]?.url}
           alt=""
           className="h-full w-full transition-all duration-200 ease-in-out group-hover:translate-x-[30%] group-hover:opacity-50"
         />

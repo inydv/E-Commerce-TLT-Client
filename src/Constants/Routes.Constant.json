@@ -12,5 +12,10 @@
   "myAccount": "/my-account",
   "Authentication": "/authentication",
   "forgotPW": "/forgot-password",
-  "resetPW": "/reset-password"
+  "resetPW": "/reset-password",
+  "dashboard": "/admin/dashboard",
+  "adminUser": "/admin/user",
+  "adminProduct": "/admin/product",
+  "adminOrder": "/admin/order",
+  "adminContact": "/admin/contact"
 }

@@ -1,6 +1,6 @@
 export default function NewsLetter() {
   return (
-    <div className="bg-[url('src/Assets/newsLetter.png')] bg-no-repeat bg-cover bg-center bg-fixed h-[20vh] md:h-[40vh] grid place-items-center">
+    <div className="bg-[url('../src/Assets/newsLetter.png')] bg-no-repeat bg-cover bg-center bg-fixed h-[20vh] md:h-[40vh] grid place-items-center">
       <div className="p-5">
         <h1 className="font-semibold text-2xl md:text-5xl text-center">
           THE LATEST

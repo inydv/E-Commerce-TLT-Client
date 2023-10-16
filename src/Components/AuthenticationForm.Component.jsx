@@ -2,7 +2,12 @@ import { MdEmail } from "react-icons/md";
 import { IoMdLock } from "react-icons/io";
 import { HiUser, HiPhone } from "react-icons/hi";
 import { Children, useState } from "react";
-import { REGISTERUSER, LOGINUSER } from "../Services/index";
+import {
+  REGISTERUSER,
+  LOGINUSER,
+  FORGOTPASSWORD,
+  RESETPASSWORD,
+} from "../Services/index";
 import toast from "react-hot-toast";
 import toastConfig from "../Constants/Toast.Constant.json";
 import { useUser } from "../Context/User.Context";
@@ -102,6 +107,7 @@ export default function AuthenticationForm({
                   required={isRequired}
                   autoComplete={autoComplete}
                   name={name}
+                  value={formData[name] || ""}
                   onChange={(e) => handleInput(e)}
                 />
               </li>

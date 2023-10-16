@@ -7,8 +7,6 @@ import NewsLetter from "./NewsLetter.Component";
 import ContactForm from "./ContactForm.Component";
 import Map from "./Map.Component";
 import AuthenticationForm from "./AuthenticationForm.Component";
-import ForgotPasswordForm from "./ForgotPasswordForm.Component";
-import ResetPasswordForm from "./ResetPasswordForm.Component";
 import AddReviews from "./AddReviews.Component";
 import ProductDetails from "./ProductDetails.Component";
 import ReviewCard from "./ReviewCard.Component";
@@ -21,4 +19,4 @@ import ShippingForm from "./ShippingForm.Component";
 import OrderDetailCard from "./OrderDetailCard.Component";
 import ShopFilters from "./ShopFilters.Component";
 
-export { Carousel, Categories, ProductsCard, ProductsCategoriesCard, Banner, NewsLetter, ContactForm, Map, AuthenticationForm, ForgotPasswordForm, ResetPasswordForm, AddReviews, ProductDetails, ReviewCard, MyAccountUpperCard, MyAccountLowerCard, PaymentCard, PaymentForm, ProceedNextBox, ShippingForm, OrderDetailCard, ShopFilters }
+export { Carousel, Categories, ProductsCard, ProductsCategoriesCard, Banner, NewsLetter, ContactForm, Map, AuthenticationForm, AddReviews, ProductDetails, ReviewCard, MyAccountUpperCard, MyAccountLowerCard, PaymentCard, PaymentForm, ProceedNextBox, ShippingForm, OrderDetailCard, ShopFilters }

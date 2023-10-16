@@ -1,11 +1,27 @@
 import { MyAccountUpperCard, MyAccountLowerCard } from "../Components";
 import { useState } from "react";
 import { UPDATEMYPROFILE } from "../Services/index";
+import { useUser } from "../Context/User.Context";
+import toast from "react-hot-toast";
+import toastConfig from "../Constants/Toast.Constant.json";
 
 export default function MyAccount() {
+  const { user } = useUser();
+
   const [formData, setFormData] = useState({});
   const [avatar, setAvatar] = useState();
   const [avatarPreview, setAvatarPreview] = useState();
+
+  useState(() => {
+    setFormData((prevState) => {
+      return {
+        ...prevState,
+        username: user?.username,
+        phone: user?.phone,
+        gender: user?.gender || "Male",
+      };
+    });
+  }, [user]);
 
   const handleInput = (e) => {
     if (e.target.name === "avatar") {
@@ -59,7 +75,7 @@ export default function MyAccount() {
           handleInput={handleInput}
           avatarPreview={avatarPreview}
         />
-        <MyAccountLowerCard handleInput={handleInput} />
+        <MyAccountLowerCard handleInput={handleInput} formData={formData} />
       </div>
     </div>
   );

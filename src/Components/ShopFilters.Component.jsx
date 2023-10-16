@@ -1,93 +1,158 @@
-import { useState } from "react";
+import { Children, useEffect, useState } from "react";
 import Slider from "@mui/material/Slider";
 import { BiSearchAlt2 } from "react-icons/bi";
+import ShopFilterConstant from "../Constants/ShopFilter.Constant.json";
+import {
+  createSearchParams,
+  useNavigate,
+  useSearchParams,
+} from "react-router-dom";
 
 export default function ShopFilters({ close }) {
-  const [value, setValue] = useState([2000, 5000]);
+  const navigate = useNavigate();
+  const [searchParams] = useSearchParams();
 
-  const handleChange = (event, newValue) => {
-    setValue(newValue);
+  const [formData, setFormData] = useState({
+    name: "",
+    price_gte: 500,
+    price_lte: 10000,
+    ratings_gte: 0,
+    ratings_lte: 5,
+    category: "",
+    subCategories: "",
+    page: 1,
+    sort: "newest",
+  });
+
+  useEffect(() => {
+    for (const entry of searchParams.entries()) {
+      const [param, value] = entry;
+      setFormData((prevState) => {
+        return {
+          ...prevState,
+          [param]: value,
+        };
+      });
+    }
+  }, [searchParams]);
+
+  const handleInput = (e) => {
+    if (e.target.name === "price" || e.target.name === "ratings") {
+      setFormData((prevState) => {
+        return {
+          ...prevState,
+          [`${e.target.name}_gte`]: e.target.value[0],
+          [`${e.target.name}_lte`]: e.target.value[1],
+        };
+      });
+    } else {
+      setFormData((prevState) => {
+        return {
+          ...prevState,
+          [e.target.name]: e.target.value,
+        };
+      });
+    }
+  };
+
+  const handleSubmit = async () => {
+    navigate({
+      pathname: "/shop",
+      search: `?${createSearchParams(formData)}`,
+    });
+    close();
+  };
+
+  const handleClear = async () => {
+    navigate("/shop");
+    close();
   };
 
   return (
     <div className="bg-black">
       <div className="border-button border-2 rounded p-5">
-        <p className="font-semibold text-lg">Search</p>
-        <div className="relative">
-          <input
-            type="text"
-            className="bg-black border-button border-2 rounded text-white pl-4 pr-10 py-1 w-full my-3 mb-8"
-            placeholder="Type Here....."
-          />
-          <BiSearchAlt2
-            className="absolute top-5 right-2 cursor-pointer"
-            size={20}
-          />
-        </div>
-        <p className="font-semibold text-lg">Price</p>
-        <Slider
-          value={value}
-          valueLabelDisplay="auto"
-          step={500}
-          marks
-          min={500}
-          max={10000}
-          onChange={handleChange}
-          className=" my-3 mb-8"
-        />
-        <p className="font-semibold text-lg">Rating</p>
-        <Slider
-          valueLabelDisplay="auto"
-          step={0.5}
-          marks
-          min={0}
-          max={5}
-          className=" my-3 mb-8"
-        />
-        <p className="font-semibold text-lg">Category</p>
-        <select
-          className="bg-black w-full outline-none my-3 mb-8"
-          defaultValue="select"
-        >
-          <option hidden value="select">
-            Select
-          </option>
-          <option value="Men">Men</option>
-          <option value="Women">Women</option>
-        </select>
-        <p className="font-semibold text-lg">Sub-Category</p>
-        <select
-          className="bg-black w-full outline-none my-3 mb-8"
-          defaultValue="select"
-        >
-          <option hidden value="select">
-            Select
-          </option>
-          <option value="Pant">Pant</option>
-          <option value="Shirt">Shirt</option>
-          <option value="Shoes">Shoes</option>
-        </select>
-        <p className="font-semibold text-lg">Sort By</p>
-        <select
-          className="bg-black w-full outline-none my-3 mb-8"
-          defaultValue="select"
-        >
-          <option hidden value="select">
-            Select
-          </option>
-          <option value="oldest">Oldest</option>
-          <option value="newest">Newest</option>
-        </select>
+        {Children.toArray(
+          ShopFilterConstant?.map(
+            ({
+              className,
+              heading,
+              inputType,
+              name,
+              max,
+              min,
+              options,
+              placeholder,
+              step,
+              type,
+            }) =>
+              inputType === "input" ? (
+                <>
+                  <p className="font-semibold text-lg">{heading}</p>
+                  <div className="relative">
+                    <input
+                      type={type}
+                      className={className}
+                      placeholder={placeholder}
+                      name={name}
+                      value={formData[name]}
+                      onChange={(e) => handleInput(e)}
+                    />
+                    <BiSearchAlt2
+                      className="absolute top-5 right-2 cursor-pointer"
+                      size={20}
+                    />
+                  </div>
+                </>
+              ) : inputType === "slider" ? (
+                <>
+                  <p className="font-semibold text-lg">{heading}</p>
+                  <Slider
+                    value={[
+                      parseFloat(formData[`${name}_gte`]),
+                      parseFloat(formData[`${name}_lte`]),
+                    ]}
+                    valueLabelDisplay="auto"
+                    step={step}
+                    marks
+                    min={min}
+                    max={max}
+                    name={name}
+                    onChange={(e) => handleInput(e)}
+                    className={className}
+                  />
+                </>
+              ) : (
+                <>
+                  <p className="font-semibold text-lg">{heading}</p>
+                  <select
+                    className={className}
+                    value={formData[name]}
+                    name={name}
+                    onChange={(e) => handleInput(e)}
+                  >
+                    <option hidden value="">
+                      Select
+                    </option>
+                    {Children.toArray(
+                      options?.map(({ name, value }) => (
+                        <option value={value}>{name}</option>
+                      ))
+                    )}
+                  </select>
+                </>
+              )
+          )
+        )}
         <div className="flex justify-end">
           <button
             className="bg-button px-5 py-2 font-semibold mr-5"
-            onClick={() => close()}
+            onClick={() => handleClear()}
           >
             Clear
           </button>
           <button
             className="bg-button px-5 py-2 font-semibold"
-            onClick={() => close()}
+            onClick={() => handleSubmit()}
           >
             Apply Filter
           </button>

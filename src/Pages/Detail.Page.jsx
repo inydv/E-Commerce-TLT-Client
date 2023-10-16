@@ -8,13 +8,15 @@ export default function Detail() {
   const { productId } = useParams();
   const [productDetail, setProductDetail] = useState();
 
+  const fetchProductDetail = async () => {
+    const { data } = await GETPRODUCTDETAILS(productId);
+    if (data && data.SUCCESS) {
+      setProductDetail(data.DATA);
+    }
+  };
+
   useEffect(() => {
-    (async function () {
-      const { data } = await GETPRODUCTDETAILS(productId);
-      if (data && data.SUCCESS) {
-        setProductDetail(data.DATA);
-      }
-    })();
+    fetchProductDetail();
   }, [productId]);
 
   return (
@@ -25,7 +27,7 @@ export default function Detail() {
             {Children.toArray(
               productDetail?.images?.map((item) => (
                 <img
-                  src={item}
+                  src={item?.url}
                   alt=""
                   className="h-[400px] sm:h-[500px] lg:h-[700px] w-full"
                 />
@@ -46,9 +48,15 @@ export default function Detail() {
         </div>
 
         <div className="flex overflow-x-auto gap-2 pb-2 md:pb-5">
-          <AddReviews />
+          <AddReviews fetchProductDetail={() => fetchProductDetail()} />
           {Children.toArray(
-            productDetail?.reviews?.map((item) => <ReviewCard item={item} />)
+            productDetail?.reviews?.map((item) => (
+              <ReviewCard
+                productId={productDetail?._id}
+                item={item}
+                fetchProductDetail={() => fetchProductDetail()}
+              />
+            ))
           )}
         </div>
       </div>

@@ -1,0 +1,80 @@
+[
+    {
+        "inputType": "input",
+        "type": "text",
+        "className": "bg-black border-button border-2 rounded text-white pl-4 pr-10 py-1 w-full my-3 mb-8",
+        "placeholder": "Type Product Name Here.....",
+        "name": "name",
+        "heading": "Search"
+    },
+    {
+        "inputType": "slider",
+        "step": 500,
+        "min": 500,
+        "max": 10000,
+        "className": "my-3 mb-8",
+        "name": "price",
+        "heading": "Price"
+    },
+    {
+        "inputType": "slider",
+        "step": 0.5,
+        "min": 0,
+        "max": 5,
+        "className": "my-3 mb-8",
+        "name": "ratings",
+        "heading": "Rating"
+    },
+    {
+        "inputType": "select",
+        "className": "bg-black w-full outline-none my-3 mb-8",
+        "name": "category",
+        "heading": "Category",
+        "options": [
+            {
+                "name": "Men",
+                "value": "men"
+            },
+            {
+                "name": "Women",
+                "value": "women"
+            }
+        ]
+    },
+    {
+        "inputType": "select",
+        "className": "bg-black w-full outline-none my-3 mb-8",
+        "name": "subCategories",
+        "heading": "Sub-Category",
+        "options": [
+            {
+                "name": "Pant",
+                "value": "pant"
+            },
+            {
+                "name": "Shirt",
+                "value": "shirt"
+            },
+            {
+                "name": "Shoes",
+                "value": "shoes"
+            }
+        ]
+    },
+    {
+        "inputType": "select",
+        "className": "bg-black w-full outline-none my-3 mb-8",
+        "name": "sort",
+        "heading": "Sort By",
+        "options": [
+            {
+                "name": "Newest",
+                "value": "newest"
+            },
+            {
+                "name": "Oldest",
+                "value": "oldest"
+            }
+        ]
+    }
+]

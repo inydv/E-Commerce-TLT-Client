@@ -46,11 +46,11 @@ export default function Header() {
       func: () => navigate(RouteConfig.myAccount),
     });
 
-    if (user.role === "ADMIN") {
+    if (user.role === "Admin") {
       option.unshift({
         icon: <MdDashboard size={20} />,
         name: "Dashboard",
-        func: () => navigate("/"),
+        func: () => navigate(RouteConfig.dashboard),
       });
     }
   }
@@ -66,7 +66,7 @@ export default function Header() {
 
   return (
     <div className="h-[70px] bg-black px-5">
-      <div className="max-w-[1400px] grid grid-cols-3 h-full items-center mx-auto">
+      <div className="grid grid-cols-3 h-full items-center">
         <h1 className="font-semibold text-4xl line-through">
           T<span className="text-red-700">L</span>T
         </h1>

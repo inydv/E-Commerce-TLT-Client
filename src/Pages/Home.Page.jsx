@@ -10,7 +10,7 @@ export default function Home() {
 
   useEffect(() => {
     (async function () {
-      const { data } = await GETPRODUCTS();
+      const { data } = await GETPRODUCTS({});
       if (data && data.SUCCESS) {
         setProducts(data.DATA);
       }

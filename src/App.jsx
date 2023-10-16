@@ -13,6 +13,7 @@ import {
   Auth,
   Cart,
   Contact,
+  Dashboard,
   Detail,
   Home,
   MyAccount,
@@ -22,6 +23,7 @@ import {
   Payment,
   Shipping,
   Shop,
+  AdminPages,
 } from "./Pages/index";
 import "./Styles/MUI.Style.css";
 
@@ -31,7 +33,7 @@ export default function App() {
   useEffect(() => {
     (async function () {
       const { data } = await GETME();
-      
+
       if (data && data.SUCCESS) {
         toast.success(data?.MESSAGE, toastConfig.success);
         setUser(data.DATA);
@@ -58,28 +60,52 @@ export default function App() {
           </Route>
 
           {/* ADMIN ROUTES */}
-          {/* <Route element={<Admin />}>
-            <Route exact path={RouteConfig.Authentication} element={<Auth />} />
-          </Route> */}
+          <Route element={<Admin />}>
+            <Route exact path={RouteConfig.dashboard} element={<Dashboard />} />
+            <Route
+              exact
+              path={RouteConfig.adminContact}
+              element={<AdminPages />}
+            />
+            <Route
+              exact
+              path={RouteConfig.adminOrder}
+              element={<AdminPages />}
+            />
+            <Route
+              exact
+              path={RouteConfig.adminProduct}
+              element={<AdminPages />}
+            />
+            <Route
+              exact
+              path={RouteConfig.adminUser}
+              element={<AdminPages />}
+            />
+          </Route>
 
           {/* PROTECTED ROUTES */}
-          {/* <Route element={<Protected />}> */}
-          <Route exact path={RouteConfig.myAccount} element={<MyAccount />} />
-          <Route exact path={RouteConfig.shipping} element={<Shipping />} />
-          <Route exact path={RouteConfig.payment} element={<Payment />} />
-          <Route exact path={RouteConfig.myOrders} element={<MyOrders />} />
-          <Route
-            exact
-            path={RouteConfig.orderDetails}
-            element={<OrderDetails />}
-          />
-          {/* </Route> */}
+          <Route element={<Protected />}>
+            <Route exact path={RouteConfig.myAccount} element={<MyAccount />} />
+            <Route exact path={RouteConfig.shipping} element={<Shipping />} />
+            <Route exact path={RouteConfig.payment} element={<Payment />} />
+            <Route exact path={RouteConfig.myOrders} element={<MyOrders />} />
+            <Route
+              exact
+              path={RouteConfig.orderDetails}
+              element={<OrderDetails />}
+            />
+          </Route>
 
           {/* PUBLIC ROUTES */}
           <Route exact path={RouteConfig.about} element={<About />} />
           <Route exact path={RouteConfig.home} element={<Home />} />
           <Route exact path={RouteConfig.contact} element={<Contact />} />
-          <Route exact path={RouteConfig.productDetails + "/:productId"} element={<Detail />} />
+          <Route
+            exact
+            path={RouteConfig.productDetails + "/:productId"}
+            element={<Detail />}
+          />
           <Route exact path={RouteConfig.cart} element={<Cart />} />
           <Route exact path={RouteConfig.shop} element={<Shop />} />
           <Route exact path="*" element={<NotFound />} />
