@@ -1,26 +1,40 @@
-import { Children, useEffect, useState } from "react";
-import Carousel from "react-material-ui-carousel";
-import { AddReviews, ProductDetails, ReviewCard } from "../Components/index";
+// REACT AND REACT ROUTER DOM
+import { Children, useEffect, useState, useCallback } from "react";
 import { useParams } from "react-router-dom";
+
+// REACT MATERIAL UI CAROUSEL
+import Carousel from "react-material-ui-carousel";
+
+// CUSTOM IMPORTS
+import { AddReviews, ProductDetails, ReviewCard } from "../Components/index";
 import { GETPRODUCTDETAILS } from "../Services/index";
 
+// DETAIL
 export default function Detail() {
-  const { productId } = useParams();
+  // STATES
   const [productDetail, setProductDetail] = useState();
 
-  const fetchProductDetail = async () => {
+  // USE PARAMS
+  const { productId } = useParams();
+
+  // CUSTOM FUNCTION
+  const fetchProductDetail = useCallback(async () => {
     const { data } = await GETPRODUCTDETAILS(productId);
     if (data && data.SUCCESS) {
       setProductDetail(data.DATA);
     }
-  };
-
-  useEffect(() => {
-    fetchProductDetail();
   }, [productId]);
 
+  // USE EFFECT
+  useEffect(() => {
+    window.scrollTo(0, 0);
+
+    fetchProductDetail();
+  }, [fetchProductDetail]);
+
+  // JSX ELEMENT
   return (
-    <div className="px-5">
+    <div className="p-5 sm:px-10">
       <div className="max-w-[1400px] mx-auto">
         <div className="md:grid md:grid-cols-2">
           <Carousel>
@@ -34,20 +48,18 @@ export default function Detail() {
               ))
             )}
           </Carousel>
-          <div className="my-3 md:my-5 md:p-5 flex items-center">
+          <div className="mt-5 md:mt-0 md:p-5 flex items-center">
             <ProductDetails item={productDetail} />
           </div>
         </div>
 
-        <div className="flex items-center gap-x-5 md:pt-10 pb-3 md:pb-5">
-          <div className="flex-grow h-px bg-gray-700"></div>
-          <span className="flex-shrink text-center font-semibold text-xl md:text-4xl">
-            Reviews
-          </span>
-          <div className="flex-grow h-px bg-gray-700"></div>
+        <div className="flex items-center gap-x-5 py-5 md:py-10">
+          <div className="heading-line"></div>
+          <span className="heading">Reviews</span>
+          <div className="heading-line"></div>
         </div>
 
-        <div className="flex overflow-x-auto gap-2 pb-2 md:pb-5">
+        <div className="flex overflow-x-auto gap-2 pb-2">
           <AddReviews fetchProductDetail={() => fetchProductDetail()} />
           {Children.toArray(
             productDetail?.reviews?.map((item) => (

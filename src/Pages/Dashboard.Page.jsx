@@ -1,5 +1,13 @@
+// REACT
+import { useEffect } from "react";
+
+// DASHBOARD
 export default function Dashboard() {
-  return (
-    <div>Dashboard.Page</div>
-  )
+  // USE EFFECT
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
+  // JSX ELEMENT
+  return <div>Dashboard.Page</div>;
 }

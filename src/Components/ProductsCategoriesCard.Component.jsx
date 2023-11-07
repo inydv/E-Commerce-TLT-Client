@@ -1,6 +1,8 @@
+// PRODUCTS CATEGORIES CARD
 export default function ProductsCategoriesCard({ item }) {
+  // JSX ELEMENT
   return (
-    <div className="h-[200px] w-[160px] sm:h-[300px] sm:w-[240px] xl:h-[400px] xl:w-[320px] overflow-hidden relative group">
+    <div className="aspect-square h-full max-h-[344px] max-w-[48%] md:max-w-[344px] overflow-hidden relative group">
       <img
         src={item.img}
         alt=""

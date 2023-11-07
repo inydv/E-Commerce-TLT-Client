@@ -1,4 +1,6 @@
+// ORDER DETAIL CARD
 export default function OrderDetailCard() {
+  // JSX ELEMENT
   return (
     <>
       <h1 className="font-bold text-xl sm:text-2xl whitespace-nowrap">
@@ -21,11 +23,15 @@ export default function OrderDetailCard() {
         <span className="text-sm sm:text-base">New Delhi</span>
       </div>
       <div className="my-1 sm:my-2">
-        <span className="font-semibold text-base sm:text-lg">Total Amount : </span>
+        <span className="font-semibold text-base sm:text-lg">
+          Total Amount :{" "}
+        </span>
         <span className="text-sm sm:text-base">82055</span>
       </div>
       <div className="my-1 sm:my-2">
-        <span className="font-semibold text-base sm:text-lg">Order Status : </span>
+        <span className="font-semibold text-base sm:text-lg">
+          Order Status :{" "}
+        </span>
         <span className="text-sm sm:text-base">UnShipped</span>
       </div>
       <div className="mt-5 sm:mt-10 mb-5 flex justify-between items-center">

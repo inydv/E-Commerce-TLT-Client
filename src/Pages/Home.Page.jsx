@@ -1,46 +1,59 @@
-import { Banner, Carousel, Categories, NewsLetter } from "../Components/index";
-import { ProductsCategoriesAndProducts } from "../Shared/index";
-import MenItems from "../Constants/MenProductsCategoriesItems.Constant.json";
-import WomenItems from "../Constants/WomenProductsCategoriesItems.Constant.json";
-import { GETPRODUCTS } from "../Services/index";
+// REACT
 import { useEffect, useState } from "react";
 
+// CUSTOM IMPORTS
+import {
+  Banner,
+  Carousel,
+  Categories,
+  NewsLetter,
+  ProductsCategoriesAndProducts,
+} from "../Components/index";
+import MenConstant from "../Constants/MenProductsCategoriesItems.Constant.json";
+import WomenConstant from "../Constants/WomenProductsCategoriesItems.Constant.json";
+import { GETPRODUCTS } from "../Services/index";
+
+// HOME
 export default function Home() {
+  // STATES
   const [products, setProducts] = useState();
 
+  // USE EFFECT
   useEffect(() => {
+    window.scrollTo(0, 0);
+
     (async function () {
       const { data } = await GETPRODUCTS({});
+
       if (data && data.SUCCESS) {
         setProducts(data.DATA);
       }
     })();
   }, []);
 
+  // JSX ELEMENT
   return (
     <>
       <Carousel />
       <Categories />
-      <div className="px-5 py-2 md:py-5">
+      <div className="px-5 sm:px-10">
         <div className="max-w-[1400px] mx-auto">
           <ProductsCategoriesAndProducts
             type="MENS"
-            data={MenItems}
+            data={MenConstant}
             isHeading={true}
           />
-          <div className="mt-5">
-            <ProductsCategoriesAndProducts
-              type="WOMENS"
-              data={WomenItems}
-              isHeading={true}
-            />
-          </div>
+          <ProductsCategoriesAndProducts
+            type="WOMENS"
+            data={WomenConstant}
+            isHeading={true}
+          />
         </div>
       </div>
       <Banner />
-      <div className="px-5 py-2 md:py-5">
+      <div className="px-5 sm:px-10">
         <div className="max-w-[1400px] mx-auto">
-          <ProductsCategoriesAndProducts data={products} isHeading={false} />
+          <ProductsCategoriesAndProducts data={products} />
         </div>
       </div>
       <NewsLetter />

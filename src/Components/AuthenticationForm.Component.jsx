@@ -1,19 +1,27 @@
+// REACT ICONS
 import { MdEmail } from "react-icons/md";
 import { IoMdLock } from "react-icons/io";
 import { HiUser, HiPhone } from "react-icons/hi";
+
+// REACT AND REACT ROUTER DOM
 import { Children, useState } from "react";
+import { Link, useNavigate, useParams } from "react-router-dom";
+
+// CUSTOM IMPORTS
 import {
   REGISTERUSER,
   LOGINUSER,
   FORGOTPASSWORD,
   RESETPASSWORD,
 } from "../Services/index";
-import toast from "react-hot-toast";
-import toastConfig from "../Constants/Toast.Constant.json";
 import { useUser } from "../Context/User.Context";
-import { Link, useNavigate, useParams } from "react-router-dom";
-import RouteConfig from "../Constants/Routes.Constant.json";
+import RouteConstant from "../Constants/Routes.Constant.json";
 
+// TOASTER
+import toast from "react-hot-toast";
+import ToastConstant from "../Constants/Toast.Constant.json";
+
+// AUTHENTICATION FORM
 export default function AuthenticationForm({
   tab,
   form,
@@ -23,13 +31,17 @@ export default function AuthenticationForm({
   navigateRoute,
   navigateTag,
 }) {
-  const navigate = useNavigate();
-
+  // STATE
   const [formData, setFormData] = useState({});
+
+  // CONTEXT
   const { setUser } = useUser();
 
+  // USE NAVIGATE AND USE PARAMS
+  const navigate = useNavigate();
   const { token } = useParams();
 
+  // CUSTOM FUNCTIONS
   const handleInput = (e) => {
     setFormData((prevState) => {
       return {
@@ -45,31 +57,32 @@ export default function AuthenticationForm({
     if (type === "Register") {
       const { data } = await REGISTERUSER(formData);
       if (data && data.SUCCESS) {
-        toast.success(data?.MESSAGE, toastConfig.success);
+        toast.success(data?.MESSAGE, ToastConstant.success);
         setFormData({});
       }
     } else if (type === "Login") {
       const { data } = await LOGINUSER(formData);
       if (data && data.SUCCESS) {
-        toast.success(data?.MESSAGE, toastConfig.success);
+        toast.success(data?.MESSAGE, ToastConstant.success);
         setUser(data.DATA);
-        navigate(RouteConfig.home);
+        navigate(RouteConstant.home);
       }
     } else if (type === "Forgot") {
       const { data } = await FORGOTPASSWORD(formData);
       if (data && data.SUCCESS) {
-        toast.success(data?.MESSAGE, toastConfig.success);
-        navigate(RouteConfig.Authentication);
+        toast.success(data?.MESSAGE, ToastConstant.success);
+        navigate(RouteConstant.Authentication);
       }
     } else {
       const { data } = await RESETPASSWORD(formData, token);
       if (data && data.SUCCESS) {
-        toast.success(data?.MESSAGE, toastConfig.success);
-        navigate(RouteConfig.Authentication);
+        toast.success(data?.MESSAGE, ToastConstant.success);
+        navigate(RouteConstant.Authentication);
       }
     }
   };
 
+  // JSX ELEMENT
   return (
     <form
       className={`transition-all duration-200 ease-linear grid place-items-center h-[80%] ${className}`}
@@ -78,41 +91,30 @@ export default function AuthenticationForm({
     >
       <ul>
         {Children.toArray(
-          form?.map(
-            ({
-              icon,
-              type,
-              className,
-              placeholder,
-              isRequired,
-              autoComplete,
-              name,
-            }) => (
-              <li className="flex items-center justify-between mb-2">
-                {icon === "HiUser" ? (
-                  <HiUser size={25} />
-                ) : icon === "HiPhone" ? (
-                  <HiPhone size={25} />
-                ) : icon === "MdEmail" ? (
-                  <MdEmail size={25} />
-                ) : icon === "IoMdLock" ? (
-                  <IoMdLock size={25} />
-                ) : (
-                  ""
-                )}
-                <input
-                  type={type}
-                  className={className}
-                  placeholder={placeholder}
-                  required={isRequired}
-                  autoComplete={autoComplete}
-                  name={name}
-                  value={formData[name] || ""}
-                  onChange={(e) => handleInput(e)}
-                />
-              </li>
-            )
-          )
+          form?.map(({ icon, type, className, placeholder, name }) => (
+            <li className="flex items-center justify-between mb-2">
+              {icon === "HiUser" ? (
+                <HiUser size={25} />
+              ) : icon === "HiPhone" ? (
+                <HiPhone size={25} />
+              ) : icon === "MdEmail" ? (
+                <MdEmail size={25} />
+              ) : icon === "IoMdLock" ? (
+                <IoMdLock size={25} />
+              ) : (
+                ""
+              )}
+              <input
+                type={type}
+                className={className}
+                placeholder={placeholder}
+                required={true}
+                name={name}
+                value={formData[name] || ""}
+                onChange={(e) => handleInput(e)}
+              />
+            </li>
+          ))
         )}
         {isLinkShow && (
           <div className="text-end my-5">

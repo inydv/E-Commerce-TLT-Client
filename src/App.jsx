@@ -1,13 +1,18 @@
-import { useEffect } from "react";
-import { Header, Footer } from "./Layouts/index";
-import { Authentication, Protected, Admin } from "./Routes/index";
+// REACT AND REACT ROUTER DOM
+import { useEffect, Suspense, useState } from "react";
+import { Routes, Route } from "react-router-dom";
+
+// TOASTER
 import { Toaster } from "react-hot-toast";
+import toast from "react-hot-toast";
+import ToastConstant from "./Constants/Toast.Constant.json";
+
+// CUSTOM  IMPORTS
+import { Header, Footer, Loader } from "./Layouts/index";
+import { Authentication, Protected, Admin } from "./Routes/index";
 import { GETME } from "./Services/index";
 import { useUser } from "./Context/User.Context";
-import toast from "react-hot-toast";
-import toastConfig from "./Constants/Toast.Constant.json";
-import { Routes, Route } from "react-router-dom";
-import RouteConfig from "./Constants/Routes.Constant.json";
+import RouteConstant from "./Constants/Routes.Constant.json";
 import {
   About,
   Auth,
@@ -20,103 +25,121 @@ import {
   MyOrders,
   NotFound,
   OrderDetails,
-  Payment,
-  Shipping,
   Shop,
   AdminPages,
 } from "./Pages/index";
+
+// IMPORT STYLES
 import "./Styles/MUI.Style.css";
 
+// APP
 export default function App() {
+  // STATE
+  const [loading, setLoading] = useState();
+
+  // CONTEXT
   const { setUser } = useUser();
 
+  // USE EFFECT
   useEffect(() => {
     (async function () {
       const { data } = await GETME();
 
       if (data && data.SUCCESS) {
-        toast.success(data?.MESSAGE, toastConfig.success);
+        toast.success(data?.MESSAGE, ToastConstant.success);
         setUser(data.DATA);
       }
     })();
-  }, []);
+  }, [setUser]);
 
+  // EVENT LISTIONOR (DISABELE RIGHT CLICK)
   window.addEventListener("contextmenu", (e) => e.preventDefault());
 
-  return (
+  // JSX ELEMENT
+  return loading ? (
+    <Loader />
+  ) : (
     <>
       <Header />
-      <div className="min-h-[calc(100vh-350px)] bg-black">
-        <Routes>
-          {/* AUTHENTICATION ROUTES */}
-          <Route element={<Authentication />}>
-            <Route exact path={RouteConfig.Authentication} element={<Auth />} />
-            <Route exact path={RouteConfig.forgotPW} element={<Auth />} />
-            <Route
-              exact
-              path={RouteConfig.resetPW + "/:token"}
-              element={<Auth />}
-            />
-          </Route>
+      <div className="min-h-content bg-black">
+        <Suspense fallback={<Loader />}>
+          <Routes>
+            {/* AUTHENTICATION ROUTES */}
+            <Route element={<Authentication />}>
+              <Route
+                exact
+                path={RouteConstant.Authentication}
+                element={<Auth />}
+              />
+              <Route exact path={RouteConstant.forgotPW} element={<Auth />} />
+              <Route
+                exact
+                path={RouteConstant.resetPW + "/:token"}
+                element={<Auth />}
+              />
+            </Route>
 
-          {/* ADMIN ROUTES */}
-          <Route element={<Admin />}>
-            <Route exact path={RouteConfig.dashboard} element={<Dashboard />} />
-            <Route
-              exact
-              path={RouteConfig.adminContact}
-              element={<AdminPages />}
-            />
-            <Route
-              exact
-              path={RouteConfig.adminOrder}
-              element={<AdminPages />}
-            />
-            <Route
-              exact
-              path={RouteConfig.adminProduct}
-              element={<AdminPages />}
-            />
-            <Route
-              exact
-              path={RouteConfig.adminUser}
-              element={<AdminPages />}
-            />
-          </Route>
+            {/* ADMIN ROUTES */}
+            <Route element={<Admin />}>
+              <Route
+                exact
+                path={RouteConstant.dashboard}
+                element={<Dashboard />}
+              />
+              <Route
+                exact
+                path={RouteConstant.adminContact}
+                element={<AdminPages />}
+              />
+              <Route
+                exact
+                path={RouteConstant.adminOrder}
+                element={<AdminPages />}
+              />
+              <Route
+                exact
+                path={RouteConstant.adminProduct}
+                element={<AdminPages />}
+              />
+              <Route
+                exact
+                path={RouteConstant.adminUser}
+                element={<AdminPages />}
+              />
+            </Route>
 
-          {/* PROTECTED ROUTES */}
-          <Route element={<Protected />}>
-            <Route exact path={RouteConfig.myAccount} element={<MyAccount />} />
-            <Route exact path={RouteConfig.shipping} element={<Shipping />} />
-            <Route exact path={RouteConfig.payment} element={<Payment />} />
-            <Route exact path={RouteConfig.myOrders} element={<MyOrders />} />
+            {/* PROTECTED ROUTES */}
+            <Route element={<Protected />}>
+              <Route
+                exact
+                path={RouteConstant.myAccount}
+                element={<MyAccount />}
+              />
+              <Route exact path={RouteConstant.myOrders} element={<MyOrders />} />
+              <Route
+                exact
+                path={RouteConstant.orderDetails}
+                element={<OrderDetails />}
+              />
+            </Route>
+
+            {/* PUBLIC ROUTES */}
+            <Route exact path={RouteConstant.about} element={<About />} />
+            <Route exact path={RouteConstant.home} element={<Home />} />
+            <Route exact path={RouteConstant.contact} element={<Contact />} />
             <Route
               exact
-              path={RouteConfig.orderDetails}
-              element={<OrderDetails />}
+              path={RouteConstant.productDetails + "/:productId"}
+              element={<Detail />}
             />
-          </Route>
-
-          {/* PUBLIC ROUTES */}
-          <Route exact path={RouteConfig.about} element={<About />} />
-          <Route exact path={RouteConfig.home} element={<Home />} />
-          <Route exact path={RouteConfig.contact} element={<Contact />} />
-          <Route
-            exact
-            path={RouteConfig.productDetails + "/:productId"}
-            element={<Detail />}
-          />
-          <Route exact path={RouteConfig.cart} element={<Cart />} />
-          <Route exact path={RouteConfig.shop} element={<Shop />} />
-          <Route exact path="*" element={<NotFound />} />
-        </Routes>
+            <Route exact path={RouteConstant.cart} element={<Cart />} />
+            <Route exact path={RouteConstant.shop} element={<Shop />} />
+            <Route exact path="*" element={<NotFound />} />
+          </Routes>
+        </Suspense>
       </div>
       <Footer />
       <Toaster />
     </>
   );
-}
-
-{
-  /* SUCCESS ORDER */
 }

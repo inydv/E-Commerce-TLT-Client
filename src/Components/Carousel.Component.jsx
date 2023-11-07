@@ -1,12 +1,20 @@
+// REACT AND REACT ROUTER DOM
 import { useState, useEffect, Children } from "react";
-import CarouselItems from "../Constants/CarouselItems.Constant.json";
-import { AiFillLeftCircle, AiFillRightCircle } from "react-icons/ai";
-import Routes from "../Constants/Routes.Constant.json";
 import { Link } from "react-router-dom";
 
+// REACT ICONS
+import { AiFillLeftCircle, AiFillRightCircle } from "react-icons/ai";
+
+// CUSTOM IMPORTS
+import CarouselItemsConstant from "../Constants/CarouselItems.Constant.json";
+import RoutesConstant from "../Constants/Routes.Constant.json";
+
+// CAROUSEL
 export default function Carousel() {
+  // STATE
   const [slideIndex, setSlideIndex] = useState(0);
 
+  // USE EFFECT
   useEffect(() => {
     const time = setTimeout(() => {
       slideIndex === 2 ? setSlideIndex(0) : setSlideIndex(slideIndex + 1);
@@ -14,10 +22,11 @@ export default function Carousel() {
     return () => clearInterval(time);
   });
 
+  // JSX ELEMENT
   return (
     <div className="flex overflow-hidden relative">
       <AiFillLeftCircle
-        size={30}
+        size={25}
         className="absolute top-0 bottom-0 cursor-pointer z-10 m-auto left-2"
         onClick={() => {
           slideIndex === 0 ? setSlideIndex(2) : setSlideIndex(slideIndex - 1);
@@ -28,21 +37,21 @@ export default function Carousel() {
         style={{ transform: `translate(${slideIndex * -100}vw)` }}
       >
         {Children.toArray(
-          CarouselItems?.map((item) => (
-            <div className="grid gap-5 grid-cols-2 items-center w-screen px-14 bg-[#010101]">
-              <div className="max-h-[600px] grid place-content-center">
-                <img src={item.img} alt="" className="h-full" />
+          CarouselItemsConstant?.map((item) => (
+            <div className="grid gap-5 grid-cols-2 items-center w-screen px-10 sm:px-14 bg-customBlack max-h-banner">
+              <div className="grid items-end justify-center max-h-banner h-full">
+                <img src={item.img} alt="" className="max-h-banner" />
               </div>
               <div>
-                <h1 className="font-semibold text-sm sm:text-lg md:text-2xl lg:text-4xl">
+                <h1 className="font-semibold text-base sm:text-xl md:text-4xl mb-5">
                   {item.title}
                 </h1>
-                <p className="text-xs sm:text-base my-2 sm:my-5 md:text-lg lg:text-xl">
+                <p className="hidden sm:block text-base md:text-xl mb-10">
                   {item.desc}
                 </p>
                 <Link
-                  className="bg-button px-5 py-2 text-sm sm:text-base lg:text-lg lg:py-5 lg:px-10"
-                  to={Routes.shop}
+                  className="primary-button text-sm sm:text-base lg:text-lg"
+                  to={RoutesConstant.shop}
                 >
                   SHOP NOW
                 </Link>
@@ -52,7 +61,7 @@ export default function Carousel() {
         )}
       </div>
       <AiFillRightCircle
-        size={30}
+        size={25}
         className="absolute top-0 bottom-0 cursor-pointer z-10 m-auto right-2"
         onClick={() => {
           slideIndex === 2 ? setSlideIndex(0) : setSlideIndex(slideIndex + 1);

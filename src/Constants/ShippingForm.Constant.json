@@ -1,0 +1,88 @@
+[
+    {
+        "type": "text",
+        "label": "FirstName *",
+        "name": "firstname",
+        "autoFocus": true,
+        "placeholder": "Lokesh",
+        "className": "bg-black outline-none border-b-2 w-full border-gray p-1 text-sm",
+        "required": true,
+        "labelClass": "block mb-1"
+    },
+    {
+        "type": "text",
+        "label": "LastName *",
+        "name": "lastname",
+        "placeholder": "Yadav",
+        "className": "bg-black outline-none border-b-2 w-full border-gray p-1 text-sm",
+        "required": true,
+        "labelClass": "block mb-1",
+        "containerClass": "mt-4"
+    },
+    {
+        "type": "email",
+        "label": "Email *",
+        "name": "email",
+        "autoFocus": true,
+        "placeholder": "nitin@mail.com",
+        "className": "bg-black outline-none border-b-2 w-full border-gray p-1 text-sm",
+        "required": true,
+        "labelClass": "block mb-1",
+        "containerClass": "mt-4"
+    },
+    {
+        "type": "number",
+        "label": "Phone *",
+        "name": "phone",
+        "autoFocus": true,
+        "placeholder": "1234567890",
+        "className": "bg-black outline-none border-b-2 w-full border-gray p-1 text-sm",
+        "required": true,
+        "labelClass": "block mb-1",
+        "containerClass": "mt-4"
+    },
+    {
+        "type": "text",
+        "label": "Address *",
+        "name": "address",
+        "autoFocus": true,
+        "placeholder": "House no. 123, street no. 1",
+        "className": "bg-black outline-none border-b-2 w-full border-gray p-1 text-sm",
+        "required": true,
+        "labelClass": "block mb-1",
+        "containerClass": "mt-4"
+    },
+    {
+        "type": "text",
+        "label": "City *",
+        "name": "city",
+        "autoFocus": true,
+        "placeholder": "New Delhi",
+        "className": "bg-black outline-none border-b-2 w-full border-gray p-1 text-sm",
+        "required": true,
+        "labelClass": "block mb-1",
+        "containerClass": "mt-4"
+    },
+    {
+        "type": "text",
+        "label": "State *",
+        "name": "state",
+        "autoFocus": true,
+        "placeholder": "State",
+        "className": "bg-black outline-none border-b-2 w-full border-gray p-1 text-sm",
+        "required": true,
+        "labelClass": "block mb-1",
+        "containerClass": "mt-4"
+    },
+    {
+        "type": "number",
+        "label": "Pincode *",
+        "name": "pincode",
+        "autoFocus": true,
+        "placeholder": "123456",
+        "className": "bg-black outline-none border-b-2 w-full border-gray p-1 text-sm",
+        "required": true,
+        "labelClass": "block mb-1",
+        "containerClass": "mt-4"
+    }
+]

@@ -1,11 +1,15 @@
+// AXIOS
 import axios from "axios";
 
+// BASE URL
 const BASE_URL = "http://localhost:5000";
 
-const request = axios.create({
+// CREATE REQUEST
+const Request = axios.create({
   baseURL: BASE_URL + "/api/v1/",
   withCredentials: true,
-  headers: { "Content-Type": "application/json" }
+  headers: { "Content-Type": "application/json" },
 });
 
-export { request };
+// EXPORT
+export { Request };

@@ -4,11 +4,10 @@
     min-height: 0 !important;
 }
 
-.css-11u3b1d-MuiSpeedDial-root {
-    position: absolute;
-    right: 35px;
-}
-
 .css-sox5kk-MuiBackdrop-root {
     z-index: 100 !important;
+}
+
+.css-1c32n2y-MuiBadge-root {
+    height: fit-content;
 }

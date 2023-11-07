@@ -1,3 +1,4 @@
+// REACT
 import { createContext, useContext, useState } from "react";
 
 // CONTEXT CREATION
@@ -25,4 +26,5 @@ const useUser = () => {
   return user;
 };
 
+// EXPORTS
 export { UserProvider, useUser };

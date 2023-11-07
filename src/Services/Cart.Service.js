@@ -1,22 +1,26 @@
-import Api from "../Constants/API.Constant.json";
-import toastConfig from "../Constants/Toast.Constant.json";
-import { request } from "../Configs/RequestMethod.Config";
+// CUSTOM IMPORTS
+import ApiConstant from "../Constants/API.Constant.json";
+import ToastConstant from "../Constants/Toast.Constant.json";
+import { Request } from "../Configs/RequestMethod.Config";
+
+// TOASTER
 import toast from 'react-hot-toast';
 
+// APIS
 export const GETCART = async () => {
     try {
-        return await request.get(Api.user.cart);
+        return await Request.get(ApiConstant.user.cart);
     } catch (error) {
         if (error?.response?.data?.MESSAGE)
-            return toast.error(error?.response?.data?.MESSAGE, toastConfig.error);
+            return toast.error(error?.response?.data?.MESSAGE, ToastConstant.error);
     }
 }
 
 export const UPDATECART = async (reqBody) => {
     try {
-        return await request.put(Api.user.cart, reqBody);
+        return await Request.put(ApiConstant.user.cart, reqBody);
     } catch (error) {
         if (error?.response?.data?.MESSAGE)
-            return toast.error(error?.response?.data?.MESSAGE, toastConfig.error);
+            return toast.error(error?.response?.data?.MESSAGE, ToastConstant.error);
     }
 }

@@ -1,35 +1,33 @@
 [
     {
-        "inputType": "input",
+        "tagType": "input",
         "type": "text",
-        "className": "bg-black border-button border-2 rounded text-white pl-4 pr-10 py-1 w-full my-3 mb-8",
+        "className": "bg-black border-b-customGray border-b-2 rounded text-white pb-2 pr-12 w-full outline-none",
         "placeholder": "Type Product Name Here.....",
         "name": "name",
-        "heading": "Search"
+        "label": "Search"
     },
     {
-        "inputType": "slider",
+        "tagType": "slider",
         "step": 500,
         "min": 500,
         "max": 10000,
-        "className": "my-3 mb-8",
         "name": "price",
-        "heading": "Price"
+        "label": "Price"
     },
     {
-        "inputType": "slider",
+        "tagType": "slider",
         "step": 0.5,
         "min": 0,
         "max": 5,
-        "className": "my-3 mb-8",
         "name": "ratings",
-        "heading": "Rating"
+        "label": "Rating"
     },
     {
-        "inputType": "select",
-        "className": "bg-black w-full outline-none my-3 mb-8",
+        "tagType": "select",
+        "className": "bg-black w-full outline-none",
         "name": "category",
-        "heading": "Category",
+        "label": "Category",
         "options": [
             {
                 "name": "Men",
@@ -42,10 +40,10 @@
         ]
     },
     {
-        "inputType": "select",
-        "className": "bg-black w-full outline-none my-3 mb-8",
+        "tagType": "select",
+        "className": "bg-black w-full outline-none",
         "name": "subCategories",
-        "heading": "Sub-Category",
+        "label": "Sub-Category",
         "options": [
             {
                 "name": "Pant",
@@ -62,10 +60,10 @@
         ]
     },
     {
-        "inputType": "select",
-        "className": "bg-black w-full outline-none my-3 mb-8",
+        "tagType": "select",
+        "className": "bg-black w-full outline-none",
         "name": "sort",
-        "heading": "Sort By",
+        "label": "Sort By",
         "options": [
             {
                 "name": "Newest",

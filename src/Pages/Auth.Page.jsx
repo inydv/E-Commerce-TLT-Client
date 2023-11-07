@@ -1,35 +1,29 @@
+// REACT AND REACT ROUTER DOM
 import { useRef, useEffect, useState } from "react";
+import { useLocation } from "react-router-dom";
+
+// CUSTOM IMPORTS
 import { AuthenticationForm } from "../Components/index";
 import RegisterFormConstant from "../Constants/RegisterForm.Constant.json";
 import LoginFormConstant from "../Constants/LoginForm.Constant.json";
 import ResetPasswordFormConstant from "../Constants/ResetPasswordForm.Constant.json";
 import ForgotPasswordFormConstant from "../Constants/ForgotPasswordForm.Constant.json";
-import RouteConfig from "../Constants/Routes.Constant.json";
-import { useLocation } from "react-router-dom";
+import RouteConstant from "../Constants/Routes.Constant.json";
 
+// AUTH
 export default function Auth() {
+  // STATES
+  const [pathName, setPathName] = useState();
+
+  // USE LOCATION
   const location = useLocation();
 
+  // REFS
   const loginTab = useRef(null);
   const registerTab = useRef(null);
   const switchTab = useRef(null);
 
-  const [pathName, setPathName] = useState();
-
-  useEffect(() => {
-    window.scrollTo(0, 70);
-
-    const locationPathName = location.pathname;
-
-    if (locationPathName.includes(RouteConfig.resetPW)) {
-      setPathName(RouteConfig.resetPW);
-    } else if (locationPathName.includes(RouteConfig.forgotPW)) {
-      setPathName(RouteConfig.forgotPW);
-    } else {
-      setPathName(RouteConfig.Authentication);
-    }
-  }, [location]);
-
+  // CUSTOM FUNCTION
   const switchTabs = (tab) => {
     if (tab === "login") {
       switchTab.current.classList.add("translate-x-0");
@@ -47,6 +41,22 @@ export default function Auth() {
     }
   };
 
+  // USE EFFECT
+  useEffect(() => {
+    window.scrollTo(0, 70);
+
+    const locationPathName = location.pathname;
+
+    if (locationPathName.includes(RouteConstant.resetPW)) {
+      setPathName(RouteConstant.resetPW);
+    } else if (locationPathName.includes(RouteConstant.forgotPW)) {
+      setPathName(RouteConstant.forgotPW);
+    } else {
+      setPathName(RouteConstant.Authentication);
+    }
+  }, [location]);
+
+  // JSX ELEMENT
   return (
     <div className="bg-[url('../src/Assets/auth.jpg')] h-screen bg-no-repeat bg-cover bg-center grid place-items-center">
       <div className="bg-black p-2 overflow-hidden box-border w-[350px] h-[400px]">
@@ -56,13 +66,13 @@ export default function Auth() {
               className="cursor-pointer hover:text-red-600 transition-all duration-200 ease-linear w-full grid place-items-center text-lg font-medium"
               onClick={() => switchTabs("login")}
             >
-              {pathName === RouteConfig.forgotPW
+              {pathName === RouteConstant.forgotPW
                 ? "FORGOT PASSWORD"
-                : pathName === RouteConfig.resetPW
+                : pathName === RouteConstant.resetPW
                 ? "RESET PASSWORD"
                 : "LOGIN"}
             </p>
-            {pathName === RouteConfig.Authentication && (
+            {pathName === RouteConstant.Authentication && (
               <p
                 className="cursor-pointer hover:text-red-600 transition-all duration-200 ease-linear w-full grid place-items-center text-lg font-medium"
                 onClick={() => switchTabs("register")}
@@ -73,19 +83,19 @@ export default function Auth() {
           </div>
           <button
             className={`bg-button h-[3px] ${
-              pathName === RouteConfig.Authentication ? "w-[50%]" : "w-full"
+              pathName === RouteConstant.Authentication ? "w-[50%]" : "w-full"
             }  border-none transition-all duration-200 ease-linear`}
             ref={switchTab}
           ></button>
         </div>
-        {pathName === RouteConfig.resetPW ? (
+        {pathName === RouteConstant.resetPW ? (
           <AuthenticationForm form={ResetPasswordFormConstant} type="Reset" />
-        ) : pathName === RouteConfig.forgotPW ? (
+        ) : pathName === RouteConstant.forgotPW ? (
           <AuthenticationForm
             form={ForgotPasswordFormConstant}
             type="Forgot"
             isLinkShow={true}
-            navigateRoute={RouteConfig.Authentication}
+            navigateRoute={RouteConstant.Authentication}
             navigateTag="Back To Login?"
           />
         ) : (
@@ -95,7 +105,7 @@ export default function Auth() {
               form={LoginFormConstant}
               type="Login"
               isLinkShow={true}
-              navigateRoute={RouteConfig.forgotPW}
+              navigateRoute={RouteConstant.forgotPW}
               navigateTag="Forgot Password?"
             />
             <AuthenticationForm

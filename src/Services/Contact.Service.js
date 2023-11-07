@@ -1,49 +1,53 @@
-import Api from "../Constants/API.Constant.json";
-import toastConfig from "../Constants/Toast.Constant.json";
-import { request } from "../Configs/RequestMethod.Config";
+// CUSTOM IMPORTS
+import ApiConstant from "../Constants/API.Constant.json";
+import ToastConstant from "../Constants/Toast.Constant.json";
+import { Request } from "../Configs/RequestMethod.Config";
+
+// TOASTER
 import toast from 'react-hot-toast';
 
+// APIS
 export const CREATECONTACT = async (reqBody) => {
     try {
-        return await request.post(Api.user.contact, reqBody);
+        return await Request.post(ApiConstant.user.contact, reqBody);
     } catch (error) {
         if (error?.response?.data?.MESSAGE)
-            return toast.error(error?.response?.data?.MESSAGE, toastConfig.error);
+            return toast.error(error?.response?.data?.MESSAGE, ToastConstant.error);
     }
 }
 
 export const GETALLCONTACT = async () => {
     try {
-        return await request.get(Api.admin.contact);
+        return await Request.get(ApiConstant.admin.contact);
     } catch (error) {
         if (error?.response?.data?.MESSAGE)
-            return toast.error(error?.response?.data?.MESSAGE, toastConfig.error);
+            return toast.error(error?.response?.data?.MESSAGE, ToastConstant.error);
     }
 }
 
 export const GETCONTACTDETAILS = async (contactId) => {
     try {
-        return await request.get(Api.admin.contact + "/" + contactId);
+        return await Request.get(ApiConstant.admin.contact + "/" + contactId);
     } catch (error) {
         if (error?.response?.data?.MESSAGE)
-            return toast.error(error?.response?.data?.MESSAGE, toastConfig.error);
+            return toast.error(error?.response?.data?.MESSAGE, ToastConstant.error);
     }
 }
 
 export const UPDATECONTACTSTATUS = async (contactId, reqBody) => {
     try {
-        return await request.patch(Api.admin.contact, reqBody);
+        return await Request.patch(ApiConstant.admin.contact, reqBody);
     } catch (error) {
         if (error?.response?.data?.MESSAGE)
-            return toast.error(error?.response?.data?.MESSAGE, toastConfig.error);
+            return toast.error(error?.response?.data?.MESSAGE, ToastConstant.error);
     }
 }
 
 export const DELETECONTACT = async (contactId) => {
     try {
-        return await request.delete(Api.admin.contact + "/" + contactId);
+        return await Request.delete(ApiConstant.admin.contact + "/" + contactId);
     } catch (error) {
         if (error?.response?.data?.MESSAGE)
-            return toast.error(error?.response?.data?.MESSAGE, toastConfig.error);
+            return toast.error(error?.response?.data?.MESSAGE, ToastConstant.error);
     }
 }

@@ -16,8 +16,9 @@
         "cart": "/user/cart"
     },
     "payment": {
-        "getStripeApiKey": "/user/payment/stripe/api-key",
-        "processPayment": "/user/payment/process"
+        "createOrder": "/user/payment/create/order",
+        "verification": "/user/payment/vertification",
+        "keyId": "/user/payment/keyId"
     },
     "admin": {
         "user": "/admin/user",

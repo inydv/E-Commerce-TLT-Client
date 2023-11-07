@@ -1,0 +1,97 @@
+{
+    "user": [
+        {
+            "type": "image",
+            "key": "avatar"
+        },
+        {
+            "type": "text",
+            "key": "username"
+        },
+        {
+            "type": "text",
+            "key": "email"
+        },
+        {
+            "type": "text",
+            "key": "phone"
+        },
+        {
+            "type": "text",
+            "key": "gender"
+        },
+        {
+            "type": "Action",
+            "isEditEnabled": false,
+            "isDeleteEnabled": true
+        }
+    ],
+    "product": [
+        {
+            "type": "image",
+            "key": "images"
+        },
+        {
+            "type": "text",
+            "key": "name"
+        },
+        {
+            "type": "text",
+            "key": "category"
+        },
+        {
+            "type": "text",
+            "key": "subCategories"
+        },
+        {
+            "type": "text",
+            "key": "price"
+        },
+        {
+            "type": "text",
+            "key": "quantity"
+        },
+        {
+            "type": "text",
+            "key": "ratings"
+        },
+        {
+            "type": "Action",
+            "isEditEnabled": true,
+            "isDeleteEnabled": true
+        }
+    ],
+    "order": [],
+    "contact": [
+        {
+            "type": "text",
+            "key": "firstname"
+        },
+        {
+            "type": "text",
+            "key": "lastname"
+        },
+        {
+            "type": "text",
+            "key": "email"
+        },
+        {
+            "type": "text",
+            "key": "status"
+        },
+        {
+            "type": "text",
+            "key": "subject"
+        },
+        {
+            "type": "text",
+            "key": "message"
+        },
+        {
+            "type": "Action",
+            "isViewEnabled": true,
+            "isEditEnabled": true,
+            "isDeleteEnabled": false
+        }
+    ]
+}

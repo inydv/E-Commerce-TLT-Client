@@ -1,31 +1,41 @@
+// MUI
 import Rating from "@mui/material/Rating";
-import RSCoversion from "../Pipes/RSConversion.Pipe";
 
+// CUSTOM IMPORTS
+import RSCoversion from "../Pipes/RSConversion.Pipe";
+import UpdateCart from "../Pipes/Cart.Pipe";
+
+// PRODUCT DETAILS
 export default function ProductDetails({ item }) {
+  // LOCAL STORAGE
+  const [cart, setCart] = UpdateCart([]);
+
+  // JSX ELEMENT
   return (
     <div>
       <h2 className="font-semibold text-2xl lg:text-4xl">{item?.name}</h2>
-      <p className="font-medium text-lg lg:text-xl mt-1 lg:mt-2">
+      <p className="text-base lg:text-xl mt-4">
         Product #{item?._id}
       </p>
       <Rating
         value={item?.ratings || 0}
         precision={0.5}
-        className="my-2 lg:my-5"
+        className="mt-4"
         readOnly
       />
-      <h1 className="font-semibold text-lg lg:text-xl">
+      <h1 className="font-semibold text-lg lg:text-xl mt-4">
         {RSCoversion(item?.price)}
       </h1>
-      <p
-        className="text-base lg:text-lg mt-1 lg:my-2"
-        dangerouslySetInnerHTML={{ __html: item?.description }}
-      ></p>
-      <p className="text-base lg:text-lg">
+      <h1 className="underline text-xl font-semibold mt-4">Product Description</h1>
+      <p className="text-base lg:text-lg mt-2">{item?.description}</p>
+      <p className="text-base lg:text-lg mt-4">
         <span className="font-semibold">Quantity: </span>
         {item?.quantity}
       </p>
-      <button className="bg-button py-2 px-5 my-3 text-base font-semibold">
+      <button
+        className="primary-button mt-4"
+        onClick={() => setCart({ product: item, quantity: 1 })}
+      >
         ADD TO CART
       </button>
     </div>

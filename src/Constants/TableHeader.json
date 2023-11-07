@@ -1,0 +1,38 @@
+{
+    "user": [
+        "Avatar",
+        "Name",
+        "Email",
+        "Phone",
+        "Gender",
+        "Action"
+    ],
+    "product": [
+        "Image",
+        "Name",
+        "Category",
+        "Sub Category",
+        "Price",
+        "Quantity",
+        "Ratings",
+        "Action"
+    ],
+    "order": [
+
+    ],
+    "contact": [
+        "First Name",
+        "Last Name",
+        "Email",
+        "Status",
+        "Subject",
+        "Message",
+        "Action"
+    ],
+    "cart": [
+        "Image",
+        "Product",
+        "Quantity",
+        "Action"
+    ]
+}

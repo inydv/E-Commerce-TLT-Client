@@ -1,17 +1,23 @@
+// REACT AND REACT ROUTER DOM
 import { Children, useEffect, useState } from "react";
-import Slider from "@mui/material/Slider";
-import { BiSearchAlt2 } from "react-icons/bi";
-import ShopFilterConstant from "../Constants/ShopFilter.Constant.json";
 import {
   createSearchParams,
   useNavigate,
   useSearchParams,
 } from "react-router-dom";
 
-export default function ShopFilters({ close }) {
-  const navigate = useNavigate();
-  const [searchParams] = useSearchParams();
+// MUI
+import Slider from "@mui/material/Slider";
 
+// REACT ICONS
+import { BiSearchAlt2 } from "react-icons/bi";
+
+// CUSTOM IMPORT
+import ShopFilterConstant from "../Constants/ShopFilter.Constant.json";
+
+// SHOP FILTERS
+export default function ShopFilters({ setOpenDrawer }) {
+  // STATE
   const [formData, setFormData] = useState({
     name: "",
     price_gte: 500,
@@ -24,18 +30,11 @@ export default function ShopFilters({ close }) {
     sort: "newest",
   });
 
-  useEffect(() => {
-    for (const entry of searchParams.entries()) {
-      const [param, value] = entry;
-      setFormData((prevState) => {
-        return {
-          ...prevState,
-          [param]: value,
-        };
-      });
-    }
-  }, [searchParams]);
+  // USE NAVIGATE AND USE SEARCH PARAMS
+  const navigate = useNavigate();
+  const [searchParams] = useSearchParams();
 
+  // CUSTOM FUNCTION
   const handleInput = (e) => {
     if (e.target.name === "price" || e.target.name === "ratings") {
       setFormData((prevState) => {
@@ -60,23 +59,38 @@ export default function ShopFilters({ close }) {
       pathname: "/shop",
       search: `?${createSearchParams(formData)}`,
     });
-    close();
+    setOpenDrawer(false);
   };
 
   const handleClear = async () => {
     navigate("/shop");
-    close();
+    setOpenDrawer(false);
   };
 
+  // USE EFFECT
+  useEffect(() => {
+    console.log("helo");
+    for (const entry of searchParams.entries()) {
+      const [param, value] = entry;
+      setFormData((prevState) => {
+        return {
+          ...prevState,
+          [param]: value,
+        };
+      });
+    }
+  }, [searchParams]);
+
+  // JSX ELEMENT
   return (
     <div className="bg-black">
-      <div className="border-button border-2 rounded p-5">
+      <div className="border-customGray border-2 rounded p-5 sm:p-10">
         {Children.toArray(
           ShopFilterConstant?.map(
             ({
               className,
-              heading,
-              inputType,
+              label,
+              tagType,
               name,
               max,
               min,
@@ -85,9 +99,9 @@ export default function ShopFilters({ close }) {
               step,
               type,
             }) =>
-              inputType === "input" ? (
+              tagType === "input" ? (
                 <>
-                  <p className="font-semibold text-lg">{heading}</p>
+                  <p className="font-semibold text-lg pb-3">{label}</p>
                   <div className="relative">
                     <input
                       type={type}
@@ -98,14 +112,14 @@ export default function ShopFilters({ close }) {
                       onChange={(e) => handleInput(e)}
                     />
                     <BiSearchAlt2
-                      className="absolute top-5 right-2 cursor-pointer"
-                      size={20}
+                      className="absolute bottom-3 right-2 cursor-pointer"
+                      size={25}
                     />
                   </div>
                 </>
-              ) : inputType === "slider" ? (
+              ) : tagType === "slider" ? (
                 <>
-                  <p className="font-semibold text-lg">{heading}</p>
+                  <p className="font-semibold text-lg pt-6 pb-3">{label}</p>
                   <Slider
                     value={[
                       parseFloat(formData[`${name}_gte`]),
@@ -123,7 +137,7 @@ export default function ShopFilters({ close }) {
                 </>
               ) : (
                 <>
-                  <p className="font-semibold text-lg">{heading}</p>
+                  <p className="font-semibold text-lg pt-6 pb-3">{label}</p>
                   <select
                     className={className}
                     value={formData[name]}
@@ -143,17 +157,11 @@ export default function ShopFilters({ close }) {
               )
           )
         )}
-        <div className="flex justify-end">
-          <button
-            className="bg-button px-5 py-2 font-semibold mr-5"
-            onClick={() => handleClear()}
-          >
+        <div className="flex justify-end gap-5 pt-6">
+          <button className="primary-button" onClick={() => handleClear()}>
             Clear
           </button>
-          <button
-            className="bg-button px-5 py-2 font-semibold"
-            onClick={() => handleSubmit()}
-          >
+          <button className="primary-button" onClick={() => handleSubmit()}>
             Apply Filter
           </button>
         </div>

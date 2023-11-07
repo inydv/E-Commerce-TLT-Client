@@ -1,74 +1,113 @@
-import { MdDashboard } from "react-icons/md";
-import { BsFillPersonFill, BsFillBagCheckFill } from "react-icons/bs";
-import { MdContactSupport } from "react-icons/md";
-import { FaTshirt } from "react-icons/fa";
+// REACT AND REACT ROUTER DOM
 import { Children, useState } from "react";
-import RouteConfig from "../Constants/Routes.Constant.json";
-import SpeedDialAction from "@mui/material/SpeedDialAction";
 import { useNavigate } from "react-router-dom";
-import SpeedDial from "@mui/material/SpeedDial";
+
+// CUSTOM IMPORTS
+import RoutesConstant from "../Constants/Routes.Constant.json";
+import { Form, MUIDialog, SideDrawer } from "../Shared/index";
+import AddProductFormConstant from "../Constants/AddProductForm.Constant.json";
+
+// REACT ICONS
 import { HiMenuAlt2 } from "react-icons/hi";
 
+// NAVIGATION LIST
+const NavigationList = ({ NavigationConstant }) => (
+  <ul className="justify-self-center inline-flex flex-col gap-5 text-lg">
+    {Children.toArray(
+      NavigationConstant?.map(({ func, name }) => (
+        <li className="border-b-2 border-b-customGray p-2 pb-5">
+          <p onClick={() => func()}>{name}</p>
+        </li>
+      ))
+    )}
+  </ul>
+);
+
+// SIDEBAR
 export default function Sidebar() {
+  // STATES
+  const [isDrawerOpen, setIsDrawerOpen] = useState(false);
+  const [openDialog, setOpenDialog] = useState(false);
+  const [formData, setFormData] = useState({});
+
+  // USE NAVIGATE
   const navigate = useNavigate();
 
-  const [open, setOpen] = useState(false);
-
-  const handleSpeedDial = () => {
-    setOpen(!open);
-  };
-
-  const SidebarItems = [
+  // NAVIGATION CONSTANT
+  const NavigationConstant = [
     {
+      func: () => {
+        setIsDrawerOpen(false);
+        navigate(RoutesConstant.dashboard);
+      },
       name: "Dashboard",
-      icon: <MdDashboard size={25} />,
-      func: () => navigate(RouteConfig.dashboard),
     },
     {
+      func: () => {
+        setIsDrawerOpen(false);
+        navigate(RoutesConstant.adminUser);
+      },
       name: "User",
-      icon: <BsFillPersonFill size={25} />,
-      func: () => navigate(RouteConfig.adminUser),
     },
     {
+      func: () => {
+        setIsDrawerOpen(false);
+        navigate(RoutesConstant.adminProduct);
+      },
       name: "Product",
-      icon: <FaTshirt size={25} />,
-      func: () => navigate(RouteConfig.myOadminProductrders),
     },
     {
+      func: () => {
+        setIsDrawerOpen(false);
+        setOpenDialog(true);
+      },
+      name: "Add Product",
+    },
+    {
+      func: () => {
+        setIsDrawerOpen(false);
+        navigate(RoutesConstant.adminOrder);
+      },
       name: "Order",
-      icon: <BsFillBagCheckFill size={25} />,
-      func: () => navigate(RouteConfig.adminOrder),
     },
     {
+      func: () => {
+        setIsDrawerOpen(false);
+        navigate(RoutesConstant.adminContact);
+      },
       name: "Contact",
-      icon: <MdContactSupport size={25} />,
-      func: () => navigate(RouteConfig.adminContact),
     },
   ];
 
+  // JSX ELEMENT
   return (
-    <div className="fixed top-16 right-10">
-      <SpeedDial
-        ariaLabel="SpeedDial tooltip example"
-        FabProps={{ style: { backgroundColor: "black", zIndex: "10" } }}
-        icon={<HiMenuAlt2 color="white" size={25} />}
-        onClick={() => handleSpeedDial()}
-        direction="left"
-        open={open}
-      >
-        {Children.toArray(
-          SidebarItems.map((item) => (
-            <SpeedDialAction
-              FabProps={{
-                style: { backgroundColor: "black", zIndex: "10" },
-              }}
-              icon={item.icon}
-              tooltipTitle={item.name}
-              onClick={item.func}
-            />
-          ))
-        )}
-      </SpeedDial>
+    <div className="mb-5">
+      <div className="flex justify-end gap-2 cursor-pointer">
+        <p>Menu</p>
+        <HiMenuAlt2
+          color="white"
+          size={25}
+          onClick={() => setIsDrawerOpen(true)}
+        />
+      </div>
+      <MUIDialog
+        open={openDialog}
+        setOpen={setOpenDialog}
+        title={"Add Product"}
+        content={
+          <Form
+            formData={formData}
+            form={AddProductFormConstant}
+            setFormData={setFormData}
+          />
+        }
+        btnText={"Add"}
+      />
+      <SideDrawer
+        isDrawerOpen={isDrawerOpen}
+        setIsDrawerOpen={setIsDrawerOpen}
+        content={<NavigationList NavigationConstant={NavigationConstant} />}
+      />
     </div>
   );
 }

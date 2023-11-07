@@ -1,9 +1,12 @@
+/* GOOGLE FONTS */
 @import url('https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
 
+/* TAILWIND */
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
+/* ALL */
 * {
     font-family: 'Raleway', sans-serif;
     scroll-behavior: smooth;
@@ -11,6 +14,7 @@
     color: white;
 }
 
+/* BODY */
 body {
     cursor: url("./Assets/cursor.png"), auto;
 }
@@ -84,4 +88,26 @@ input[type='radio']:checked:after {
     display: -webkit-box;
     -webkit-box-orient: vertical;
     -webkit-line-clamp: 2;
+}
+
+/* BORDER GRAY */
+.border-gray {
+    border-color: gray;
+}
+
+/* TAILWIND */
+.primary-button {
+    @apply font-semibold bg-customGray px-5 py-3 sm:py-4 sm:px-6 md:py-5 md:px-10 cursor-pointer;
+}
+
+.pagination {
+    @apply border-customGray border-2 py-2 px-3 cursor-pointer hover:text-red-700 text-sm font-semibold;
+}
+
+.heading-line {
+    @apply flex-grow h-px bg-gray-700;
+}
+
+.heading {
+    @apply flex-shrink text-center font-semibold text-xl md:text-4xl;
 }

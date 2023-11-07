@@ -1,45 +1,41 @@
 [
     {
-        "inputType": "inputBox",
-        "title": "Username",
+        "tagType": "input",
+        "label": "Username",
         "type": "text",
-        "className": "w-full xl:max-w-[300px] rounded-sm py-2 px-4 outline-none text-black text-base mt-1 xl:mt-0",
+        "className": "w-full xl:max-w-[300px] rounded-sm py-2 px-4 outline-none text-black text-sm sm:text-base mt-1 xl:mt-0",
         "placeholder": "Lokesh Yadav",
-        "isRequired": true,
-        "autoComplete": "username",
         "name": "username"
     },
     {
-        "inputType": "inputBox",
-        "title": "Phone",
+        "tagType": "input",
+        "label": "Phone",
         "type": "number",
-        "className": "w-full xl:max-w-[300px] rounded-sm py-2 px-4 outline-none text-black text-base mt-1 xl:mt-0",
+        "className": "w-full xl:max-w-[300px] rounded-sm py-2 px-4 outline-none text-black text-sm sm:text-base mt-1 xl:mt-0",
         "placeholder": "1234567890",
-        "isRequired": true,
-        "autoComplete": "phone",
         "name": "phone"
     },
     {
-        "inputType": "radio",
-        "title": "Gender",
-        "inputArr": [
+        "tagType": "radio",
+        "label": "Gender",
+        "options": [
             {
-                "title": "Male",
+                "label": "Male",
                 "name": "gender"
             },
             {
-                "title": "Female",
+                "label": "Female",
                 "name": "gender"
             },
             {
-                "title": "Others",
+                "label": "Others",
                 "name": "gender"
             }
         ]
     },
     {
-        "inputType": "passwordBox",
-        "inputArr": [
+        "tagType": "password",
+        "options": [
             {
                 "placeholder": "Current Password",
                 "name": "currentPassword"

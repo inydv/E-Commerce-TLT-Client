@@ -1,5 +1,8 @@
-import ProductsCategoriesAndProducts from './ProductsCategoriesAndProducts.Shared';
-import Loader from "./Loader.Shared";
-import CartTable from "./CartTable.Shared";
+// IMPORTS
+import Table from './Table.Shared';
+import MUIDialog from './MUIDialog.Shared';
+import Form from './Form.Shared';
+import SideDrawer from './SideDrawer.Shared';
 
-export { ProductsCategoriesAndProducts, Loader, CartTable }
+// EXPORTS
+export { Table, MUIDialog, Form, SideDrawer }

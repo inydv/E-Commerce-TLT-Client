@@ -1,26 +1,31 @@
+// REACT ROUTER DOM
 import { Link } from "react-router-dom";
-import RSCoversion from "../Pipes/RSConversion.Pipe";
-import Routes from "../Constants/Routes.Constant.json";
 
+// CUSTOM IMPORTS
+import RSCoversion from "../Pipes/RSConversion.Pipe";
+import RoutesConstant from "../Constants/Routes.Constant.json";
+
+// PRODUCTS CARD
 export default function ProductsCard({ item }) {
+  // JSX ELEMENT
   return (
-    <div className="h-[200px] w-[160px] sm:h-[300px] sm:w-[240px] xl:h-[400px] xl:w-[320px] overflow-hidden relative group">
-      <Link to={Routes.productDetails + "/" + item._id}>
+    <div className="aspect-square h-full max-h-[344px] max-w-[48%] md:max-w-[344px] overflow-hidden relative group">
+      <Link to={RoutesConstant.productDetails + "/" + item._id}>
         <img
           src={item?.images && item?.images[0]?.url}
           alt=""
           className="h-full w-full transition-all duration-200 ease-in-out group-hover:translate-x-[30%] group-hover:opacity-50"
         />
       </Link>
-      <div className="absolute top-0 left-0 w-[60%] h-full bg-[#060606] transition-all duration-200 ease-in-out origin-left grid place-items-center rotate-180 group-hover:rotate-0">
-        <div className="p-1">
+      <div className="absolute top-0 left-0 w-[60%] h-full bg-customBlack transition-all duration-200 ease-in-out origin-left grid place-items-center rotate-180 group-hover:rotate-0">
+        <div className="p-5">
           <p className="text-xs sm:text-sm xl:text-lg font-semibold">
             {item.name}
           </p>
-          <p className="text-red-600 text-xs sm:text-sm xl:text-lg font-semibold mt-1 mb-2">
+          <p className="text-red-700 text-xs sm:text-sm xl:text-lg font-semibold mt-2 mb-3">
             {RSCoversion(item.price)}
           </p>
-          <button className="bg-button py-1 px-2 xl:py-2 xl:px-4 text-[10px] sm:text-xs xl:text-base font-semibold">
+          <button className="primary-button text-sm md:px-5 md:py-2">
             ADD TO CART
           </button>
         </div>

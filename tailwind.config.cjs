@@ -7,7 +7,18 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        button: '#191919'
+        customGray: '#191919',
+        customBlack: '#020202'
+      },
+      maxHeight: {
+        banner: "600px"
+      },
+      minHeight: {
+        content: "calc(100vh - 426px)",
+        footer: "356px"
+      },
+      height: {
+        header: "70px",
       }
     },
   },
