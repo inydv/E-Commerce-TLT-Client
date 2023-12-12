@@ -9,6 +9,7 @@ import { AiFillDelete, AiFillEye } from "react-icons/ai";
 // CUSTOM IMPORTS
 import { MUIDialog } from "./index";
 import { NotAvailable } from "../Components/index";
+import EnumConstant from "../Constants/Enum.Constant.json";
 
 // TABLE
 export default function Table({ header, data, body, handleBtn }) {
@@ -47,7 +48,7 @@ export default function Table({ header, data, body, handleBtn }) {
                         isEditEnabled,
                         isDeleteEnabled,
                       }) =>
-                        type === "image" ? (
+                        type === EnumConstant.Table.Image ? (
                           <td className="border border-gray-500 p-2">
                             <div className="grid place-content-center">
                               <img
@@ -57,12 +58,17 @@ export default function Table({ header, data, body, handleBtn }) {
                                     ? item[key][0]?.url
                                     : "")
                                 }
-                                alt=""
+                                alt="Image"
                                 className="h-10 w-10"
+                                onError={({ currentTarget }) => {
+                                  currentTarget.onerror = null;
+                                  currentTarget.src =
+                                    "/src/Assets/NoImageAvailable.jpg";
+                                }}
                               />
                             </div>
                           </td>
-                        ) : type === "Action" ? (
+                        ) : type === EnumConstant.Table.Action ? (
                           <td className="border border-gray-500 p-2">
                             <div className="flex gap-5 justify-center items-center">
                               {isViewEnabled && (

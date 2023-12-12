@@ -1,6 +1,9 @@
 // REACT
 import { Children, useRef } from "react";
 
+// CUSTOM IMPORT
+import EnumConstant from "../Constants/Enum.Constant.json";
+
 // FORM
 export default function Form({
   submitForm,
@@ -96,7 +99,7 @@ export default function Form({
                           autoFocus={autoFocus || false}
                           required={required || true}
                           name={name}
-                          value={formData[name]}
+                          value={formData[name] || ""}
                           onChange={(e) => handleInput(e)}
                         />
                         <div className="text-base">{label}</div>
@@ -105,7 +108,7 @@ export default function Form({
                   )
                 )}
               </fieldset>
-            ) : tagType === "textarea" ? (
+            ) : tagType === EnumConstant.FormTagType.TextArea ? (
               <div className={containerClass}>
                 <label className={labelClass}>{label}</label>
                 <textarea
@@ -115,11 +118,11 @@ export default function Form({
                   autoFocus={autoFocus || false}
                   rows={rows}
                   name={name}
-                  value={formData[name]}
+                  value={formData[name] || ""}
                   onChange={(e) => handleInput(e)}
                 ></textarea>
               </div>
-            ) : tagType === "select" ? (
+            ) : tagType === EnumConstant.FormTagType.Select ? (
               <div className={containerClass}>
                 <label className={labelClass}>{label}</label>
                 <select
@@ -138,7 +141,7 @@ export default function Form({
                   )}
                 </select>
               </div>
-            ) : tagType === "file" ? (
+            ) : tagType === EnumConstant.FormTagType.File ? (
               <div className={containerClass}>
                 <label className={labelClass}>{label}</label>
                 <input
@@ -161,8 +164,13 @@ export default function Form({
                     formData[name]?.map((item) => (
                       <img
                         src={item}
-                        alt=""
+                        alt="Product Image"
                         className="aspect-square h-16 w-16 border border-gray"
+                        onError={({ currentTarget }) => {
+                          currentTarget.onerror = null;
+                          currentTarget.src =
+                            "/src/Assets/NoImageAvailable.jpg";
+                        }}
                       />
                     ))
                   )}
@@ -178,7 +186,7 @@ export default function Form({
                   required={required || false}
                   autoFocus={autoFocus || false}
                   name={name}
-                  value={formData[name]}
+                  value={formData[name] || ""}
                   onChange={(e) => handleInput(e)}
                 />
               </div>

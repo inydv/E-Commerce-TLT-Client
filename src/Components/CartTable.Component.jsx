@@ -10,16 +10,13 @@ export default function CartTable({ data }) {
   // STATE
   const [quantity, setQuantity] = useState(data?.quantity);
 
-  // LOCAL STORAGE
-  const [cart, setCart] = UpdateCart([]);
-
   // CUSTOM FUNCTION
   const handleQty = (type) => {
     if (type === "increase" && quantity < data?.product?.quantity) {
-      setCart({ ...data, quantity: quantity + 1 });
+      UpdateCart({ ...data, quantity: quantity + 1 });
       setQuantity(quantity + 1);
     } else if (type === "decrease" && quantity > 1) {
-      setCart({ ...data, quantity: quantity - 1 });
+      UpdateCart({ ...data, quantity: quantity - 1 });
       setQuantity(quantity - 1);
     }
   };
@@ -31,8 +28,12 @@ export default function CartTable({ data }) {
         <div className="grid place-content-center">
           <img
             src={data?.product?.images && data?.product?.images[0]?.url}
-            alt=""
+            alt="Product Image"
             className="h-20 w-20"
+            onError={({ currentTarget }) => {
+              currentTarget.onerror = null;
+              currentTarget.src = "/src/Assets/NoImageAvailable.jpg";
+            }}
           />
         </div>
       </td>
@@ -84,7 +85,12 @@ export default function CartTable({ data }) {
       </td>
       <td className="border border-gray-500 p-2">
         <div className="grid place-content-center">
-          <button className="primary-button">X</button>
+          <button
+            className="primary-button"
+            onClick={() => UpdateCart({ ...data }, true)}
+          >
+            X
+          </button>
         </div>
       </td>
     </tr>

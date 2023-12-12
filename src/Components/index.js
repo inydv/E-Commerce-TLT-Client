@@ -11,11 +11,10 @@ import ProductDetails from "./ProductDetails.Component";
 import ReviewCard from "./ReviewCard.Component";
 import MyAccountForm from "./MyAccountForm.Component";
 import ProceedNextBox from "./ProceedNextBox.Component";
-import OrderDetailCard from "./OrderDetailCard.Component";
 import ShopFilters from "./ShopFilters.Component";
 import CartTable from "./CartTable.Component";
 import ProductsCategoriesAndProducts from "./ProductsCategoriesAndProducts.Component";
 import NotAvailable from "./NotAvailable.Component";
 
 // EXPORTS
-export { Carousel, Categories, ProductsCard, ProductsCategoriesCard, Banner, NewsLetter, AuthenticationForm, AddReviews, ProductDetails, ReviewCard, MyAccountForm, ProceedNextBox, OrderDetailCard, ShopFilters, CartTable, ProductsCategoriesAndProducts, NotAvailable }
+export { Carousel, Categories, ProductsCard, ProductsCategoriesCard, Banner, NewsLetter, AuthenticationForm, AddReviews, ProductDetails, ReviewCard, MyAccountForm, ProceedNextBox, ShopFilters, CartTable, ProductsCategoriesAndProducts, NotAvailable }

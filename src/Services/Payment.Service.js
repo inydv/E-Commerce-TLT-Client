@@ -7,18 +7,27 @@ import { Request } from "../Configs/RequestMethod.Config";
 import toast from 'react-hot-toast';
 
 // APIS
-export const PROCESSPAYMENT = async (reqBody) => {
+export const VERIFYPAYMENT = async (reqBody) => {
     try {
-        return await Request.post(ApiConstant.payment.processPayment, reqBody);
+        return await Request.post(ApiConstant.payment.verification, reqBody);
     } catch (error) {
         if (error?.response?.data?.MESSAGE)
             return toast.error(error?.response?.data?.MESSAGE, ToastConstant.error);
     }
 }
 
-export const GETSTRIPEAPIKEY = async () => {
+export const RAZORPAYCREATEORDER = async (reqBody) => {
     try {
-        return await Request.get(ApiConstant.payment.getStripeApiKey);
+        return await Request.post(ApiConstant.payment.createOrder, reqBody);
+    } catch (error) {
+        if (error?.response?.data?.MESSAGE)
+            return toast.error(error?.response?.data?.MESSAGE, ToastConstant.error);
+    }
+}
+
+export const GETRAZORPAYKEYID = async () => {
+    try {
+        return await Request.get(ApiConstant.payment.keyId);
     } catch (error) {
         if (error?.response?.data?.MESSAGE)
             return toast.error(error?.response?.data?.MESSAGE, ToastConstant.error);

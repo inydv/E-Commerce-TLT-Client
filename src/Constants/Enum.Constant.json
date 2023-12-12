@@ -1,3 +1,29 @@
 {
-    
+    "AuthenticationType": {
+        "Register": "Register",
+        "Login": "Login",
+        "Forgot": "Forgot"
+    },
+    "FormTagType": {
+        "Input": "input",
+        "Radio": "radio",
+        "Slider": "slider",
+        "TextArea": "textarea",
+        "Select": "select",
+        "File": "file"
+    },
+    "UserRole": {
+        "Admin": "Admin",
+        "Seller": "Seller"
+    },
+    "Patname": {
+        "User": "user",
+        "Product": "product",
+        "Order": "order",
+        "Contact": "contact"
+    },
+    "Table": {
+        "Image": "image",
+        "Action": "Action"
+    }
 }

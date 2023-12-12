@@ -18,15 +18,6 @@ export default function Contact() {
   const [formData, setFormData] = useState({});
 
   // CUSTOM FUNCTIONS
-  const handleInput = (e) => {
-    setFormData((prevState) => {
-      return {
-        ...prevState,
-        [e.target.name]: e.target.value,
-      };
-    });
-  };
-
   const handleSubmit = async (e) => {
     e.preventDefault();
 

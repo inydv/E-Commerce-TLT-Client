@@ -16,6 +16,7 @@ import {
   DELETEPRODUCT,
   DELETEUSER,
 } from "../Services/index";
+import EnumConstant from "../Constants/Enum.Constant.json";
 
 // ADMIN PAGE
 export default function AdminPages() {
@@ -45,13 +46,13 @@ export default function AdminPages() {
   };
 
   const handleBtn = (id) => {
-    if (pathname.includes("user")) {
+    if (pathname.includes(EnumConstant.Patname.User)) {
       deleteApi(DELETEUSER(id, GETALLUSERS()));
-    } else if (pathname.includes("product")) {
+    } else if (pathname.includes(EnumConstant.Patname.Product)) {
       deleteApi(DELETEPRODUCT(id, GETPRODUCTS({})));
-    } else if (pathname.includes("order")) {
+    } else if (pathname.includes(EnumConstant.Patname.Order)) {
       deleteApi(DELETEORDER(id, GETALLORDERS()));
-    } else if (pathname.includes("contact")) {
+    } else if (pathname.includes(EnumConstant.Patname.Contact)) {
       deleteApi(DELETECONTACT(id, GETALLCONTACT()));
     }
   };
@@ -60,19 +61,19 @@ export default function AdminPages() {
   useEffect(() => {
     window.scrollTo(0, 0);
 
-    if (pathname.includes("user")) {
+    if (pathname.includes(EnumConstant.Patname.User)) {
       setHeader(AdminTableHeader.user);
       setBody(AdminTableBody.user);
       getAPI(GETALLUSERS());
-    } else if (pathname.includes("product")) {
+    } else if (pathname.includes(EnumConstant.Patname.Product)) {
       setHeader(AdminTableHeader.product);
       setBody(AdminTableBody.product);
       getAPI(GETPRODUCTS({}));
-    } else if (pathname.includes("order")) {
+    } else if (pathname.includes(EnumConstant.Patname.Order)) {
       setHeader(AdminTableHeader.order);
       setBody(AdminTableBody.order);
       getAPI(GETALLORDERS());
-    } else if (pathname.includes("contact")) {
+    } else if (pathname.includes(EnumConstant.Patname.Contact)) {
       setHeader(AdminTableHeader.contact);
       setBody(AdminTableBody.contact);
       getAPI(GETALLCONTACT());

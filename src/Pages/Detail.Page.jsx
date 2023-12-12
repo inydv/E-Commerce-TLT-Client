@@ -42,8 +42,12 @@ export default function Detail() {
               productDetail?.images?.map((item) => (
                 <img
                   src={item?.url}
-                  alt=""
+                  alt="Product Image"
                   className="h-[400px] sm:h-[500px] lg:h-[700px] w-full"
+                  onError={({ currentTarget }) => {
+                    currentTarget.onerror = null;
+                    currentTarget.src = "/src/Assets/NoImageAvailable.jpg";
+                  }}
                 />
               ))
             )}

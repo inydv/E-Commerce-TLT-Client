@@ -6,7 +6,6 @@
   "cart": "/cart",
   "shop": "/shop",
   "myOrders": "/my-orders",
-  "orderDetails": "/order",
   "myAccount": "/my-account",
   "Authentication": "/authentication",
   "forgotPW": "/forgot-password",

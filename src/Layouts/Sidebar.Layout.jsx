@@ -6,6 +6,8 @@ import { useNavigate } from "react-router-dom";
 import RoutesConstant from "../Constants/Routes.Constant.json";
 import { Form, MUIDialog, SideDrawer } from "../Shared/index";
 import AddProductFormConstant from "../Constants/AddProductForm.Constant.json";
+import { useUser } from "../Context/User.Context";
+import EnumConstant from "../Constants/Enum.Constant.json";
 
 // REACT ICONS
 import { HiMenuAlt2 } from "react-icons/hi";
@@ -33,22 +35,11 @@ export default function Sidebar() {
   // USE NAVIGATE
   const navigate = useNavigate();
 
+  // CONTEXT
+  const { user } = useUser();
+
   // NAVIGATION CONSTANT
   const NavigationConstant = [
-    {
-      func: () => {
-        setIsDrawerOpen(false);
-        navigate(RoutesConstant.dashboard);
-      },
-      name: "Dashboard",
-    },
-    {
-      func: () => {
-        setIsDrawerOpen(false);
-        navigate(RoutesConstant.adminUser);
-      },
-      name: "User",
-    },
     {
       func: () => {
         setIsDrawerOpen(false);
@@ -63,21 +54,43 @@ export default function Sidebar() {
       },
       name: "Add Product",
     },
-    {
-      func: () => {
-        setIsDrawerOpen(false);
-        navigate(RoutesConstant.adminOrder);
-      },
-      name: "Order",
-    },
-    {
-      func: () => {
-        setIsDrawerOpen(false);
-        navigate(RoutesConstant.adminContact);
-      },
-      name: "Contact",
-    },
   ];
+
+  if (user && user.role === EnumConstant.UserRole.Admin) {
+    NavigationConstant.unshift(
+      {
+        func: () => {
+          setIsDrawerOpen(false);
+          navigate(RoutesConstant.dashboard);
+        },
+        name: "Dashboard",
+      },
+      {
+        func: () => {
+          setIsDrawerOpen(false);
+          navigate(RoutesConstant.adminUser);
+        },
+        name: "User",
+      }
+    );
+
+    NavigationConstant.push(
+      {
+        func: () => {
+          setIsDrawerOpen(false);
+          navigate(RoutesConstant.adminOrder);
+        },
+        name: "Order",
+      },
+      {
+        func: () => {
+          setIsDrawerOpen(false);
+          navigate(RoutesConstant.adminContact);
+        },
+        name: "Contact",
+      }
+    );
+  }
 
   // JSX ELEMENT
   return (

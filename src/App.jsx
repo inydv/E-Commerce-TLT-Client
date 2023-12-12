@@ -3,8 +3,7 @@ import { useEffect, Suspense, useState } from "react";
 import { Routes, Route } from "react-router-dom";
 
 // TOASTER
-import { Toaster } from "react-hot-toast";
-import toast from "react-hot-toast";
+import toast, { Toaster } from "react-hot-toast";
 import ToastConstant from "./Constants/Toast.Constant.json";
 
 // CUSTOM  IMPORTS
@@ -24,7 +23,6 @@ import {
   MyAccount,
   MyOrders,
   NotFound,
-  OrderDetails,
   Shop,
   AdminPages,
 } from "./Pages/index";
@@ -115,11 +113,10 @@ export default function App() {
                 path={RouteConstant.myAccount}
                 element={<MyAccount />}
               />
-              <Route exact path={RouteConstant.myOrders} element={<MyOrders />} />
               <Route
                 exact
-                path={RouteConstant.orderDetails}
-                element={<OrderDetails />}
+                path={RouteConstant.myOrders}
+                element={<MyOrders />}
               />
             </Route>
 

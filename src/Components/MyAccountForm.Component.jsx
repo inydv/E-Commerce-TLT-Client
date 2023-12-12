@@ -4,6 +4,7 @@ import { Children, useRef, useState } from "react";
 // CUSTOM IMPORT
 import MyAccountFormConstant from "../Constants/MyAccountForm.Constant.json";
 import { useUser } from "../Context/User.Context";
+import EnumConstant from "../Constants/Enum.Constant.json";
 
 // REACT ICON
 import { BsFillPencilFill } from "react-icons/bs";
@@ -43,8 +44,12 @@ export default function MyAccountForm({
                   user?.avatar?.url ||
                   "/src/Assets/user-icon.png"
                 }
-                alt=""
+                alt="User Image"
                 className="rounded-full h-[80px] xl:h-[150px] w-[80px] xl:w-[150px] border-2 border-white mr-5"
+                onError={({ currentTarget }) => {
+                  currentTarget.onerror = null;
+                  currentTarget.src = "/src/Assets/NoImageAvailable.jpg";
+                }}
               />
               <input
                 type="file"
@@ -81,7 +86,7 @@ export default function MyAccountForm({
         {Children.toArray(
           MyAccountFormConstant?.map(
             ({ tagType, options, className, name, placeholder, label, type }) =>
-              tagType === "input" ? (
+              tagType === EnumConstant.FormTagType.Input ? (
                 <div className="xl:grid xl:grid-cols-2 mb-5">
                   <label className="font-semibold text-base sm:text-xl">
                     {label}
@@ -96,7 +101,7 @@ export default function MyAccountForm({
                     value={formData[name] || ""}
                   />
                 </div>
-              ) : tagType === "radio" ? (
+              ) : tagType === EnumConstant.FormTagType.Radio ? (
                 <div className="xl:grid xl:grid-cols-2 my-5 sm:my-10 items-center">
                   <label className="font-semibold text-base sm:text-xl">
                     {label}
@@ -125,7 +130,9 @@ export default function MyAccountForm({
               ) : (
                 <div className="xl:grid xl:grid-cols-2">
                   <div className="mb-5">
-                    <h6 className="font-semibold text-base sm:text-xl">Change Password</h6>
+                    <h6 className="font-semibold text-base sm:text-xl">
+                      Change Password
+                    </h6>
                     <p className="text-xs ml-5 mt-1 xl:mt-2 font-semibold">
                       **
                       <span

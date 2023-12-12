@@ -20,6 +20,7 @@ import { Children, useEffect, useState } from "react";
 
 // CUSTOM IMPORTS
 import RouteConstant from "../Constants/Routes.Constant.json";
+import EnumConstant from "../Constants/Enum.Constant.json";
 import { useUser } from "../Context/User.Context";
 import { LOGOUTUSER } from "../Services/index";
 import { SideDrawer } from "../Shared/index";
@@ -109,12 +110,19 @@ export default function Header() {
       },
     });
 
-    if (user.role === "Admin") {
+    if (
+      user.role === EnumConstant.UserRole.Admin ||
+      user.role === EnumConstant.UserRole.Seller
+    ) {
       option.unshift({
         icon: <MdDashboard size={20} />,
         name: "Dashboard",
         func: () => {
-          navigate(RouteConstant.dashboard);
+          if (user.role === EnumConstant.UserRole.Admin) {
+            navigate(RouteConstant.dashboard);
+          } else {
+            navigate(RouteConstant.adminProduct);
+          }
           setIsDrawerOpen(false);
         },
       });

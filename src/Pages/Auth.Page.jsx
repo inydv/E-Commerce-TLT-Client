@@ -9,6 +9,7 @@ import LoginFormConstant from "../Constants/LoginForm.Constant.json";
 import ResetPasswordFormConstant from "../Constants/ResetPasswordForm.Constant.json";
 import ForgotPasswordFormConstant from "../Constants/ForgotPasswordForm.Constant.json";
 import RouteConstant from "../Constants/Routes.Constant.json";
+import EnumConstant from "../Constants/Enum.Constant.json";
 
 // AUTH
 export default function Auth() {
@@ -25,14 +26,14 @@ export default function Auth() {
 
   // CUSTOM FUNCTION
   const switchTabs = (tab) => {
-    if (tab === "login") {
+    if (tab === EnumConstant.AuthenticationType.Login) {
       switchTab.current.classList.add("translate-x-0");
       switchTab.current.classList.remove("translate-x-full");
 
       registerTab.current.classList.remove("!translate-x-0");
       loginTab.current.classList.remove("-translate-x-full");
     }
-    if (tab === "register") {
+    if (tab === EnumConstant.AuthenticationType.Register) {
       switchTab.current.classList.add("translate-x-full");
       switchTab.current.classList.remove("translate-x-0");
 
@@ -64,7 +65,7 @@ export default function Auth() {
           <div className="flex">
             <p
               className="cursor-pointer hover:text-red-600 transition-all duration-200 ease-linear w-full grid place-items-center text-lg font-medium"
-              onClick={() => switchTabs("login")}
+              onClick={() => switchTabs(EnumConstant.AuthenticationType.Login)}
             >
               {pathName === RouteConstant.forgotPW
                 ? "FORGOT PASSWORD"
@@ -75,7 +76,9 @@ export default function Auth() {
             {pathName === RouteConstant.Authentication && (
               <p
                 className="cursor-pointer hover:text-red-600 transition-all duration-200 ease-linear w-full grid place-items-center text-lg font-medium"
-                onClick={() => switchTabs("register")}
+                onClick={() =>
+                  switchTabs(EnumConstant.AuthenticationType.Register)
+                }
               >
                 REGISTER
               </p>
@@ -93,7 +96,7 @@ export default function Auth() {
         ) : pathName === RouteConstant.forgotPW ? (
           <AuthenticationForm
             form={ForgotPasswordFormConstant}
-            type="Forgot"
+            type={EnumConstant.AuthenticationType.Forgot}
             isLinkShow={true}
             navigateRoute={RouteConstant.Authentication}
             navigateTag="Back To Login?"
@@ -103,7 +106,7 @@ export default function Auth() {
             <AuthenticationForm
               tab={loginTab}
               form={LoginFormConstant}
-              type="Login"
+              type={EnumConstant.AuthenticationType.Login}
               isLinkShow={true}
               navigateRoute={RouteConstant.forgotPW}
               navigateTag="Forgot Password?"
@@ -112,7 +115,7 @@ export default function Auth() {
               tab={registerTab}
               form={RegisterFormConstant}
               className="-translate-y-full translate-x-full"
-              type="Register"
+              type={EnumConstant.AuthenticationType.Register}
             />
           </>
         )}

@@ -17,9 +17,7 @@
         "Ratings",
         "Action"
     ],
-    "order": [
-
-    ],
+    "order": [],
     "contact": [
         "First Name",
         "Last Name",
@@ -33,6 +31,14 @@
         "Image",
         "Product",
         "Quantity",
+        "Action"
+    ],
+    "myOrder": [
+        "Products",
+        "Contact",
+        "Address",
+        "Status",
+        "Timestamp",
         "Action"
     ]
 }

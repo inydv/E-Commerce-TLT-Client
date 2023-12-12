@@ -7,15 +7,6 @@ import { Request } from "../Configs/RequestMethod.Config";
 import toast from 'react-hot-toast';
 
 // APIS
-export const CREATEORDER = async (reqBody) => {
-    try {
-        return await Request.post(ApiConstant.user.order, reqBody);
-    } catch (error) {
-        if (error?.response?.data?.MESSAGE)
-            return toast.error(error?.response?.data?.MESSAGE, ToastConstant.error);
-    }
-}
-
 export const GETALLORDERS = async () => {
     try {
         return await Request.get(ApiConstant.admin.order);

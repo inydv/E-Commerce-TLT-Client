@@ -7,7 +7,6 @@ import { AiFillLeftCircle, AiFillRightCircle } from "react-icons/ai";
 
 // CUSTOM IMPORTS
 import CarouselItemsConstant from "../Constants/CarouselItems.Constant.json";
-import RoutesConstant from "../Constants/Routes.Constant.json";
 
 // CAROUSEL
 export default function Carousel() {
@@ -40,7 +39,11 @@ export default function Carousel() {
           CarouselItemsConstant?.map((item) => (
             <div className="grid gap-5 grid-cols-2 items-center w-screen px-10 sm:px-14 bg-customBlack max-h-banner">
               <div className="grid items-end justify-center max-h-banner h-full">
-                <img src={item.img} alt="" className="max-h-banner" />
+                <img
+                  src={item.img}
+                  alt="Carousel Image"
+                  className="max-h-banner"
+                />
               </div>
               <div>
                 <h1 className="font-semibold text-base sm:text-xl md:text-4xl mb-5">
@@ -51,7 +54,7 @@ export default function Carousel() {
                 </p>
                 <Link
                   className="primary-button text-sm sm:text-base lg:text-lg"
-                  to={RoutesConstant.shop}
+                  to={item.link}
                 >
                   SHOP NOW
                 </Link>

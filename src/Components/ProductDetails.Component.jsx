@@ -7,16 +7,11 @@ import UpdateCart from "../Pipes/Cart.Pipe";
 
 // PRODUCT DETAILS
 export default function ProductDetails({ item }) {
-  // LOCAL STORAGE
-  const [cart, setCart] = UpdateCart([]);
-
   // JSX ELEMENT
   return (
     <div>
       <h2 className="font-semibold text-2xl lg:text-4xl">{item?.name}</h2>
-      <p className="text-base lg:text-xl mt-4">
-        Product #{item?._id}
-      </p>
+      <p className="text-base lg:text-xl mt-4">Product #{item?._id}</p>
       <Rating
         value={item?.ratings || 0}
         precision={0.5}
@@ -26,7 +21,9 @@ export default function ProductDetails({ item }) {
       <h1 className="font-semibold text-lg lg:text-xl mt-4">
         {RSCoversion(item?.price)}
       </h1>
-      <h1 className="underline text-xl font-semibold mt-4">Product Description</h1>
+      <h1 className="underline text-xl font-semibold mt-4">
+        Product Description
+      </h1>
       <p className="text-base lg:text-lg mt-2">{item?.description}</p>
       <p className="text-base lg:text-lg mt-4">
         <span className="font-semibold">Quantity: </span>
@@ -34,7 +31,7 @@ export default function ProductDetails({ item }) {
       </p>
       <button
         className="primary-button mt-4"
-        onClick={() => setCart({ product: item, quantity: 1 })}
+        onClick={() => UpdateCart({ product: item, quantity: 1 })}
       >
         ADD TO CART
       </button>

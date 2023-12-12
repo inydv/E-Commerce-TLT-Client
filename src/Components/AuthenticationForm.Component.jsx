@@ -16,6 +16,7 @@ import {
 } from "../Services/index";
 import { useUser } from "../Context/User.Context";
 import RouteConstant from "../Constants/Routes.Constant.json";
+import EnumConstant from "../Constants/Enum.Constant.json";
 
 // TOASTER
 import toast from "react-hot-toast";
@@ -54,20 +55,20 @@ export default function AuthenticationForm({
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    if (type === "Register") {
+    if (type === EnumConstant.AuthenticationType.Register) {
       const { data } = await REGISTERUSER(formData);
       if (data && data.SUCCESS) {
         toast.success(data?.MESSAGE, ToastConstant.success);
         setFormData({});
       }
-    } else if (type === "Login") {
+    } else if (type === EnumConstant.AuthenticationType.Login) {
       const { data } = await LOGINUSER(formData);
       if (data && data.SUCCESS) {
         toast.success(data?.MESSAGE, ToastConstant.success);
         setUser(data.DATA);
         navigate(RouteConstant.home);
       }
-    } else if (type === "Forgot") {
+    } else if (type === EnumConstant.AuthenticationType.Forgot) {
       const { data } = await FORGOTPASSWORD(formData);
       if (data && data.SUCCESS) {
         toast.success(data?.MESSAGE, ToastConstant.success);
@@ -128,7 +129,7 @@ export default function AuthenticationForm({
         )}
         <button
           type="submit"
-          className="bg-button text-base font-semibold py-2 px-5 float-right"
+          className="primary-button float-right"
         >
           {type}
         </button>

@@ -15,9 +15,9 @@ export default function ProductsCategoriesAndProducts({
     <>
       {isHeading ? (
         <div className="flex items-center gap-x-5 py-5 sm:py-10">
-          <div className="bg-gray-700"></div>
+          <div className="heading-line"></div>
           <span className="heading">{type} CATEGORIES</span>
-          <div className="bg-gray-700"></div>
+          <div className="heading-line"></div>
         </div>
       ) : (
         ""

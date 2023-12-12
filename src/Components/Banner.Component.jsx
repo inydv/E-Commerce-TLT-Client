@@ -6,16 +6,36 @@ export default function Banner() {
       <div className="bg-customBlack grid grid-cols-2 place-items-center px-5">
         <div className="h-[200px] sm:h-[380px] lg:h-[600px]">
           <div className="h-[49%]">
-            <img src="/src/Assets/banner/1.png" alt="" className="h-[100%]" />
+            <img
+              src="/src/Assets/banner/1.png"
+              alt="Banner Image"
+              className="h-[100%]"
+            />
           </div>
           <div className="h-[49%]">
             <div className="h-[50%] flex gap-1 mt-1">
-              <img src="/src/Assets/banner/2.png" alt="" className="h-[100%]" />
-              <img src="/src/Assets/banner/3.png" alt="" className="h-[100%]" />
+              <img
+                src="/src/Assets/banner/2.png"
+                alt="Banner Image"
+                className="h-[100%]"
+              />
+              <img
+                src="/src/Assets/banner/3.png"
+                alt="Banner Image"
+                className="h-[100%]"
+              />
             </div>
             <div className="h-[50%] flex gap-1 mt-1">
-              <img src="/src/Assets/banner/4.png" alt="" className="h-[100%]" />
-              <img src="/src/Assets/banner/5.png" alt="" className="h-[100%]" />
+              <img
+                src="/src/Assets/banner/4.png"
+                alt="Banner Image"
+                className="h-[100%]"
+              />
+              <img
+                src="/src/Assets/banner/5.png"
+                alt="Banner Image"
+                className="h-[100%]"
+              />
             </div>
           </div>
         </div>

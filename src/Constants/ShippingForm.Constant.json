@@ -1,23 +1,13 @@
 [
     {
         "type": "text",
-        "label": "FirstName *",
-        "name": "firstname",
+        "label": "Name *",
+        "name": "name",
         "autoFocus": true,
-        "placeholder": "Lokesh",
+        "placeholder": "Lokesh Yadav",
         "className": "bg-black outline-none border-b-2 w-full border-gray p-1 text-sm",
         "required": true,
         "labelClass": "block mb-1"
-    },
-    {
-        "type": "text",
-        "label": "LastName *",
-        "name": "lastname",
-        "placeholder": "Yadav",
-        "className": "bg-black outline-none border-b-2 w-full border-gray p-1 text-sm",
-        "required": true,
-        "labelClass": "block mb-1",
-        "containerClass": "mt-4"
     },
     {
         "type": "email",

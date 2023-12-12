@@ -1,19 +1,31 @@
 // REACT
-import { Children, useEffect } from "react";
+import { Children, useEffect, useState } from "react";
 
 // CUSTOM IMPORTS
 import { CartTable, ProceedNextBox, NotAvailable } from "../Components/index";
-import UpdateCart from "../Pipes/Cart.Pipe";
 import header from "../Constants/TableHeader.json";
 
 // CART
 export default function Cart() {
-  // CONTEXT
-  const [cart] = UpdateCart([]);
+  // STATE
+  const [cartList, setCartList] = useState([]);
 
   // USE EFFECT
   useEffect(() => {
     window.scrollTo(0, 0);
+
+    const setState = () => {
+      const cart = JSON.parse(localStorage.getItem("cart"));
+      setCartList(cart);
+    };
+
+    window.addEventListener("storage", () => {
+      setState();
+    });
+
+    setState();
+
+    return () => window.removeEventListener("storage", setState());
   }, []);
 
   // JSX ELEMENT
@@ -32,17 +44,26 @@ export default function Cart() {
               </tr>
             </thead>
             <tbody>
-              {cart?.length > 0 ? (
-                Children.toArray(cart?.map((item) => <CartTable data={item} />))
+              {cartList?.length > 0 ? (
+                Children.toArray(
+                  cartList?.map((item) => <CartTable data={item} />)
+                )
               ) : (
-                <NotAvailable title={"Product"} />
+                <tr>
+                  <td
+                    colSpan="100%"
+                    className="border border-gray-500 px-5 py-10"
+                  >
+                    <NotAvailable />
+                  </td>
+                </tr>
               )}
             </tbody>
           </table>
         </div>
       </div>
       <div className="flex justify-end">
-        <ProceedNextBox />
+        <ProceedNextBox cart={cartList} />
       </div>
     </div>
   );

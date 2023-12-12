@@ -3,54 +3,99 @@ import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 
 // CUSTOM IMPORTS
-import UpdateCart from "../Pipes/Cart.Pipe";
 import RSCoversion from "../Pipes/RSConversion.Pipe";
 import { Form, MUIDialog } from "../Shared/index";
 import ShippingFormConstant from "../Constants/ShippingForm.Constant.json";
+import {
+  GETRAZORPAYKEYID,
+  RAZORPAYCREATEORDER,
+  VERIFYPAYMENT,
+} from "../Services/index";
+import RouteConstant from "../Constants/Routes.Constant.json";
 
 // PROCEED NEXT BOX
-export default function ProceedNextBox({ shippingCharges = 0 }) {
+export default function ProceedNextBox({ cart, shippingCharges = 0 }) {
   // STATES
   const [subTotal, setSubTotal] = useState(0);
   const [openDialog, setOpenDialog] = useState(false);
   const [formData, setFormData] = useState({});
-
-  // LOCAL STORAGE
-  const [cart] = UpdateCart([]);
+  const [razorpayKeyId, setRazorpayKeyId] = useState();
 
   // USE NAVIGATE
   const navigate = useNavigate();
 
   // CUSTOM FUNCTION
-  const handleAddress = () => {};
+  const handleAddress = () => {
+    localStorage.setItem("address", JSON.stringify(formData));
+    setOpenDialog(false);
+  };
 
   const handlePayment = () => {
+    razorpayCreateOrder();
+  };
+
+  const handleRazorpay = (orderId) => {
     const options = {
-      key: "YOUR_KEY_ID",
-      amount: DATA?.amount,
+      key: razorpayKeyId,
+      amount: shippingCharges + subTotal,
       currency: "INR",
       name: "The Little Things",
       description: "This is Simple but exciting E-commerce WebApp",
-      image: "https://example.com/you_logo",
-      order_id: DATA?.id,
-      callback_url: "http://localhost:3000/api/v1/user/payment/vertification",
+      image: "/src/Assets/logo.svg",
+      order_id: orderId,
       prefill: {
-        name: "Gaurav Kumar",
-        email: "name@example.com",
-        contact: "9685743012",
+        name: formData?.name,
+        email: formData?.email,
+        contact: formData?.phone,
       },
       notes: {
-        address: "Razorpay Corporate Office",
+        address: `${formData?.address}, ${formData?.city}, ${formData?.state}, ${formData?.pincode}`,
       },
       theme: {
         color: "#000000",
       },
+      handler: async function (response) {
+        const reqBody = {
+          paymentInfo: {
+            razorpay_payment_id: response.razorpay_payment_id,
+            razorpay_order_id: response.razorpay_order_id,
+            razorpay_signature: response.razorpay_signature,
+          },
+          shippingInformation: formData,
+          orderItems: cart?.map((item) => {
+            return {
+              product: item.product._id,
+              quantity: item.quantity,
+            };
+          }),
+        };
+
+        const { data } = await VERIFYPAYMENT(reqBody);
+        if (data && data.SUCCESS) {
+          localStorage.removeItem("cart");
+          navigate(RouteConstant.myOrders);
+        }
+      },
     };
 
-    const rzp = new window.Razorepay(options);
-    document.getElementById("rzp-button1").onclick = function (e) {
-      rzp.open();
-    };
+    const rzp = new window.Razorpay(options);
+    rzp.open();
+  };
+
+  const razorpayCreateOrder = async () => {
+    const { data } = await RAZORPAYCREATEORDER({
+      amount: shippingCharges + subTotal,
+    });
+    if (data && data.SUCCESS) {
+      handleRazorpay(data?.DATA?.id);
+    }
+  };
+
+  const getKeyId = async () => {
+    const { data } = await GETRAZORPAYKEYID();
+    if (data && data.SUCCESS) {
+      setRazorpayKeyId(data?.DATA?.key_id);
+    }
   };
 
   // USE EFFECT
@@ -59,9 +104,16 @@ export default function ProceedNextBox({ shippingCharges = 0 }) {
       return total + item?.quantity * item?.product?.price;
     };
 
-    const subTotalPrice = cart.reduce(checkTotalPrice, 0);
+    const subTotalPrice = cart?.reduce(checkTotalPrice, 0);
     setSubTotal(subTotalPrice);
   }, [cart]);
+
+  useEffect(() => {
+    const Address = JSON.parse(localStorage.getItem("address")) || {};
+    setFormData(Address);
+
+    getKeyId();
+  }, []);
 
   // JSX ELEMENT
   return (

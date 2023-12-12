@@ -28,8 +28,12 @@ export default function ReviewCard({ productId, item, fetchProductDetail }) {
     <div className="flex flex-col items-center border border-gray-700 rounded-xl p-5">
       <img
         src={item?.user?.avatar?.url || "/src/Assets/user-icon.png"}
-        alt=""
+        alt="User Image"
         className="rounded-full h-16 md:h-28 w-16 md:w-28"
+        onError={({ currentTarget }) => {
+          currentTarget.onerror = null;
+          currentTarget.src = "/src/Assets/NoImageAvailable.jpg";
+        }}
       />
       <p className="py-2">{item?.user?.username}</p>
       <Rating value={item?.rating} precision={0.5} readOnly />

@@ -14,6 +14,7 @@ import { BiSearchAlt2 } from "react-icons/bi";
 
 // CUSTOM IMPORT
 import ShopFilterConstant from "../Constants/ShopFilter.Constant.json";
+import EnumConstant from "../Constants/Enum.Constant.json";
 
 // SHOP FILTERS
 export default function ShopFilters({ setOpenDrawer }) {
@@ -69,7 +70,6 @@ export default function ShopFilters({ setOpenDrawer }) {
 
   // USE EFFECT
   useEffect(() => {
-    console.log("helo");
     for (const entry of searchParams.entries()) {
       const [param, value] = entry;
       setFormData((prevState) => {
@@ -99,7 +99,7 @@ export default function ShopFilters({ setOpenDrawer }) {
               step,
               type,
             }) =>
-              tagType === "input" ? (
+              tagType === EnumConstant.FormTagType.Input ? (
                 <>
                   <p className="font-semibold text-lg pb-3">{label}</p>
                   <div className="relative">
@@ -117,7 +117,7 @@ export default function ShopFilters({ setOpenDrawer }) {
                     />
                   </div>
                 </>
-              ) : tagType === "slider" ? (
+              ) : tagType === EnumConstant.FormTagType.Slider ? (
                 <>
                   <p className="font-semibold text-lg pt-6 pb-3">{label}</p>
                   <Slider

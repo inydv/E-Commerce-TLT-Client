@@ -30,7 +30,7 @@ export default function Categories() {
             <Link className="flex-1 group overflow-hidden relative" to={to}>
               <img
                 src={src}
-                alt=""
+                alt="Category Image"
                 className="aspect-square h-full w-full max-h-[400px] filter transition-all duration-200 ease-in-out group-hover:grayscale group-hover:blur-sm"
               />
               <p className="text-xl md:text-5xl font-semibold text-center backdrop-filter backdrop-blur-lg bg-opacity-0 p-2 transition-all duration-200 ease-in-out absolute bottom-0 w-full translate-y-[-1000px] group-hover:translate-y-0">
