@@ -10,6 +10,7 @@ import { AiFillDelete, AiFillEye } from "react-icons/ai";
 import { MUIDialog } from "./index";
 import { NotAvailable } from "../Components/index";
 import EnumConstant from "../Constants/Enum.Constant.json";
+import Images from "../Assets/index";
 
 // TABLE
 export default function Table({ header, data, body, handleBtn }) {
@@ -63,7 +64,7 @@ export default function Table({ header, data, body, handleBtn }) {
                                 onError={({ currentTarget }) => {
                                   currentTarget.onerror = null;
                                   currentTarget.src =
-                                    "/src/Assets/NoImageAvailable.jpg";
+                                    Images["NoImageAvailable"];
                                 }}
                               />
                             </div>

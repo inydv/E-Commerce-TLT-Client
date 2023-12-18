@@ -3,6 +3,7 @@ import { Children, useRef } from "react";
 
 // CUSTOM IMPORT
 import EnumConstant from "../Constants/Enum.Constant.json";
+import Images from "../Assets/index";
 
 // FORM
 export default function Form({
@@ -168,8 +169,7 @@ export default function Form({
                         className="aspect-square h-16 w-16 border border-gray"
                         onError={({ currentTarget }) => {
                           currentTarget.onerror = null;
-                          currentTarget.src =
-                            "/src/Assets/NoImageAvailable.jpg";
+                          currentTarget.src = Images["NoImageAvailable"];
                         }}
                       />
                     ))

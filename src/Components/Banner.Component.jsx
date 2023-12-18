@@ -1,3 +1,6 @@
+// CUSTOM IMPORTS
+import Images from "../Assets/index";
+
 // BANNER
 export default function Banner() {
   // JSX ELEMENT
@@ -7,7 +10,7 @@ export default function Banner() {
         <div className="h-[200px] sm:h-[380px] lg:h-[600px]">
           <div className="h-[49%]">
             <img
-              src="/src/Assets/banner/1.png"
+              src={Images["banner1"]}
               alt="Banner Image"
               className="h-[100%]"
             />
@@ -15,24 +18,24 @@ export default function Banner() {
           <div className="h-[49%]">
             <div className="h-[50%] flex gap-1 mt-1">
               <img
-                src="/src/Assets/banner/2.png"
+                src={Images["banner2"]}
                 alt="Banner Image"
                 className="h-[100%]"
               />
               <img
-                src="/src/Assets/banner/3.png"
+                src={Images["banner3"]}
                 alt="Banner Image"
                 className="h-[100%]"
               />
             </div>
             <div className="h-[50%] flex gap-1 mt-1">
               <img
-                src="/src/Assets/banner/4.png"
+                src={Images["banner4"]}
                 alt="Banner Image"
                 className="h-[100%]"
               />
               <img
-                src="/src/Assets/banner/5.png"
+                src={Images["banner5"]}
                 alt="Banner Image"
                 className="h-[100%]"
               />

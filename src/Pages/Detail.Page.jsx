@@ -8,6 +8,7 @@ import Carousel from "react-material-ui-carousel";
 // CUSTOM IMPORTS
 import { AddReviews, ProductDetails, ReviewCard } from "../Components/index";
 import { GETPRODUCTDETAILS } from "../Services/index";
+import Images from "../Assets/index";
 
 // DETAIL
 export default function Detail() {
@@ -46,7 +47,7 @@ export default function Detail() {
                   className="h-[400px] sm:h-[500px] lg:h-[700px] w-full"
                   onError={({ currentTarget }) => {
                     currentTarget.onerror = null;
-                    currentTarget.src = "/src/Assets/NoImageAvailable.jpg";
+                    currentTarget.src = Images["NoImageAvailable"];
                   }}
                 />
               ))

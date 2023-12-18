@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 
 // CUSTOM IMPORT
 import RouteConstant from "../Constants/Routes.Constant.json";
+import Images from "../Assets/index";
 
 // NOT FOUND
 export default function NotFound() {
@@ -16,7 +17,7 @@ export default function NotFound() {
   return (
     <>
       <div className="flex justify-center bg-white">
-        <img src="/src/Assets/notFound.gif" alt="Not Found GIF" />
+        <img src={Images["notFound"]} alt="Not Found GIF" />
       </div>
       <div className="grid justify-center p-5">
         <h1 className="text-center text-xl sm:text-2xl font-semibold">

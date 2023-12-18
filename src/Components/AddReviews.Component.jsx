@@ -8,6 +8,7 @@ import Rating from "@mui/material/Rating";
 // CUSTOM IMPORTS
 import { ADDORUPDATEPRODUCTREVIEW } from "../Services/index";
 import { useUser } from "../Context/User.Context";
+import Images from "../Assets/index";
 
 // TOASTER
 import toast from "react-hot-toast";
@@ -58,12 +59,12 @@ export default function AddReviews({ fetchProductDetail }) {
       {iswrite ? (
         <div className="flex flex-col items-center border border-gray-700 rounded-xl p-5">
           <img
-            src={user?.avatar?.url || "/src/Assets/user-icon.png"}
+            src={user?.avatar?.url || Images["userIcon"]}
             alt="User Image"
             className="rounded-full h-16 md:h-28 w-16 md:w-28"
             onError={({ currentTarget }) => {
               currentTarget.onerror = null;
-              currentTarget.src = "/src/Assets/NoImageAvailable.jpg";
+              currentTarget.src = NoImageAvailable;
             }}
           />
           <p className="py-2"></p>

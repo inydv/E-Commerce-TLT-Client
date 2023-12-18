@@ -8,6 +8,7 @@ import ToastConstant from "../Constants/Toast.Constant.json";
 // CUSTOM IMPORTS
 import { useUser } from "../Context/User.Context";
 import { DELETEPRODUCTREVIEW } from "../Services/index";
+import Images from "../Assets/index";
 
 export default function ReviewCard({ productId, item, fetchProductDetail }) {
   // CONTEXT
@@ -27,12 +28,12 @@ export default function ReviewCard({ productId, item, fetchProductDetail }) {
   return (
     <div className="flex flex-col items-center border border-gray-700 rounded-xl p-5">
       <img
-        src={item?.user?.avatar?.url || "/src/Assets/user-icon.png"}
+        src={item?.user?.avatar?.url || Images["userIcon"]}
         alt="User Image"
         className="rounded-full h-16 md:h-28 w-16 md:w-28"
         onError={({ currentTarget }) => {
           currentTarget.onerror = null;
-          currentTarget.src = "/src/Assets/NoImageAvailable.jpg";
+          currentTarget.src = Images["NoImageAvailable"];
         }}
       />
       <p className="py-2">{item?.user?.username}</p>

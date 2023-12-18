@@ -7,6 +7,7 @@ import { MUIDialog } from "../Shared/index";
 import header from "../Constants/TableHeader.json";
 import { NotAvailable } from "../Components/index";
 import DateSplice from "../Pipes/Date.Pipe";
+import Images from "../Assets/index";
 
 // REACT ICONS
 import { MdModeEdit } from "react-icons/md";
@@ -74,7 +75,7 @@ export default function MyOrders() {
                                 onError={({ currentTarget }) => {
                                   currentTarget.onerror = null;
                                   currentTarget.src =
-                                    "/src/Assets/NoImageAvailable.jpg";
+                                    Images["NoImageAvailable"];
                                 }}
                               />
                               <div>

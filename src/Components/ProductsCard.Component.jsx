@@ -5,6 +5,7 @@ import { Link } from "react-router-dom";
 import RSCoversion from "../Pipes/RSConversion.Pipe";
 import RoutesConstant from "../Constants/Routes.Constant.json";
 import UpdateCart from "../Pipes/Cart.Pipe";
+import Images from "../Assets/index";
 
 // PRODUCTS CARD
 export default function ProductsCard({ item }) {
@@ -18,7 +19,7 @@ export default function ProductsCard({ item }) {
           className="h-full w-full transition-all duration-200 ease-in-out group-hover:translate-x-[30%] group-hover:opacity-50"
           onError={({ currentTarget }) => {
             currentTarget.onerror = null;
-            currentTarget.src = "/src/Assets/NoImageAvailable.jpg";
+            currentTarget.src = Images["NoImageAvailable"];
           }}
         />
       </Link>

@@ -7,6 +7,7 @@ import { AiFillLeftCircle, AiFillRightCircle } from "react-icons/ai";
 
 // CUSTOM IMPORTS
 import CarouselItemsConstant from "../Constants/CarouselItems.Constant.json";
+import Images from "../Assets/index";
 
 // CAROUSEL
 export default function Carousel() {
@@ -40,7 +41,7 @@ export default function Carousel() {
             <div className="grid gap-5 grid-cols-2 items-center w-screen px-10 sm:px-14 bg-customBlack max-h-banner">
               <div className="grid items-end justify-center max-h-banner h-full">
                 <img
-                  src={item.img}
+                  src={Images[item.img]}
                   alt="Carousel Image"
                   className="max-h-banner"
                 />

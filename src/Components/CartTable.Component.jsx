@@ -4,6 +4,7 @@ import { useState } from "react";
 // CUSTOM IMPORTS
 import RSCoversion from "../Pipes/RSConversion.Pipe";
 import UpdateCart from "../Pipes/Cart.Pipe";
+import Images from "../Assets/index";
 
 // CART TABLE
 export default function CartTable({ data }) {
@@ -32,7 +33,7 @@ export default function CartTable({ data }) {
             className="h-20 w-20"
             onError={({ currentTarget }) => {
               currentTarget.onerror = null;
-              currentTarget.src = "/src/Assets/NoImageAvailable.jpg";
+              currentTarget.src = Images["NoImageAvailable"];
             }}
           />
         </div>

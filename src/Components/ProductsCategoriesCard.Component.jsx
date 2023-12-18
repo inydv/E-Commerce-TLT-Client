@@ -1,10 +1,13 @@
+// CUSTOM IMPORTS
+import Images from "../Assets/index";
+
 // PRODUCTS CATEGORIES CARD
 export default function ProductsCategoriesCard({ item }) {
   // JSX ELEMENT
   return (
     <div className="aspect-square h-full max-h-[344px] max-w-[48%] md:max-w-[344px] overflow-hidden relative group">
       <img
-        src={item.img}
+        src={Images[item.img]}
         alt="Category Image"
         className="h-full w-full transition-all duration-200 ease-in-out group-hover:scale-125 group-hover:opacity-25"
       />

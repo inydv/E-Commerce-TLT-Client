@@ -1,41 +1,41 @@
 [
   {
-    "img": "/src/Assets/women/tops.jpg",
+    "img": "womenTops",
     "title": "Tops",
     "link": "/shop?sub-category=tops"
   },
   {
-    "img": "/src/Assets/women/skirt.jpg",
+    "img": "womenSkirt",
     "title": "Skirt",
     "link": "/shop?sub-category=skirt"
   },
   {
-    "img": "/src/Assets/women/jeans.jpg",
+    "img": "womenJeans",
     "title": "Jeans",
     "link": "/shop?sub-category=jeans"
   },
   {
-    "img": "/src/Assets/women/dress.jpg",
+    "img": "womenDress",
     "title": "Dresses",
     "link": "/shop?sub-category=dress"
   },
   {
-    "img": "/src/Assets/women/kurti.jpg",
+    "img": "womenKurti",
     "title": "Kurti",
     "link": "/shop?sub-category=kurti"
   },
   {
-    "img": "/src/Assets/women/flats.jpg",
+    "img": "womenFlats",
     "title": "Flats",
     "link": "/shop?sub-category=flats"
   },
   {
-    "img": "/src/Assets/women/heels.jpg",
+    "img": "womenHeels",
     "title": "Heels",
     "link": "/shop?sub-category=heels"
   },
   {
-    "img": "/src/Assets/women/shoes.jpg",
+    "img": "womenShoes",
     "title": "Shoes",
     "link": "/shop?sub-category=shoes"
   }
