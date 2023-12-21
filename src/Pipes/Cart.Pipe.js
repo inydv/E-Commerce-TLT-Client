@@ -1,3 +1,7 @@
+// TOASTER
+import ToastConstant from "../Constants/Toast.Constant.json";
+import toast from 'react-hot-toast';
+
 // FUNCTION TO HANDLE CART
 export default function UpdateCart(newValue, isDelete = false) {
     let cart = localStorage.getItem('cart');
@@ -13,6 +17,8 @@ export default function UpdateCart(newValue, isDelete = false) {
         } else {
             cart.push(newValue);
         }
+
+        toast.error("Product Added To Cart", ToastConstant.success)
     }
 
     localStorage.setItem('cart', JSON.stringify(cart));

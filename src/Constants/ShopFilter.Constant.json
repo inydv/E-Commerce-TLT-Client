@@ -2,7 +2,7 @@
     {
         "tagType": "input",
         "type": "text",
-        "className": "bg-black border-b-customGray border-b-2 rounded text-white pb-2 pr-12 w-full outline-none",
+        "className": "bg-black border-b-customGray border-b-2 rounded text-white pb-2 pl-12 w-full outline-none",
         "placeholder": "Type Product Name Here.....",
         "name": "name",
         "label": "Search"
@@ -25,7 +25,7 @@
     },
     {
         "tagType": "select",
-        "className": "bg-black w-full outline-none",
+        "className": "bg-black w-full outline-none cursor-pointer",
         "name": "category",
         "label": "Category",
         "options": [
@@ -41,7 +41,7 @@
     },
     {
         "tagType": "select",
-        "className": "bg-black w-full outline-none",
+        "className": "bg-black w-full outline-none cursor-pointer",
         "name": "subCategories",
         "label": "Sub-Category",
         "options": [
@@ -61,7 +61,7 @@
     },
     {
         "tagType": "select",
-        "className": "bg-black w-full outline-none",
+        "className": "bg-black w-full outline-none cursor-pointer",
         "name": "sort",
         "label": "Sort By",
         "options": [

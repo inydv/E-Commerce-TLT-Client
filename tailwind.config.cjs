@@ -17,9 +17,6 @@ module.exports = {
         content: "calc(100vh - 426px)",
         footer: "356px"
       },
-      height: {
-        header: "70px",
-      }
     },
   },
   plugins: [],

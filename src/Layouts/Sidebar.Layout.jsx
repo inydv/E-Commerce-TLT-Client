@@ -17,8 +17,11 @@ const NavigationList = ({ NavigationConstant }) => (
   <ul className="justify-self-center inline-flex flex-col gap-5 text-lg">
     {Children.toArray(
       NavigationConstant?.map(({ func, name }) => (
-        <li className="border-b-2 border-b-customGray p-2 pb-5">
-          <p onClick={() => func()}>{name}</p>
+        <li
+          className="border-b-2 border-b-customGray p-2 pb-5 cursor-pointer"
+          onClick={() => func()}
+        >
+          <p>{name}</p>
         </li>
       ))
     )}
@@ -95,13 +98,14 @@ export default function Sidebar() {
   // JSX ELEMENT
   return (
     <div className="mb-5">
-      <div className="flex justify-end gap-2 cursor-pointer">
-        <p>Menu</p>
-        <HiMenuAlt2
-          color="white"
-          size={25}
+      <div className="flex justify-end">
+        <div
+          className="flex gap-2 cursor-pointer"
           onClick={() => setIsDrawerOpen(true)}
-        />
+        >
+          <span>Menu</span>
+          <HiMenuAlt2 color="white" size={25} />
+        </div>
       </div>
       <MUIDialog
         open={openDialog}

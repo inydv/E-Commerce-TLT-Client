@@ -71,7 +71,7 @@ export default function Shop() {
             <div className="flex items-center">
               <p className="pagination">FIRST</p>
               <p className="pagination">PREV</p>
-              <p className="pagination text-red-700">1</p>
+              <p className="pagination text-red-600">1</p>
               <p className="pagination">NEXT</p>
               <p className="pagination">LAST</p>
             </div>

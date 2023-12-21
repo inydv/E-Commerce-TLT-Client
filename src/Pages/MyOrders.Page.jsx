@@ -1,16 +1,16 @@
-// REACT
+// REACT AND REACT ROUTER DOM
 import { Children, useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 
 // CUSTOM IMPORTS
 import { GETMYORDERS } from "../Services/index";
-import { MUIDialog } from "../Shared/index";
 import header from "../Constants/TableHeader.json";
 import { NotAvailable } from "../Components/index";
 import DateSplice from "../Pipes/Date.Pipe";
 import Images from "../Assets/index";
+import RoutesConstant from "../Constants/Routes.Constant.json";
 
 // REACT ICONS
-import { MdModeEdit } from "react-icons/md";
 import RSCoversion from "../Pipes/RSConversion.Pipe";
 
 // MY ORDER
@@ -18,7 +18,6 @@ export default function MyOrders() {
   // STATES
   const [orders, setOrders] = useState([]);
   const [open, setOpen] = useState(false);
-  const [id, setId] = useState(null);
 
   // CUSTOM FUNCTION
   const fetchMyOrders = async () => {
@@ -80,7 +79,15 @@ export default function MyOrders() {
                               />
                               <div>
                                 <h1 className="line-clamp mb-1">
-                                  {product?.name}
+                                  <Link
+                                    to={
+                                      RoutesConstant.productDetails +
+                                      "/" +
+                                      product?._id
+                                    }
+                                  >
+                                    {product?.name}
+                                  </Link>
                                 </h1>
                                 <h1>
                                   {RSCoversion(product?.price)} x {quantity} ={" "}
@@ -119,11 +126,6 @@ export default function MyOrders() {
                         Delivery At: {DateSplice(item?.deliveredAt)}
                       </p>
                     </td>
-                    <td className="border border-gray-500 p-2">
-                      <div className="flex gap-5 justify-center items-center">
-                        <MdModeEdit size={20} className="cursor-pointer" />
-                      </div>
-                    </td>
                   </tr>
                 ))
               )
@@ -138,14 +140,6 @@ export default function MyOrders() {
               </tr>
             )}
           </tbody>
-          <MUIDialog
-            setOpen={setOpen}
-            open={open}
-            openForDelete={true}
-            content={`Do you really want to delete this ${name}? This process cannot be undone.`}
-            handleBtn={() => handleBtn(id)}
-            name={name}
-          />
         </table>
       </div>
     </div>

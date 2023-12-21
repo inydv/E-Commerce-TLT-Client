@@ -103,6 +103,10 @@ export default function ShopFilters({ setOpenDrawer }) {
                 <>
                   <p className="font-semibold text-lg pb-3">{label}</p>
                   <div className="relative">
+                    <BiSearchAlt2
+                      className="absolute bottom-3 left-2"
+                      size={25}
+                    />
                     <input
                       type={type}
                       className={className}
@@ -110,10 +114,6 @@ export default function ShopFilters({ setOpenDrawer }) {
                       name={name}
                       value={formData[name]}
                       onChange={(e) => handleInput(e)}
-                    />
-                    <BiSearchAlt2
-                      className="absolute bottom-3 right-2 cursor-pointer"
-                      size={25}
                     />
                   </div>
                 </>

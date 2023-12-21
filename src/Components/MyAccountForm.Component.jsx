@@ -133,7 +133,7 @@ export default function MyAccountForm({
                     <p className="text-xs ml-5 mt-1 xl:mt-2 font-semibold">
                       **
                       <span
-                        className="text-red-700 cursor-pointer"
+                        className="text-red-600 cursor-pointer"
                         onClick={() => setIsDisabled(false)}
                       >
                         Click Me{" "}

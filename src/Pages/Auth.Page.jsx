@@ -85,7 +85,7 @@ export default function Auth() {
             )}
           </div>
           <button
-            className={`bg-button h-[3px] ${
+            className={`bg-customGray h-[3px] ${
               pathName === RouteConstant.Authentication ? "w-[50%]" : "w-full"
             }  border-none transition-all duration-200 ease-linear`}
             ref={switchTab}

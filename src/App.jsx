@@ -33,7 +33,7 @@ import "./Styles/MUI.Style.css";
 // APP
 export default function App() {
   // STATE
-  const [loading, setLoading] = useState();
+  const [loading, setLoading] = useState(false);
 
   // CONTEXT
   const { setUser } = useUser();

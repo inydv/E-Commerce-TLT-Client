@@ -46,7 +46,7 @@ export default function MUIDialog({
           Close
         </button>
         <button
-          className={openForDelete ? "bg-red-700" : "primary-button"}
+          className={openForDelete ? "bg-red-600" : "primary-button"}
           onClick={() => handleBtn()}
         >
           {btnText}

@@ -1,10 +1,12 @@
-// REACT
+// REACT AND REACT ROUTER DOM
 import { useState } from "react";
+import { Link } from "react-router-dom";
 
 // CUSTOM IMPORTS
 import RSCoversion from "../Pipes/RSConversion.Pipe";
 import UpdateCart from "../Pipes/Cart.Pipe";
 import Images from "../Assets/index";
+import RoutesConstant from "../Constants/Routes.Constant.json";
 
 // CART TABLE
 export default function CartTable({ data }) {
@@ -40,7 +42,9 @@ export default function CartTable({ data }) {
       </td>
       <td className="border border-gray-500 py-2 px-4">
         <h6 className="line-clamp text-sm sm:text-base">
-          {data?.product?.name}
+          <Link to={RoutesConstant.productDetails + "/" + data?.product?._id}>
+            {data?.product?.name}
+          </Link>
         </h6>
         <div className="flex items-center my-2">
           <div className="flex">
@@ -70,11 +74,11 @@ export default function CartTable({ data }) {
           </p>
         </div>
         {quantity <= data?.product?.quantity ? (
-          <p className="text-sm sm:text-base font-semibold text-green-500">
+          <p className="text-sm sm:text-base font-semibold text-green-600">
             In Stock
           </p>
         ) : (
-          <p className="text-sm sm:text-base font-semibold text-red-700">
+          <p className="text-sm sm:text-base font-semibold text-red-600">
             Out Of Stock
           </p>
         )}

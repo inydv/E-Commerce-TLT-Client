@@ -14,7 +14,8 @@
     },
     "UserRole": {
         "Admin": "Admin",
-        "Seller": "Seller"
+        "Seller": "Seller",
+        "User": "User"
     },
     "Patname": {
         "User": "user",

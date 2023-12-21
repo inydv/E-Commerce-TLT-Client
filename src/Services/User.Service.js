@@ -29,8 +29,8 @@ export const GETME = async () => {
     try {
         return await Request.get(ApiConstant.user.me);
     } catch (error) {
-        if (error?.response?.data?.MESSAGE)
-            return toast.error(error?.response?.data?.MESSAGE, ToastConstant.error);
+        // if (error?.response?.data?.MESSAGE)
+        //     return toast.error(error?.response?.data?.MESSAGE, ToastConstant.error);
     }
 }
 

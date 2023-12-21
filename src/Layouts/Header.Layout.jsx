@@ -16,7 +16,7 @@ import ToastConstant from "../Constants/Toast.Constant.json";
 
 // REACT AND REACT ROUTER DOM
 import { Link, useNavigate } from "react-router-dom";
-import { Children, useEffect, useState } from "react";
+import { Children, useCallback, useEffect, useMemo, useState } from "react";
 
 // CUSTOM IMPORTS
 import RouteConstant from "../Constants/Routes.Constant.json";
@@ -65,69 +65,75 @@ export default function Header() {
   const navigate = useNavigate();
 
   // CONTEXT
-  const { user } = useUser();
+  const { user, setUser } = useUser();
 
   // CUSTOM FUNCTION
   const handleSpeedDial = () => {
     setOpen(!open);
   };
 
-  const logoutUser = async () => {
+  const logoutUser = useCallback(async () => {
     const { data } = await LOGOUTUSER();
 
     if (data && data.SUCCESS) {
+      setUser(null);
       toast.success(data?.MESSAGE, ToastConstant.success);
       navigate(RouteConstant.Authentication);
     }
-  };
+  }, [navigate, setUser]);
 
   // DROPDOWN OPTIONS
-  const option = [
-    {
-      icon: <IoMdExit size={20} />,
-      name: user ? "Logout" : "Login",
-      func: user
-        ? () => logoutUser()
-        : () => navigate(RouteConstant.Authentication),
-    },
-  ];
-
-  if (user) {
-    option.unshift({
-      icon: <BsFillBagCheckFill size={20} />,
-      name: "My Orders",
-      func: () => {
-        navigate(RouteConstant.myOrders);
-        setIsDrawerOpen(false);
+  const option = useMemo(
+    () => [
+      {
+        icon: <IoMdExit size={20} />,
+        name: user ? "Logout" : "Login",
+        func: user
+          ? () => logoutUser()
+          : () => navigate(RouteConstant.Authentication),
       },
-    });
-    option.unshift({
-      icon: <BsFillPersonFill size={20} />,
-      name: "Profile",
-      func: () => {
-        navigate(RouteConstant.myAccount);
-        setIsDrawerOpen(false);
-      },
-    });
+    ],
+    [logoutUser, navigate, user]
+  );
 
-    if (
-      user.role === EnumConstant.UserRole.Admin ||
-      user.role === EnumConstant.UserRole.Seller
-    ) {
+  useEffect(() => {
+    if (user) {
       option.unshift({
-        icon: <MdDashboard size={20} />,
-        name: "Dashboard",
+        icon: <BsFillBagCheckFill size={20} />,
+        name: "My Orders",
         func: () => {
-          if (user.role === EnumConstant.UserRole.Admin) {
-            navigate(RouteConstant.dashboard);
-          } else {
-            navigate(RouteConstant.adminProduct);
-          }
+          navigate(RouteConstant.myOrders);
           setIsDrawerOpen(false);
         },
       });
+      option.unshift({
+        icon: <BsFillPersonFill size={20} />,
+        name: "Profile",
+        func: () => {
+          navigate(RouteConstant.myAccount);
+          setIsDrawerOpen(false);
+        },
+      });
+
+      if (
+        user.role === EnumConstant.UserRole.Admin ||
+        user.role === EnumConstant.UserRole.Seller
+      ) {
+        option.unshift({
+          icon: <MdDashboard size={20} />,
+          name: "Dashboard",
+          func: () => {
+            if (user.role === EnumConstant.UserRole.Admin) {
+              navigate(RouteConstant.dashboard);
+            } else {
+              navigate(RouteConstant.adminProduct);
+            }
+            setIsDrawerOpen(false);
+          },
+        });
+      }
     }
-  }
+  }, [navigate, option, user]);
 
   // USE EFFECT
   useEffect(() => {
@@ -147,7 +153,7 @@ export default function Header() {
 
   // JSX ELEMENT
   return (
-    <div className="h-header bg-black px-5 sm:px-10">
+    <div className="bg-black py-5 px-5 sm:px-10 sticky top-0 left-0 z-50">
       <div className="flex justify-between h-full items-center">
         <HiMenuAlt2
           color="white"
@@ -156,12 +162,12 @@ export default function Header() {
           onClick={() => setIsDrawerOpen(true)}
         />
         <h1 className="font-semibold text-4xl w-fit line-through text-center">
-          T<span className="text-red-700">L</span>T
+          T<span className="text-red-600">L</span>T
         </h1>
         <div className="hidden sm:block">
           <NavigationList />
         </div>
-        <div className="flex justify-end gap-2 sm:gap-5 relative top-[120px]">
+        <div className="flex justify-end gap-2 sm:gap-5 relative top-0 items-end">
           <SpeedDial
             ariaLabel="SpeedDial tooltip example"
             FabProps={{ style: { backgroundColor: "black", zIndex: "10" } }}

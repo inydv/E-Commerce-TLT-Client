@@ -47,7 +47,7 @@ export const LOGOUTUSER = async () => {
     try {
         return await Request.get(ApiConstant.authentication.logout);
     } catch (error) {
-        if (error?.response?.data?.MESSAGE)
-            return toast.error(error?.response?.data?.MESSAGE, ToastConstant.error);
+        // if (error?.response?.data?.MESSAGE)
+        //     return toast.error(error?.response?.data?.MESSAGE, ToastConstant.error);
     }
 }

@@ -11,3 +11,11 @@
 .css-1c32n2y-MuiBadge-root {
     height: fit-content;
 }
+
+.css-11u3b1d-MuiSpeedDial-root {
+    height: 12px !important;
+}
+
+.css-11u3b1d-MuiSpeedDial-root .MuiSpeedDial-actions {
+    margin-top: -25px !important;
+}

@@ -105,7 +105,7 @@ export default function ProceedNextBox({ cart, shippingCharges = 0 }) {
     };
 
     const subTotalPrice = cart?.reduce(checkTotalPrice, 0);
-    setSubTotal(subTotalPrice);
+    setSubTotal(subTotalPrice || 0);
   }, [cart]);
 
   useEffect(() => {

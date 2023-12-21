@@ -28,7 +28,7 @@ export default function ProductsCard({ item }) {
           <p className="text-xs sm:text-sm xl:text-lg font-semibold">
             {item.name}
           </p>
-          <p className="text-red-700 text-xs sm:text-sm xl:text-lg font-semibold mt-2 mb-3">
+          <p className="text-red-600 text-xs sm:text-sm xl:text-lg font-semibold mt-2 mb-3">
             {RSCoversion(item.price)}
           </p>
           <button

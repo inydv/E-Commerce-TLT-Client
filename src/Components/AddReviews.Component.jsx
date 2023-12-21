@@ -19,7 +19,7 @@ export default function AddReviews({ fetchProductDetail }) {
   // STATES
   const [iswrite, setIsWrite] = useState(false);
   const [formData, setFormData] = useState({
-    rating: 5,
+    rating: 2.5,
     comment: "",
   });
 
@@ -45,7 +45,7 @@ export default function AddReviews({ fetchProductDetail }) {
     if (data && data.SUCCESS) {
       toast.success(data?.MESSAGE, ToastConstant.success);
       setFormData({
-        rating: 5,
+        rating: 2.5,
         comment: "",
       });
       setIsWrite(false);
@@ -89,14 +89,14 @@ export default function AddReviews({ fetchProductDetail }) {
             className="mt-3 primary-button"
             onClick={() => handleSubmit()}
           >
-            Add/Edit Review
+            Review
           </button>
         </div>
       ) : (
         <div className="flex border border-gray-700 rounded-xl p-2 md:p-5">
           <div className="w-[200px] md:w-[300px] h-full grid place-items-center">
             <button className="primary-button" onClick={() => setIsWrite(true)}>
-              Add Review
+              Review
             </button>
           </div>
         </div>

@@ -101,7 +101,7 @@ input[type='radio']:checked:after {
 }
 
 .pagination {
-    @apply border-customGray border-2 py-2 px-3 cursor-pointer hover:text-red-700 text-sm font-semibold;
+    @apply border-customGray border-2 py-2 px-3 cursor-pointer hover:text-red-600 text-sm font-semibold;
 }
 
 .heading-line {
