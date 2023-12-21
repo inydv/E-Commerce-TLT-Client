@@ -44,7 +44,7 @@ export default function Auth() {
 
   // USE EFFECT
   useEffect(() => {
-    window.scrollTo(0, 70);
+    window.scrollTo(0, 0);
 
     const locationPathName = location.pathname;
 

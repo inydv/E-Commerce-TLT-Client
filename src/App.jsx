@@ -1,5 +1,5 @@
 // REACT AND REACT ROUTER DOM
-import { useEffect, Suspense, useState } from "react";
+import { useEffect, Suspense, useState, useCallback } from "react";
 import { Routes, Route } from "react-router-dom";
 
 // TOASTER
@@ -26,6 +26,7 @@ import {
   Shop,
   AdminPages,
 } from "./Pages/index";
+import { Request } from "./Configs/RequestMethod.Config";
 
 // IMPORT STYLES
 import "./Styles/MUI.Style.css";
@@ -37,6 +38,42 @@ export default function App() {
 
   // CONTEXT
   const { setUser } = useUser();
+
+  // CUSTOM FUNCTION
+  const loadingState = (type = "REMOVE") => {
+    if (type === "ADD") {
+      document.body.style.overflow = "hidden";
+      setLoading(true);
+    } else {
+      document.body.style.overflow = "auto";
+      setLoading(false);
+    }
+  };
+
+  // AXIOS INTERCEPTOR
+  const axiosInterceptor = useCallback(() => {
+    Request.interceptors.request.use(
+      function (req) {
+        loadingState("ADD");
+        return req;
+      },
+      (err) => {
+        loadingState();
+        return Promise.reject(err);
+      }
+    );
+
+    Request.interceptors.response.use(
+      function (res) {
+        loadingState();
+        return res;
+      },
+      (err) => {
+        loadingState();
+        return Promise.reject(err);
+      }
+    );
+  }, []);
 
   // USE EFFECT
   useEffect(() => {
@@ -50,13 +87,15 @@ export default function App() {
     })();
   }, [setUser]);
 
+  useEffect(() => {
+    axiosInterceptor();
+  }, [axiosInterceptor]);
+
   // EVENT LISTIONOR (DISABELE RIGHT CLICK)
   window.addEventListener("contextmenu", (e) => e.preventDefault());
 
   // JSX ELEMENT
-  return loading ? (
-    <Loader />
-  ) : (
+  return (
     <>
       <Header />
       <div className="min-h-content bg-black">
@@ -137,6 +176,7 @@ export default function App() {
       </div>
       <Footer />
       <Toaster />
+      {loading && <Loader />}
     </>
   );
 }
