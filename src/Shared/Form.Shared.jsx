@@ -22,21 +22,26 @@ export default function Form({
     imageInput.current.click();
   };
 
-  const handleImage = (e) => {
+  const handleImage = async (e) => {
     const files = Array.from(e.target.files);
     const images = [];
 
-    files.forEach((file) => {
-      const reader = new FileReader();
+    const promises = files.map((file) => {
+      return new Promise((resolve) => {
+        const reader = new FileReader();
 
-      reader.onload = () => {
-        if (reader.readyState === 2) {
-          images.push(reader.result);
-        }
-      };
+        reader.onload = () => {
+          if (reader.readyState === 2) {
+            images.push(reader.result);
+            resolve();
+          }
+        };
 
-      reader.readAsDataURL(file);
+        reader.readAsDataURL(file);
+      });
     });
+
+    await Promise.all(promises);
 
     setFormData((prevState) => {
       return {
@@ -53,6 +58,8 @@ export default function Form({
         [e.target.name]: e.target.value,
       };
     });
+
+    console.log(formData);
   };
 
   // JSX ELEMENT

@@ -97,7 +97,7 @@ input[type='radio']:checked:after {
 
 /* TAILWIND */
 .primary-button {
-    @apply font-semibold bg-customGray px-5 py-3 sm:py-4 sm:px-6 md:py-5 md:px-10 cursor-pointer;
+    @apply font-semibold text-base bg-customGray py-2 px-4 cursor-pointer;
 }
 
 .pagination {

@@ -8,6 +8,9 @@ import UpdateCart from "../Pipes/Cart.Pipe";
 import Images from "../Assets/index";
 import RoutesConstant from "../Constants/Routes.Constant.json";
 
+// REACT ICONS
+import { AiFillDelete } from "react-icons/ai";
+
 // CART TABLE
 export default function CartTable({ data }) {
   // STATE
@@ -90,12 +93,11 @@ export default function CartTable({ data }) {
       </td>
       <td className="border border-gray-500 p-2">
         <div className="grid place-content-center">
-          <button
-            className="primary-button"
+          <AiFillDelete
+            size={20}
+            className="cursor-pointer P-2"
             onClick={() => UpdateCart({ ...data }, true)}
-          >
-            X
-          </button>
+          />
         </div>
       </td>
     </tr>

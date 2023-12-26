@@ -47,14 +47,14 @@ export default function Carousel() {
                 />
               </div>
               <div>
-                <h1 className="font-semibold text-base sm:text-xl md:text-4xl mb-5">
+                <h1 className="font-semibold text-base sm:text-xl md:text-4xl mb-3 md::mb-5">
                   {item.title}
                 </h1>
-                <p className="hidden sm:block text-base md:text-xl mb-10">
+                <p className="hidden sm:block text-base md:text-xl mb-5 md:mb-10">
                   {item.desc}
                 </p>
                 <Link
-                  className="primary-button text-sm sm:text-base lg:text-lg"
+                  className="primary-button !text-xs sm:!text-base md:px-6 md:py-4"
                   to={item.link}
                 >
                   SHOP NOW

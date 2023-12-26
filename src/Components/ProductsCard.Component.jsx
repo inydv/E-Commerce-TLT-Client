@@ -32,7 +32,7 @@ export default function ProductsCard({ item }) {
             {RSCoversion(item.price)}
           </p>
           <button
-            className="primary-button text-sm md:px-5 md:py-2"
+            className="primary-button !text-sm"
             onClick={() => UpdateCart({ product: item, quantity: 1 })}
           >
             ADD TO CART

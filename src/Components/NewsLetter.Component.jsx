@@ -37,7 +37,7 @@ export default function NewsLetter() {
           />
           <button
             type="submit"
-            className="primary-button text-sm md:text-base border border-customGray"
+            className="primary-button border border-customGray"
           >
             SIGN UP
           </button>
