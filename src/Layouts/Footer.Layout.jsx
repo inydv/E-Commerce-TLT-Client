@@ -1,6 +1,7 @@
 // REACT ICONS
-import { BsFacebook, BsLinkedin } from "react-icons/bs";
-import { FaInstagramSquare } from "react-icons/fa";
+import { FaFacebookSquare } from "@react-icons/all-files/fa/FaFacebookSquare";
+import { FaLinkedin } from "@react-icons/all-files/fa/FaLinkedin";
+import { FaInstagramSquare } from "@react-icons/all-files/fa/FaInstagramSquare";
 
 // CUSTOM IMPORTS
 import RoutesConstant from "../Constants/Routes.Constant.json";
@@ -49,7 +50,7 @@ const NavigationConstant = [
 const SocialConstant = [
   {
     to: "https://www.facebook.com/Nitin9900",
-    icon: <BsFacebook size={25} />,
+    icon: <FaFacebookSquare size={25} />,
   },
   {
     to: "https://instagram.com/i_nydv?igshid=YmMyMTA2M2Y=",
@@ -57,7 +58,7 @@ const SocialConstant = [
   },
   {
     to: "https://www.linkedin.com/in/lokesh-yadav-31318a225/",
-    icon: <BsLinkedin size={25} />,
+    icon: <FaLinkedin size={25} />,
   },
 ];
 

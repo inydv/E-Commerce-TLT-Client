@@ -5,6 +5,8 @@
         "Email",
         "Phone",
         "Gender",
+        "Role",
+        "Verified",
         "Action"
     ],
     "product": [
@@ -17,7 +19,14 @@
         "Ratings",
         "Action"
     ],
-    "order": [],
+    "order": [
+        "Products",
+        "Contact",
+        "Address",
+        "Status",
+        "Timestamp",
+        "Action"
+    ],
     "contact": [
         "First Name",
         "Last Name",

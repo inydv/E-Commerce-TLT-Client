@@ -9,7 +9,13 @@ import toast from 'react-hot-toast';
 // APIS
 export const CREATEPRODUCT = async (reqBody) => {
     try {
-        return await Request.post(ApiConstant.admin.product, reqBody);
+        const config = {
+            headers: {
+                'content-type': 'multipart/form-data'
+            }
+        }
+
+        return await Request.post(ApiConstant.admin.product, reqBody, config);
     } catch (error) {
         if (error?.response?.data?.MESSAGE)
             return toast.error(error?.response?.data?.MESSAGE, ToastConstant.error);

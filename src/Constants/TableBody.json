@@ -21,9 +21,18 @@
             "key": "gender"
         },
         {
+            "type": "text",
+            "key": "role"
+        },
+        {
+            "type": "text",
+            "key": "isVerified"
+        },
+        {
             "type": "Action",
-            "isEditEnabled": false,
-            "isDeleteEnabled": true
+            "isViewEnabled": false,
+            "isEditEnabled": true,
+            "isDeleteEnabled": false
         }
     ],
     "product": [
@@ -57,11 +66,11 @@
         },
         {
             "type": "Action",
+            "isViewEnabled": true,
             "isEditEnabled": true,
             "isDeleteEnabled": true
         }
     ],
-    "order": [],
     "contact": [
         {
             "type": "text",

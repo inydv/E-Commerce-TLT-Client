@@ -4,6 +4,8 @@ import { Children, useRef } from "react";
 // CUSTOM IMPORT
 import EnumConstant from "../Constants/Enum.Constant.json";
 import Images from "../Assets/index";
+import DateSplice from "../Pipes/Date.Pipe";
+import RSCoversion from "../Pipes/RSConversion.Pipe";
 
 // FORM
 export default function Form({
@@ -11,7 +13,7 @@ export default function Form({
   setFormData,
   form,
   formData,
-  isSubmitButton = false,
+  ViewForm = false,
 }) {
   // USE REF
   const imageInput = useRef();
@@ -58,8 +60,6 @@ export default function Form({
         [e.target.name]: e.target.value,
       };
     });
-
-    console.log(formData);
   };
 
   // JSX ELEMENT
@@ -68,6 +68,7 @@ export default function Form({
       {Children.toArray(
         form?.map(
           ({
+            isView,
             isFieldset,
             legend,
             children,
@@ -76,6 +77,7 @@ export default function Form({
             className,
             placeholder,
             name,
+            name2,
             label,
             rows,
             required,
@@ -84,6 +86,7 @@ export default function Form({
             multiple,
             labelClass,
             containerClass,
+            textType,
           }) =>
             isFieldset ? (
               <fieldset className="flex justify-between">
@@ -162,45 +165,59 @@ export default function Form({
                   onChange={(e) => handleImage(e)}
                 />
                 <div className="flex gap-2 overflow-x-scroll max-w-[300px] w-full items-center pb-2">
-                  <button
-                    className="aspect-square h-16 w-16 border border-gray text-3xl"
-                    onClick={(e) => onImageSelectButtonClicked(e)}
-                  >
-                    +
-                  </button>
+                  {!isView && (
+                    <button
+                      className="aspect-square h-16 w-16 border border-gray text-3xl"
+                      onClick={(e) => onImageSelectButtonClicked(e)}
+                    >
+                      +
+                    </button>
+                  )}
                   {Children.toArray(
-                    formData[name]?.map((item) => (
-                      <img
-                        src={item}
-                        alt="Product Image"
-                        className="aspect-square h-16 w-16 border border-gray"
-                        onError={({ currentTarget }) => {
-                          currentTarget.onerror = null;
-                          currentTarget.src = Images["NoImageAvailable"];
-                        }}
-                      />
-                    ))
+                    formData &&
+                      formData[name]?.map((item) => (
+                        <img
+                          src={isView ? item?.url : item}
+                          alt="Product Image"
+                          className="aspect-square h-16 w-16 border border-gray"
+                          onError={({ currentTarget }) => {
+                            currentTarget.onerror = null;
+                            currentTarget.src = Images["NoImageAvailable"];
+                          }}
+                        />
+                      ))
                   )}
                 </div>
               </div>
             ) : (
               <div className={containerClass}>
                 <label className={labelClass}>{label}</label>
-                <input
-                  type={type}
-                  className={className}
-                  placeholder={placeholder}
-                  required={required || false}
-                  autoFocus={autoFocus || false}
-                  name={name}
-                  value={formData[name] || ""}
-                  onChange={(e) => handleInput(e)}
-                />
+                {isView ? (
+                  formData &&
+                  (textType === EnumConstant.View.Date
+                    ? DateSplice(formData[name])
+                    : textType === EnumConstant.View.Price
+                    ? RSCoversion(formData[name])
+                    : name2
+                    ? formData[name][name2]
+                    : formData[name])
+                ) : (
+                  <input
+                    type={type}
+                    className={className}
+                    placeholder={placeholder}
+                    required={required || false}
+                    autoFocus={autoFocus || false}
+                    name={name}
+                    value={formData[name] || ""}
+                    onChange={(e) => handleInput(e)}
+                  />
+                )}
               </div>
             )
         )
       )}
-      {isSubmitButton && (
+      {!ViewForm && (
         <div className="flex justify-end">
           <button className="primary-button" type="submit">
             SUBMIT

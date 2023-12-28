@@ -1,0 +1,63 @@
+{
+    "user": [
+        {
+            "tagType": "select",
+            "name": "role",
+            "label": "Role *",
+            "options": [
+                {
+                    "name": "Seller",
+                    "value": "Seller"
+                },
+                {
+                    "name": "User",
+                    "value": "User"
+                }
+            ],
+            "className": "bg-black w-full outline-none",
+            "labelClass": "block mb-1"
+        }
+    ],
+    "contact": [
+        {
+            "tagType": "select",
+            "name": "status",
+            "label": "Status *",
+            "options": [
+                {
+                    "name": "Success",
+                    "value": "Success"
+                },
+                {
+                    "name": "Denied",
+                    "value": "Denied"
+                }
+            ],
+            "className": "bg-black w-full outline-none",
+            "labelClass": "block mb-1"
+        }
+    ],
+    "order": [
+        {
+            "tagType": "select",
+            "name": "status",
+            "label": "Status *",
+            "options": [
+                {
+                    "name": "Out For Delivery",
+                    "value": "Out For Delivery"
+                },
+                {
+                    "name": "Delivered",
+                    "value": "Delivered"
+                },
+                {
+                    "name": "Cancelled",
+                    "value": "Cancelled"
+                }
+            ],
+            "className": "bg-black w-full outline-none",
+            "labelClass": "block mb-1"
+        }
+    ]
+}

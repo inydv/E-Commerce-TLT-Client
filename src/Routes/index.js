@@ -1,7 +1,10 @@
+// REACT
+import { lazy } from "react";
+
 // IMPORTS
-import Authentication from "./Authentication.Routes";
-import Protected from "./Protected.Routes";
-import Admin from "./Admin.Routes";
+const Authentication = lazy(() => import('./Authentication.Routes'));
+const Protected = lazy(() => import('./Protected.Routes'));
+const Admin = lazy(() => import('./Admin.Routes'));
 
 // EXPORTS
 export { Authentication, Protected, Admin };

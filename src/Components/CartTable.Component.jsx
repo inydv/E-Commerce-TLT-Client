@@ -9,7 +9,7 @@ import Images from "../Assets/index";
 import RoutesConstant from "../Constants/Routes.Constant.json";
 
 // REACT ICONS
-import { AiFillDelete } from "react-icons/ai";
+import { AiFillDelete } from "@react-icons/all-files/ai/AiFillDelete";
 
 // CART TABLE
 export default function CartTable({ data }) {

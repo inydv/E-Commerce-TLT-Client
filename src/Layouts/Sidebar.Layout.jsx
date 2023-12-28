@@ -8,9 +8,14 @@ import { Form, MUIDialog, SideDrawer } from "../Shared/index";
 import AddProductFormConstant from "../Constants/AddProductForm.Constant.json";
 import { useUser } from "../Context/User.Context";
 import EnumConstant from "../Constants/Enum.Constant.json";
+import { CREATEPRODUCT } from "../Services/index";
 
 // REACT ICONS
-import { HiMenuAlt2 } from "react-icons/hi";
+import { HiMenuAlt2 } from "@react-icons/all-files/hi/HiMenuAlt2";
+
+// TOASTER
+import toast from "react-hot-toast";
+import ToastConstant from "../Constants/Toast.Constant.json";
 
 // NAVIGATION LIST
 const NavigationList = ({ NavigationConstant }) => (
@@ -95,6 +100,24 @@ export default function Sidebar() {
     );
   }
 
+  // CUSTOM FUNCTION
+  const handleSubmit = async () => {
+    const myForm = new FormData();
+
+    for (const [key, value] of Object.entries(formData)) {
+      myForm.set(key, value);
+    }
+
+    const { data } = await CREATEPRODUCT(myForm);
+
+    if (data && data.SUCCESS) {
+      toast.success(data?.MESSAGE, ToastConstant.success);
+      setOpenDialog(false);
+      setFormData({});
+      navigate(RoutesConstant.adminProduct);
+    }
+  };
+
   // JSX ELEMENT
   return (
     <div className="mb-5">
@@ -113,12 +136,13 @@ export default function Sidebar() {
         title={"Add Product"}
         content={
           <Form
-            formData={formData}
+            submitForm={handleSubmit}
             form={AddProductFormConstant}
+            formData={formData}
             setFormData={setFormData}
           />
         }
-        btnText={"Add"}
+        openForEdit={true}
       />
       <SideDrawer
         isDrawerOpen={isDrawerOpen}

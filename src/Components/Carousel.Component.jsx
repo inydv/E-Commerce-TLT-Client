@@ -3,7 +3,8 @@ import { useState, useEffect, Children } from "react";
 import { Link } from "react-router-dom";
 
 // REACT ICONS
-import { AiFillLeftCircle, AiFillRightCircle } from "react-icons/ai";
+import { AiFillLeftCircle } from "@react-icons/all-files/ai/AiFillLeftCircle";
+import { AiFillRightCircle } from "@react-icons/all-files/ai/AiFillRightCircle";
 
 // CUSTOM IMPORTS
 import CarouselItemsConstant from "../Constants/CarouselItems.Constant.json";

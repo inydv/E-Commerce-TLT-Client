@@ -3,7 +3,7 @@ import { useLocation } from "react-router-dom";
 import { useCallback, useEffect, useState } from "react";
 
 // CUSTOM IMPORTS
-import { Table } from "../Shared/index";
+import { OrderTable, Table } from "../Shared/index";
 import AdminTableHeader from "../Constants/TableHeader.json";
 import AdminTableBody from "../Constants/TableBody.json";
 import {
@@ -71,7 +71,6 @@ export default function AdminPages() {
       getAPI(GETPRODUCTS({}));
     } else if (pathname.includes(EnumConstant.Patname.Order)) {
       setHeader(AdminTableHeader.order);
-      setBody(AdminTableBody.order);
       getAPI(GETALLORDERS());
     } else if (pathname.includes(EnumConstant.Patname.Contact)) {
       setHeader(AdminTableHeader.contact);
@@ -81,7 +80,9 @@ export default function AdminPages() {
   }, [getAPI, pathname]);
 
   // JSX ELEMENT
-  return (
+  return pathname.includes(EnumConstant.Patname.Order) ? (
+    <OrderTable header={header} orders={List} isAdmin={true} />
+  ) : (
     <Table header={header} data={List} body={body} handleBtn={handleBtn} />
   );
 }

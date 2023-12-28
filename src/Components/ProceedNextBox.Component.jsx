@@ -25,7 +25,7 @@ export default function ProceedNextBox({ cart, shippingCharges = 0 }) {
   const navigate = useNavigate();
 
   // CUSTOM FUNCTION
-  const handleAddress = () => {
+  const handleSubmit = () => {
     localStorage.setItem("address", JSON.stringify(formData));
     setOpenDialog(false);
   };
@@ -147,18 +147,17 @@ export default function ProceedNextBox({ cart, shippingCharges = 0 }) {
         </button>
       </div>
       <MUIDialog
-        setOpen={setOpenDialog}
         open={openDialog}
+        setOpen={setOpenDialog}
         title={"Shipping Address"}
         content={
           <Form
+            handleBtn={handleSubmit}
             form={ShippingFormConstant}
             formData={formData}
             setFormData={setFormData}
           />
         }
-        handleBtn={handleAddress}
-        btnText={"Add"}
       />
     </div>
   );

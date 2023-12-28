@@ -8,7 +8,7 @@ import EnumConstant from "../Constants/Enum.Constant.json";
 import Images from "../Assets/index";
 
 // REACT ICON
-import { BsFillPencilFill } from "react-icons/bs";
+import { RiPencilFill } from "@react-icons/all-files/ri/RiPencilFill";
 
 // MY ACCOUNT FORM
 export default function MyAccountForm({
@@ -56,7 +56,7 @@ export default function MyAccountForm({
                 onChange={(e) => handleImage(e)}
                 ref={changeImage}
               />
-              <BsFillPencilFill
+              <RiPencilFill
                 className="absolute right-2 bottom-0 sm:right-5 bg-white rounded-full p-1 xl:p-2 edit-icon cursor-pointer text-2xl xl:text-4xl border-2 border-black"
                 onClick={() => handleChangeImage()}
               />

@@ -26,5 +26,10 @@
     "Table": {
         "Image": "image",
         "Action": "Action"
+    },
+    "View": {
+        "Date": "date",
+        "Image": "image",
+        "Price": "price"
     }
 }

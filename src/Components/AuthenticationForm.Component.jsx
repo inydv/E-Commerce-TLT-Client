@@ -1,7 +1,8 @@
 // REACT ICONS
-import { MdEmail } from "react-icons/md";
-import { IoMdLock } from "react-icons/io";
-import { HiUser, HiPhone } from "react-icons/hi";
+import { MdEmail } from "@react-icons/all-files/md/MdEmail";
+import { IoMdLock } from "@react-icons/all-files/io/IoMdLock";
+import { HiUser } from "@react-icons/all-files/hi/HiUser";
+import { HiPhone } from "@react-icons/all-files/hi/HiPhone";
 
 // REACT AND REACT ROUTER DOM
 import { Children, useState } from "react";
@@ -127,10 +128,7 @@ export default function AuthenticationForm({
             </Link>
           </div>
         )}
-        <button
-          type="submit"
-          className="primary-button float-right"
-        >
+        <button type="submit" className="primary-button float-right">
           {type}
         </button>
       </ul>

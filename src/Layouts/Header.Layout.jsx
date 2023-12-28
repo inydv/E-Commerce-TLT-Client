@@ -1,8 +1,11 @@
 // REACT ICONS
-import { MdAccountCircle, MdDashboard } from "react-icons/md";
-import { IoIosCart, IoMdExit } from "react-icons/io";
-import { BsFillPersonFill, BsFillBagCheckFill } from "react-icons/bs";
-import { HiMenuAlt2 } from "react-icons/hi";
+import { MdAccountCircle } from "@react-icons/all-files/md/MdAccountCircle";
+import { MdDashboard } from "@react-icons/all-files/md/MdDashboard";
+import { IoIosCart } from "@react-icons/all-files/io/IoIosCart";
+import { IoMdExit } from "@react-icons/all-files/io/IoMdExit";
+import { IoBag } from "@react-icons/all-files/io5/IoBag";
+import { BsFillPersonFill } from "@react-icons/all-files/bs/BsFillPersonFill";
+import { HiMenuAlt2 } from "@react-icons/all-files/hi/HiMenuAlt2";
 
 // MUI
 import Badge from "@mui/material/Badge";
@@ -99,7 +102,7 @@ export default function Header() {
   useEffect(() => {
     if (user) {
       option.unshift({
-        icon: <BsFillBagCheckFill size={20} />,
+        icon: <IoBag size={20} />,
         name: "My Orders",
         func: () => {
           navigate(RouteConstant.myOrders);

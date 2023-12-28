@@ -43,10 +43,9 @@ export default function Contact() {
         </h1>
         <Form
           submitForm={handleSubmit}
-          setFormData={setFormData}
           form={ContactFormConstant}
           formData={formData}
-          isSubmitButton={true}
+          setFormData={setFormData}
         />
       </div>
     </div>

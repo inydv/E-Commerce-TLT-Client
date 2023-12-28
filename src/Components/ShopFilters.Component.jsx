@@ -10,7 +10,7 @@ import {
 import Slider from "@mui/material/Slider";
 
 // REACT ICONS
-import { BiSearchAlt2 } from "react-icons/bi";
+import { BiSearchAlt2 } from "@react-icons/all-files/bi/BiSearchAlt2";
 
 // CUSTOM IMPORT
 import ShopFilterConstant from "../Constants/ShopFilter.Constant.json";

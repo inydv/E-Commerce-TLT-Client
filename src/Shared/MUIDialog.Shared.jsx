@@ -12,12 +12,9 @@ const Transition = forwardRef(function Transition(props, ref) {
 export default function MUIDialog({
   setOpen,
   open,
-  openForDelete = false,
   title,
   content,
-  name,
-  handleBtn,
-  btnText,
+  handleBtn = null,
 }) {
   return (
     <Dialog
@@ -29,28 +26,33 @@ export default function MUIDialog({
         style: {
           backgroundColor: "black",
           border: "1px solid gray",
+          minWidth: "300px",
         },
       }}
     >
-      <DialogTitle>
-        {openForDelete ? `DELETE ${name?.toUpperCase() || ""}?` : title}
-      </DialogTitle>
-      <DialogContent>
-        <div>{content}</div>
-      </DialogContent>
-      <DialogActions>
-        <button
-          className="text-base font-semibold py-1 px-3"
+      <DialogTitle className="flex items-center justify-between gap-10">
+        <span>{title}</span>
+        <span
+          className="p-1 cursor-pointer font-semibold"
           onClick={() => setOpen(false)}
         >
-          Close
-        </button>
-        <button
-          className={openForDelete ? "bg-red-600" : "primary-button"}
-          onClick={() => handleBtn()}
-        >
-          {btnText}
-        </button>
+          x
+        </span>
+      </DialogTitle>
+      <hr className="border-gray-400" />
+      <DialogContent>{content}</DialogContent>
+      <DialogActions>
+        {handleBtn && (
+          <button
+            className="bg-red-600 font-semibold text-base py-2 px-4 cursor-pointer"
+            onClick={() => {
+              setOpen(false);
+              handleBtn();
+            }}
+          >
+            Delete
+          </button>
+        )}
       </DialogActions>
     </Dialog>
   );
