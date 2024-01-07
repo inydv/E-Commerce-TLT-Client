@@ -11,6 +11,9 @@ import RoutesConstant from "../Constants/Routes.Constant.json";
 // REACT ICONS
 import { AiFillDelete } from "@react-icons/all-files/ai/AiFillDelete";
 
+// IMAGE LAZY LOADING
+import { LazyLoadImage } from "react-lazy-load-image-component";
+
 // CART TABLE
 export default function CartTable({ data }) {
   // STATE
@@ -32,10 +35,11 @@ export default function CartTable({ data }) {
     <tr>
       <td className="border border-gray-500 p-2">
         <div className="grid place-content-center">
-          <img
+          <LazyLoadImage
             src={data?.product?.images && data?.product?.images[0]?.url}
             alt="Product Image"
             className="h-20 w-20"
+            effect="blur"
             onError={({ currentTarget }) => {
               currentTarget.onerror = null;
               currentTarget.src = Images["NoImageAvailable"];

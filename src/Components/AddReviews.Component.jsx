@@ -14,6 +14,9 @@ import Images from "../Assets/index";
 import toast from "react-hot-toast";
 import ToastConstant from "../Constants/Toast.Constant.json";
 
+// IMAGE LAZY LOADING
+import { LazyLoadImage } from "react-lazy-load-image-component";
+
 // ADD REVIEW
 export default function AddReviews({ fetchProductDetail }) {
   // STATES
@@ -58,10 +61,11 @@ export default function AddReviews({ fetchProductDetail }) {
     <>
       {iswrite ? (
         <div className="flex flex-col items-center border border-gray-700 rounded-xl p-5">
-          <img
+          <LazyLoadImage
             src={user?.avatar?.url || Images["userIcon"]}
             alt="User Image"
-            className="rounded-full h-16 md:h-28 w-16 md:w-28"
+            className="rounded-full h-16 md:h-28 w-16 md:w-28 mx-auto"
+            effect="blur"
             onError={({ currentTarget }) => {
               currentTarget.onerror = null;
               currentTarget.src = NoImageAvailable;

@@ -7,13 +7,16 @@ import RoutesConstant from "../Constants/Routes.Constant.json";
 import UpdateCart from "../Pipes/Cart.Pipe";
 import Images from "../Assets/index";
 
+// IMAGE LAZY LOADING
+import { LazyLoadImage } from "react-lazy-load-image-component";
+
 // PRODUCTS CARD
 export default function ProductsCard({ item }) {
   // JSX ELEMENT
   return (
-    <div className="aspect-square h-full max-h-[344px] max-w-[48%] md:max-w-[344px] overflow-hidden relative group">
+    <div className="aspect-square h-full w-full max-h-[344px] max-w-[48%] md:max-w-[344px] overflow-hidden relative group">
       <Link to={RoutesConstant.productDetails + "/" + item._id}>
-        <img
+        <LazyLoadImage
           src={item?.images && item?.images[0]?.url}
           alt="Product Image"
           className="h-full w-full transition-all duration-200 ease-in-out group-hover:translate-x-[30%] group-hover:opacity-50"

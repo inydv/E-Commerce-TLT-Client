@@ -10,6 +10,9 @@ import Images from "../Assets/index";
 // REACT ICON
 import { RiPencilFill } from "@react-icons/all-files/ri/RiPencilFill";
 
+// IMAGE LAZY LOADING
+import { LazyLoadImage } from "react-lazy-load-image-component";
+
 // MY ACCOUNT FORM
 export default function MyAccountForm({
   handleSubmit,
@@ -39,10 +42,11 @@ export default function MyAccountForm({
         <div className="flex xl:items-center justify-between flex-col md:flex-row xl:-translate-y-10">
           <div className="flex items-center gap-5">
             <div className="relative">
-              <img
+              <LazyLoadImage
                 src={avatarPreview || user?.avatar?.url || Images["userIcon"]}
                 alt="User Image"
                 className="rounded-full h-[80px] xl:h-[150px] w-[80px] xl:w-[150px] border-2 border-white mr-5"
+                effect="blur"
                 onError={({ currentTarget }) => {
                   currentTarget.onerror = null;
                   currentTarget.src = Images["NoImageAvailable"];

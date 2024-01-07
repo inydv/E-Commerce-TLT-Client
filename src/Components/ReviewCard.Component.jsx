@@ -10,6 +10,9 @@ import { useUser } from "../Context/User.Context";
 import { DELETEPRODUCTREVIEW } from "../Services/index";
 import Images from "../Assets/index";
 
+// IMAGE LAZY LOADING
+import { LazyLoadImage } from "react-lazy-load-image-component";
+
 export default function ReviewCard({ productId, item, fetchProductDetail }) {
   // CONTEXT
   const { user } = useUser();
@@ -27,10 +30,11 @@ export default function ReviewCard({ productId, item, fetchProductDetail }) {
   // JSX ELEMENT
   return (
     <div className="flex flex-col items-center border border-gray-700 rounded-xl p-5">
-      <img
+      <LazyLoadImage
         src={item?.user?.avatar?.url || Images["userIcon"]}
         alt="User Image"
-        className="rounded-full h-16 md:h-28 w-16 md:w-28"
+        className="rounded-full h-16 md:h-28 w-16 md:w-28 mx-auto"
+        effect="blur"
         onError={({ currentTarget }) => {
           currentTarget.onerror = null;
           currentTarget.src = Images["NoImageAvailable"];

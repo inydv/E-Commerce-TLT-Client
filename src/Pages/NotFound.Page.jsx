@@ -6,6 +6,9 @@ import { Link } from "react-router-dom";
 import RouteConstant from "../Constants/Routes.Constant.json";
 import Images from "../Assets/index";
 
+// IMAGE LAZY LOADING
+import { LazyLoadImage } from "react-lazy-load-image-component";
+
 // NOT FOUND
 export default function NotFound() {
   // USE EFFECT
@@ -17,7 +20,11 @@ export default function NotFound() {
   return (
     <>
       <div className="flex justify-center bg-white">
-        <img src={Images["notFound"]} alt="Not Found GIF" />
+        <LazyLoadImage
+          src={Images["notFound"]}
+          alt="Not Found GIF"
+          effect="blur"
+        />
       </div>
       <div className="grid justify-center p-5">
         <h1 className="text-center text-xl sm:text-2xl font-semibold">

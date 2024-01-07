@@ -1,6 +1,11 @@
-import Header from "./Header.Layout";
-import Footer from "./Footer.Layout";
-import Sidebar from "./Sidebar.Layout";
-import Loader from "./Loader.Layout";
+// REACT
+import { lazy } from "react";
 
+// IMPORTS
+const Header = lazy(() => import('./Header.Layout'));
+const Footer = lazy(() => import('./Footer.Layout'));
+const Sidebar = lazy(() => import('./Sidebar.Layout'));
+const Loader = lazy(() => import('./Loader.Layout'));
+
+// EXPORTS
 export { Header, Footer, Sidebar, Loader };

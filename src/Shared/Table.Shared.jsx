@@ -15,6 +15,9 @@ import Images from "../Assets/index";
 import ViewItemsConstant from "../Constants/ViewItems.Constant.json";
 import FormConstant from "../Constants/EditForm.Constant.json";
 
+// IMAGE LAZY LOADING
+import { LazyLoadImage } from "react-lazy-load-image-component";
+
 // TABLE
 export default function Table({
   header,
@@ -95,7 +98,7 @@ export default function Table({
                         type === EnumConstant.Table.Image ? (
                           <td className="border border-gray-500 p-2">
                             <div className="grid place-content-center">
-                              <img
+                              <LazyLoadImage
                                 src={
                                   item[key]?.url ||
                                   (item[key]?.length > 0
@@ -104,6 +107,7 @@ export default function Table({
                                 }
                                 alt="Image"
                                 className="h-10 w-10"
+                                effect="blur"
                                 onError={({ currentTarget }) => {
                                   currentTarget.onerror = null;
                                   currentTarget.src =

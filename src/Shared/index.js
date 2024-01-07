@@ -1,9 +1,12 @@
+// REACT
+import { lazy } from "react";
+
 // IMPORTS
-import Table from './Table.Shared';
-import MUIDialog from './MUIDialog.Shared';
-import Form from './Form.Shared';
-import SideDrawer from './SideDrawer.Shared';
-import OrderTable from './OrderTable.Shared';
+const Table = lazy(() => import('./Table.Shared'));
+const MUIDialog = lazy(() => import('./MUIDialog.Shared'));
+const Form = lazy(() => import('./Form.Shared'));
+const SideDrawer = lazy(() => import('./SideDrawer.Shared'));
+const OrderTable = lazy(() => import('./OrderTable.Shared'));
 
 // EXPORTS
 export { Table, MUIDialog, Form, SideDrawer, OrderTable }

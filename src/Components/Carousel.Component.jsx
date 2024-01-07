@@ -10,6 +10,9 @@ import { AiFillRightCircle } from "@react-icons/all-files/ai/AiFillRightCircle";
 import CarouselItemsConstant from "../Constants/CarouselItems.Constant.json";
 import Images from "../Assets/index";
 
+// IMAGE LAZY LOADING
+import { LazyLoadImage } from "react-lazy-load-image-component";
+
 // CAROUSEL
 export default function Carousel() {
   // STATE
@@ -41,10 +44,11 @@ export default function Carousel() {
           CarouselItemsConstant?.map((item) => (
             <div className="grid gap-5 grid-cols-2 items-center w-screen px-10 sm:px-14 bg-customBlack max-h-banner">
               <div className="grid items-end justify-center max-h-banner h-full">
-                <img
+                <LazyLoadImage
                   src={Images[item.img]}
                   alt="Carousel Image"
                   className="max-h-banner"
+                  effect="blur"
                 />
               </div>
               <div>

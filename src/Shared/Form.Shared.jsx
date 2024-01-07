@@ -7,6 +7,9 @@ import Images from "../Assets/index";
 import DateSplice from "../Pipes/Date.Pipe";
 import RSCoversion from "../Pipes/RSConversion.Pipe";
 
+// IMAGE LAZY LOADING
+import { LazyLoadImage } from "react-lazy-load-image-component";
+
 // FORM
 export default function Form({
   submitForm,
@@ -176,10 +179,11 @@ export default function Form({
                   {Children.toArray(
                     formData &&
                       formData[name]?.map((item) => (
-                        <img
+                        <LazyLoadImage
                           src={isView ? item?.url : item}
                           alt="Product Image"
                           className="aspect-square h-16 w-16 border border-gray"
+                          effect="blur"
                           onError={({ currentTarget }) => {
                             currentTarget.onerror = null;
                             currentTarget.src = Images["NoImageAvailable"];

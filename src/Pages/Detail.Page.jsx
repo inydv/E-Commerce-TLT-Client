@@ -15,6 +15,9 @@ import {
 import { GETPRODUCTDETAILS } from "../Services/index";
 import Images from "../Assets/index";
 
+// IMAGE LAZY LOADING
+import { LazyLoadImage } from "react-lazy-load-image-component";
+
 // DETAIL
 export default function Detail() {
   // STATES
@@ -46,10 +49,11 @@ export default function Detail() {
           <Carousel>
             {Children.toArray(
               productDetail?.images?.map((item) => (
-                <img
+                <LazyLoadImage
                   src={item?.url}
                   alt="Product Image"
                   className="h-[400px] sm:h-[500px] lg:h-[700px] w-full"
+                  effect="blur"
                   onError={({ currentTarget }) => {
                     currentTarget.onerror = null;
                     currentTarget.src = Images["NoImageAvailable"];

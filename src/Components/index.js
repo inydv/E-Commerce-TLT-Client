@@ -1,21 +1,24 @@
+// REACT
+import { lazy } from "react";
+
 // IMPORTS
-import Carousel from "./Carousel.Component";
-import Categories from "./Categories.Component";
-import ProductsCard from "./ProductsCard.Component";
-import ProductsCategoriesCard from "./ProductsCategoriesCard.Component";
-import Banner from "./Banner.Component";
-import NewsLetter from "./NewsLetter.Component";
-import AuthenticationForm from "./AuthenticationForm.Component";
-import AddReviews from "./AddReviews.Component";
-import ProductDetails from "./ProductDetails.Component";
-import ReviewCard from "./ReviewCard.Component";
-import MyAccountForm from "./MyAccountForm.Component";
-import ProceedNextBox from "./ProceedNextBox.Component";
-import ShopFilters from "./ShopFilters.Component";
-import CartTable from "./CartTable.Component";
-import ProductsCategoriesAndProducts from "./ProductsCategoriesAndProducts.Component";
-import NotAvailable from "./NotAvailable.Component";
-import Pagination from "./Pagination.Component";
+const Carousel = lazy(() => import("./Carousel.Component"));
+const Categories = lazy(() => import("./Categories.Component"));
+const ProductsCard = lazy(() => import("./ProductsCard.Component"));
+const ProductsCategoriesCard = lazy(() => import("./ProductsCategoriesCard.Component"));
+const Banner = lazy(() => import("./Banner.Component"));
+const NewsLetter = lazy(() => import("./NewsLetter.Component"));
+const AuthenticationForm = lazy(() => import("./AuthenticationForm.Component"));
+const AddReviews = lazy(() => import("./AddReviews.Component"));
+const ProductDetails = lazy(() => import("./ProductDetails.Component"));
+const ReviewCard = lazy(() => import("./ReviewCard.Component"));
+const MyAccountForm = lazy(() => import("./MyAccountForm.Component"));
+const ProceedNextBox = lazy(() => import("./ProceedNextBox.Component"));
+const ShopFilters = lazy(() => import("./ShopFilters.Component"));
+const CartTable = lazy(() => import("./CartTable.Component"));
+const ProductsCategoriesAndProducts = lazy(() => import("./ProductsCategoriesAndProducts.Component"));
+const NotAvailable = lazy(() => import("./NotAvailable.Component"));
+const Pagination = lazy(() => import("./Pagination.Component"));
 
 // EXPORTS
 export { Carousel, Categories, ProductsCard, ProductsCategoriesCard, Banner, NewsLetter, AuthenticationForm, AddReviews, ProductDetails, ReviewCard, MyAccountForm, ProceedNextBox, ShopFilters, CartTable, ProductsCategoriesAndProducts, NotAvailable, Pagination }

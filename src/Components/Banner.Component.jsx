@@ -1,6 +1,9 @@
 // CUSTOM IMPORTS
 import Images from "../Assets/index";
 
+// IMAGE LAZY LOADING
+import { LazyLoadImage } from "react-lazy-load-image-component";
+
 // BANNER
 export default function Banner() {
   // JSX ELEMENT
@@ -9,35 +12,40 @@ export default function Banner() {
       <div className="bg-customBlack grid grid-cols-2 place-items-center px-5">
         <div className="h-[200px] sm:h-[380px] lg:h-[600px]">
           <div className="h-[49%]">
-            <img
+            <LazyLoadImage
               src={Images["banner1"]}
               alt="Banner Image"
               className="h-[100%]"
+              effect="blur"
             />
           </div>
           <div className="h-[49%]">
             <div className="h-[50%] flex gap-1 mt-1">
-              <img
+              <LazyLoadImage
                 src={Images["banner2"]}
                 alt="Banner Image"
                 className="h-[100%]"
+                effect="blur"
               />
-              <img
+              <LazyLoadImage
                 src={Images["banner3"]}
                 alt="Banner Image"
                 className="h-[100%]"
+                effect="blur"
               />
             </div>
             <div className="h-[50%] flex gap-1 mt-1">
-              <img
+              <LazyLoadImage
                 src={Images["banner4"]}
                 alt="Banner Image"
                 className="h-[100%]"
+                effect="blur"
               />
-              <img
+              <LazyLoadImage
                 src={Images["banner5"]}
                 alt="Banner Image"
                 className="h-[100%]"
+                effect="blur"
               />
             </div>
           </div>

@@ -21,6 +21,9 @@ import { AiFillEye } from "@react-icons/all-files/ai/AiFillEye";
 import toast from "react-hot-toast";
 import ToastConstant from "../Constants/Toast.Constant.json";
 
+// IMAGE LAZY LOADING
+import { LazyLoadImage } from "react-lazy-load-image-component";
+
 // ORDER TABLE
 export default function OrderTable({ header, orders, isAdmin = false }) {
   // STATES
@@ -81,17 +84,18 @@ export default function OrderTable({ header, orders, isAdmin = false }) {
                       <div
                         className={
                           index === item?.orderItems?.length - 1
-                            ? "flex gap-5 items-center"
-                            : "flex gap-5 items-center mb-4"
+                            ? "grid gap-5 grid-flow-col"
+                            : "grid gap-5 grid-flow-col mb-4"
                         }
                       >
-                        <img
+                        <LazyLoadImage
                           src={
                             product?.images?.length > 0 &&
                             product?.images[0]?.url
                           }
                           alt={product?.name}
                           className="h-14 w-14 aspect-square"
+                          effect="blur"
                           onError={({ currentTarget }) => {
                             currentTarget.onerror = null;
                             currentTarget.src = Images["NoImageAvailable"];

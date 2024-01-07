@@ -30,6 +30,8 @@ import { Request } from "./Configs/RequestMethod.Config";
 
 // IMPORT STYLES
 import "./Styles/MUI.Style.css";
+import "./Styles/LazyLoading.Style.css";
+import "react-lazy-load-image-component/src/effects/blur.css";
 
 // APP
 export default function App() {
