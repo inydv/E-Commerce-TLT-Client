@@ -101,7 +101,9 @@ export default function Sidebar() {
   }
 
   // CUSTOM FUNCTION
-  const handleSubmit = async () => {
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+
     const myForm = new FormData();
 
     for (const [key, value] of Object.entries(formData)) {

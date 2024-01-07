@@ -31,5 +31,8 @@
         "Date": "date",
         "Image": "image",
         "Price": "price"
+    },
+    "Environment": {
+        "Development": "DEVELOPMENT"
     }
 }

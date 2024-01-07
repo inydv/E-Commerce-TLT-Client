@@ -11,6 +11,7 @@ import RSCoversion from "../Pipes/RSConversion.Pipe";
 import { Form, MUIDialog } from "./index";
 import ViewItemsConstant from "../Constants/ViewItems.Constant.json";
 import FormConstant from "../Constants/EditForm.Constant.json";
+import { UPDATEORDERSTATUS } from "../Services";
 
 // REACT ICONS
 import { MdModeEdit } from "@react-icons/all-files/md/MdModeEdit";
@@ -29,6 +30,7 @@ export default function OrderTable({ header, orders, isAdmin = false }) {
     viewData: null,
     displayName: "",
     openForEdit: false,
+    id: null,
   });
 
   // CUSTOM FUNCTION
@@ -47,10 +49,11 @@ export default function OrderTable({ header, orders, isAdmin = false }) {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    const { data } = await CREATECONTACT(formData);
+    const { data } = await UPDATEORDERSTATUS(dialogState.id, formData);
 
     if (data && data.SUCCESS) {
       toast.success(data?.MESSAGE, ToastConstant.success);
+      setOpenDialog(false);
       setFormData({});
     }
   };
@@ -164,6 +167,7 @@ export default function OrderTable({ header, orders, isAdmin = false }) {
                             displayName: "Edit Order",
                             openForEdit: true,
                             viewData: item,
+                            id: item?._id,
                           });
                         }}
                       />

@@ -1,5 +1,5 @@
 // REACT AND REACT ROUTER DOM
-import { Children, useState } from "react";
+import { Children, useEffect, useState } from "react";
 import { useLocation } from "react-router-dom";
 
 // REACT ICONS
@@ -15,15 +15,23 @@ import Images from "../Assets/index";
 import ViewItemsConstant from "../Constants/ViewItems.Constant.json";
 import FormConstant from "../Constants/EditForm.Constant.json";
 
-// TOASTER
-import toast from "react-hot-toast";
-import ToastConstant from "../Constants/Toast.Constant.json";
-
 // TABLE
-export default function Table({ header, data, body, handleBtn }) {
+export default function Table({
+  header,
+  data,
+  body,
+  handleBtn,
+
+  // EDIT
+  handleSubmit,
+  formData,
+  setFormData,
+  setId,
+  isApiSuccessfull,
+  setIsApiSuccessfull,
+}) {
   // STATES
   const [openDialog, setOpenDialog] = useState(false);
-  const [formData, setFormData] = useState({});
   const [dialogState, setDialogState] = useState({
     id: null,
     viewData: null,
@@ -49,16 +57,13 @@ export default function Table({ header, data, body, handleBtn }) {
     setOpenDialog(true);
   };
 
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-
-    const { data } = await CREATECONTACT(formData);
-
-    if (data && data.SUCCESS) {
-      toast.success(data?.MESSAGE, ToastConstant.success);
-      setFormData({});
+  // USE EFFECT
+  useEffect(() => {
+    if (isApiSuccessfull) {
+      setOpenDialog(false);
+      setIsApiSuccessfull(false);
     }
-  };
+  }, [isApiSuccessfull, setIsApiSuccessfull]);
 
   // JSX ELEMENT
   return (
@@ -129,11 +134,12 @@ export default function Table({ header, data, body, handleBtn }) {
                                   size={20}
                                   className="cursor-pointer"
                                   onClick={() => {
+                                    setId(item?._id);
+                                    setFormData({});
                                     handleInput({
                                       displayName: "Edit " + name,
                                       openForDelete: false,
                                       openForEdit: true,
-                                      viewData: item,
                                     });
                                   }}
                                 />

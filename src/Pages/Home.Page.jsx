@@ -26,7 +26,7 @@ export default function Home() {
       const { data } = await GETPRODUCTS({});
 
       if (data && data.SUCCESS) {
-        setProducts(data.DATA);
+        setProducts(data.DATA?.LISTS);
       }
     })();
   }, []);

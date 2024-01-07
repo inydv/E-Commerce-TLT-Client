@@ -92,7 +92,7 @@ export default function App() {
   }, [axiosInterceptor]);
 
   // EVENT LISTIONOR (DISABELE RIGHT CLICK)
-  window.addEventListener("contextmenu", (e) => e.preventDefault());
+  // window.addEventListener("contextmenu", (e) => e.preventDefault());
 
   // JSX ELEMENT
   return (

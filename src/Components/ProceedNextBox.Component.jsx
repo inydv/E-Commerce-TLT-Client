@@ -25,7 +25,9 @@ export default function ProceedNextBox({ cart, shippingCharges = 0 }) {
   const navigate = useNavigate();
 
   // CUSTOM FUNCTION
-  const handleSubmit = () => {
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    
     localStorage.setItem("address", JSON.stringify(formData));
     setOpenDialog(false);
   };
@@ -152,7 +154,7 @@ export default function ProceedNextBox({ cart, shippingCharges = 0 }) {
         title={"Shipping Address"}
         content={
           <Form
-            handleBtn={handleSubmit}
+            submitForm={handleSubmit}
             form={ShippingFormConstant}
             formData={formData}
             setFormData={setFormData}

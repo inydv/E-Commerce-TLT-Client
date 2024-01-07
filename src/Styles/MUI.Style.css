@@ -19,3 +19,9 @@
 .css-11u3b1d-MuiSpeedDial-root .MuiSpeedDial-actions {
     margin-top: -25px !important;
 }
+
+.apexcharts-tooltip-title,
+.apexcharts-tooltip-text-y-label,
+.apexcharts-tooltip-text-y-value {
+    color: black;
+}

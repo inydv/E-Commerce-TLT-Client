@@ -7,9 +7,9 @@ import { Request } from "../Configs/RequestMethod.Config";
 import toast from 'react-hot-toast';
 
 // APIS
-export const GETALLUSERS = async () => {
+export const GETALLUSERS = async ({ page = 1, resultPerPage = 15 }) => {
     try {
-        return await Request.get(ApiConstant.admin.user);
+        return await Request.get(ApiConstant.admin.user + "?page=" + page + "&resultPerPage=" + resultPerPage);
     } catch (error) {
         if (error?.response?.data?.MESSAGE)
             return toast.error(error?.response?.data?.MESSAGE, ToastConstant.error);
@@ -61,6 +61,15 @@ export const UPDATEUSERROLE = async (userId, reqBody) => {
 export const DELETEUSER = async (userId) => {
     try {
         return await Request.delete(ApiConstant.admin.user + "/" + userId);
+    } catch (error) {
+        if (error?.response?.data?.MESSAGE)
+            return toast.error(error?.response?.data?.MESSAGE, ToastConstant.error);
+    }
+}
+
+export const COUNTUSER = async () => {
+    try {
+        return await Request.get(ApiConstant.admin.user + "/count-users");
     } catch (error) {
         if (error?.response?.data?.MESSAGE)
             return toast.error(error?.response?.data?.MESSAGE, ToastConstant.error);

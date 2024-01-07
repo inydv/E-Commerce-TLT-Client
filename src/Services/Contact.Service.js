@@ -16,9 +16,9 @@ export const CREATECONTACT = async (reqBody) => {
     }
 }
 
-export const GETALLCONTACT = async () => {
+export const GETALLCONTACT = async ({ page = 1, resultPerPage = 15 }) => {
     try {
-        return await Request.get(ApiConstant.admin.contact);
+        return await Request.get(ApiConstant.admin.contact + "?page=" + page + "&resultPerPage=" + resultPerPage);
     } catch (error) {
         if (error?.response?.data?.MESSAGE)
             return toast.error(error?.response?.data?.MESSAGE, ToastConstant.error);
@@ -36,7 +36,7 @@ export const GETCONTACTDETAILS = async (contactId) => {
 
 export const UPDATECONTACTSTATUS = async (contactId, reqBody) => {
     try {
-        return await Request.patch(ApiConstant.admin.contact, reqBody);
+        return await Request.patch(ApiConstant.admin.contact + "/" + contactId, reqBody);
     } catch (error) {
         if (error?.response?.data?.MESSAGE)
             return toast.error(error?.response?.data?.MESSAGE, ToastConstant.error);
@@ -46,6 +46,15 @@ export const UPDATECONTACTSTATUS = async (contactId, reqBody) => {
 export const DELETECONTACT = async (contactId) => {
     try {
         return await Request.delete(ApiConstant.admin.contact + "/" + contactId);
+    } catch (error) {
+        if (error?.response?.data?.MESSAGE)
+            return toast.error(error?.response?.data?.MESSAGE, ToastConstant.error);
+    }
+}
+
+export const COUNTCONTACT = async () => {
+    try {
+        return await Request.get(ApiConstant.admin.contact + "/count-contacts");
     } catch (error) {
         if (error?.response?.data?.MESSAGE)
             return toast.error(error?.response?.data?.MESSAGE, ToastConstant.error);

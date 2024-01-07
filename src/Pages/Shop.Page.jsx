@@ -1,6 +1,10 @@
 // REACT AND REACT ROUTER DOM
 import { useState, useEffect } from "react";
-import { useSearchParams } from "react-router-dom";
+import {
+  createSearchParams,
+  useNavigate,
+  useSearchParams,
+} from "react-router-dom";
 
 // MUI
 import Drawer from "@mui/material/Drawer";
@@ -10,6 +14,7 @@ import {
   ShopFilters,
   ProductsCategoriesAndProducts,
   NotAvailable,
+  Pagination,
 } from "../Components/index";
 import { GETPRODUCTS } from "../Services/index";
 
@@ -18,12 +23,21 @@ export default function Shop() {
   // STATES
   const [openDrawer, setOpenDrawer] = useState(false);
   const [products, setProducts] = useState([]);
+  const [filteredResult, setFilteredResult] = useState(0);
 
-  // USE SEARCH PARAMS
+  // USE NAVIGATE AND USE SEARCH PARAMS
+  const navigate = useNavigate();
   const [searchParams] = useSearchParams();
 
   // CUSTOM FUNCTION
-  const handlePagination = () => {};
+  const handlePagination = (pageNumber) => {
+    if (pageNumber > 1 && pageNumber < Math.ceil(filteredResult / 8)) {
+      navigate({
+        pathname: "/shop",
+        search: `?${createSearchParams({ ...searchParams, page: pageNumber })}`,
+      });
+    }
+  };
 
   // USE EFFECT
   useEffect(() => {
@@ -35,7 +49,8 @@ export default function Shop() {
       const { data } = await GETPRODUCTS(currentParams);
 
       if (data && data.SUCCESS) {
-        setProducts(data.DATA);
+        setProducts(data.DATA?.LISTS);
+        setFilteredResult(data.DATA.NUMBER_OF_FILTERED_LIST);
       }
     })();
   }, [searchParams]);
@@ -68,13 +83,12 @@ export default function Shop() {
         <div className="w-full">
           <ProductsCategoriesAndProducts data={products} />
           <div className="grid place-items-center mt-5">
-            <div className="flex items-center">
-              <p className="pagination">FIRST</p>
-              <p className="pagination">PREV</p>
-              <p className="pagination text-red-600">1</p>
-              <p className="pagination">NEXT</p>
-              <p className="pagination">LAST</p>
-            </div>
+            <Pagination
+              handlePagination={handlePagination}
+              resultPerPage={8}
+              filteredResult={filteredResult}
+              page={+searchParams.get("page") || 1}
+            />
           </div>
         </div>
       ) : (

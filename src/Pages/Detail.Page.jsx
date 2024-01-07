@@ -6,14 +6,19 @@ import { useParams } from "react-router-dom";
 import Carousel from "react-material-ui-carousel";
 
 // CUSTOM IMPORTS
-import { AddReviews, ProductDetails, ReviewCard } from "../Components/index";
+import {
+  AddReviews,
+  NotAvailable,
+  ProductDetails,
+  ReviewCard,
+} from "../Components/index";
 import { GETPRODUCTDETAILS } from "../Services/index";
 import Images from "../Assets/index";
 
 // DETAIL
 export default function Detail() {
   // STATES
-  const [productDetail, setProductDetail] = useState();
+  const [productDetail, setProductDetail] = useState(null);
 
   // USE PARAMS
   const { productId } = useParams();
@@ -34,7 +39,7 @@ export default function Detail() {
   }, [fetchProductDetail]);
 
   // JSX ELEMENT
-  return (
+  return productDetail ? (
     <div className="p-5 sm:px-10">
       <div className="max-w-[1400px] mx-auto">
         <div className="md:grid md:grid-cols-2">
@@ -77,6 +82,10 @@ export default function Detail() {
           )}
         </div>
       </div>
+    </div>
+  ) : (
+    <div className="min-h-content grid place-items-center">
+      <NotAvailable title={"Product"} />
     </div>
   );
 }

@@ -15,6 +15,7 @@ import ShopFilters from "./ShopFilters.Component";
 import CartTable from "./CartTable.Component";
 import ProductsCategoriesAndProducts from "./ProductsCategoriesAndProducts.Component";
 import NotAvailable from "./NotAvailable.Component";
+import Pagination from "./Pagination.Component";
 
 // EXPORTS
-export { Carousel, Categories, ProductsCard, ProductsCategoriesCard, Banner, NewsLetter, AuthenticationForm, AddReviews, ProductDetails, ReviewCard, MyAccountForm, ProceedNextBox, ShopFilters, CartTable, ProductsCategoriesAndProducts, NotAvailable }
+export { Carousel, Categories, ProductsCard, ProductsCategoriesCard, Banner, NewsLetter, AuthenticationForm, AddReviews, ProductDetails, ReviewCard, MyAccountForm, ProceedNextBox, ShopFilters, CartTable, ProductsCategoriesAndProducts, NotAvailable, Pagination }
