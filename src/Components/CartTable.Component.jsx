@@ -17,7 +17,7 @@ import { LazyLoadImage } from "react-lazy-load-image-component";
 // CART TABLE
 export default function CartTable({ data }) {
   // STATE
-  const [quantity, setQuantity] = useState(data?.quantity);
+  const [quantity, setQuantity] = useState(data?.quantity || 0);
 
   // CUSTOM FUNCTION
   const handleQty = (type) => {

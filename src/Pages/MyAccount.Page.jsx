@@ -14,8 +14,8 @@ import ToastConstant from "../Constants/Toast.Constant.json";
 export default function MyAccount() {
   // STATES
   const [formData, setFormData] = useState({});
-  const [avatar, setAvatar] = useState();
-  const [avatarPreview, setAvatarPreview] = useState();
+  const [avatar, setAvatar] = useState(null);
+  const [avatarPreview, setAvatarPreview] = useState(null);
 
   // CONTEXT
   const { user } = useUser();

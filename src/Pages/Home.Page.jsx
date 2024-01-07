@@ -16,7 +16,7 @@ import { GETPRODUCTS } from "../Services/index";
 // HOME
 export default function Home() {
   // STATES
-  const [products, setProducts] = useState();
+  const [products, setProducts] = useState([]);
 
   // USE EFFECT
   useEffect(() => {

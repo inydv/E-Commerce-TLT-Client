@@ -14,7 +14,7 @@ import EnumConstant from "../Constants/Enum.Constant.json";
 // AUTH
 export default function Auth() {
   // STATES
-  const [pathName, setPathName] = useState();
+  const [pathName, setPathName] = useState(null);
 
   // USE LOCATION
   const location = useLocation();

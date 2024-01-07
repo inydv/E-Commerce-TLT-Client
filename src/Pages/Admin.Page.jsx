@@ -31,11 +31,11 @@ import { Pagination } from "../Components";
 // ADMIN PAGE
 export default function AdminPages() {
   // STATES
-  const [header, setHeader] = useState();
-  const [List, setList] = useState();
-  const [body, setBody] = useState();
+  const [header, setHeader] = useState(null);
+  const [List, setList] = useState(null);
+  const [body, setBody] = useState(null);
   const [formData, setFormData] = useState({});
-  const [id, setId] = useState();
+  const [id, setId] = useState(null);
   const [isApiSuccessfull, setIsApiSuccessfull] = useState(false);
   const [filteredResult, setFilteredResult] = useState(0);
 

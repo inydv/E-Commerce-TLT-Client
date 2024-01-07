@@ -19,7 +19,7 @@ export default function ProceedNextBox({ cart, shippingCharges = 0 }) {
   const [subTotal, setSubTotal] = useState(0);
   const [openDialog, setOpenDialog] = useState(false);
   const [formData, setFormData] = useState({});
-  const [razorpayKeyId, setRazorpayKeyId] = useState();
+  const [razorpayKeyId, setRazorpayKeyId] = useState(null);
 
   // USE NAVIGATE
   const navigate = useNavigate();
