@@ -1,5 +1,5 @@
 // REACT AND REACT ROUTER DOM
-import { useState, useEffect } from "react";
+import { useState, useEffect, Children } from "react";
 import {
   createSearchParams,
   useNavigate,
@@ -12,9 +12,9 @@ import Drawer from "@mui/material/Drawer";
 // CUSTOM IMPORTS
 import {
   ShopFilters,
-  ProductsCategoriesAndProducts,
   NotAvailable,
   Pagination,
+  ProductsCard,
 } from "../Components/index";
 import { GETPRODUCTS } from "../Services/index";
 
@@ -81,7 +81,12 @@ export default function Shop() {
 
       {products?.length > 0 ? (
         <div className="w-full">
-          <ProductsCategoriesAndProducts data={products} />
+          <div className="flex flex-wrap gap-2 justify-center items-center">
+            {Children.toArray(
+              products?.map((item) => <ProductsCard item={item} />)
+            )}
+          </div>
+          u
           <div className="grid place-items-center mt-5">
             <Pagination
               handlePagination={handlePagination}

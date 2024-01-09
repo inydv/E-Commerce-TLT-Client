@@ -1,5 +1,5 @@
 // REACT
-import { useEffect, useState } from "react";
+import { Children, useEffect, useState } from "react";
 
 // CUSTOM IMPORTS
 import {
@@ -7,7 +7,8 @@ import {
   Carousel,
   Categories,
   NewsLetter,
-  ProductsCategoriesAndProducts,
+  ProductsCard,
+  ProductsCategoriesCard,
 } from "../Components/index";
 import MenConstant from "../Constants/MenProductsCategoriesItems.Constant.json";
 import WomenConstant from "../Constants/WomenProductsCategoriesItems.Constant.json";
@@ -38,22 +39,38 @@ export default function Home() {
       <Categories />
       <div className="px-5 sm:px-10">
         <div className="max-w-[1400px] mx-auto">
-          <ProductsCategoriesAndProducts
-            type="MENS"
-            data={MenConstant}
-            isHeading={true}
-          />
-          <ProductsCategoriesAndProducts
-            type="WOMENS"
-            data={WomenConstant}
-            isHeading={true}
-          />
+          <div className="flex items-center gap-x-5 py-5 sm:py-10">
+            <div className="heading-line"></div>
+            <span className="heading">MENS CATEGORIES</span>
+            <div className="heading-line"></div>
+          </div>
+          <div className="flex flex-wrap gap-2 justify-center items-center">
+            {Children.toArray(
+              MenConstant?.map((item) => <ProductsCategoriesCard item={item} />)
+            )}
+          </div>
+          <div className="flex items-center gap-x-5 py-5 sm:py-10">
+            <div className="heading-line"></div>
+            <span className="heading">WOMENS CATEGORIES</span>
+            <div className="heading-line"></div>
+          </div>
+          <div className="flex flex-wrap gap-2 justify-center items-center">
+            {Children.toArray(
+              WomenConstant?.map((item) => (
+                <ProductsCategoriesCard item={item} />
+              ))
+            )}
+          </div>
         </div>
       </div>
       <Banner />
       <div className="px-5 sm:px-10">
         <div className="max-w-[1400px] mx-auto">
-          <ProductsCategoriesAndProducts data={products} />
+          <div className="flex flex-wrap gap-2 justify-center items-center">
+            {Children.toArray(
+              products?.map((item) => <ProductsCard item={item} />)
+            )}
+          </div>
         </div>
       </div>
       <NewsLetter />
