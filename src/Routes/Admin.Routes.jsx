@@ -33,9 +33,9 @@ export default function Admin() {
 
   // RJSX ELEMENT
   return (
-    <div className="page-padding">
+    <section className="page-padding">
       <Sidebar />
       <Outlet />
-    </div>
+    </section>
   );
 }

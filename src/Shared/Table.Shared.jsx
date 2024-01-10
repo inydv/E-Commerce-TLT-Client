@@ -151,7 +151,7 @@ export default function Table({
 
   // JSX ELEMENT
   return (
-    <div className="overflow-x-auto pb-2">
+    <section className="overflow-x-auto pb-2">
       <table className="table-width">
         <thead>
           <tr>
@@ -228,6 +228,6 @@ export default function Table({
           }
         />
       </table>
-    </div>
+    </section>
   );
 }

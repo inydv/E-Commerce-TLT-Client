@@ -29,7 +29,7 @@ export default function ReviewCard({ productId, item, fetchProductDetail }) {
 
   // JSX ELEMENT
   return (
-    <div className="flex flex-col items-center td-border rounded-xl p-5">
+    <article className="flex flex-col items-center td-border rounded-xl p-5">
       <LazyLoadImage
         src={item?.user?.avatar?.url || Images["userIcon"]}
         alt="User Image"
@@ -55,6 +55,6 @@ export default function ReviewCard({ productId, item, fetchProductDetail }) {
       ) : (
         ""
       )}
-    </div>
+    </article>
   );
 }

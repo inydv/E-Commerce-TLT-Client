@@ -156,7 +156,7 @@ export default function Header() {
 
   // JSX ELEMENT
   return (
-    <div className="bg-black page-padding sticky top-0 left-0 z-40">
+    <header className="bg-black page-padding sticky top-0 left-0 z-40">
       <div className="flex justify-between h-full items-center">
         <HiMenuAlt2
           color="white"
@@ -205,6 +205,6 @@ export default function Header() {
         setIsDrawerOpen={setIsDrawerOpen}
         content={<NavigationList />}
       />
-    </div>
+    </header>
   );
 }

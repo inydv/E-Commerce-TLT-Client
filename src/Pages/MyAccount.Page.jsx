@@ -80,7 +80,7 @@ export default function MyAccount() {
 
   // JSX ELEMENT
   return (
-    <div className="page-padding">
+    <section className="page-padding">
       <div className="page-width">
         <div className="hidden xl:block xl:h-[150px] bg-gradient-to-r from-[#060606] to-[#030303] rounded-tl-full rounded-br-full blur-sm brightness-150"></div>
         <MyAccountForm
@@ -91,6 +91,6 @@ export default function MyAccount() {
           formData={formData}
         />
       </div>
-    </div>
+    </section>
   );
 }

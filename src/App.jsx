@@ -95,7 +95,7 @@ export default function App() {
   return (
     <>
       <Header />
-      <div className="min-h-content bg-black">
+      <main className="min-h-content bg-black">
         <Suspense fallback={<Loader />}>
           <Routes>
             {/* AUTHENTICATION ROUTES */}
@@ -170,7 +170,7 @@ export default function App() {
             <Route exact path="*" element={<NotFound />} />
           </Routes>
         </Suspense>
-      </div>
+      </main>
       <Footer />
 
       {/* TOASTER */}

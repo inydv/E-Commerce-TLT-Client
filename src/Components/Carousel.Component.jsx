@@ -28,7 +28,7 @@ export default function Carousel() {
 
   // JSX ELEMENT
   return (
-    <div className="flex overflow-hidden relative">
+    <section className="flex overflow-hidden relative">
       <AiFillLeftCircle
         size={25}
         className="absolute top-0 bottom-0 cursor-pointer z-10 m-auto left-2"
@@ -76,6 +76,6 @@ export default function Carousel() {
           slideIndex === 2 ? setSlideIndex(0) : setSlideIndex(slideIndex + 1);
         }}
       />
-    </div>
+    </section>
   );
 }

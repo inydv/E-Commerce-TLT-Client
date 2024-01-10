@@ -14,7 +14,7 @@ import { LazyLoadImage } from "react-lazy-load-image-component";
 export default function ProductsCard({ item }) {
   // JSX ELEMENT
   return (
-    <div className="aspect-square h-full w-full max-h-[344px] max-w-[48%] md:max-w-[344px] overflow-hidden relative group">
+    <article className="aspect-square h-full w-full max-h-[344px] max-w-[48%] md:max-w-[344px] overflow-hidden relative group">
       <Link to={RoutesConstant.productDetails + "/" + item._id}>
         <LazyLoadImage
           src={item?.images && item?.images[0]?.url}
@@ -42,6 +42,6 @@ export default function ProductsCard({ item }) {
           </button>
         </div>
       </div>
-    </div>
+    </article>
   );
 }

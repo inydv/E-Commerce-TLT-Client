@@ -27,7 +27,7 @@ const CATEGORY_CONSTANT = [
 export default function Categories() {
   // JSX ELEMENT
   return (
-    <div className="page-padding">
+    <article className="page-padding">
       <div className="page-width flex gap-x-2">
         {Children.toArray(
           CATEGORY_CONSTANT?.map(({ name, src, to }) => (
@@ -44,6 +44,6 @@ export default function Categories() {
           ))
         )}
       </div>
-    </div>
+    </article>
   );
 }

@@ -122,7 +122,7 @@ export default function Sidebar() {
 
   // JSX ELEMENT
   return (
-    <div className="mb-5">
+    <section className="mb-5">
       <div className="flex justify-end">
         <div
           className="flex gap-2 cursor-pointer"
@@ -151,6 +151,6 @@ export default function Sidebar() {
         setIsDrawerOpen={setIsDrawerOpen}
         content={<NavigationList NavigationConstant={NavigationConstant} />}
       />
-    </div>
+    </section>
   );
 }

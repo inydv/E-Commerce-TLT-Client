@@ -57,7 +57,7 @@ export default function Shop() {
 
   // JSX ELEMENT
   return (
-    <div className="lg:flex lg:gap-5 px-5 sm:px-10 sm:pt-5">
+    <section className="lg:flex lg:gap-5 px-5 sm:px-10 sm:pt-5">
       <div className="hidden lg:block min-w-[400px]">
         <h1 className="font-semibold text-2xl mb-5">
           <span className="capitalize">
@@ -105,6 +105,6 @@ export default function Shop() {
       <Drawer anchor="bottom" open={openDrawer}>
         <ShopFilters setOpenDrawer={setOpenDrawer} />
       </Drawer>
-    </div>
+    </section>
   );
 }

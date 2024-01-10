@@ -118,13 +118,13 @@ export default function Dashboard() {
 
   // JSX ELEMENT
   return (
-    <div className="page-width">
+    <section className="page-width">
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-2 sm:gap-5">
         <DashboardCards obj={orders} />
         <DashboardCards obj={products} />
         <DashboardCards obj={contacts} />
         <DashboardCards obj={users} />
       </div>
-    </div>
+    </section>
   );
 }

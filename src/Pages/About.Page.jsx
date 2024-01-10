@@ -13,7 +13,7 @@ export default function About() {
 
   // JSX ELEMENT
   return (
-    <div className="page-padding">
+    <section className="page-padding">
       <h1 className="page-title">ABOUT</h1>
       {Children.toArray(
         AboutItemsConstant?.map((item) => (
@@ -24,6 +24,6 @@ export default function About() {
           </>
         ))
       )}
-    </div>
+    </section>
   );
 }

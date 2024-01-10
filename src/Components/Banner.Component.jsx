@@ -25,7 +25,7 @@ const BannerChild = ({ img1, img2 }) => (
 export default function Banner() {
   // JSX ELEMENT
   return (
-    <div className="py-1 my-5 lg:py-0">
+    <section className="py-1 my-5 lg:py-0">
       <div className="bg-customBlack grid grid-cols-2 place-items-center px-5">
         <div className="h-[200px] sm:h-[380px] lg:h-[600px]">
           <div className="h-[49%]">
@@ -55,6 +55,6 @@ export default function Banner() {
           </div>
         </div>
       </div>
-    </div>
+    </section>
   );
 }

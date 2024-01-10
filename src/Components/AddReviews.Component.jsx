@@ -57,54 +57,47 @@ export default function AddReviews({ fetchProductDetail }) {
   };
 
   // JSX ELEMENT
-  return (
-    <>
-      {iswrite ? (
-        <div className="flex flex-col items-center td-border rounded-xl p-5">
-          <LazyLoadImage
-            src={user?.avatar?.url || Images["userIcon"]}
-            alt="User Image"
-            className="rounded-full h-16 md:h-28 w-16 md:w-28 mx-auto"
-            effect="blur"
-            onError={({ currentTarget }) => {
-              currentTarget.onerror = null;
-              currentTarget.src = NoImageAvailable;
-            }}
-          />
-          <p className="py-2"></p>
-          <Rating
-            value={+formData?.rating}
-            precision={0.5}
-            max={5}
-            name="rating"
-            onChange={(e) => handleInput(e)}
-          />
-          <textarea
-            className="mt-3 w-[200px] md:w-[300px] outline-none rounded-sm p-2 md:p-3 text-sm md:text-base h-auto bg-black td-border"
-            rows={3}
-            placeholder="Write Your Review Here With length 100 To 200..."
-            minLength={100}
-            maxLength={200}
-            required
-            name="comment"
-            onChange={(e) => handleInput(e)}
-          ></textarea>
-          <button
-            className="mt-3 primary-button"
-            onClick={() => handleSubmit()}
-          >
-            Review
-          </button>
-        </div>
-      ) : (
-        <div className="flex td-border rounded-xl p-2 md:p-5">
-          <div className="w-[200px] md:w-[300px] h-full grid place-items-center">
-            <button className="primary-button" onClick={() => setIsWrite(true)}>
-              Review
-            </button>
-          </div>
-        </div>
-      )}
-    </>
+  return iswrite ? (
+    <article className="flex flex-col items-center td-border rounded-xl p-5">
+      <LazyLoadImage
+        src={user?.avatar?.url || Images["userIcon"]}
+        alt="User Image"
+        className="rounded-full h-16 md:h-28 w-16 md:w-28 mx-auto"
+        effect="blur"
+        onError={({ currentTarget }) => {
+          currentTarget.onerror = null;
+          currentTarget.src = NoImageAvailable;
+        }}
+      />
+      <p className="py-2"></p>
+      <Rating
+        value={+formData?.rating}
+        precision={0.5}
+        max={5}
+        name="rating"
+        onChange={(e) => handleInput(e)}
+      />
+      <textarea
+        className="mt-3 w-[200px] md:w-[300px] outline-none rounded-sm p-2 md:p-3 text-sm md:text-base h-auto bg-black td-border"
+        rows={3}
+        placeholder="Write Your Review Here With length 100 To 200..."
+        minLength={100}
+        maxLength={200}
+        required
+        name="comment"
+        onChange={(e) => handleInput(e)}
+      ></textarea>
+      <button className="mt-3 primary-button" onClick={() => handleSubmit()}>
+        Review
+      </button>
+    </article>
+  ) : (
+    <article className="flex td-border rounded-xl p-2 md:p-5">
+      <div className="w-[200px] md:w-[300px] h-full grid place-items-center">
+        <button className="primary-button" onClick={() => setIsWrite(true)}>
+          Review
+        </button>
+      </div>
+    </article>
   );
 }

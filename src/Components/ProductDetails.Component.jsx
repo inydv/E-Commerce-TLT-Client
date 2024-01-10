@@ -9,7 +9,7 @@ import UpdateCart from "../Pipes/Cart.Pipe";
 export default function ProductDetails({ item }) {
   // JSX ELEMENT
   return (
-    <div>
+    <section>
       <h2 className="font-semibold text-2xl lg:text-4xl">{item?.name}</h2>
       <p className="text-base lg:text-xl mt-4">Product #{item?._id}</p>
       <Rating
@@ -35,6 +35,6 @@ export default function ProductDetails({ item }) {
       >
         ADD TO CART
       </button>
-    </div>
+    </section>
   );
 }

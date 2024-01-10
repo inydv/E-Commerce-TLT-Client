@@ -152,7 +152,7 @@ export default function ShopFilters({ setOpenDrawer }) {
 
   // JSX ELEMENT
   return (
-    <div className="bg-black">
+    <section className="bg-black">
       <div className="border-customGray border-2 rounded p-5 sm:p-10">
         {Children.toArray(
           ShopFilterConstant?.map(
@@ -210,6 +210,6 @@ export default function ShopFilters({ setOpenDrawer }) {
           </button>
         </div>
       </div>
-    </div>
+    </section>
   );
 }

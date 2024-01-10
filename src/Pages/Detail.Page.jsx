@@ -43,7 +43,7 @@ export default function Detail() {
 
   // JSX ELEMENT
   return productDetail ? (
-    <div className="page-padding">
+    <section className="page-padding">
       <div className="page-width">
         <div className="md:grid md:grid-cols-2">
           <Carousel>
@@ -86,7 +86,7 @@ export default function Detail() {
           )}
         </div>
       </div>
-    </div>
+    </section>
   ) : (
     <div className="min-h-content grid place-items-center">
       <NotAvailable title={"Product"} />

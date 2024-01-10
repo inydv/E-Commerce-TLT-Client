@@ -65,7 +65,7 @@ const SOCIAL_CONSTANT = [
 export default function Footer() {
   // JSX ELEMENT
   return (
-    <div className="bg-black min-h-footer page-padding">
+    <footer className="bg-black min-h-footer page-padding">
       <h1 className="font-semibold text-2xl mb-5 sm:mb-10 sm:text-4xl">
         THE <span className="text-red-600">LITTLE</span> THINGS
       </h1>
@@ -108,7 +108,7 @@ export default function Footer() {
           <div className="inline-flex gap-5">
             {Children.toArray(
               SOCIAL_CONSTANT?.map(({ icon, to }) => (
-                <a href={to} target="_blank" rel="noreferrer">
+                <a href={to} target="_blank" rel="noopener noreferrer">
                   {icon}
                 </a>
               ))
@@ -116,6 +116,6 @@ export default function Footer() {
           </div>
         </div>
       </div>
-    </div>
+    </footer>
   );
 }

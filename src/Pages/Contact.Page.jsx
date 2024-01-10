@@ -36,7 +36,7 @@ export default function Contact() {
 
   // JSX ELEMENT
   return (
-    <div className="page-padding">
+    <section className="page-padding">
       <div className="table-width">
         <h1 className="page-title">CONTACT</h1>
         <Form
@@ -46,6 +46,6 @@ export default function Contact() {
           setFormData={setFormData}
         />
       </div>
-    </div>
+    </section>
   );
 }

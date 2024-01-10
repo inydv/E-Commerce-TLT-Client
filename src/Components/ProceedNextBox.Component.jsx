@@ -128,7 +128,7 @@ export default function ProceedNextBox({ cart, shippingCharges = 0 }) {
 
   // JSX ELEMENT
   return (
-    <div className="bg-customGray max-w-[400px] w-full p-5">
+    <section className="bg-customGray max-w-[400px] w-full p-5">
       <MemoBoxLine
         price={subTotal}
         title={"Sub Total"}
@@ -172,6 +172,6 @@ export default function ProceedNextBox({ cart, shippingCharges = 0 }) {
           />
         }
       />
-    </div>
+    </section>
   );
 }

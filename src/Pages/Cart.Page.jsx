@@ -30,7 +30,7 @@ export default function Cart() {
 
   // JSX ELEMENT
   return (
-    <div className="page-padding">
+    <section className="page-padding">
       <div className="rounded mb-5">
         <div className="p-2">
           <table className="w-full">
@@ -62,6 +62,6 @@ export default function Cart() {
       <div className="flex justify-end">
         <ProceedNextBox cart={cartList} />
       </div>
-    </div>
+    </section>
   );
 }

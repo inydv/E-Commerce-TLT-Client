@@ -28,10 +28,10 @@ export default function MyOrders() {
 
   // JSX ELEMENT
   return (
-    <div className="page-padding">
+    <section className="page-padding">
       <div className="overflow-x-auto pb-2">
         <OrderTable header={header.myOrder} orders={orders} />
       </div>
-    </div>
+    </section>
   );
 }

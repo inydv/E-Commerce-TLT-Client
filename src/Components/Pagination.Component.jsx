@@ -7,7 +7,7 @@ export default function Pagination({
   const numberOfPages = Math.ceil(filteredResult / resultPerPage);
 
   return (
-    <div className="flex items-center">
+    <section className="flex items-center">
       <p className="pagination" onClick={() => handlePagination(page - 1)}>
         PREV
       </p>
@@ -25,6 +25,6 @@ export default function Pagination({
       <p className="pagination" onClick={() => handlePagination(page + 1)}>
         NEXT
       </p>
-    </div>
+    </section>
   );
 }

@@ -8,7 +8,7 @@ import { LazyLoadImage } from "react-lazy-load-image-component";
 export default function ProductsCategoriesCard({ item }) {
   // JSX ELEMENT
   return (
-    <div className="aspect-square h-full w-full max-h-[344px] max-w-[48%] md:max-w-[344px] overflow-hidden relative group">
+    <article className="aspect-square h-full w-full max-h-[344px] max-w-[48%] md:max-w-[344px] overflow-hidden relative group">
       <LazyLoadImage
         src={Images[item.img]}
         alt="Category Image"
@@ -21,6 +21,6 @@ export default function ProductsCategoriesCard({ item }) {
       <div className="absolute top-0 h-full w-full hidden items-center justify-center group-hover:flex">
         <p className="text-2xl md:text-4xl font-semibold">{item.title}</p>
       </div>
-    </div>
+    </article>
   );
 }
