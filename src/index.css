@@ -109,7 +109,7 @@ input[type='radio']:checked:after {
 }
 
 .page-padding {
-    @apply p-5 sm:p-10;
+    @apply p-5 sm:px-10;
 }
 
 .page-title {

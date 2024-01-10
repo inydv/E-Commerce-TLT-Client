@@ -28,8 +28,8 @@ import { useUser } from "../Context/User.Context";
 import { LOGOUTUSER } from "../Services/index";
 import { SideDrawer } from "../Shared/index";
 
-// NAVIGATION CONSTANT
-const NavigationConstant = [
+// CONSTANT
+const NAVIGATION_CONSTANT = [
   {
     to: RouteConstant.home,
     name: "Home",
@@ -44,11 +44,11 @@ const NavigationConstant = [
   },
 ];
 
-// NAVIGATION LIST
+// CUSTOM COMPONENT
 const NavigationList = () => (
   <ul className="justify-self-center inline-flex flex-col sm:flex-row gap-5 text-lg">
     {Children.toArray(
-      NavigationConstant?.map(({ to, name }) => (
+      NAVIGATION_CONSTANT?.map(({ to, name }) => (
         <li className="border-b-2 border-b-customGray p-2 pb-5 sm:p-0 sm:border-none">
           <Link to={to}>{name}</Link>
         </li>
@@ -156,7 +156,7 @@ export default function Header() {
 
   // JSX ELEMENT
   return (
-    <div className="bg-black page-padding !py-5 sticky top-0 left-0 z-40">
+    <div className="bg-black page-padding sticky top-0 left-0 z-40">
       <div className="flex justify-between h-full items-center">
         <HiMenuAlt2
           color="white"

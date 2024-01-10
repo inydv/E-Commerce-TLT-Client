@@ -11,6 +11,7 @@ import { UserProvider } from "./Context/User.Context";
 import "./index.css";
 import "./Styles/MUI.Style.css";
 import "./Styles/LazyLoading.Style.css";
+import "./Styles/ApexChart.Style.css";
 import "react-lazy-load-image-component/src/effects/blur.css";
 
 // CREATE APP

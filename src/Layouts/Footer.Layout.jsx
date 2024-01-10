@@ -10,8 +10,8 @@ import RoutesConstant from "../Constants/Routes.Constant.json";
 import { Link } from "react-router-dom";
 import { Children } from "react";
 
-// NAVIGATION LIST
-const NavigationConstant = [
+// CONSTANT
+const NAVIGATION_CONSTANT = [
   {
     to: RoutesConstant.home,
     name: "Home",
@@ -46,8 +46,7 @@ const NavigationConstant = [
   },
 ];
 
-// SOCIAL CONSTANT
-const SocialConstant = [
+const SOCIAL_CONSTANT = [
   {
     to: "https://www.facebook.com/Nitin9900",
     icon: <FaFacebookSquare size={25} />,
@@ -82,7 +81,7 @@ export default function Footer() {
           </h2>
           <ul className="grid grid-cols-2 gap-x-8">
             {Children.toArray(
-              NavigationConstant?.map(({ to, name }) => (
+              NAVIGATION_CONSTANT?.map(({ to, name }) => (
                 <li>
                   <Link className="text-base sm:text-lg" to={to}>
                     {name}
@@ -108,7 +107,7 @@ export default function Footer() {
           </a>
           <div className="inline-flex gap-5">
             {Children.toArray(
-              SocialConstant?.map(({ icon, to }) => (
+              SOCIAL_CONSTANT?.map(({ icon, to }) => (
                 <a href={to} target="_blank" rel="noreferrer">
                   {icon}
                 </a>

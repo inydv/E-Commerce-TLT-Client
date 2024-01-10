@@ -17,7 +17,7 @@ import { HiMenuAlt2 } from "@react-icons/all-files/hi/HiMenuAlt2";
 import toast from "react-hot-toast";
 import ToastConstant from "../Constants/Toast.Constant.json";
 
-// NAVIGATION LIST
+// CUSTOM COMPONENT
 const NavigationList = ({ NavigationConstant }) => (
   <ul className="justify-self-center inline-flex flex-col gap-5 text-lg">
     {Children.toArray(
