@@ -31,6 +31,7 @@ export default function NewsLetter() {
           <input
             ref={emailInput}
             type="email"
+            name="email"
             placeholder="Email Address"
             className="py-1 md:py-2 px-2 md:px-5 outline-none text-black text-sm md:text-base"
             required
