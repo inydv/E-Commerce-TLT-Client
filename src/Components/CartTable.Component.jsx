@@ -33,7 +33,7 @@ export default function CartTable({ data }) {
   // JSX ELEMENT
   return (
     <tr>
-      <td className="border border-gray-500 p-2">
+      <td className="td-border p-2">
         <div className="grid place-content-center">
           <LazyLoadImage
             src={data?.product?.images && data?.product?.images[0]?.url}
@@ -47,7 +47,7 @@ export default function CartTable({ data }) {
           />
         </div>
       </td>
-      <td className="border border-gray-500 py-2 px-4">
+      <td className="td-border py-2 px-4">
         <h6 className="line-clamp text-sm sm:text-base">
           <Link to={RoutesConstant.productDetails + "/" + data?.product?._id}>
             {data?.product?.name}
@@ -90,12 +90,12 @@ export default function CartTable({ data }) {
           </p>
         )}
       </td>
-      <td className="border border-gray-500 p-2">
+      <td className="td-border p-2">
         <p className="text-center line-clamp">
           {RSCoversion(data?.product?.price * quantity)}
         </p>
       </td>
-      <td className="border border-gray-500 p-2">
+      <td className="td-border p-2">
         <div className="grid place-content-center">
           <AiFillDelete
             size={20}

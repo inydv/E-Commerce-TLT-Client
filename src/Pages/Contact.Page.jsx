@@ -36,11 +36,9 @@ export default function Contact() {
 
   // JSX ELEMENT
   return (
-    <div className="px-5 py-5 sm:px-10">
-      <div className="max-w-[800px]">
-        <h1 className="font-semibold text-2xl sm:text-4xl pb-5 sm:pb-10">
-          CONTACT
-        </h1>
+    <div className="page-padding">
+      <div className="table-width">
+        <h1 className="page-title">CONTACT</h1>
         <Form
           submitForm={handleSubmit}
           form={ContactFormConstant}

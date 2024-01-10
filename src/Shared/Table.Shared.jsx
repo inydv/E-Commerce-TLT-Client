@@ -18,6 +18,87 @@ import FormConstant from "../Constants/EditForm.Constant.json";
 // IMAGE LAZY LOADING
 import { LazyLoadImage } from "react-lazy-load-image-component";
 
+// CUSTOM COMPONENT
+const ImageComponent = ({ item, key }) => (
+  <td className="td-border p-2">
+    <div className="grid place-content-center">
+      <LazyLoadImage
+        src={item[key]?.url || (item[key]?.length > 0 ? item[key][0]?.url : "")}
+        alt="Image"
+        className="h-10 w-10"
+        effect="blur"
+        onError={({ currentTarget }) => {
+          currentTarget.onerror = null;
+          currentTarget.src = Images["NoImageAvailable"];
+        }}
+      />
+    </div>
+  </td>
+);
+
+const ActionComponent = ({
+  isViewEnabled,
+  isEditEnabled,
+  isDeleteEnabled,
+  handleInput,
+  setId,
+  setFormData,
+}) => (
+  <td className="td-border p-2">
+    <div className="flex gap-5 justify-center items-center">
+      {isViewEnabled && (
+        <AiFillEye
+          size={20}
+          className="cursor-pointer"
+          onClick={() => {
+            handleInput({
+              displayName: "View " + name,
+              openForDelete: false,
+              openForEdit: false,
+              viewData: item,
+            });
+          }}
+        />
+      )}
+      {isEditEnabled && (
+        <MdModeEdit
+          size={20}
+          className="cursor-pointer"
+          onClick={() => {
+            setId(item?._id);
+            setFormData({});
+            handleInput({
+              displayName: "Edit " + name,
+              openForDelete: false,
+              openForEdit: true,
+            });
+          }}
+        />
+      )}
+      {isDeleteEnabled && (
+        <AiFillDelete
+          size={20}
+          className="cursor-pointer"
+          onClick={() => {
+            handleInput({
+              displayName: "Delete " + name,
+              openForDelete: true,
+              openForEdit: false,
+              id: item._id,
+            });
+          }}
+        />
+      )}
+    </div>
+  </td>
+);
+
+const TextComponent = ({ item, key }) => (
+  <td className="td-border p-2">
+    <p className="text-center line-clamp">{item[key]?.toString() || "-"}</p>
+  </td>
+);
+
 // TABLE
 export default function Table({
   header,
@@ -71,13 +152,11 @@ export default function Table({
   // JSX ELEMENT
   return (
     <div className="overflow-x-auto pb-2">
-      <table className="min-w-[800px] w-full">
+      <table className="table-width">
         <thead>
           <tr>
             {Children.toArray(
-              header?.map((name) => (
-                <th className="border border-gray-500 p-2">{name}</th>
-              ))
+              header?.map((name) => <th className="td-border p-2">{name}</th>)
             )}
           </tr>
         </thead>
@@ -96,80 +175,18 @@ export default function Table({
                         isDeleteEnabled,
                       }) =>
                         type === EnumConstant.Table.Image ? (
-                          <td className="border border-gray-500 p-2">
-                            <div className="grid place-content-center">
-                              <LazyLoadImage
-                                src={
-                                  item[key]?.url ||
-                                  (item[key]?.length > 0
-                                    ? item[key][0]?.url
-                                    : "")
-                                }
-                                alt="Image"
-                                className="h-10 w-10"
-                                effect="blur"
-                                onError={({ currentTarget }) => {
-                                  currentTarget.onerror = null;
-                                  currentTarget.src =
-                                    Images["NoImageAvailable"];
-                                }}
-                              />
-                            </div>
-                          </td>
+                          <ImageComponent item={item} key={key} />
                         ) : type === EnumConstant.Table.Action ? (
-                          <td className="border border-gray-500 p-2">
-                            <div className="flex gap-5 justify-center items-center">
-                              {isViewEnabled && (
-                                <AiFillEye
-                                  size={20}
-                                  className="cursor-pointer"
-                                  onClick={() => {
-                                    handleInput({
-                                      displayName: "View " + name,
-                                      openForDelete: false,
-                                      openForEdit: false,
-                                      viewData: item,
-                                    });
-                                  }}
-                                />
-                              )}
-                              {isEditEnabled && (
-                                <MdModeEdit
-                                  size={20}
-                                  className="cursor-pointer"
-                                  onClick={() => {
-                                    setId(item?._id);
-                                    setFormData({});
-                                    handleInput({
-                                      displayName: "Edit " + name,
-                                      openForDelete: false,
-                                      openForEdit: true,
-                                    });
-                                  }}
-                                />
-                              )}
-                              {isDeleteEnabled && (
-                                <AiFillDelete
-                                  size={20}
-                                  className="cursor-pointer"
-                                  onClick={() => {
-                                    handleInput({
-                                      displayName: "Delete " + name,
-                                      openForDelete: true,
-                                      openForEdit: false,
-                                      id: item._id,
-                                    });
-                                  }}
-                                />
-                              )}
-                            </div>
-                          </td>
+                          <ActionComponent
+                            isViewEnabled={isViewEnabled}
+                            isEditEnabled={isEditEnabled}
+                            isDeleteEnabled={isDeleteEnabled}
+                            handleInput={handleInput}
+                            setId={setId}
+                            setFormData={setFormData}
+                          />
                         ) : (
-                          <td className="border border-gray-500 p-2">
-                            <p className="text-center line-clamp">
-                              {item[key]?.toString() || "-"}
-                            </p>
-                          </td>
+                          <TextComponent item={item} key={key} />
                         )
                     )
                   )}
@@ -178,7 +195,7 @@ export default function Table({
             )
           ) : (
             <tr>
-              <td colSpan="100%" className="border border-gray-500 px-5 py-10">
+              <td colSpan="100%" className="td-border px-5 py-10">
                 <NotAvailable />
               </td>
             </tr>

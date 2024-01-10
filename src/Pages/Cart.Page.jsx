@@ -30,7 +30,7 @@ export default function Cart() {
 
   // JSX ELEMENT
   return (
-    <div className="p-5 sm:p-10">
+    <div className="page-padding">
       <div className="rounded mb-5">
         <div className="p-2">
           <table className="w-full">
@@ -38,7 +38,7 @@ export default function Cart() {
               <tr>
                 {Children.toArray(
                   header?.cart?.map((name) => (
-                    <th className="border border-gray-500 p-2">{name}</th>
+                    <th className="td-border p-2">{name}</th>
                   ))
                 )}
               </tr>
@@ -50,10 +50,7 @@ export default function Cart() {
                 )
               ) : (
                 <tr>
-                  <td
-                    colSpan="100%"
-                    className="border border-gray-500 px-5 py-10"
-                  >
+                  <td colSpan="100%" className="td-border px-5 py-10">
                     <NotAvailable />
                   </td>
                 </tr>

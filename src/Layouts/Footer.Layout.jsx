@@ -66,7 +66,7 @@ const SocialConstant = [
 export default function Footer() {
   // JSX ELEMENT
   return (
-    <div className="bg-black min-h-footer p-5 sm:p-10">
+    <div className="bg-black min-h-footer page-padding">
       <h1 className="font-semibold text-2xl mb-5 sm:mb-10 sm:text-4xl">
         THE <span className="text-red-600">LITTLE</span> THINGS
       </h1>

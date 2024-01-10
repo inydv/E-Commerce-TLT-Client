@@ -4,6 +4,23 @@ import Images from "../Assets/index";
 // IMAGE LAZY LOADING
 import { LazyLoadImage } from "react-lazy-load-image-component";
 
+const BannerChild = ({ img1, img2 }) => (
+  <div className="h-[50%] flex gap-1 mt-1">
+    <LazyLoadImage
+      src={Images[img1]}
+      alt="Banner Image"
+      className="h-[100%]"
+      effect="blur"
+    />
+    <LazyLoadImage
+      src={Images[img2]}
+      alt="Banner Image"
+      className="h-[100%]"
+      effect="blur"
+    />
+  </div>
+);
+
 // BANNER
 export default function Banner() {
   // JSX ELEMENT
@@ -20,34 +37,8 @@ export default function Banner() {
             />
           </div>
           <div className="h-[49%]">
-            <div className="h-[50%] flex gap-1 mt-1">
-              <LazyLoadImage
-                src={Images["banner2"]}
-                alt="Banner Image"
-                className="h-[100%]"
-                effect="blur"
-              />
-              <LazyLoadImage
-                src={Images["banner3"]}
-                alt="Banner Image"
-                className="h-[100%]"
-                effect="blur"
-              />
-            </div>
-            <div className="h-[50%] flex gap-1 mt-1">
-              <LazyLoadImage
-                src={Images["banner4"]}
-                alt="Banner Image"
-                className="h-[100%]"
-                effect="blur"
-              />
-              <LazyLoadImage
-                src={Images["banner5"]}
-                alt="Banner Image"
-                className="h-[100%]"
-                effect="blur"
-              />
-            </div>
+            <BannerChild img1={"banner2"} img2={"banner3"} />
+            <BannerChild img1={"banner4"} img2={"banner5"} />
           </div>
         </div>
         <div>

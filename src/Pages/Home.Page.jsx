@@ -14,6 +14,15 @@ import MenConstant from "../Constants/MenProductsCategoriesItems.Constant.json";
 import WomenConstant from "../Constants/WomenProductsCategoriesItems.Constant.json";
 import { GETPRODUCTS } from "../Services/index";
 
+// CUSTOM COMPONENT
+const Heading = ({ heading }) => (
+  <div className="flex items-center gap-x-5 py-5 sm:py-10">
+    <div className="heading-line"></div>
+    <span className="heading">{heading}</span>
+    <div className="heading-line"></div>
+  </div>
+);
+
 // HOME
 export default function Home() {
   // STATES
@@ -37,23 +46,15 @@ export default function Home() {
     <>
       <Carousel />
       <Categories />
-      <div className="px-5 sm:px-10">
-        <div className="max-w-[1400px] mx-auto">
-          <div className="flex items-center gap-x-5 py-5 sm:py-10">
-            <div className="heading-line"></div>
-            <span className="heading">MENS CATEGORIES</span>
-            <div className="heading-line"></div>
-          </div>
+      <div className="page-padding">
+        <div className="page-width">
+          <Heading heading={"MENS CATEGORIES"} />
           <div className="flex flex-wrap gap-2 justify-center items-center">
             {Children.toArray(
               MenConstant?.map((item) => <ProductsCategoriesCard item={item} />)
             )}
           </div>
-          <div className="flex items-center gap-x-5 py-5 sm:py-10">
-            <div className="heading-line"></div>
-            <span className="heading">WOMENS CATEGORIES</span>
-            <div className="heading-line"></div>
-          </div>
+          <Heading heading={"WOMENS CATEGORIES"} />
           <div className="flex flex-wrap gap-2 justify-center items-center">
             {Children.toArray(
               WomenConstant?.map((item) => (
@@ -64,8 +65,8 @@ export default function Home() {
         </div>
       </div>
       <Banner />
-      <div className="px-5 sm:px-10">
-        <div className="max-w-[1400px] mx-auto">
+      <div className="page-padding">
+        <div className="page-width">
           <div className="flex flex-wrap gap-2 justify-center items-center">
             {Children.toArray(
               products?.map((item) => <ProductsCard item={item} />)

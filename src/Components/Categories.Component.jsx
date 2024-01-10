@@ -9,8 +9,8 @@ import Images from "../Assets/index";
 // IMAGE LAZY LOADING
 import { LazyLoadImage } from "react-lazy-load-image-component";
 
-// CATEGORY CONSTANT
-const CategoryConstant = [
+// CONSTANT
+const CATEGORY_CONSTANT = [
   {
     to: RoutesConstant.shop + "?category=men",
     src: "mensCollection",
@@ -27,10 +27,10 @@ const CategoryConstant = [
 export default function Categories() {
   // JSX ELEMENT
   return (
-    <div className="px-5 pt-5 sm:px-10">
-      <div className="max-w-[1400px] mx-auto flex gap-x-2">
+    <div className="page-padding">
+      <div className="page-width flex gap-x-2">
         {Children.toArray(
-          CategoryConstant?.map(({ name, src, to }) => (
+          CATEGORY_CONSTANT?.map(({ name, src, to }) => (
             <Link className="flex-1 group overflow-hidden relative" to={to}>
               <LazyLoadImage
                 src={Images[src]}

@@ -4,56 +4,56 @@
             "type": "text",
             "label": "Firstname",
             "name": "firstname",
-            "className": "bg-black outline-none border-b-2 w-full border-gray p-1 text-sm",
-            "labelClass": "block mb-1",
+            "className": "form-input-text",
+            "labelClass": "form-label",
             "isView": true
         },
         {
             "type": "text",
             "label": "Lastname",
             "name": "lastname",
-            "className": "bg-black outline-none border-b-2 w-full border-gray p-1 text-sm",
-            "labelClass": "block mb-1",
+            "className": "form-input-text",
+            "labelClass": "form-label",
             "isView": true
         },
         {
             "type": "text",
             "label": "Email",
             "name": "email",
-            "className": "bg-black outline-none border-b-2 w-full border-gray p-1 text-sm",
-            "labelClass": "block mb-1",
+            "className": "form-input-text",
+            "labelClass": "form-label",
             "isView": true
         },
         {
             "type": "text",
             "label": "Status",
             "name": "status",
-            "className": "bg-black outline-none border-b-2 w-full border-gray p-1 text-sm",
-            "labelClass": "block mb-1",
+            "className": "form-input-text",
+            "labelClass": "form-label",
             "isView": true
         },
         {
             "type": "text",
             "label": "Subject",
             "name": "subject",
-            "className": "bg-black outline-none border-b-2 w-full border-gray p-1 text-sm",
-            "labelClass": "block mb-1",
+            "className": "form-input-text",
+            "labelClass": "form-label",
             "isView": true
         },
         {
             "type": "text",
             "label": "Message",
             "name": "message",
-            "className": "bg-black outline-none border-b-2 w-full border-gray p-1 text-sm",
-            "labelClass": "block mb-1",
+            "className": "form-input-text",
+            "labelClass": "form-label",
             "isView": true
         },
         {
             "type": "text",
             "label": "Created At",
             "name": "createdAt",
-            "className": "bg-black outline-none border-b-2 w-full border-gray p-1 text-sm",
-            "labelClass": "block mb-1",
+            "className": "form-input-text",
+            "labelClass": "form-label",
             "isView": true,
             "textType": "date"
         }
@@ -63,40 +63,40 @@
             "type": "text",
             "label": "Name",
             "name": "name",
-            "className": "bg-black outline-none border-b-2 w-full border-gray p-1 text-sm",
-            "labelClass": "block mb-1",
+            "className": "form-input-text",
+            "labelClass": "form-label",
             "isView": true
         },
         {
             "type": "text",
             "label": "Description",
             "name": "description",
-            "className": "bg-black outline-none border-b-2 w-full border-gray p-1 text-sm",
-            "labelClass": "block mb-1",
+            "className": "form-input-text",
+            "labelClass": "form-label",
             "isView": true
         },
         {
             "type": "text",
             "label": "Category",
             "name": "category",
-            "className": "bg-black outline-none border-b-2 w-full border-gray p-1 text-sm",
-            "labelClass": "block mb-1",
+            "className": "form-input-text",
+            "labelClass": "form-label",
             "isView": true
         },
         {
             "type": "text",
             "label": "Sub Categories",
             "name": "subCategories",
-            "className": "bg-black outline-none border-b-2 w-full border-gray p-1 text-sm",
-            "labelClass": "block mb-1",
+            "className": "form-input-text",
+            "labelClass": "form-label",
             "isView": true
         },
         {
             "type": "text",
             "label": "Price",
             "name": "price",
-            "className": "bg-black outline-none border-b-2 w-full border-gray p-1 text-sm",
-            "labelClass": "block mb-1",
+            "className": "form-input-text",
+            "labelClass": "form-label",
             "isView": true,
             "textType": "price"
         },
@@ -104,24 +104,24 @@
             "type": "text",
             "label": "Quantity",
             "name": "quantity",
-            "className": "bg-black outline-none border-b-2 w-full border-gray p-1 text-sm",
-            "labelClass": "block mb-1",
+            "className": "form-input-text",
+            "labelClass": "form-label",
             "isView": true
         },
         {
             "type": "text",
             "label": "Ratings",
             "name": "ratings",
-            "className": "bg-black outline-none border-b-2 w-full border-gray p-1 text-sm",
-            "labelClass": "block mb-1",
+            "className": "form-input-text",
+            "labelClass": "form-label",
             "isView": true
         },
         {
             "tagType": "file",
             "label": "Images",
             "name": "images",
-            "className": "bg-black outline-none border-b-2 w-full border-gray p-1 text-sm",
-            "labelClass": "block mb-1",
+            "className": "form-input-text",
+            "labelClass": "form-label",
             "isView": true
         }
     ],
@@ -131,8 +131,8 @@
             "label": "Razorpay Order Id",
             "name": "paymentInfo",
             "name2": "razorpay_order_id",
-            "className": "bg-black outline-none border-b-2 w-full border-gray p-1 text-sm",
-            "labelClass": "block mb-1",
+            "className": "form-input-text",
+            "labelClass": "form-label",
             "isView": true
         },
         {
@@ -140,8 +140,8 @@
             "label": "Razorpay Payment Id",
             "name": "paymentInfo",
             "name2": "razorpay_payment_id",
-            "className": "bg-black outline-none border-b-2 w-full border-gray p-1 text-sm",
-            "labelClass": "block mb-1",
+            "className": "form-input-text",
+            "labelClass": "form-label",
             "isView": true
         },
         {
@@ -149,8 +149,8 @@
             "label": "Razorpay Signature",
             "name": "paymentInfo",
             "name2": "razorpay_signature",
-            "className": "bg-black outline-none border-b-2 w-full border-gray p-1 text-sm",
-            "labelClass": "block mb-1",
+            "className": "form-input-text",
+            "labelClass": "form-label",
             "isView": true
         },
         {
@@ -158,8 +158,8 @@
             "label": "User Account Id",
             "name": "user",
             "name2": "_id",
-            "className": "bg-black outline-none border-b-2 w-full border-gray p-1 text-sm",
-            "labelClass": "block mb-1",
+            "className": "form-input-text",
+            "labelClass": "form-label",
             "isView": true
         },
         {
@@ -167,8 +167,8 @@
             "label": "User Account Name",
             "name": "user",
             "name2": "username",
-            "className": "bg-black outline-none border-b-2 w-full border-gray p-1 text-sm",
-            "labelClass": "block mb-1",
+            "className": "form-input-text",
+            "labelClass": "form-label",
             "isView": true
         },
         {
@@ -176,8 +176,8 @@
             "label": "User Account Phone",
             "name": "user",
             "name2": "phone",
-            "className": "bg-black outline-none border-b-2 w-full border-gray p-1 text-sm",
-            "labelClass": "block mb-1",
+            "className": "form-input-text",
+            "labelClass": "form-label",
             "isView": true
         }
     ]

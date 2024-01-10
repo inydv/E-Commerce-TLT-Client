@@ -60,7 +60,7 @@ export default function AddReviews({ fetchProductDetail }) {
   return (
     <>
       {iswrite ? (
-        <div className="flex flex-col items-center border border-gray-700 rounded-xl p-5">
+        <div className="flex flex-col items-center td-border rounded-xl p-5">
           <LazyLoadImage
             src={user?.avatar?.url || Images["userIcon"]}
             alt="User Image"
@@ -80,7 +80,7 @@ export default function AddReviews({ fetchProductDetail }) {
             onChange={(e) => handleInput(e)}
           />
           <textarea
-            className="mt-3 w-[200px] md:w-[300px] outline-none rounded-sm p-2 md:p-3 text-sm md:text-base h-auto bg-black border border-gray-700"
+            className="mt-3 w-[200px] md:w-[300px] outline-none rounded-sm p-2 md:p-3 text-sm md:text-base h-auto bg-black td-border"
             rows={3}
             placeholder="Write Your Review Here With length 100 To 200..."
             minLength={100}
@@ -97,7 +97,7 @@ export default function AddReviews({ fetchProductDetail }) {
           </button>
         </div>
       ) : (
-        <div className="flex border border-gray-700 rounded-xl p-2 md:p-5">
+        <div className="flex td-border rounded-xl p-2 md:p-5">
           <div className="w-[200px] md:w-[300px] h-full grid place-items-center">
             <button className="primary-button" onClick={() => setIsWrite(true)}>
               Review

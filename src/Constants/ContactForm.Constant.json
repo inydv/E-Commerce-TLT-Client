@@ -5,7 +5,7 @@
         "children": [
             {
                 "type": "text",
-                "className": "w-full text-black outline-none px-4 py-2 rounded-sm my-2 text-base",
+                "className": "contact-input",
                 "placeholder": "Lokesh",
                 "autoFocus": true,
                 "name": "firstname",
@@ -13,7 +13,7 @@
             },
             {
                 "type": "text",
-                "className": "w-full text-black outline-none px-4 py-2 rounded-sm my-2 text-base",
+                "className": "contact-input",
                 "placeholder": "Yadav",
                 "name": "lastname",
                 "label": "Last Name"
@@ -22,30 +22,30 @@
     },
     {
         "type": "email",
-        "className": "w-full text-black outline-none px-4 py-2 rounded-sm my-2 text-base",
+        "className": "contact-input",
         "placeholder": "lokesh@mail.com",
         "name": "email",
         "label": "Email *",
-        "labelClass": "text-lg font-semibold",
-        "containerClass": "flex flex-col my-5"
+        "labelClass": "contact-label",
+        "containerClass": "contact-container"
     },
     {
         "type": "text",
-        "className": "w-full text-black outline-none px-4 py-2 rounded-sm my-2 text-base",
+        "className": "contact-input",
         "placeholder": "Want Something New Or Any Query...",
         "name": "subject",
         "label": "Subject *",
-        "labelClass": "text-lg font-semibold",
-        "containerClass": "flex flex-col my-5"
+        "labelClass": "contact-label",
+        "containerClass": "contact-container"
     },
     {
         "tagType": "textarea",
-        "className": "w-full text-black outline-none px-4 py-2 rounded-sm my-2 text-base",
+        "className": "contact-input",
         "placeholder": "What Do You Actually Want? Or Raise a Question?",
         "name": "message",
         "label": "Message *",
         "rows": 5,
-        "labelClass": "text-lg font-semibold",
-        "containerClass": "flex flex-col my-5"
+        "labelClass": "contact-label",
+        "containerClass": "contact-container"
     }
 ]

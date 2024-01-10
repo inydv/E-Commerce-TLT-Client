@@ -44,7 +44,7 @@ export default function MUIDialog({
       <DialogActions>
         {handleBtn && (
           <button
-            className="bg-red-600 font-semibold text-base py-2 px-4 cursor-pointer"
+            className="primary-button !bg-red-600"
             onClick={() => {
               setOpen(false);
               handleBtn();

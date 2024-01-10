@@ -1,5 +1,5 @@
 // REACT AND REACT ROUTER DOM
-import React from "react";
+import { StrictMode } from "react";
 import ReactDOM from "react-dom/client";
 import { BrowserRouter } from "react-router-dom";
 
@@ -9,14 +9,17 @@ import { UserProvider } from "./Context/User.Context";
 
 // IMPORT STYLES
 import "./index.css";
+import "./Styles/MUI.Style.css";
+import "./Styles/LazyLoading.Style.css";
+import "react-lazy-load-image-component/src/effects/blur.css";
 
 // CREATE APP
 ReactDOM.createRoot(document.getElementById("root")).render(
-  <React.StrictMode>
+  <StrictMode>
     <BrowserRouter>
       <UserProvider>
         <App />
       </UserProvider>
     </BrowserRouter>
-  </React.StrictMode>
+  </StrictMode>
 );

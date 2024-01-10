@@ -1,5 +1,6 @@
+/* eslint-disable react/display-name */
 // REACT
-import { Children, useRef } from "react";
+import { Children, memo, useRef } from "react";
 
 // CUSTOM IMPORT
 import EnumConstant from "../Constants/Enum.Constant.json";
@@ -10,6 +11,202 @@ import RSCoversion from "../Pipes/RSConversion.Pipe";
 // IMAGE LAZY LOADING
 import { LazyLoadImage } from "react-lazy-load-image-component";
 
+// MEMO
+const MemoFieldset = memo(
+  ({ legend, children_prop, formData, handleInput }) => (
+    <fieldset className="flex justify-between">
+      <legend className="text-lg font-semibold">{legend}</legend>
+      {Children.toArray(
+        children_prop?.map(
+          ({
+            type,
+            className,
+            placeholder,
+            autoFocus,
+            name,
+            label,
+            required,
+          }) => (
+            <div className="w-[45%]">
+              <input
+                type={type}
+                className={className}
+                placeholder={placeholder}
+                autoFocus={autoFocus || false}
+                required={required || true}
+                name={name}
+                value={formData[name] || ""}
+                onChange={(e) => handleInput(e)}
+              />
+              <div className="text-base">{label}</div>
+            </div>
+          )
+        )
+      )}
+    </fieldset>
+  )
+);
+
+const MemoTextarea = memo(
+  ({
+    containerClass,
+    labelClass,
+    label,
+    className,
+    placeholder,
+    required,
+    autoFocus,
+    rows,
+    name,
+    formData,
+    handleInput,
+  }) => (
+    <div className={containerClass}>
+      <label className={labelClass}>{label}</label>
+      <textarea
+        className={className}
+        placeholder={placeholder}
+        required={required || false}
+        autoFocus={autoFocus || false}
+        rows={rows}
+        name={name}
+        value={formData[name] || ""}
+        onChange={(e) => handleInput(e)}
+      ></textarea>
+    </div>
+  )
+);
+
+const MemoSelect = memo(
+  ({
+    containerClass,
+    labelClass,
+    label,
+    name,
+    formData,
+    className,
+    handleInput,
+    options,
+  }) => (
+    <div className={containerClass}>
+      <label className={labelClass}>{label}</label>
+      <select
+        name={name}
+        value={formData[name] || ""}
+        className={className}
+        onChange={(e) => handleInput(e)}
+      >
+        <option hidden value="">
+          Select
+        </option>
+        {Children.toArray(
+          options?.map(({ name, value }) => (
+            <option value={value}>{name}</option>
+          ))
+        )}
+      </select>
+    </div>
+  )
+);
+
+const MemoFile = memo(
+  ({
+    containerClass,
+    labelClass,
+    label,
+    imageInput,
+    type,
+    name,
+    multiple,
+    handleImage,
+    isView,
+    onImageSelectButtonClicked,
+    formData,
+  }) => (
+    <div className={containerClass}>
+      <label className={labelClass}>{label}</label>
+      <input
+        ref={imageInput}
+        type={type}
+        name={name}
+        multiple={multiple}
+        accept="image/*"
+        className="hidden"
+        onChange={(e) => handleImage(e)}
+      />
+      <div className="flex gap-2 overflow-x-scroll max-w-[300px] w-full items-center pb-2">
+        {!isView && (
+          <button
+            className="aspect-square h-16 w-16 border border-gray text-3xl"
+            onClick={(e) => onImageSelectButtonClicked(e)}
+          >
+            +
+          </button>
+        )}
+        {Children.toArray(
+          formData &&
+            formData[name]?.map((item) => (
+              <LazyLoadImage
+                src={isView ? item?.url : item}
+                alt="Product Image"
+                className="aspect-square h-16 w-16 border border-gray"
+                effect="blur"
+                onError={({ currentTarget }) => {
+                  currentTarget.onerror = null;
+                  currentTarget.src = Images["NoImageAvailable"];
+                }}
+              />
+            ))
+        )}
+      </div>
+    </div>
+  )
+);
+
+const MemoInput = memo(
+  ({
+    containerClass,
+    labelClass,
+    label,
+    isView,
+    formData,
+    textType,
+    name,
+    name2,
+    type,
+    className,
+    placeholder,
+    required,
+    autoFocus,
+    handleInput,
+  }) => (
+    <div className={containerClass}>
+      <label className={labelClass}>{label}</label>
+      {isView ? (
+        formData &&
+        (textType === EnumConstant.View.Date
+          ? DateSplice(formData[name])
+          : textType === EnumConstant.View.Price
+          ? RSCoversion(formData[name])
+          : name2
+          ? formData[name][name2]
+          : formData[name])
+      ) : (
+        <input
+          type={type}
+          className={className}
+          placeholder={placeholder}
+          required={required || false}
+          autoFocus={autoFocus || false}
+          name={name}
+          value={formData[name] || ""}
+          onChange={(e) => handleInput(e)}
+        />
+      )}
+    </div>
+  )
+);
+
 // FORM
 export default function Form({
   submitForm,
@@ -19,7 +216,7 @@ export default function Form({
   ViewForm = false,
 }) {
   // USE REF
-  const imageInput = useRef();
+  const imageInput = useRef(null);
 
   // CUSTOM FUNCTION
   const onImageSelectButtonClicked = (e) => {
@@ -92,132 +289,68 @@ export default function Form({
             textType,
           }) =>
             isFieldset ? (
-              <fieldset className="flex justify-between">
-                <legend className="text-lg font-semibold">{legend}</legend>
-                {Children.toArray(
-                  children?.map(
-                    ({
-                      type,
-                      className,
-                      placeholder,
-                      autoFocus,
-                      name,
-                      label,
-                      required,
-                    }) => (
-                      <div className="w-[45%]">
-                        <input
-                          type={type}
-                          className={className}
-                          placeholder={placeholder}
-                          autoFocus={autoFocus || false}
-                          required={required || true}
-                          name={name}
-                          value={formData[name] || ""}
-                          onChange={(e) => handleInput(e)}
-                        />
-                        <div className="text-base">{label}</div>
-                      </div>
-                    )
-                  )
-                )}
-              </fieldset>
+              <MemoFieldset
+                legend={legend}
+                children_prop={children}
+                formData={formData}
+                handleInput={handleInput}
+              />
             ) : tagType === EnumConstant.FormTagType.TextArea ? (
-              <div className={containerClass}>
-                <label className={labelClass}>{label}</label>
-                <textarea
-                  className={className}
-                  placeholder={placeholder}
-                  required={required || false}
-                  autoFocus={autoFocus || false}
-                  rows={rows}
-                  name={name}
-                  value={formData[name] || ""}
-                  onChange={(e) => handleInput(e)}
-                ></textarea>
-              </div>
+              <MemoTextarea
+                containerClass={containerClass}
+                labelClass={labelClass}
+                label={label}
+                className={className}
+                placeholder={placeholder}
+                required={required}
+                autoFocus={autoFocus}
+                rows={rows}
+                name={name}
+                formData={formData}
+                handleInput={handleInput}
+              />
             ) : tagType === EnumConstant.FormTagType.Select ? (
-              <div className={containerClass}>
-                <label className={labelClass}>{label}</label>
-                <select
-                  name={name}
-                  value={formData[name] || ""}
-                  className={className}
-                  onChange={(e) => handleInput(e)}
-                >
-                  <option hidden value="">
-                    Select
-                  </option>
-                  {Children.toArray(
-                    options?.map(({ name, value }) => (
-                      <option value={value}>{name}</option>
-                    ))
-                  )}
-                </select>
-              </div>
+              <MemoSelect
+                containerClass={containerClass}
+                labelClass={labelClass}
+                label={label}
+                name={name}
+                formData={formData}
+                className={className}
+                handleInput={handleInput}
+                options={options}
+              />
             ) : tagType === EnumConstant.FormTagType.File ? (
-              <div className={containerClass}>
-                <label className={labelClass}>{label}</label>
-                <input
-                  ref={imageInput}
-                  type={type}
-                  name={name}
-                  multiple={multiple}
-                  accept="image/*"
-                  className="hidden"
-                  onChange={(e) => handleImage(e)}
-                />
-                <div className="flex gap-2 overflow-x-scroll max-w-[300px] w-full items-center pb-2">
-                  {!isView && (
-                    <button
-                      className="aspect-square h-16 w-16 border border-gray text-3xl"
-                      onClick={(e) => onImageSelectButtonClicked(e)}
-                    >
-                      +
-                    </button>
-                  )}
-                  {Children.toArray(
-                    formData &&
-                      formData[name]?.map((item) => (
-                        <LazyLoadImage
-                          src={isView ? item?.url : item}
-                          alt="Product Image"
-                          className="aspect-square h-16 w-16 border border-gray"
-                          effect="blur"
-                          onError={({ currentTarget }) => {
-                            currentTarget.onerror = null;
-                            currentTarget.src = Images["NoImageAvailable"];
-                          }}
-                        />
-                      ))
-                  )}
-                </div>
-              </div>
+              <MemoFile
+                containerClass={containerClass}
+                labelClass={labelClass}
+                label={label}
+                imageInput={imageInput}
+                type={type}
+                name={name}
+                multiple={multiple}
+                handleImage={handleImage}
+                isView={isView}
+                onImageSelectButtonClicked={onImageSelectButtonClicked}
+                formData={formData}
+              />
             ) : (
-              <div className={containerClass}>
-                <label className={labelClass}>{label}</label>
-                {isView ? (
-                  formData &&
-                  (textType === EnumConstant.View.Date
-                    ? DateSplice(formData[name])
-                    : textType === EnumConstant.View.Price
-                    ? RSCoversion(formData[name])
-                    : name2
-                    ? formData[name][name2]
-                    : formData[name])
-                ) : (
-                  <input
-                    type={type}
-                    className={className}
-                    placeholder={placeholder}
-                    required={required || false}
-                    autoFocus={autoFocus || false}
-                    name={name}
-                    value={formData[name] || ""}
-                    onChange={(e) => handleInput(e)}
-                  />
-                )}
-              </div>
+              <MemoInput
+                containerClass={containerClass}
+                labelClass={labelClass}
+                label={label}
+                isView={isView}
+                formData={formData}
+                textType={textType}
+                name={name}
+                name2={name2}
+                type={type}
+                className={className}
+                placeholder={placeholder}
+                required={required}
+                autoFocus={autoFocus}
+                handleInput={handleInput}
+              />
             )
         )
       )}

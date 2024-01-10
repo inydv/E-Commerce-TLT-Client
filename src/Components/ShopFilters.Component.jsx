@@ -1,5 +1,6 @@
+/* eslint-disable react/display-name */
 // REACT AND REACT ROUTER DOM
-import { Children, useEffect, useState } from "react";
+import { Children, memo, useEffect, useState } from "react";
 import {
   createSearchParams,
   useNavigate,
@@ -16,20 +17,88 @@ import { BiSearchAlt2 } from "@react-icons/all-files/bi/BiSearchAlt2";
 import ShopFilterConstant from "../Constants/ShopFilter.Constant.json";
 import EnumConstant from "../Constants/Enum.Constant.json";
 
+// CONSTANT
+const INITIAL_FORMDATA = {
+  name: "",
+  price_gte: 500,
+  price_lte: 10000,
+  ratings_gte: 0,
+  ratings_lte: 5,
+  category: "",
+  subCategories: "",
+  page: 1,
+  sort: "newest",
+};
+
+// MEMO
+const MemoInput = memo(
+  ({ label, type, className, placeholder, formData, name, handleInput }) => (
+    <>
+      <p className="filter-label">{label}</p>
+      <div className="relative">
+        <BiSearchAlt2 className="absolute bottom-3 left-2" size={25} />
+        <input
+          type={type}
+          className={className}
+          placeholder={placeholder}
+          name={name}
+          value={formData[name]}
+          onChange={(e) => handleInput(e)}
+        />
+      </div>
+    </>
+  )
+);
+
+const MemoSlider = memo(
+  ({ label, className, step, min, max, formData, name, handleInput }) => (
+    <>
+      <p className="filter-label pt-6">{label}</p>
+      <Slider
+        value={[
+          parseFloat(formData[`${name}_gte`]),
+          parseFloat(formData[`${name}_lte`]),
+        ]}
+        valueLabelDisplay="auto"
+        step={step}
+        marks
+        min={min}
+        max={max}
+        name={name}
+        onChange={(e) => handleInput(e)}
+        className={className}
+      />
+    </>
+  )
+);
+
+const MemoSelect = memo(
+  ({ label, className, formData, name, handleInput, options }) => (
+    <>
+      <p className="filter-label pt-6">{label}</p>
+      <select
+        className={className}
+        value={formData[name]}
+        name={name}
+        onChange={(e) => handleInput(e)}
+      >
+        <option hidden value="">
+          Select
+        </option>
+        {Children.toArray(
+          options?.map(({ name, value }) => (
+            <option value={value}>{name}</option>
+          ))
+        )}
+      </select>
+    </>
+  )
+);
+
 // SHOP FILTERS
 export default function ShopFilters({ setOpenDrawer }) {
   // STATE
-  const [formData, setFormData] = useState({
-    name: "",
-    price_gte: 500,
-    price_lte: 10000,
-    ratings_gte: 0,
-    ratings_lte: 5,
-    category: "",
-    subCategories: "",
-    page: 1,
-    sort: "newest",
-  });
+  const [formData, setFormData] = useState(INITIAL_FORMDATA);
 
   // USE NAVIGATE AND USE SEARCH PARAMS
   const navigate = useNavigate();
@@ -100,60 +169,35 @@ export default function ShopFilters({ setOpenDrawer }) {
               type,
             }) =>
               tagType === EnumConstant.FormTagType.Input ? (
-                <>
-                  <p className="font-semibold text-lg pb-3">{label}</p>
-                  <div className="relative">
-                    <BiSearchAlt2
-                      className="absolute bottom-3 left-2"
-                      size={25}
-                    />
-                    <input
-                      type={type}
-                      className={className}
-                      placeholder={placeholder}
-                      name={name}
-                      value={formData[name]}
-                      onChange={(e) => handleInput(e)}
-                    />
-                  </div>
-                </>
+                <MemoInput
+                  label={label}
+                  type={type}
+                  className={className}
+                  placeholder={placeholder}
+                  formData={formData}
+                  name={name}
+                  handleInput={handleInput}
+                />
               ) : tagType === EnumConstant.FormTagType.Slider ? (
-                <>
-                  <p className="font-semibold text-lg pt-6 pb-3">{label}</p>
-                  <Slider
-                    value={[
-                      parseFloat(formData[`${name}_gte`]),
-                      parseFloat(formData[`${name}_lte`]),
-                    ]}
-                    valueLabelDisplay="auto"
-                    step={step}
-                    marks
-                    min={min}
-                    max={max}
-                    name={name}
-                    onChange={(e) => handleInput(e)}
-                    className={className}
-                  />
-                </>
+                <MemoSlider
+                  label={label}
+                  className={className}
+                  step={step}
+                  min={min}
+                  max={max}
+                  formData={formData}
+                  name={name}
+                  handleInput={handleInput}
+                />
               ) : (
-                <>
-                  <p className="font-semibold text-lg pt-6 pb-3">{label}</p>
-                  <select
-                    className={className}
-                    value={formData[name]}
-                    name={name}
-                    onChange={(e) => handleInput(e)}
-                  >
-                    <option hidden value="">
-                      Select
-                    </option>
-                    {Children.toArray(
-                      options?.map(({ name, value }) => (
-                        <option value={value}>{name}</option>
-                      ))
-                    )}
-                  </select>
-                </>
+                <MemoSelect
+                  label={label}
+                  className={className}
+                  formData={formData}
+                  name={name}
+                  handleInput={handleInput}
+                  options={options}
+                />
               )
           )
         )}

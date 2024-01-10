@@ -28,7 +28,7 @@ export default function MyOrders() {
 
   // JSX ELEMENT
   return (
-    <div className="p-5 sm:px-10">
+    <div className="page-padding">
       <div className="overflow-x-auto pb-2">
         <OrderTable header={header.myOrder} orders={orders} />
       </div>

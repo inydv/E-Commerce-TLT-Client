@@ -156,7 +156,7 @@ export default function Header() {
 
   // JSX ELEMENT
   return (
-    <div className="bg-black py-5 px-5 sm:px-10 sticky top-0 left-0 z-40">
+    <div className="bg-black page-padding !py-5 sticky top-0 left-0 z-40">
       <div className="flex justify-between h-full items-center">
         <HiMenuAlt2
           color="white"

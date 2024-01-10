@@ -43,8 +43,8 @@ export default function Detail() {
 
   // JSX ELEMENT
   return productDetail ? (
-    <div className="p-5 sm:px-10">
-      <div className="max-w-[1400px] mx-auto">
+    <div className="page-padding">
+      <div className="page-width">
         <div className="md:grid md:grid-cols-2">
           <Carousel>
             {Children.toArray(

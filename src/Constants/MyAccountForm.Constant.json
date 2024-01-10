@@ -3,7 +3,7 @@
         "tagType": "input",
         "label": "Username",
         "type": "text",
-        "className": "w-full xl:max-w-[300px] rounded-sm py-2 px-4 outline-none text-black text-sm sm:text-base mt-1 xl:mt-0",
+        "className": "myAccount-input",
         "placeholder": "Lokesh Yadav",
         "name": "username"
     },
@@ -11,7 +11,7 @@
         "tagType": "input",
         "label": "Phone",
         "type": "number",
-        "className": "w-full xl:max-w-[300px] rounded-sm py-2 px-4 outline-none text-black text-sm sm:text-base mt-1 xl:mt-0",
+        "className": "myAccount-input",
         "placeholder": "1234567890",
         "name": "phone"
     },

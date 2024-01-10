@@ -1,5 +1,6 @@
+/* eslint-disable react/display-name */
 // REACT
-import { Children, useRef, useState } from "react";
+import { Children, memo, useRef, useState } from "react";
 
 // CUSTOM IMPORT
 import MyAccountFormConstant from "../Constants/MyAccountForm.Constant.json";
@@ -13,6 +14,61 @@ import { RiPencilFill } from "@react-icons/all-files/ri/RiPencilFill";
 // IMAGE LAZY LOADING
 import { LazyLoadImage } from "react-lazy-load-image-component";
 
+// MEMO
+const MemoInput = memo(
+  ({ label, type, className, placeholder, name, handleInput, formData }) => (
+    <div className="xl:grid xl:grid-cols-2 mb-5">
+      <label className="font-semibold text-base sm:text-xl">{label}</label>
+      <input
+        type={type}
+        className={className}
+        placeholder={placeholder}
+        required={true}
+        name={name}
+        onChange={(e) => handleInput(e)}
+        value={formData[name] || ""}
+      />
+    </div>
+  )
+);
+
+const MemoRadio = memo(({ label, options, handleInput, formData }) => (
+  <div className="xl:grid xl:grid-cols-2 my-5 sm:my-10 items-center">
+    <label className="font-semibold text-base sm:text-xl">{label}</label>
+    <div>
+      {Children.toArray(
+        options?.map(({ label, name }) => (
+          <>
+            <input
+              type="radio"
+              className="mr-2"
+              id={label}
+              name={name}
+              value={label}
+              onChange={(e) => handleInput(e)}
+              checked={formData?.gender === label}
+            />
+            <label htmlFor={label} className="mr-5 text-base">
+              {label}
+            </label>
+          </>
+        ))
+      )}
+    </div>
+  </div>
+));
+
+const MemoPassword = memo(({ placeholder, isDisabled, name, handleInput }) => (
+  <input
+    type="password"
+    className="w-full xl:max-w-[300px] rounded-sm py-2 px-4 outline-none text-black text-sm sm:text-base mb-2 sm:mb-5 xl:mt-0"
+    placeholder={placeholder}
+    disabled={isDisabled}
+    name={name}
+    onChange={(e) => handleInput(e)}
+  />
+));
+
 // MY ACCOUNT FORM
 export default function MyAccountForm({
   handleSubmit,
@@ -25,7 +81,7 @@ export default function MyAccountForm({
   const [isDisabled, setIsDisabled] = useState(true);
 
   // USE REF
-  const changeImage = useRef();
+  const changeImage = useRef(null);
 
   // CONTEXT
   const { user } = useUser();
@@ -88,46 +144,22 @@ export default function MyAccountForm({
           MyAccountFormConstant?.map(
             ({ tagType, options, className, name, placeholder, label, type }) =>
               tagType === EnumConstant.FormTagType.Input ? (
-                <div className="xl:grid xl:grid-cols-2 mb-5">
-                  <label className="font-semibold text-base sm:text-xl">
-                    {label}
-                  </label>
-                  <input
-                    type={type}
-                    className={className}
-                    placeholder={placeholder}
-                    required={true}
-                    name={name}
-                    onChange={(e) => handleInput(e)}
-                    value={formData[name] || ""}
-                  />
-                </div>
+                <MemoInput
+                  label={label}
+                  type={type}
+                  className={className}
+                  placeholder={placeholder}
+                  name={name}
+                  handleInput={handleInput}
+                  formData={formData}
+                />
               ) : tagType === EnumConstant.FormTagType.Radio ? (
-                <div className="xl:grid xl:grid-cols-2 my-5 sm:my-10 items-center">
-                  <label className="font-semibold text-base sm:text-xl">
-                    {label}
-                  </label>
-                  <div>
-                    {Children.toArray(
-                      options?.map(({ label, name }) => (
-                        <>
-                          <input
-                            type="radio"
-                            className="mr-2"
-                            id={label}
-                            name={name}
-                            value={label}
-                            onChange={(e) => handleInput(e)}
-                            checked={formData?.gender === label}
-                          />
-                          <label htmlFor={label} className="mr-5 text-base">
-                            {label}
-                          </label>
-                        </>
-                      ))
-                    )}
-                  </div>
-                </div>
+                <MemoRadio
+                  label={label}
+                  options={options}
+                  handleInput={handleInput}
+                  formData={formData}
+                />
               ) : (
                 <div className="xl:grid xl:grid-cols-2">
                   <div className="mb-5">
@@ -148,13 +180,11 @@ export default function MyAccountForm({
                   <div className="flex flex-col">
                     {Children.toArray(
                       options?.map(({ placeholder, name }) => (
-                        <input
-                          type="password"
-                          className="w-full xl:max-w-[300px] rounded-sm py-2 px-4 outline-none text-black text-sm sm:text-base mb-2 sm:mb-5 xl:mt-0"
+                        <MemoPassword
                           placeholder={placeholder}
-                          disabled={isDisabled}
+                          isDisabled={isDisabled}
                           name={name}
-                          onChange={(e) => handleInput(e)}
+                          handleInput={handleInput}
                         />
                       ))
                     )}

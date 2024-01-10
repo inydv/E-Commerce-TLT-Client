@@ -100,6 +100,66 @@ input[type='radio']:checked:after {
     @apply font-semibold text-base bg-customGray py-2 px-4 cursor-pointer;
 }
 
+.td-border {
+    @apply border border-gray-500;
+}
+
+.table-width {
+    @apply min-w-[800px] w-full;
+}
+
+.page-padding {
+    @apply p-5 sm:p-10;
+}
+
+.page-title {
+    @apply font-semibold text-2xl sm:text-4xl pb-5 sm:pb-10;
+}
+
+.page-width {
+    @apply max-w-[1400px] mx-auto;
+}
+
+.form-input-text {
+    @apply bg-black outline-none border-b-2 w-full border-gray p-1 text-sm;
+}
+
+.form-input-select {
+    @apply bg-black w-full outline-none;
+}
+
+.form-label {
+    @apply block mb-1;
+}
+
+.auth-input {
+    @apply w-[80%] ml-5 rounded-sm py-1 px-4 outline-none text-black text-base;
+}
+
+.contact-input {
+    @apply w-full text-black outline-none px-4 py-2 rounded-sm my-2 text-base;
+}
+
+.contact-label {
+    @apply text-lg font-semibold;
+}
+
+.contact-container {
+    @apply flex flex-col my-5;
+}
+
+.myAccount-input {
+    @apply w-full xl:max-w-[300px] rounded-sm py-2 px-4 outline-none text-black text-sm sm:text-base mt-1 xl:mt-0;
+}
+
+.filter-input {
+    @apply bg-black w-full outline-none cursor-pointer;
+}
+
+.filter-label {
+    @apply font-semibold text-lg pb-3;
+}
+
 .pagination {
     @apply border-customGray border-2 py-2 px-3 cursor-pointer hover:text-red-600 text-sm font-semibold;
 }

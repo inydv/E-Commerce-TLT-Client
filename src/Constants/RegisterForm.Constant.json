@@ -2,28 +2,28 @@
     {
         "icon": "HiUser",
         "type": "text",
-        "className": "w-[80%] ml-5 rounded-sm py-1 px-4 outline-none text-black text-base",
+        "className": "auth-input",
         "placeholder": "Lokesh Yadav",
         "name": "username"
     },
     {
         "icon": "HiPhone",
         "type": "number",
-        "className": "w-[80%] ml-5 rounded-sm py-1 px-4 outline-none text-black text-base",
+        "className": "auth-input",
         "placeholder": "1234567890",
         "name": "phone"
     },
     {
         "icon": "MdEmail",
         "type": "email",
-        "className": "w-[80%] ml-5 rounded-sm py-1 px-4 outline-none text-black text-base",
+        "className": "auth-input",
         "placeholder": "lokesh@gmail.com",
         "name": "email"
     },
     {
         "icon": "IoMdLock",
         "type": "password",
-        "className": "w-[80%] ml-5 rounded-sm py-1 px-4 outline-none text-black text-base",
+        "className": "auth-input",
         "placeholder": "password",
         "name": "password"
     }

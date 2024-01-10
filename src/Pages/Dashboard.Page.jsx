@@ -118,7 +118,7 @@ export default function Dashboard() {
 
   // JSX ELEMENT
   return (
-    <div className="max-w-[1400px] mx-auto">
+    <div className="page-width">
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-2 sm:gap-5">
         <DashboardCards obj={orders} />
         <DashboardCards obj={products} />

@@ -1,5 +1,6 @@
+/* eslint-disable react/display-name */
 // REACT AND REACT ROUTER DOM
-import { useEffect, useState } from "react";
+import { memo, useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 
 // CUSTOM IMPORTS
@@ -12,6 +13,14 @@ import {
   VERIFYPAYMENT,
 } from "../Services/index";
 import RouteConstant from "../Constants/Routes.Constant.json";
+
+// MEMO
+const MemoBoxLine = ({ title, price, containerClass, priceClass }) => (
+  <div className={`flex justify-between gap-5 ${containerClass}`}>
+    <h1 className="font-semibold text-base sm:text-lg">{title}</h1>
+    <p className={`text-base sm:text-lg ${priceClass}`}>{RSCoversion(price)}</p>
+  </div>
+);
 
 // PROCEED NEXT BOX
 export default function ProceedNextBox({ cart, shippingCharges = 0 }) {
@@ -27,7 +36,7 @@ export default function ProceedNextBox({ cart, shippingCharges = 0 }) {
   // CUSTOM FUNCTION
   const handleSubmit = (e) => {
     e.preventDefault();
-    
+
     localStorage.setItem("address", JSON.stringify(formData));
     setOpenDialog(false);
   };
@@ -120,20 +129,22 @@ export default function ProceedNextBox({ cart, shippingCharges = 0 }) {
   // JSX ELEMENT
   return (
     <div className="bg-customGray max-w-[400px] w-full p-5">
-      <div className="flex justify-between gap-5 mb-3 sm:mb-5">
-        <h1 className="font-semibold text-base sm:text-lg">Sub Total</h1>
-        <p className="text-base sm:text-lg">{RSCoversion(subTotal)}</p>
-      </div>
-      <div className="flex justify-between gap-5 mb-3 sm:mb-5">
-        <h1 className="font-semibold text-base sm:text-lg">Shipping Charges</h1>
-        <p className="text-base sm:text-lg">{RSCoversion(shippingCharges)}</p>
-      </div>
-      <div className="flex justify-between gap-5 mb-5 sm:mb-10">
-        <h1 className="font-semibold text-base sm:text-lg">Gross Total</h1>
-        <p className="text-green-500 text-base sm:text-lg">
-          {RSCoversion(shippingCharges + subTotal)}
-        </p>
-      </div>
+      <MemoBoxLine
+        price={subTotal}
+        title={"Sub Total"}
+        containerClass={"mb-3 sm:mb-5"}
+      />
+      <MemoBoxLine
+        price={shippingCharges}
+        title={"Shipping Charges"}
+        containerClass={"mb-3 sm:mb-5"}
+      />
+      <MemoBoxLine
+        price={shippingCharges + subTotal}
+        title={"Gross Total"}
+        containerClass={"mb-5 sm:mb-10"}
+        priceClass={"text-green-500"}
+      />
       <div className="flex justify-end gap-5">
         <button
           className="font-semibold text-base py-2 px-4 bg-black"

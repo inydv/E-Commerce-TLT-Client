@@ -63,13 +63,11 @@ export default function OrderTable({ header, orders, isAdmin = false }) {
 
   // JSX ELEMENT
   return (
-    <table className="min-w-[800px] w-full">
+    <table className="table-width">
       <thead>
         <tr>
           {Children.toArray(
-            header?.map((name) => (
-              <th className="border border-gray-500 p-2">{name}</th>
-            ))
+            header?.map((name) => <th className="td-border p-2">{name}</th>)
           )}
         </tr>
       </thead>
@@ -78,15 +76,13 @@ export default function OrderTable({ header, orders, isAdmin = false }) {
           Children.toArray(
             orders?.map((item) => (
               <tr>
-                <td className="border border-gray-500 p-2">
+                <td className="td-border p-2">
                   {Children.toArray(
                     item?.orderItems?.map(({ quantity, product }, index) => (
                       <div
-                        className={
-                          index === item?.orderItems?.length - 1
-                            ? "grid gap-5 grid-flow-col"
-                            : "grid gap-5 grid-flow-col mb-4"
-                        }
+                        className={`grid gap-5 grid-flow-col ${
+                          index !== item?.orderItems?.length - 1 && "mb-4"
+                        }`}
                       >
                         <LazyLoadImage
                           src={
@@ -122,14 +118,14 @@ export default function OrderTable({ header, orders, isAdmin = false }) {
                     ))
                   )}
                 </td>
-                <td className="border border-gray-500 p-2">
+                <td className="td-border p-2">
                   <p className="text-center">
                     Name: {item?.shippingInformation?.name} <br />
                     Phone: {item?.shippingInformation?.phone} <br />
                     Email: {item?.shippingInformation?.email}
                   </p>
                 </td>
-                <td className="border border-gray-500 p-2">
+                <td className="td-border p-2">
                   <p className="text-center">
                     {item?.shippingInformation?.address +
                       ", " +
@@ -140,17 +136,17 @@ export default function OrderTable({ header, orders, isAdmin = false }) {
                       item?.shippingInformation?.pincode}
                   </p>
                 </td>
-                <td className="border border-gray-500 p-2">
+                <td className="td-border p-2">
                   <p className="text-center">{item?.orderStatus}</p>
                 </td>
-                <td className="border border-gray-500 p-2">
+                <td className="td-border p-2">
                   <p className="text-center">
                     Created At: {DateSplice(item?.createdAt)} <br />
                     Delivery At: {DateSplice(item?.deliveredAt)}
                   </p>
                 </td>
                 {isAdmin && (
-                  <td className="border border-gray-500 p-2">
+                  <td className="td-border p-2">
                     <div className="flex gap-5 justify-center items-center">
                       <AiFillEye
                         size={20}
@@ -183,7 +179,7 @@ export default function OrderTable({ header, orders, isAdmin = false }) {
           )
         ) : (
           <tr>
-            <td colSpan="100%" className="border border-gray-500 px-5 py-10">
+            <td colSpan="100%" className="td-border px-5 py-10">
               <NotAvailable />
             </td>
           </tr>

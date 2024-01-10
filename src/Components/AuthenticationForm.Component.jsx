@@ -1,3 +1,4 @@
+/* eslint-disable react/display-name */
 // REACT ICONS
 import { MdEmail } from "@react-icons/all-files/md/MdEmail";
 import { IoMdLock } from "@react-icons/all-files/io/IoMdLock";
@@ -5,7 +6,7 @@ import { HiUser } from "@react-icons/all-files/hi/HiUser";
 import { HiPhone } from "@react-icons/all-files/hi/HiPhone";
 
 // REACT AND REACT ROUTER DOM
-import { Children, useState } from "react";
+import { Children, memo, useState } from "react";
 import { Link, useNavigate, useParams } from "react-router-dom";
 
 // CUSTOM IMPORTS
@@ -22,6 +23,34 @@ import EnumConstant from "../Constants/Enum.Constant.json";
 // TOASTER
 import toast from "react-hot-toast";
 import ToastConstant from "../Constants/Toast.Constant.json";
+
+// MEMO
+const MemoInput = memo(
+  ({ icon, type, className, placeholder, name, formData, handleInput }) => (
+    <li className="flex items-center justify-between mb-2">
+      {icon === "HiUser" ? (
+        <HiUser size={25} />
+      ) : icon === "HiPhone" ? (
+        <HiPhone size={25} />
+      ) : icon === "MdEmail" ? (
+        <MdEmail size={25} />
+      ) : icon === "IoMdLock" ? (
+        <IoMdLock size={25} />
+      ) : (
+        ""
+      )}
+      <input
+        type={type}
+        className={className}
+        placeholder={placeholder}
+        required={true}
+        name={name}
+        value={formData[name] || ""}
+        onChange={(e) => handleInput(e)}
+      />
+    </li>
+  )
+);
 
 // AUTHENTICATION FORM
 export default function AuthenticationForm({
@@ -94,28 +123,15 @@ export default function AuthenticationForm({
       <ul>
         {Children.toArray(
           form?.map(({ icon, type, className, placeholder, name }) => (
-            <li className="flex items-center justify-between mb-2">
-              {icon === "HiUser" ? (
-                <HiUser size={25} />
-              ) : icon === "HiPhone" ? (
-                <HiPhone size={25} />
-              ) : icon === "MdEmail" ? (
-                <MdEmail size={25} />
-              ) : icon === "IoMdLock" ? (
-                <IoMdLock size={25} />
-              ) : (
-                ""
-              )}
-              <input
-                type={type}
-                className={className}
-                placeholder={placeholder}
-                required={true}
-                name={name}
-                value={formData[name] || ""}
-                onChange={(e) => handleInput(e)}
-              />
-            </li>
+            <MemoInput
+              icon={icon}
+              type={type}
+              className={className}
+              placeholder={placeholder}
+              name={name}
+              formData={formData}
+              handleInput={handleInput}
+            />
           ))
         )}
         {isLinkShow && (

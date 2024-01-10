@@ -25,7 +25,7 @@
     },
     {
         "tagType": "select",
-        "className": "bg-black w-full outline-none cursor-pointer",
+        "className": "filter-input",
         "name": "category",
         "label": "Category",
         "options": [
@@ -41,7 +41,7 @@
     },
     {
         "tagType": "select",
-        "className": "bg-black w-full outline-none cursor-pointer",
+        "className": "filter-input",
         "name": "subCategories",
         "label": "Sub-Category",
         "options": [
@@ -61,7 +61,7 @@
     },
     {
         "tagType": "select",
-        "className": "bg-black w-full outline-none cursor-pointer",
+        "className": "filter-input",
         "name": "sort",
         "label": "Sort By",
         "options": [

@@ -14,7 +14,7 @@ module.exports = {
         banner: "600px"
       },
       minHeight: {
-        content: "calc(100vh - 426px)",
+        content: "calc(100vh - 436px)",
         footer: "356px"
       },
     },

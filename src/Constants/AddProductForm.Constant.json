@@ -5,19 +5,19 @@
         "name": "name",
         "autoFocus": true,
         "placeholder": "Enter Product Name",
-        "className": "bg-black outline-none border-b-2 w-full border-gray p-1 text-sm",
+        "className": "form-input-text",
         "required": true,
-        "labelClass": "block mb-1"
+        "labelClass": "form-label"
     },
     {
         "tagType": "textarea",
         "label": "Product Description *",
         "name": "description",
         "placeholder": "Enter Product Description",
-        "className": "bg-black outline-none border-b-2 w-full border-gray p-1 text-sm",
+        "className": "form-input-text",
         "rows": 1,
         "required": true,
-        "labelClass": "block mb-1",
+        "labelClass": "form-label",
         "containerClass": "mt-4"
     },
     {
@@ -30,8 +30,8 @@
                 "value": "h1"
             }
         ],
-        "className": "bg-black w-full outline-none",
-        "labelClass": "block mb-1",
+        "className": "form-input-select",
+        "labelClass": "form-label",
         "containerClass": "mt-4"
     },
     {
@@ -44,8 +44,8 @@
                 "value": "h1"
             }
         ],
-        "className": "bg-black w-full outline-none",
-        "labelClass": "block mb-1",
+        "className": "form-input-select",
+        "labelClass": "form-label",
         "containerClass": "mt-4"
     },
     {
@@ -53,8 +53,8 @@
         "label": "Product Price *",
         "name": "price",
         "placeholder": "Enter Product Price",
-        "className": "bg-black outline-none border-b-2 w-full border-gray p-1 text-sm",
-        "labelClass": "block mb-1",
+        "className": "form-input-text",
+        "labelClass": "form-label",
         "containerClass": "mt-4"
     },
     {
@@ -62,9 +62,9 @@
         "label": "Product Quantity *",
         "name": "quantity",
         "placeholder": "Enter Product Quantity",
-        "className": "bg-black outline-none border-b-2 w-full border-gray p-1 text-sm",
+        "className": "form-input-text",
         "required": true,
-        "labelClass": "block mb-1",
+        "labelClass": "form-label",
         "containerClass": "mt-4"
     },
     {
@@ -73,7 +73,7 @@
         "label": "Product Images *",
         "name": "avatar",
         "multiple": true,
-        "labelClass": "block mb-2",
+        "labelClass": "form-label mb-2",
         "containerClass": "mt-4"
     }
 ]
