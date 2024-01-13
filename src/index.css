@@ -14,6 +14,11 @@
     color: white;
 }
 
+/* HTML */
+html {
+    overflow-x: hidden;
+}
+
 /* BODY */
 body {
     cursor: url("./Assets/cursor.png"), auto;
