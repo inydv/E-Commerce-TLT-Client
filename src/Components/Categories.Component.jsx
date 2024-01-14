@@ -31,7 +31,7 @@ export default function Categories() {
       <div className="page-width flex gap-x-2">
         {Children.toArray(
           CATEGORY_CONSTANT?.map(({ name, src, to }) => (
-            <Link className="flex-1 group overflow-hidden relative" to={to}>
+            <Link className="flex-1 group overflow-hidden relative" to={to} aria-label={name}>
               <LazyLoadImage
                 src={Images[src]}
                 alt="Category Image"

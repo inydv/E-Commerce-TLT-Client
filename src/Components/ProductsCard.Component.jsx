@@ -15,7 +15,10 @@ export default function ProductsCard({ item }) {
   // JSX ELEMENT
   return (
     <article className="aspect-square h-full w-full max-h-[344px] max-w-[48%] md:max-w-[344px] overflow-hidden relative group">
-      <Link to={RoutesConstant.productDetails + "/" + item._id}>
+      <Link
+        to={RoutesConstant.productDetails + "/" + item._id}
+        aria-label={item.name}
+      >
         <LazyLoadImage
           src={item?.images && item?.images[0]?.url}
           alt="Product Image"

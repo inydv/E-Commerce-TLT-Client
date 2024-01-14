@@ -193,7 +193,7 @@ export default function Header() {
             )}
           </SpeedDial>
           <Badge badgeContent={cartLength} color="error">
-            <Link to={RouteConstant.cart}>
+            <Link to={RouteConstant.cart} aria-label="cart">
               <IoIosCart color="white" size={25} />
             </Link>
           </Badge>
