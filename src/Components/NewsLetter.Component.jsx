@@ -19,7 +19,7 @@ export default function NewsLetter() {
 
   // JSX ELEMENT
   return (
-    <section className="bg-[url('../src/Assets/newsLetter.png')] bg-no-repeat bg-cover bg-center bg-fixed h-[25vh] md:h-[40vh] grid place-items-center mt-5">
+    <section className="bg-[url('../src/Assets/newsLetter.webp')] bg-no-repeat bg-cover bg-center bg-fixed h-[25vh] md:h-[40vh] grid place-items-center mt-5">
       <div className="p-5">
         <h1 className="font-semibold text-2xl md:text-5xl text-center">
           THE LATEST
