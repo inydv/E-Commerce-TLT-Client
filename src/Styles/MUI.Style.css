@@ -19,3 +19,12 @@
 .css-11u3b1d-MuiSpeedDial-root .MuiSpeedDial-actions {
     margin-top: -25px !important;
 }
+
+.MuiSpeedDial-root {
+    position: relative;
+}
+
+#SpeedDialtooltipexample-actions {
+    margin-top: 10px;
+    position: absolute;
+}

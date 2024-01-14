@@ -170,7 +170,7 @@ export default function Header() {
         <div className="hidden sm:block">
           <NavigationList />
         </div>
-        <div className="flex justify-end gap-2 sm:gap-5 relative top-0 items-end">
+        <div className="flex justify-end gap-2 sm:gap-5 relative top-0 items-center">
           <SpeedDial
             ariaLabel="SpeedDial tooltip example"
             FabProps={{ style: { backgroundColor: "black", zIndex: "10" } }}
