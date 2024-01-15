@@ -34,5 +34,9 @@
     },
     "Environment": {
         "Development": "DEVELOPMENT"
+    },
+    "Validation": {
+        "Email": "email",
+        "Number": "number"
     }
 }

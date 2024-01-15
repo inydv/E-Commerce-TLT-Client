@@ -2,41 +2,41 @@
   {
     "img": "menShirt",
     "title": "Shirt",
-    "link": "/shop?sub-category=shirt"
+    "link": "/shop?subCategories=shirt"
   },
   {
     "img": "menTshirt",
     "title": "T-Shirt",
-    "link": "/shop?sub-category=t-shirt"
+    "link": "/shop?subCategories=t-shirt"
   },
   {
     "img": "menShoes",
     "title": "Shoes",
-    "link": "/shop?sub-category=shoes"
+    "link": "/shop?subCategories=shoes"
   },
   {
     "img": "menJacket",
     "title": "Jacket",
-    "link": "/shop?sub-category=jacket"
+    "link": "/shop?subCategories=jacket"
   },
   {
     "img": "menTrouser",
     "title": "Trouser",
-    "link": "/shop?sub-category=trouser"
+    "link": "/shop?subCategories=trouser"
   },
   {
     "img": "menPullovers",
     "title": "Pullovers",
-    "link": "/shop?sub-category=pullovers"
+    "link": "/shop?subCategories=pullovers"
   },
   {
     "img": "menGlasses",
     "title": "Glasses",
-    "link": "/shop?sub-category=glasses"
+    "link": "/shop?subCategories=glasses"
   },
   {
     "img": "menWatch",
     "title": "Watches",
-    "link": "/shop?sub-category=watches"
+    "link": "/shop?subCategories=watches"
   }
 ]

@@ -19,11 +19,14 @@ import FormConstant from "../Constants/EditForm.Constant.json";
 import { LazyLoadImage } from "react-lazy-load-image-component";
 
 // CUSTOM COMPONENT
-const ImageComponent = ({ item, key }) => (
+const ImageComponent = ({ item, objkey }) => (
   <td className="td-border p-2">
     <div className="grid place-content-center">
       <LazyLoadImage
-        src={item[key]?.url || (item[key]?.length > 0 ? item[key][0]?.url : "")}
+        src={
+          item[objkey]?.url ||
+          (item[objkey]?.length > 0 ? item[objkey][0]?.url : "")
+        }
         alt="Image"
         className="h-10 w-10"
         effect="blur"
@@ -43,6 +46,7 @@ const ActionComponent = ({
   handleInput,
   setId,
   setFormData,
+  item
 }) => (
   <td className="td-border p-2">
     <div className="flex gap-5 justify-center items-center">
@@ -93,9 +97,9 @@ const ActionComponent = ({
   </td>
 );
 
-const TextComponent = ({ item, key }) => (
+const TextComponent = ({ item, objkey }) => (
   <td className="td-border p-2">
-    <p className="text-center line-clamp">{item[key]?.toString() || "-"}</p>
+    <p className="text-center line-clamp">{item[objkey]?.toString() || "-"}</p>
   </td>
 );
 
@@ -175,7 +179,7 @@ export default function Table({
                         isDeleteEnabled,
                       }) =>
                         type === EnumConstant.Table.Image ? (
-                          <ImageComponent item={item} key={key} />
+                          <ImageComponent item={item} objkey={key} />
                         ) : type === EnumConstant.Table.Action ? (
                           <ActionComponent
                             isViewEnabled={isViewEnabled}
@@ -184,9 +188,10 @@ export default function Table({
                             handleInput={handleInput}
                             setId={setId}
                             setFormData={setFormData}
+                            item={item}
                           />
                         ) : (
-                          <TextComponent item={item} key={key} />
+                          <TextComponent item={item} objkey={key} />
                         )
                     )
                   )}

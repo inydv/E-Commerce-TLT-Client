@@ -1,6 +1,6 @@
 /* eslint-disable react/display-name */
 // REACT
-import { Children, memo, useRef, useState } from "react";
+import { Children, memo, useRef } from "react";
 
 // CUSTOM IMPORT
 import MyAccountFormConstant from "../Constants/MyAccountForm.Constant.json";
@@ -76,10 +76,9 @@ export default function MyAccountForm({
   handleImage,
   avatarPreview,
   formData,
+  isDisabled,
+  setIsDisabled,
 }) {
-  // STATE
-  const [isDisabled, setIsDisabled] = useState(true);
-
   // USE REF
   const changeImage = useRef(null);
 

@@ -36,10 +36,11 @@ const MemoInput = memo(
     <>
       <p className="filter-label">{label}</p>
       <div className="relative">
-        <BiSearchAlt2 className="absolute bottom-3 left-2" size={25} />
+        <BiSearchAlt2 className="absolute bottom-3 left-2" size={20} />
         <input
           type={type}
           className={className}
+          // className="bg-black border-b-customGray border-b-2 rounded text-white pb-2 pl-10 pr-2 w-full outline-none"
           placeholder={placeholder}
           name={name}
           value={formData[name]}

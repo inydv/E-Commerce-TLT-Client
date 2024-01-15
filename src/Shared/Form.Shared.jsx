@@ -264,7 +264,7 @@ export default function Form({
 
   // JSX ELEMENT
   return (
-    <form onSubmit={(e) => submitForm(e)} className="min-w-[300px]">
+    <form onSubmit={(e) => submitForm(e)} className="max-w-[800px] min-w-[300px]">
       {Children.toArray(
         form?.map(
           ({

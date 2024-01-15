@@ -13,6 +13,7 @@ import ToastConstant from "../Constants/Toast.Constant.json";
 // MY ACCOUNT
 export default function MyAccount() {
   // STATES
+  const [isDisabled, setIsDisabled] = useState(true);
   const [formData, setFormData] = useState({});
   const [avatar, setAvatar] = useState(null);
   const [avatarPreview, setAvatarPreview] = useState(null);
@@ -60,7 +61,15 @@ export default function MyAccount() {
 
     if (data && data.SUCCESS) {
       toast.success(data?.MESSAGE, ToastConstant.success);
-      setFormData({});
+      setIsDisabled(true);
+      setFormData((prevState) => {
+        return {
+          ...prevState,
+          username: data?.DATA?.username,
+          phone: data?.DATA?.phone,
+          gender: data?.DATA?.gender || "",
+        };
+      });
     }
   };
 
@@ -73,7 +82,7 @@ export default function MyAccount() {
         ...prevState,
         username: user?.username,
         phone: user?.phone,
-        gender: user?.gender || "Male",
+        gender: user?.gender || "",
       };
     });
   }, [user]);
@@ -89,6 +98,8 @@ export default function MyAccount() {
           handleImage={handleImage}
           avatarPreview={avatarPreview}
           formData={formData}
+          isDisabled={isDisabled}
+          setIsDisabled={setIsDisabled}
         />
       </div>
     </section>

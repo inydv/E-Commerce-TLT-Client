@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom";
+
 // CUSTOM IMPORTS
 import Images from "../Assets/index";
 
@@ -18,9 +20,12 @@ export default function ProductsCategoriesCard({ item }) {
           currentTarget.src = Images["NoImageAvailable"];
         }}
       />
-      <div className="absolute top-0 h-full w-full hidden items-center justify-center group-hover:flex">
+      <Link
+        to={item.link}
+        className="absolute top-0 h-full w-full hidden items-center justify-center group-hover:flex"
+      >
         <p className="text-2xl md:text-4xl font-semibold">{item.title}</p>
-      </div>
+      </Link>
     </article>
   );
 }

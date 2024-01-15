@@ -2,7 +2,7 @@
     {
         "tagType": "input",
         "type": "text",
-        "className": "bg-black border-b-customGray border-b-2 rounded text-white pb-2 pl-12 w-full outline-none",
+        "className": "bg-black border-b-customGray border-b-2 rounded text-white pb-2 pl-10 pr-2 w-full outline-none",
         "placeholder": "Type Product Name Here.....",
         "name": "name",
         "label": "Search"
@@ -43,19 +43,67 @@
         "tagType": "select",
         "className": "filter-input",
         "name": "subCategories",
-        "label": "Sub-Category",
+        "label": "subCategories",
         "options": [
-            {
-                "name": "Pant",
-                "value": "pant"
-            },
             {
                 "name": "Shirt",
                 "value": "shirt"
             },
             {
+                "name": "T-Shirt",
+                "value": "tshirt"
+            },
+            {
                 "name": "Shoes",
                 "value": "shoes"
+            },
+            {
+                "name": "Jacket",
+                "value": "jacket"
+            },
+            {
+                "name": "Trouser",
+                "value": "trouser"
+            },
+            {
+                "name": "Pullovers",
+                "value": "pullovers"
+            },
+            {
+                "name": "Glasses",
+                "value": "glasses"
+            },
+            {
+                "name": "Watches",
+                "value": "watches"
+            },
+            {
+                "name": "Tops",
+                "value": "tops"
+            },
+            {
+                "name": "Skirt",
+                "value": "skirt"
+            },
+            {
+                "name": "Jeans",
+                "value": "jeans"
+            },
+            {
+                "name": "Dresses",
+                "value": "dresses"
+            },
+            {
+                "name": "Kurti",
+                "value": "kurti"
+            },
+            {
+                "name": "Flats",
+                "value": "flats"
+            },
+            {
+                "name": "Heels",
+                "value": "heels"
             }
         ]
     },

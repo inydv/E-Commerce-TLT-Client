@@ -39,18 +39,20 @@ const NAVIGATION_CONSTANT = [
     name: "Men",
   },
   {
-    to: RouteConstant.shop + "?category-women",
+    to: RouteConstant.shop + "?category=women",
     name: "Women",
   },
 ];
 
 // CUSTOM COMPONENT
-const NavigationList = () => (
+const NavigationList = ({ setIsDrawerOpen }) => (
   <ul className="justify-self-center inline-flex flex-col sm:flex-row gap-5 text-lg">
     {Children.toArray(
       NAVIGATION_CONSTANT?.map(({ to, name }) => (
         <li className="border-b-2 border-b-customGray p-2 pb-5 sm:p-0 sm:border-none">
-          <Link to={to}>{name}</Link>
+          <Link to={to} onClick={() => setIsDrawerOpen(false)}>
+            {name}
+          </Link>
         </li>
       ))
     )}
@@ -168,7 +170,7 @@ export default function Header() {
           T<span className="text-red-600">L</span>T
         </h1>
         <div className="hidden sm:block">
-          <NavigationList />
+          <NavigationList setIsDrawerOpen={setIsDrawerOpen} />
         </div>
         <div className="flex justify-end gap-2 sm:gap-5 relative top-0 items-center">
           <SpeedDial
@@ -203,7 +205,7 @@ export default function Header() {
       <SideDrawer
         isDrawerOpen={isDrawerOpen}
         setIsDrawerOpen={setIsDrawerOpen}
-        content={<NavigationList />}
+        content={<NavigationList setIsDrawerOpen={setIsDrawerOpen} />}
       />
     </header>
   );

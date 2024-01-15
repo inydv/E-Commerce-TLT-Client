@@ -1,0 +1,32 @@
+{
+    "AddressForm": {
+        "name": {
+            "required": true
+        },
+        "email": {
+            "required": true,
+            "type": "email"
+        },
+        "phone": {
+            "required": true,
+            "type": "number",
+            "minLength": 10,
+            "maxLength": 10
+        },
+        "address": {
+            "required": true
+        },
+        "city": {
+            "required": true
+        },
+        "state": {
+            "required": true
+        },
+        "pincode": {
+            "required": true,
+            "type": "number",
+            "minLength": 6,
+            "maxLength": 6
+        }
+    }
+}

@@ -2,41 +2,41 @@
   {
     "img": "womenTops",
     "title": "Tops",
-    "link": "/shop?sub-category=tops"
+    "link": "/shop?subCategories=tops"
   },
   {
     "img": "womenSkirt",
     "title": "Skirt",
-    "link": "/shop?sub-category=skirt"
+    "link": "/shop?subCategories=skirt"
   },
   {
     "img": "womenJeans",
     "title": "Jeans",
-    "link": "/shop?sub-category=jeans"
+    "link": "/shop?subCategories=jeans"
   },
   {
     "img": "womenDress",
     "title": "Dresses",
-    "link": "/shop?sub-category=dress"
+    "link": "/shop?subCategories=dress"
   },
   {
     "img": "womenKurti",
     "title": "Kurti",
-    "link": "/shop?sub-category=kurti"
+    "link": "/shop?subCategories=kurti"
   },
   {
     "img": "womenFlats",
     "title": "Flats",
-    "link": "/shop?sub-category=flats"
+    "link": "/shop?subCategories=flats"
   },
   {
     "img": "womenHeels",
     "title": "Heels",
-    "link": "/shop?sub-category=heels"
+    "link": "/shop?subCategories=heels"
   },
   {
     "img": "womenShoes",
     "title": "Shoes",
-    "link": "/shop?sub-category=shoes"
+    "link": "/shop?subCategories=shoes"
   }
 ]

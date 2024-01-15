@@ -21,7 +21,7 @@ const NAVIGATION_CONSTANT = [
     name: "Men",
   },
   {
-    to: RoutesConstant.shop + "?category-women",
+    to: RoutesConstant.shop + "?category=women",
     name: "Women",
   },
   {

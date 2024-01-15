@@ -61,6 +61,7 @@ export default function AuthenticationForm({
   isLinkShow,
   navigateRoute,
   navigateTag,
+  switchTabs,
 }) {
   // STATE
   const [formData, setFormData] = useState({});
@@ -90,6 +91,7 @@ export default function AuthenticationForm({
       if (data && data.SUCCESS) {
         toast.success(data?.MESSAGE, ToastConstant.success);
         setFormData({});
+        switchTabs(EnumConstant.AuthenticationType.Login);
       }
     } else if (type === EnumConstant.AuthenticationType.Login) {
       const { data } = await LOGINUSER(formData);

@@ -110,12 +110,14 @@ export default function Auth() {
               isLinkShow={true}
               navigateRoute={RouteConstant.forgotPW}
               navigateTag="Forgot Password?"
+              switchTabs={switchTabs}
             />
             <AuthenticationForm
               tab={registerTab}
               form={RegisterFormConstant}
               className="-translate-y-full translate-x-full"
               type={EnumConstant.AuthenticationType.Register}
+              switchTabs={switchTabs}
             />
           </>
         )}

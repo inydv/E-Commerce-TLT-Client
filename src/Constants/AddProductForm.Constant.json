@@ -15,7 +15,7 @@
         "name": "description",
         "placeholder": "Enter Product Description",
         "className": "form-input-text",
-        "rows": 1,
+        "rows": 4,
         "required": true,
         "labelClass": "form-label",
         "containerClass": "mt-4"
@@ -26,8 +26,12 @@
         "label": "Product Category *",
         "options": [
             {
-                "name": "hello",
-                "value": "h1"
+                "name": "Men",
+                "value": "men"
+            },
+            {
+                "name": "Women",
+                "value": "women"
             }
         ],
         "className": "form-input-select",
@@ -37,11 +41,67 @@
     {
         "tagType": "select",
         "name": "subCategories",
-        "label": "Product Sub-Category *",
+        "label": "Product subCategories *",
         "options": [
             {
-                "name": "hello",
-                "value": "h1"
+                "name": "Shirt",
+                "value": "shirt"
+            },
+            {
+                "name": "T-Shirt",
+                "value": "tshirt"
+            },
+            {
+                "name": "Shoes",
+                "value": "shoes"
+            },
+            {
+                "name": "Jacket",
+                "value": "jacket"
+            },
+            {
+                "name": "Trouser",
+                "value": "trouser"
+            },
+            {
+                "name": "Pullovers",
+                "value": "pullovers"
+            },
+            {
+                "name": "Glasses",
+                "value": "glasses"
+            },
+            {
+                "name": "Watches",
+                "value": "watches"
+            },
+            {
+                "name": "Tops",
+                "value": "tops"
+            },
+            {
+                "name": "Skirt",
+                "value": "skirt"
+            },
+            {
+                "name": "Jeans",
+                "value": "jeans"
+            },
+            {
+                "name": "Dresses",
+                "value": "dresses"
+            },
+            {
+                "name": "Kurti",
+                "value": "kurti"
+            },
+            {
+                "name": "Flats",
+                "value": "flats"
+            },
+            {
+                "name": "Heels",
+                "value": "heels"
             }
         ],
         "className": "form-input-select",
@@ -54,6 +114,7 @@
         "name": "price",
         "placeholder": "Enter Product Price",
         "className": "form-input-text",
+        "required": true,
         "labelClass": "form-label",
         "containerClass": "mt-4"
     },

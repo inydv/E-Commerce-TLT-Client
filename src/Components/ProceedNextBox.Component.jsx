@@ -1,6 +1,6 @@
 /* eslint-disable react/display-name */
 // REACT AND REACT ROUTER DOM
-import { memo, useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 
 // CUSTOM IMPORTS
@@ -13,6 +13,12 @@ import {
   VERIFYPAYMENT,
 } from "../Services/index";
 import RouteConstant from "../Constants/Routes.Constant.json";
+import Validation from "../Pipes/Validation.Pipe";
+import ValidationConstant from "../Constants/Validation.Constant.json";
+
+// TOASTER
+import toast from "react-hot-toast";
+import ToastConstant from "../Constants/Toast.Constant.json";
 
 // MEMO
 const MemoBoxLine = ({ title, price, containerClass, priceClass }) => (
@@ -37,11 +43,24 @@ export default function ProceedNextBox({ cart, shippingCharges = 0 }) {
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    localStorage.setItem("address", JSON.stringify(formData));
-    setOpenDialog(false);
+    const response = Validation(formData, ValidationConstant.AddressForm);
+
+    if (response.STATUS) {
+      localStorage.setItem("address", JSON.stringify(formData));
+      setOpenDialog(false);
+    } else {
+      return toast.error(response?.MESSAGE, ToastConstant.error);
+    }
   };
 
   const handlePayment = () => {
+    const response = Validation(formData, ValidationConstant.AddressForm);
+
+    if (!response.STATUS) {
+      return toast.error("ENTER VALID SHIPPING DETAILS", ToastConstant.error);
+    } else if (!subTotal) {
+      return toast.error("ADD ATLEAST 1 PRODUCT", ToastConstant.error);
+    }
     razorpayCreateOrder();
   };
 
@@ -97,6 +116,7 @@ export default function ProceedNextBox({ cart, shippingCharges = 0 }) {
     const { data } = await RAZORPAYCREATEORDER({
       amount: shippingCharges + subTotal,
     });
+
     if (data && data.SUCCESS) {
       handleRazorpay(data?.DATA?.id);
     }

@@ -19,11 +19,12 @@ export default function NotFound() {
   // JSX ELEMENT
   return (
     <>
-      <div className="flex justify-center bg-white">
+      <div className="bg-white">
         <LazyLoadImage
           src={Images["notFound"]}
           alt="Not Found GIF"
           effect="blur"
+          className="m-auto"
         />
       </div>
       <div className="grid justify-center p-5">
