@@ -70,20 +70,20 @@ export default function AdminPages() {
     const { data } = await API;
 
     if (data && data.SUCCESS) {
-      getAPI(getAPIFunc);
+      getAPIFunc();
       setIsApiSuccessfull(true);
     }
   };
 
   const handleBtn = (id) => {
     if (pathname.includes(EnumConstant.Patname.User)) {
-      callApi(DELETEUSER(id), GETALLUSERS());
+      callApi(DELETEUSER(id), () => getAPI(GETALLUSERS()));
     } else if (pathname.includes(EnumConstant.Patname.Product)) {
-      callApi(DELETEPRODUCT(id), GETPRODUCTS({}));
+      callApi(DELETEPRODUCT(id), () => getAPI(GETPRODUCTS({})));
     } else if (pathname.includes(EnumConstant.Patname.Order)) {
-      callApi(DELETEORDER(id), GETALLORDERS());
+      callApi(DELETEORDER(id), () => getAPI(GETALLORDERS()));
     } else if (pathname.includes(EnumConstant.Patname.Contact)) {
-      callApi(DELETECONTACT(id), GETALLCONTACT());
+      callApi(DELETECONTACT(id), () => getAPI(GETALLCONTACT()));
     }
   };
 
@@ -91,13 +91,22 @@ export default function AdminPages() {
     e.preventDefault();
 
     if (pathname.includes(EnumConstant.Patname.User)) {
-      callApi(UPDATEUSERROLE(id, formData), GETALLUSERS());
+      callApi(UPDATEUSERROLE(id, formData), () => getAPI(GETALLUSERS()));
     } else if (pathname.includes(EnumConstant.Patname.Product)) {
-      callApi(UPDATEPRODUCT(id, formData), GETPRODUCTS({}));
+      callApi(UPDATEPRODUCT(id, formData), () =>
+        getAPI(
+          GETPRODUCTS({
+            page: +searchParams.get("page") || 1,
+            resultPerPage: 15,
+            created_by:
+              user && user.role === EnumConstant.UserRole.Admin ? "" : user._id,
+          })
+        )
+      );
     } else if (pathname.includes(EnumConstant.Patname.Order)) {
-      callApi(UPDATEORDERSTATUS(id, formData), GETALLORDERS());
+      callApi(UPDATEORDERSTATUS(id, formData), () => getAPI(GETALLORDERS()));
     } else if (pathname.includes(EnumConstant.Patname.Contact)) {
-      callApi(UPDATECONTACTSTATUS(id, formData), GETALLCONTACT());
+      callApi(UPDATECONTACTSTATUS(id, formData), () => getAPI(GETALLCONTACT()));
     }
   };
 
@@ -148,6 +157,15 @@ export default function AdminPages() {
           isApiSuccessfull={isApiSuccessfull}
           setIsApiSuccessfull={setIsApiSuccessfull}
         />
+      )}
+      {pathname.includes(EnumConstant.Patname.Product) ? (
+        <div className="pt-4">
+          <p className="text-red-600 text-sm font-medium text-end">
+            ** Please Refresh After Adding Products **
+          </p>
+        </div>
+      ) : (
+        ""
       )}
       <div className="grid place-items-center mt-5">
         <Pagination
