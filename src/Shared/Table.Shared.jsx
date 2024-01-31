@@ -14,6 +14,7 @@ import EnumConstant from "../Constants/Enum.Constant.json";
 import Images from "../Assets/index";
 import ViewItemsConstant from "../Constants/ViewItems.Constant.json";
 import FormConstant from "../Constants/EditForm.Constant.json";
+import ProductFormConstant from "../Constants/AddProductForm.Constant.json";
 
 // IMAGE LAZY LOADING
 import { LazyLoadImage } from "react-lazy-load-image-component";
@@ -46,56 +47,62 @@ const ActionComponent = ({
   handleInput,
   setId,
   setFormData,
-  item
-}) => (
-  <td className="td-border p-2">
-    <div className="flex gap-5 justify-center items-center">
-      {isViewEnabled && (
-        <AiFillEye
-          size={20}
-          className="cursor-pointer"
-          onClick={() => {
-            handleInput({
-              displayName: "View " + name,
-              openForDelete: false,
-              openForEdit: false,
-              viewData: item,
-            });
-          }}
-        />
-      )}
-      {isEditEnabled && (
-        <MdModeEdit
-          size={20}
-          className="cursor-pointer"
-          onClick={() => {
-            setId(item?._id);
-            setFormData({});
-            handleInput({
-              displayName: "Edit " + name,
-              openForDelete: false,
-              openForEdit: true,
-            });
-          }}
-        />
-      )}
-      {isDeleteEnabled && (
-        <AiFillDelete
-          size={20}
-          className="cursor-pointer"
-          onClick={() => {
-            handleInput({
-              displayName: "Delete " + name,
-              openForDelete: true,
-              openForEdit: false,
-              id: item._id,
-            });
-          }}
-        />
-      )}
-    </div>
-  </td>
-);
+  item,
+}) => {
+  // USE LOCATION
+  const { pathname } = useLocation();
+  const name = pathname.split("/")[2];
+
+  return (
+    <td className="td-border p-2">
+      <div className="flex gap-5 justify-center items-center">
+        {isViewEnabled && (
+          <AiFillEye
+            size={20}
+            className="cursor-pointer"
+            onClick={() => {
+              handleInput({
+                displayName: "View " + name,
+                openForDelete: false,
+                openForEdit: false,
+                viewData: item,
+              });
+            }}
+          />
+        )}
+        {isEditEnabled && (
+          <MdModeEdit
+            size={20}
+            className="cursor-pointer"
+            onClick={() => {
+              setId(item?._id);
+              setFormData(item);
+              handleInput({
+                displayName: "Edit " + name,
+                openForDelete: false,
+                openForEdit: true,
+              });
+            }}
+          />
+        )}
+        {isDeleteEnabled && (
+          <AiFillDelete
+            size={20}
+            className="cursor-pointer"
+            onClick={() => {
+              handleInput({
+                displayName: "Delete " + name,
+                openForDelete: true,
+                openForEdit: false,
+                id: item?._id,
+              });
+            }}
+          />
+        )}
+      </div>
+    </td>
+  );
+};
 
 const TextComponent = ({ item, objkey }) => (
   <td className="td-border p-2">
@@ -216,7 +223,9 @@ export default function Table({
             ) : dialogState?.openForEdit ? (
               <Form
                 submitForm={handleSubmit}
-                form={FormConstant[name]}
+                form={
+                  name === "product" ? ProductFormConstant : FormConstant[name]
+                }
                 formData={formData}
                 setFormData={setFormData}
               />

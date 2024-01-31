@@ -38,7 +38,10 @@ export default function Sidebar() {
   // STATES
   const [isDrawerOpen, setIsDrawerOpen] = useState(false);
   const [openDialog, setOpenDialog] = useState(false);
-  const [formData, setFormData] = useState({});
+  const [formData, setFormData] = useState({
+    category: "men",
+    subCategories: "shirt",
+  });
 
   // USE NAVIGATE
   const navigate = useNavigate();
@@ -104,10 +107,19 @@ export default function Sidebar() {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
+    if (!formData?.images?.length) {
+      return toast.error("ADD ATLEAST 1 IMAGE", ToastConstant.error);
+    }
+
     const myForm = new FormData();
+    myForm.set("created_by", user._id);
 
     for (const [key, value] of Object.entries(formData)) {
-      myForm.set(key, value);
+      if (key === "images") {
+        myForm.set(key, JSON.stringify(value));
+      } else {
+        myForm.set(key, value);
+      }
     }
 
     const { data } = await CREATEPRODUCT(myForm);
@@ -115,7 +127,10 @@ export default function Sidebar() {
     if (data && data.SUCCESS) {
       toast.success(data?.MESSAGE, ToastConstant.success);
       setOpenDialog(false);
-      setFormData({});
+      setFormData({
+        category: "men",
+        subCategories: "shirt",
+      });
       navigate(RoutesConstant.adminProduct);
     }
   };

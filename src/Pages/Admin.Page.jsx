@@ -27,6 +27,7 @@ import {
 } from "../Services/index";
 import EnumConstant from "../Constants/Enum.Constant.json";
 import { Pagination } from "../Components";
+import { useUser } from "../Context/User.Context";
 
 // ADMIN PAGE
 export default function AdminPages() {
@@ -43,6 +44,9 @@ export default function AdminPages() {
   const navigate = useNavigate();
   const [searchParams] = useSearchParams();
   const { pathname } = useLocation();
+
+  // CONTEXT
+  const { user } = useUser();
 
   // CUSTOM FUNCTION
   const handlePagination = (pageNumber) => {
@@ -109,7 +113,12 @@ export default function AdminPages() {
       setHeader(AdminTableHeader.product);
       setBody(AdminTableBody.product);
       getAPI(
-        GETPRODUCTS({ page: +searchParams.get("page") || 1, resultPerPage: 15 })
+        GETPRODUCTS({
+          page: +searchParams.get("page") || 1,
+          resultPerPage: 15,
+          created_by:
+            user && user.role === EnumConstant.UserRole.Admin ? "" : user._id,
+        })
       );
     } else if (pathname.includes(EnumConstant.Patname.Order)) {
       setHeader(AdminTableHeader.order);
@@ -119,7 +128,7 @@ export default function AdminPages() {
       setBody(AdminTableBody.contact);
       getAPI(GETALLCONTACT({ page: +searchParams.get("page") || 1 }));
     }
-  }, [getAPI, pathname, searchParams]);
+  }, [getAPI, pathname, searchParams, user]);
 
   // JSX ELEMENT
   return (

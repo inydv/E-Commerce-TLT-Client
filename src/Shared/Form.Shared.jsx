@@ -146,16 +146,18 @@ const MemoFile = memo(
         {Children.toArray(
           formData &&
             formData[name]?.map((item) => (
-              <LazyLoadImage
-                src={isView ? item?.url : item}
-                alt="Product Image"
-                className="aspect-square h-16 w-16 border border-gray"
-                effect="blur"
-                onError={({ currentTarget }) => {
-                  currentTarget.onerror = null;
-                  currentTarget.src = Images["NoImageAvailable"];
-                }}
-              />
+              <span className="aspect-square h-16 w-16 border border-gray">
+                <LazyLoadImage
+                  src={item?.url || item}
+                  alt="Product Image"
+                  className="w-full h-full"
+                  effect="blur"
+                  onError={({ currentTarget }) => {
+                    currentTarget.onerror = null;
+                    currentTarget.src = Images["NoImageAvailable"];
+                  }}
+                />
+              </span>
             ))
         )}
       </div>
@@ -264,7 +266,10 @@ export default function Form({
 
   // JSX ELEMENT
   return (
-    <form onSubmit={(e) => submitForm(e)} className="max-w-[800px] min-w-[300px]">
+    <form
+      onSubmit={(e) => submitForm(e)}
+      className="max-w-[800px] min-w-[250px] sm:min-w-[300px]"
+    >
       {Children.toArray(
         form?.map(
           ({

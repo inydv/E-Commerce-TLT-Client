@@ -1,10 +1,10 @@
 // CUSTOM IMPORTS
 import ApiConstant from "../Constants/API.Constant.json";
-import ToastConstant from "../Constants/Toast.Constant.json";
 import { Request } from "../Configs/RequestMethod.Config";
 
 // TOASTER
 import toast from 'react-hot-toast';
+import ToastConstant from "../Constants/Toast.Constant.json";
 
 // APIS
 export const GETALLUSERS = async ({ page = 1, resultPerPage = 15 }) => {

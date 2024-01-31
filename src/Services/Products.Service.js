@@ -1,10 +1,10 @@
 // CUSTOM IMPORTS
 import ApiConstant from "../Constants/API.Constant.json";
-import ToastConstant from "../Constants/Toast.Constant.json";
 import { Request } from "../Configs/RequestMethod.Config";
 
 // TOASTER
 import toast from 'react-hot-toast';
+import ToastConstant from "../Constants/Toast.Constant.json";
 
 // APIS
 export const CREATEPRODUCT = async (reqBody) => {
@@ -22,7 +22,7 @@ export const CREATEPRODUCT = async (reqBody) => {
     }
 }
 
-export const GETPRODUCTS = async ({ name = '', price_lte = Infinity, price_gte = 0, rating_lte = 5, rating_gte = 0, category = '', subCategory = '', page = 1, sort = 'newest', resultPerPage = 8 }) => {
+export const GETPRODUCTS = async ({ name = '', price_lte = Infinity, price_gte = 0, rating_lte = 5, rating_gte = 0, category = '', subCategory = '', page = 1, sort = 'newest', resultPerPage = 8, created_by = '' }) => {
     try {
         let url = ApiConstant.user.product + "?price[lte]=" + price_lte + "&price[gte]=" + price_gte + "&ratings[lte]=" + rating_lte + "&ratings[gte]=" + rating_gte + "&page=" + page + "&sort=" + sort + "&resultPerPage=" + resultPerPage;
 
@@ -32,6 +32,8 @@ export const GETPRODUCTS = async ({ name = '', price_lte = Infinity, price_gte =
             url += "&category=" + category;
         } if (subCategory) {
             url += "&subCategories=" + subCategory;
+        } if (created_by) {
+            url += "&created_by=" + created_by;
         }
 
         return await Request.get(url);
@@ -61,7 +63,25 @@ export const ADDORUPDATEPRODUCTREVIEW = async (productId, reqBody) => {
 
 export const UPDATEPRODUCT = async (productId, reqBody) => {
     try {
-        return await Request.put(ApiConstant.admin.product + "/" + productId, reqBody);
+        const config = {
+            headers: {
+                'content-type': 'multipart/form-data'
+            }
+        }
+
+        const myForm = new FormData();
+
+        for (const [key, value] of Object.entries(reqBody)) {
+            if (key === "images") {
+                myForm.set(key, JSON.stringify(value));
+            } else if (key === "reviews" && !value?.length) {
+                continue;
+            } else {
+                myForm.set(key, value);
+            }
+        }
+
+        return await Request.put(ApiConstant.admin.product + "/" + productId, myForm, config);
     } catch (error) {
         if (error?.response?.data?.MESSAGE)
             return toast.error(error?.response?.data?.MESSAGE, ToastConstant.error);

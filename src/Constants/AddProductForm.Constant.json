@@ -15,7 +15,7 @@
         "name": "description",
         "placeholder": "Enter Product Description",
         "className": "form-input-text",
-        "rows": 4,
+        "rows": 3,
         "required": true,
         "labelClass": "form-label",
         "containerClass": "mt-4"
@@ -132,7 +132,7 @@
         "tagType": "file",
         "type": "file",
         "label": "Product Images *",
-        "name": "avatar",
+        "name": "images",
         "multiple": true,
         "labelClass": "form-label mb-2",
         "containerClass": "mt-4"
