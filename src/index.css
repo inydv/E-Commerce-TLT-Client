@@ -134,7 +134,7 @@ input[type='radio']:checked:after {
 }
 
 .form-label {
-    @apply block mb-1;
+    @apply block mb-1 font-semibold;
 }
 
 .auth-input {

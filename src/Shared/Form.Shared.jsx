@@ -185,14 +185,16 @@ const MemoInput = memo(
     <div className={containerClass}>
       <label className={labelClass}>{label}</label>
       {isView ? (
-        formData &&
-        (textType === EnumConstant.View.Date
-          ? DateSplice(formData[name])
-          : textType === EnumConstant.View.Price
-          ? RSCoversion(formData[name])
-          : name2
-          ? formData[name][name2]
-          : formData[name])
+        <p className="mb-4 text-sm">
+          {formData &&
+            (textType === EnumConstant.View.Date
+              ? DateSplice(formData[name])
+              : textType === EnumConstant.View.Price
+              ? RSCoversion(formData[name])
+              : name2
+              ? formData[name][name2]
+              : formData[name])}
+        </p>
       ) : (
         <input
           type={type}
@@ -360,7 +362,7 @@ export default function Form({
         )
       )}
       {!ViewForm && (
-        <div className="flex justify-end">
+        <div className="flex justify-end mt-5">
           <button className="primary-button" type="submit">
             SUBMIT
           </button>
