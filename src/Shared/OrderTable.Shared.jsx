@@ -1,5 +1,5 @@
 // REACT AND REACT ROUTER DOM
-import { Children, useState } from "react";
+import { Children, useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 
 // CUSTOM IMPORTS
@@ -11,55 +11,41 @@ import RSCoversion from "../Pipes/RSConversion.Pipe";
 import { Form, MUIDialog } from "./index";
 import ViewItemsConstant from "../Constants/ViewItems.Constant.json";
 import FormConstant from "../Constants/EditForm.Constant.json";
-import { UPDATEORDERSTATUS } from "../Services";
 
 // REACT ICONS
 import { MdModeEdit } from "@react-icons/all-files/md/MdModeEdit";
 import { AiFillEye } from "@react-icons/all-files/ai/AiFillEye";
 
-// TOASTER
-import toast from "react-hot-toast";
-import ToastConstant from "../Constants/Toast.Constant.json";
-
 // IMAGE LAZY LOADING
 import { LazyLoadImage } from "react-lazy-load-image-component";
 
 // ORDER TABLE
-export default function OrderTable({ header, orders, isAdmin = false }) {
+export default function OrderTable({
+  header,
+  orders,
+  isAdmin = false,
+  setId,
+  handleSubmit,
+  formData,
+  setFormData,
+  isApiSuccessfull,
+  setIsApiSuccessfull,
+}) {
   // STATES
   const [openDialog, setOpenDialog] = useState(false);
-  const [formData, setFormData] = useState({});
   const [dialogState, setDialogState] = useState({
     viewData: null,
     displayName: "",
     openForEdit: false,
-    id: null,
   });
 
-  // CUSTOM FUNCTION
-  const handleInput = (stateObj) => {
-    for (const [key, value] of Object.entries(stateObj)) {
-      setDialogState((prevState) => {
-        return {
-          ...prevState,
-          [key]: value,
-        };
-      });
-    }
-    setOpenDialog(true);
-  };
-
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-
-    const { data } = await UPDATEORDERSTATUS(dialogState.id, formData);
-
-    if (data && data.SUCCESS) {
-      toast.success(data?.MESSAGE, ToastConstant.success);
+  // USE EFFECT
+  useEffect(() => {
+    if (isApiSuccessfull) {
       setOpenDialog(false);
-      setFormData({});
+      setIsApiSuccessfull(false);
     }
-  };
+  }, [isApiSuccessfull, setIsApiSuccessfull]);
 
   // JSX ELEMENT
   return (
@@ -137,7 +123,7 @@ export default function OrderTable({ header, orders, isAdmin = false }) {
                   </p>
                 </td>
                 <td className="td-border p-2">
-                  <p className="text-center">{item?.orderStatus}</p>
+                  <p className="text-center">{item?.status}</p>
                 </td>
                 <td className="td-border p-2">
                   <p className="text-center">
@@ -152,23 +138,25 @@ export default function OrderTable({ header, orders, isAdmin = false }) {
                         size={20}
                         className="cursor-pointer"
                         onClick={() => {
-                          handleInput({
+                          setDialogState({
                             displayName: "View Order",
                             openForEdit: false,
                             viewData: item,
                           });
+                          setOpenDialog(true);
                         }}
                       />
                       <MdModeEdit
                         size={20}
                         className="cursor-pointer"
                         onClick={() => {
-                          handleInput({
+                          setDialogState({
                             displayName: "Edit Order",
                             openForEdit: true,
                             viewData: item,
-                            id: item?._id,
                           });
+                          setId(item?._id);
+                          setOpenDialog(true);
                         }}
                       />
                     </div>

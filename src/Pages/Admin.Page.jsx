@@ -77,13 +77,13 @@ export default function AdminPages() {
 
   const handleBtn = (id) => {
     if (pathname.includes(EnumConstant.Patname.User)) {
-      callApi(DELETEUSER(id), () => getAPI(GETALLUSERS()));
+      callApi(DELETEUSER(id), () => getAPI(GETALLUSERS({})));
     } else if (pathname.includes(EnumConstant.Patname.Product)) {
       callApi(DELETEPRODUCT(id), () => getAPI(GETPRODUCTS({})));
     } else if (pathname.includes(EnumConstant.Patname.Order)) {
-      callApi(DELETEORDER(id), () => getAPI(GETALLORDERS()));
+      callApi(DELETEORDER(id), () => getAPI(GETALLORDERS({})));
     } else if (pathname.includes(EnumConstant.Patname.Contact)) {
-      callApi(DELETECONTACT(id), () => getAPI(GETALLCONTACT()));
+      callApi(DELETECONTACT(id), () => getAPI(GETALLCONTACT({})));
     }
   };
 
@@ -91,7 +91,7 @@ export default function AdminPages() {
     e.preventDefault();
 
     if (pathname.includes(EnumConstant.Patname.User)) {
-      callApi(UPDATEUSERROLE(id, formData), () => getAPI(GETALLUSERS()));
+      callApi(UPDATEUSERROLE(id, formData), () => getAPI(GETALLUSERS({})));
     } else if (pathname.includes(EnumConstant.Patname.Product)) {
       callApi(UPDATEPRODUCT(id, formData), () =>
         getAPI(
@@ -104,9 +104,11 @@ export default function AdminPages() {
         )
       );
     } else if (pathname.includes(EnumConstant.Patname.Order)) {
-      callApi(UPDATEORDERSTATUS(id, formData), () => getAPI(GETALLORDERS()));
+      callApi(UPDATEORDERSTATUS(id, formData), () => getAPI(GETALLORDERS({})));
     } else if (pathname.includes(EnumConstant.Patname.Contact)) {
-      callApi(UPDATECONTACTSTATUS(id, formData), () => getAPI(GETALLCONTACT()));
+      callApi(UPDATECONTACTSTATUS(id, formData), () =>
+        getAPI(GETALLCONTACT({}))
+      );
     }
   };
 
@@ -143,7 +145,17 @@ export default function AdminPages() {
   return (
     <>
       {pathname.includes(EnumConstant.Patname.Order) ? (
-        <OrderTable header={header} orders={List} isAdmin={true} />
+        <OrderTable
+          header={header}
+          orders={List}
+          isAdmin={true}
+          handleSubmit={handleSubmit}
+          setFormData={setFormData}
+          formData={formData}
+          isApiSuccessfull={isApiSuccessfull}
+          setIsApiSuccessfull={setIsApiSuccessfull}
+          setId={setId}
+        />
       ) : (
         <Table
           header={header}
