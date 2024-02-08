@@ -5,16 +5,6 @@
     "link": "/shop?subCategories=tops"
   },
   {
-    "img": "womenSkirt",
-    "title": "Skirt",
-    "link": "/shop?subCategories=skirt"
-  },
-  {
-    "img": "womenJeans",
-    "title": "Jeans",
-    "link": "/shop?subCategories=jeans"
-  },
-  {
     "img": "womenDress",
     "title": "Dresses",
     "link": "/shop?subCategories=dress"
@@ -25,18 +15,13 @@
     "link": "/shop?subCategories=kurti"
   },
   {
-    "img": "womenFlats",
-    "title": "Flats",
-    "link": "/shop?subCategories=flats"
+    "img": "womenSaree",
+    "title": "Saree",
+    "link": "/shop?subCategories=saree"
   },
   {
-    "img": "womenHeels",
-    "title": "Heels",
-    "link": "/shop?subCategories=heels"
-  },
-  {
-    "img": "womenShoes",
-    "title": "Shoes",
-    "link": "/shop?subCategories=shoes"
+    "img": "womenTunic",
+    "title": "Tunic",
+    "link": "/shop?subCategories=tunic"
   }
 ]

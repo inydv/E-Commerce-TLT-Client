@@ -14,16 +14,16 @@ import menTshirt from "./men/tshirt.webp";
 import menWatch from "./men/watch.webp";
 
 import womenDress from "./women/dress.webp";
-import womenFlats from "./women/flats.webp";
-import womenHeels from "./women/heels.webp";
-import womenJeans from "./women/jeans.webp";
 import womenKurti from "./women/kurti.webp";
-import womenShoes from "./women/shoes.webp";
-import womenSkirt from "./women/skirt.webp";
 import womenTops from "./women/tops.webp";
+import womenSaree from "./women/saree.webp";
+import womenTunic from "./women/tunic.webp";
 
 import carousel13 from "./carousel-1-3.webp";
 import carousel2 from "./carousel-2.webp";
+
+import imageBanner1 from "./image-banner-1.gif";
+import imageBanner2 from "./image-banner-2.png";
 
 import mensCollection from "./mensCollection.webp";
 import womenCollection from "./womenCollection.webp";
@@ -38,5 +38,5 @@ import notFound from "./notFound.gif";
 import userIcon from "./user-icon.webp";
 
 export default {
-    banner1, banner2, banner3, banner4, banner5, menGlasses, menJacket, menPullovers, menShirt, menShoes, menTrouser, menTshirt, menWatch, womenDress, womenFlats, womenHeels, womenJeans, womenKurti, womenShoes, womenSkirt, womenTops, auth, carousel13, carousel2, cursor, location, logo, mensCollection, newsLetter, NoImageAvailable, notFound, userIcon, womenCollection
+    banner1, banner2, banner3, banner4, banner5, menGlasses, menJacket, menPullovers, menShirt, menShoes, menTrouser, menTshirt, menWatch, womenDress, womenKurti, womenTops, womenSaree, womenTunic, auth, carousel13, carousel2, cursor, location, logo, mensCollection, newsLetter, NoImageAvailable, notFound, userIcon, womenCollection, imageBanner1, imageBanner2
 };
