@@ -18,6 +18,7 @@ const ShopFilters = lazy(() => import("./ShopFilters.Component"));
 const CartTable = lazy(() => import("./CartTable.Component"));
 const NotAvailable = lazy(() => import("./NotAvailable.Component"));
 const Pagination = lazy(() => import("./Pagination.Component"));
+const ImageBanner = lazy(() => import("./ImageBanner.Component"));
 
 // EXPORTS
-export { Carousel, Categories, ProductsCard, ProductsCategoriesCard, Banner, NewsLetter, AuthenticationForm, AddReviews, ProductDetails, ReviewCard, MyAccountForm, ProceedNextBox, ShopFilters, CartTable, NotAvailable, Pagination }
+export { Carousel, Categories, ProductsCard, ProductsCategoriesCard, Banner, NewsLetter, AuthenticationForm, AddReviews, ProductDetails, ReviewCard, MyAccountForm, ProceedNextBox, ShopFilters, CartTable, NotAvailable, Pagination, ImageBanner }

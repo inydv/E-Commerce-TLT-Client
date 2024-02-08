@@ -44,64 +44,24 @@
         "label": "Product subCategories *",
         "options": [
             {
-                "name": "Shirt",
-                "value": "shirt"
-            },
-            {
-                "name": "T-Shirt",
-                "value": "tshirt"
-            },
-            {
-                "name": "Shoes",
-                "value": "shoes"
-            },
-            {
-                "name": "Jacket",
-                "value": "jacket"
-            },
-            {
-                "name": "Trouser",
-                "value": "trouser"
-            },
-            {
-                "name": "Pullovers",
-                "value": "pullovers"
-            },
-            {
-                "name": "Glasses",
-                "value": "glasses"
-            },
-            {
-                "name": "Watches",
-                "value": "watches"
-            },
-            {
                 "name": "Tops",
                 "value": "tops"
             },
             {
-                "name": "Skirt",
-                "value": "skirt"
-            },
-            {
-                "name": "Jeans",
-                "value": "jeans"
-            },
-            {
-                "name": "Dresses",
-                "value": "dresses"
+                "name": "Dress",
+                "value": "dress"
             },
             {
                 "name": "Kurti",
                 "value": "kurti"
             },
             {
-                "name": "Flats",
-                "value": "flats"
+                "name": "Saree",
+                "value": "saree"
             },
             {
-                "name": "Heels",
-                "value": "heels"
+                "name": "Tunic",
+                "value": "tunic"
             }
         ],
         "className": "form-input-select",

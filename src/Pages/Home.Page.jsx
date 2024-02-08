@@ -4,13 +4,14 @@ import { Children, useEffect, useState } from "react";
 // CUSTOM IMPORTS
 import {
   Banner,
-  Carousel,
+  // Carousel,
   Categories,
+  ImageBanner,
   NewsLetter,
   ProductsCard,
   ProductsCategoriesCard,
 } from "../Components/index";
-import MenConstant from "../Constants/MenProductsCategoriesItems.Constant.json";
+// import MenConstant from "../Constants/MenProductsCategoriesItems.Constant.json";
 import WomenConstant from "../Constants/WomenProductsCategoriesItems.Constant.json";
 import { GETPRODUCTS } from "../Services/index";
 
@@ -44,16 +45,17 @@ export default function Home() {
   // JSX ELEMENT
   return (
     <>
-      <Carousel />
+      {/* <Carousel /> */}
+      <ImageBanner />
       <Categories />
       <div className="page-padding">
         <div className="page-width">
-          <Heading heading={"MENS CATEGORIES"} />
+          {/* <Heading heading={"MENS CATEGORIES"} />
           <div className="flex flex-wrap gap-2 justify-center items-center">
             {Children.toArray(
               MenConstant?.map((item) => <ProductsCategoriesCard item={item} />)
             )}
-          </div>
+          </div> */}
           <Heading heading={"WOMENS CATEGORIES"} />
           <div className="flex flex-wrap gap-2 justify-center items-center">
             {Children.toArray(

@@ -48,15 +48,15 @@ const NAVIGATION_CONSTANT = [
 
 const SOCIAL_CONSTANT = [
   {
-    to: "https://www.facebook.com/Nitin9900",
+    to: "",
     icon: <FaFacebookSquare size={25} />,
   },
   {
-    to: "https://instagram.com/i_nydv?igshid=YmMyMTA2M2Y=",
+    to: "",
     icon: <FaInstagramSquare size={25} />,
   },
   {
-    to: "https://www.linkedin.com/in/lokesh-yadav-31318a225/",
+    to: "",
     icon: <FaLinkedin size={25} />,
   },
 ];
@@ -98,14 +98,14 @@ export default function Footer() {
           </p>
           <a
             className="block text-base sm:text-lg"
-            href="mailto:im.nydv@gmail.com"
+            href="mailto:snappyera@gmail.com"
           >
-            Email: im.nydv@gmail.com
+            Email: snappyera@gmail.com
           </a>
-          <a className="block text-base sm:text-lg mb-5" href="tel:7303405787">
-            Tel: 7303405787
+          <a className="block text-base sm:text-lg mb-5" href="tel:9354037943">
+            Tel: 9354037943
           </a>
-          <div className="inline-flex gap-5">
+          {/* <div className="inline-flex gap-5">
             {Children.toArray(
               SOCIAL_CONSTANT?.map(({ icon, to }) => (
                 <a href={to} target="_blank" rel="noopener noreferrer">
@@ -113,7 +113,7 @@ export default function Footer() {
                 </a>
               ))
             )}
-          </div>
+          </div> */}
         </div>
       </div>
     </footer>

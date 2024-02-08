@@ -44,13 +44,10 @@ export default function Banner() {
         <div>
           <div className="text-center p-6 sm:p-12 lg:p-28 bg-customGray border-radius">
             <h1 className="font-semibold text-sm sm:text-xl lg:text-4xl">
-              TRENDIEST STYLES AT A STEAL!
+              SHOP SMART
             </h1>
-            <h2 className="font-semibold py-2 lg:py-5 text-xs sm:text-base lg:text-2xl">
-              50-80% OFF
-            </h2>
-            <h3 className="font-semibold text-xs sm:text-lg lg:text-3xl">
-              12,000+ Styles | 15,000+ Brands
+            <h3 className="font-semibold text-xs sm:text-lg lg:text-3xl pt-2 lg:pt-5">
+              Unleash The Thrift - Your Style
             </h3>
           </div>
         </div>
