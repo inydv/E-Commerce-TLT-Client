@@ -67,7 +67,7 @@ export default function Footer() {
   return (
     <footer className="bg-black min-h-footer page-padding">
       <h1 className="font-semibold text-2xl mb-5 sm:mb-10 sm:text-4xl">
-        THE <span className="text-red-600">LITTLE</span> THINGS
+        Snappy <span className="text-red-600">Era.</span>
       </h1>
       <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-5">
         <p className="md:max-w-[400px] sm:col-span-full md:col-auto text-base sm:text-lg">
@@ -94,7 +94,7 @@ export default function Footer() {
         <div className="md:justify-self-end">
           <h2 className="text-lg sm:text-xl font-semibold mb-4">ADDRESS</h2>
           <p className="block mb-4 text-base sm:text-lg">
-            826 Kapashera New Delhi, 110037
+            320, Kapashera New Delhi - 110037
           </p>
           <a
             className="block text-base sm:text-lg"
