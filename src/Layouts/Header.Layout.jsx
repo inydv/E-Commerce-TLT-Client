@@ -166,8 +166,8 @@ export default function Header() {
           className="block sm:hidden"
           onClick={() => setIsDrawerOpen(true)}
         />
-        <h1 className="font-semibold text-4xl w-fit line-through text-center">
-          T<span className="text-red-600">L</span>T
+        <h1 className="font-semibold text-4xl w-fit text-center">
+          S<span className="text-red-600">E.</span>
         </h1>
         <div className="hidden sm:block">
           <NavigationList setIsDrawerOpen={setIsDrawerOpen} />

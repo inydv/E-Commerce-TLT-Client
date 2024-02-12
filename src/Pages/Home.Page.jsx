@@ -4,9 +4,9 @@ import { Children, useEffect, useState } from "react";
 // CUSTOM IMPORTS
 import {
   Banner,
-  // Carousel,
+  Carousel,
   Categories,
-  ImageBanner,
+  // ImageBanner,
   NewsLetter,
   ProductsCard,
   ProductsCategoriesCard,
@@ -45,8 +45,8 @@ export default function Home() {
   // JSX ELEMENT
   return (
     <>
-      {/* <Carousel /> */}
-      <ImageBanner />
+      <Carousel />
+      {/* <ImageBanner /> */}
       <Categories />
       <div className="page-padding">
         <div className="page-width">

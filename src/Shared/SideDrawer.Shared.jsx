@@ -20,7 +20,7 @@ export default function SideDrawer({ isDrawerOpen, setIsDrawerOpen, content }) {
     >
       <div className="flex items-center justify-between gap-5 mb-10">
         <h1 className="font-semibold text-4xl w-fit line-through">
-          T<span className="text-red-600">L</span>T
+          S<span className="text-red-600">E.</span>
         </h1>
         <h1
           className="font-semibold p-1 cursor-pointer"
